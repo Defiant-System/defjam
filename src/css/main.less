@@ -43,6 +43,11 @@ content {
 		height: 23px;
 		border-radius: 50%;
 		margin-bottom: @margin;
+
+		i[class*="icon-"] {
+			top: 3px;
+			left: 3px;
+		}
 	}
 
 	.row-work {
@@ -122,7 +127,7 @@ content {
 				}
 			}
 
-			.clips {
+			.session {
 				flex: auto;
 				border-bottom-right-radius: 0;
 			}
@@ -151,16 +156,52 @@ content {
 			margin-left: 0;
 		}
 
-		.option-1 {
-			width: 90px;
-		}
-
+		.option-1,
 		.option-2 {
 			width: 90px;
+
+			&.active {
+				border-radius: 0 0 5px 5px;
+				margin-top: -5px;
+				border-top: 5px solid #294a6b;
+
+				&:before,
+				&:after {
+					content: "";
+					background: url(~/icons/negative-corner.png) 50% 50%/contain no-repeat;
+					position: absolute;
+					left: -8px;
+					top: -4px;
+					width: 8px;
+					height: 8px;
+					transform: rotate(270deg);
+				}
+				&:after {
+					left: auto;
+					right: -8px;
+					transform: rotate(180deg);
+				}
+			}
 		}
 
 		.toggle-button {
 			top: 3px;
 		}
+	}
+
+	i[class*="icon-"] {
+		background: 50% 50%/contain no-repeat;
+		position: relative;
+		display: inline-block;
+		width: 17px;
+		height: 17px;
+
+		&.icon-sounds      { background-image: url(~/icons/icon-sounds.png); }
+		&.icon-drums       { background-image: url(~/icons/icon-drums.png); }
+		&.icon-instruments { background-image: url(~/icons/icon-instruments.png); }
+		&.icon-audio_fx    { background-image: url(~/icons/icon-audio_fx.png); }
+		&.icon-arrangement { background-image: url(~/icons/icon-arrangement.png); }
+		&.icon-session     { background-image: url(~/icons/icon-session.png); }
+		&.icon-arrow_up    { background-image: url(~/icons/icon-arrow_up.png); }
 	}
 }

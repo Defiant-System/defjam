@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+
+	<svg id="negative-corner" viewBox="0 0 500 500">
+		<path fill="#294a6b" d="M0,500h500V0C500,276.1,276.1,500,0,500z"/>
+	</svg>
+
+</svg>

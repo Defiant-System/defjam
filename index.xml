@@ -11,10 +11,12 @@
 		<meta name="minimize"/>
 		<meta name="maximize"/>
 		<meta name="resize"/>
+		<meta name="icons" value="src/svg/icons.svg"/>
 		<meta name="script" value="src/js/main.js"/>
 		<meta name="style" value="src/css/main.less"/>
 		<meta name="content" value="src/partials/content.htm"/>
 
 		@import "src/partials/menubar.xml"
+		@import "src/partials/caption-toolbar.xml"
 	</Head>
 </Application>

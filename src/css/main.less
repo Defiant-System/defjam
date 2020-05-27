@@ -1,8 +1,166 @@
 
+@margin: 4px;
+
+background: #182c40;
+
 content {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	padding: @margin + 1px;
+
+	> div {
+		margin-top: @margin;
+	}
+
+	.box {
+		background: #294a6b;
+		position: relative;
+		padding: @margin;
+		border-radius: 5px;
+
+		.box-body {
+			background: #466788;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			border-radius: 3px;
+		}
+	}
+
+	.buttons {
+		width: 25px;
+	}
+
+	.toggle-button {
+		background: #294a6b;
+		position: relative;
+		width: 23px;
+		height: 23px;
+		border-radius: 50%;
+		margin-bottom: @margin;
+	}
+
+	.row-work {
+		margin-top: 0;
+		display: flex;
+		flex: auto;
+
+		> div {
+			margin-left: @margin;
+		}
+
+		.buttons:first-child {
+			margin-left: 0;
+			padding: 2px 0 0 0;
+
+			.toggle-button {
+				left: 2px;
+			}
+		}
+
+		.buttons:last-child {
+			padding: 2px 0 0 0;
+		}
+		
+		.panel-left {
+			width: 200px;
+			display: flex;
+
+			.scrollbar {
+				background: inherit;
+				border-radius: 5px 0 0 5px;
+				position: absolute;
+				top: 111px;
+				bottom: 0;
+				left: -29px;
+				width: 29px;
+
+				&:before {
+					content: "";
+					background: url(~/icons/negative-corner.png) 50% 50%/contain no-repeat;
+					position: absolute;
+					right: 0;
+					top: -6px;
+					width: 6px;
+					height: 6px;
+				}
+			}
+
+			.tree {
+				flex: auto;
+				border-bottom-left-radius: 0;
+			}
+		}
+
+		.panel-right {
+			flex: auto;
+			display: flex;
+
+			.scrollbar {
+				background: inherit;
+				border-radius: 0 5px 5px 0;
+				position: absolute;
+				top: 57px;
+				bottom: 0;
+				right: -29px;
+				width: 29px;
+
+				&:before {
+					content: "";
+					background: url(~/icons/negative-corner.png) 50% 50%/contain no-repeat;
+					position: absolute;
+					left: 0;
+					top: -6px;
+					width: 6px;
+					height: 6px;
+					transform: rotate(90deg);
+				}
+			}
+
+			.clips {
+				flex: auto;
+				border-bottom-right-radius: 0;
+			}
+		}
+	}
+
+	.row-rack {
+		height: 170px;
+		display: flex;
+
+		.rack {
+			flex: auto;
+		}
+	}
+
+	.row-foot {
+		height: 30px;
+		display: flex;
+
+		> div {
+			margin-left: @margin;
+		}
+
+		.status-bar {
+			flex: auto;
+			margin-left: 0;
+		}
+
+		.option-1 {
+			width: 90px;
+		}
+
+		.option-2 {
+			width: 90px;
+		}
+
+		.toggle-button {
+			top: 3px;
+		}
+	}
 }

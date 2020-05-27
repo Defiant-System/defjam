@@ -57,6 +57,54 @@ content {
 		}
 	}
 
+	.knob {
+		margin: 7px 7px 7px 9px;
+		position: relative;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border: 2px solid #9bf;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -3px;
+			left: 50%;
+			height: 0;
+			width: 10px;
+			transform: translateX(-50%);
+			border-left: 6px solid transparent;
+      		border-right: 6px solid transparent;
+      		border-bottom: 10px solid #466788;
+		}
+
+		div {
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			width: inherit;
+			height: inherit;
+			border-radius: inherit;
+			border: inherit;
+			border-color: #294a6b;
+			//clip-path: polygon(5% 5%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: calc( 50% - 1px );
+				left: 50%;
+				height: calc( 50% + 2px );
+				width: 2px;
+				background: #294a6b;
+				z-index: 2;
+				transform-origin: 0 0;
+				transform: rotate( var( --value ) );
+			}
+		}
+	}
+
 	.row-work {
 		margin-top: 0;
 		display: flex;
@@ -198,11 +246,11 @@ content {
 					}
 
 					.sends {
-						height: 50px;
+						height: 45px;
 					}
 
 					.mixer {
-						height: 100px;
+						height: 120px;
 					}
 				}
 

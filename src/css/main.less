@@ -44,6 +44,13 @@ content {
 		border-radius: 50%;
 		margin-bottom: @margin;
 
+		&.active {
+			i[class*="icon-"] {
+				background-size: 85% auto;
+				filter: brightness(9);
+			}
+		}
+
 		i[class*="icon-"] {
 			top: 3px;
 			left: 3px;
@@ -80,7 +87,7 @@ content {
 				background: inherit;
 				border-radius: 5px 0 0 5px;
 				position: absolute;
-				top: 111px;
+				top: 137px;
 				bottom: 0;
 				left: -29px;
 				width: 29px;
@@ -129,7 +136,82 @@ content {
 
 			.session {
 				flex: auto;
+				display: flex;
 				border-bottom-right-radius: 0;
+
+				.track {
+					display: flex;
+					flex-direction: column;
+					position: relative;
+					width: 100px;
+					height: 100%;
+					border-radius: 3px;
+					margin-right: 3px;
+					font-size: 11px;
+
+					&:last-child { margin-bottom: 0; }
+
+					> div {
+						background: #466788;
+						margin-bottom: 1px;
+
+						&:first-child { border-radius: 3px 3px 1px 1px; }
+						&:last-child { border-radius: 1px 1px 3px 3px; }
+					}
+
+					.title {
+						background: #5e7790;
+						color: #b7cbe0;
+						text-shadow: 0 1px 0 #335;
+						height: 20px;
+						padding: 4px 5px;
+					}
+
+					.slots {
+						flex: auto;
+						display: flex;
+						flex-direction: column;
+						background: transparent;
+
+						> div {
+							background: #466788;
+							border-radius: 1px;
+							margin-bottom: 1px;
+						}
+
+						.slot {
+							height: 21px;
+						}
+
+						.space {
+							flex: auto;
+							margin: 0 0 1px;
+						}
+					}
+
+					.status {
+						height: 21px;
+					}
+
+					.io {
+						height: 70px;
+					}
+
+					.sends {
+						height: 50px;
+					}
+
+					.mixer {
+						height: 100px;
+					}
+				}
+
+				.space {
+					flex: auto;
+					background: #395d82;
+					border-radius: 3px;
+					margin-right: 3px;
+				}
 			}
 		}
 	}
@@ -158,9 +240,19 @@ content {
 
 		.option-1,
 		.option-2 {
-			width: 90px;
+			color: #57a;
+			text-shadow: 0 1px 0 #335;
+			padding: 10px 13px 8px;
+			cursor: pointer;
+
+			&:hover:not(.active) {
+				color: #8ac;
+			}
 
 			&.active {
+				color: #ddf;
+				cursor: default;
+				padding: 9px 13px;
 				border-radius: 0 0 5px 5px;
 				margin-top: -5px;
 				border-top: 5px solid #294a6b;
@@ -203,5 +295,6 @@ content {
 		&.icon-arrangement { background-image: url(~/icons/icon-arrangement.png); }
 		&.icon-session     { background-image: url(~/icons/icon-session.png); }
 		&.icon-arrow_up    { background-image: url(~/icons/icon-arrow_up.png); }
+		&.icon-arrow_up.right { transform: rotate(90deg); }
 	}
 }

@@ -47,7 +47,7 @@ content {
 		&.active {
 			i[class*="icon-"] {
 				background-size: 85% auto;
-				filter: brightness(4.5) hue-rotate(20deg);
+				filter: brightness(5) hue-rotate(30deg) drop-shadow(0 1px 0 #335);
 			}
 		}
 
@@ -58,13 +58,14 @@ content {
 	}
 
 	.knob {
-		margin: 7px 7px 0 9px;
+		margin: 3px 3px 0 3px;
 		position: relative;
 		display: inline-block;
-		width: 30px;
-		height: 30px;
+		width: 28px;
+		height: 28px;
 		border-radius: 50%;
-		border: 2px solid #9bf;
+		border: 2px solid #b6c5ff;
+		//filter: drop-shadow(0 0 1px red);
 
 		&:after {
 			content: "";
@@ -79,6 +80,18 @@ content {
       		border-bottom: 7px solid #466788;
 		}
 
+		&:before {
+			content: attr(data-label);
+			position: absolute;
+			bottom: -6px;
+			left: 20%;
+			right: 20%;
+			font-size: 11px;
+			font-weight: 600;
+			color: #254565;
+			z-index: 3;
+		}
+
 		div {
 			position: absolute;
 			top: -2px;
@@ -87,7 +100,7 @@ content {
 			height: inherit;
 			border-radius: inherit;
 			border: inherit;
-			border-color: #294a6b;
+			border-color: #254565;
 
 			&:after {
 				content: "";
@@ -97,7 +110,7 @@ content {
 				top: 50%;
 				height: calc( 50% + 1px );
 				width: 2px;
-				background: #294a6b;
+				background: #254565;
 				z-index: 2;
 				transform-origin: 1px 1px;
 				transform: rotate( 40.0deg );
@@ -243,7 +256,7 @@ content {
 					display: flex;
 					flex-direction: column;
 					position: relative;
-					width: 100px;
+					width: 95px;
 					height: 100%;
 					border-radius: 3px;
 					margin-right: 3px;
@@ -299,10 +312,17 @@ content {
 
 					.sends {
 						height: 45px;
+						padding-top: 5px;
+						text-align: center;
+
+						.knob {
+							margin-left: 7px;
+							margin-right: 7px;
+						}
 					}
 
 					.mixer {
-						height: 120px;
+						height: 130px;
 					}
 				}
 

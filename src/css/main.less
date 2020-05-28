@@ -36,7 +36,7 @@ content {
 		width: 25px;
 	}
 
-	.toggle-button {
+	.ball-button {
 		background: #294a6b;
 		position: relative;
 		width: 23px;
@@ -277,13 +277,17 @@ content {
 		background: #182c40;
 		position: relative;
 		width: 10px;
-		height: 115px;
+		height: 108px;
 		border: 2px solid #294a6b;
 		border-radius: 3px;
 		display: inline-block;
-		vertical-align: top;
-		margin-left: 11px;
+		//vertical-align: top;
+		margin-left: 3px;
 		margin-right: 11px;
+
+		&.anim:after {
+			animation: 1000ms spectrum linear infinite backwards;
+		}
 
 		&:before {
 			content: "";
@@ -303,11 +307,10 @@ content {
 			left: 0;
 			right: 0;
 			height: 100%;
-			transform: scaleY(0.3);
+			//transform: scaleY(0.3);
 			transform-origin: 0 0;
 			border-radius: 2px 2px 0 0;
 			background: inherit;
-			//animation: 1000ms spectrum linear infinite backwards;
 		}
 
 		div {
@@ -348,7 +351,90 @@ content {
 			}
 		}
 
-		&[data-value="0"] {  }
+		&[data-value="0"] div:after { top: 100%; }
+		&[data-value="2"] div:after { top: 98%; }
+		&[data-value="4"] div:after { top: 96%; }
+		&[data-value="6"] div:after { top: 94%; }
+		&[data-value="8"] div:after { top: 92%; }
+		&[data-value="10"] div:after { top: 90%; }
+		&[data-value="12"] div:after { top: 88%; }
+		&[data-value="14"] div:after { top: 86%; }
+		&[data-value="16"] div:after { top: 84%; }
+		&[data-value="18"] div:after { top: 82%; }
+		&[data-value="20"] div:after { top: 80%; }
+		&[data-value="22"] div:after { top: 78%; }
+		&[data-value="24"] div:after { top: 76%; }
+		&[data-value="26"] div:after { top: 74%; }
+		&[data-value="28"] div:after { top: 72%; }
+		&[data-value="30"] div:after { top: 70%; }
+		&[data-value="32"] div:after { top: 68%; }
+		&[data-value="34"] div:after { top: 66%; }
+		&[data-value="36"] div:after { top: 64%; }
+		&[data-value="38"] div:after { top: 62%; }
+		&[data-value="40"] div:after { top: 60%; }
+		&[data-value="42"] div:after { top: 58%; }
+		&[data-value="44"] div:after { top: 56%; }
+		&[data-value="46"] div:after { top: 54%; }
+		&[data-value="48"] div:after { top: 52%; }
+		&[data-value="50"] div:after { top: 50%; }
+		&[data-value="52"] div:after { top: 48%; }
+		&[data-value="54"] div:after { top: 46%; }
+		&[data-value="56"] div:after { top: 44%; }
+		&[data-value="58"] div:after { top: 42%; }
+		&[data-value="60"] div:after { top: 40%; }
+		&[data-value="62"] div:after { top: 38%; }
+		&[data-value="64"] div:after { top: 36%; }
+		&[data-value="66"] div:after { top: 34%; }
+		&[data-value="68"] div:after { top: 32%; }
+		&[data-value="70"] div:after { top: 30%; }
+		&[data-value="72"] div:after { top: 28%; }
+		&[data-value="74"] div:after { top: 26%; }
+		&[data-value="76"] div:after { top: 24%; }
+		&[data-value="78"] div:after { top: 22%; }
+		&[data-value="80"] div:after { top: 20%; }
+		&[data-value="82"] div:after { top: 18%; }
+		&[data-value="84"] div:after { top: 16%; }
+		&[data-value="86"] div:after { top: 14%; }
+		&[data-value="88"] div:after { top: 12%; }
+		&[data-value="90"] div:after { top: 10%; }
+		&[data-value="92"] div:after { top: 8%; }
+		&[data-value="94"] div:after { top: 6%; }
+		&[data-value="96"] div:after { top: 4%; }
+		&[data-value="98"] div:after { top: 2%; }
+		&[data-value="100"] div:after { top: 0%; }
+	}
+
+	.toggle-button {
+		position: relative;
+		width: 27px;
+		height: 18px;
+		background: #466788;
+		border: 2px solid #294a6b;
+		border-radius: 3px;
+		display: inline-block;
+		margin: 2px 0 2px;
+		color: #182c40;
+
+		&.activator {
+			height: 27px;
+			padding-top: 5px;
+			background: #b92;
+			font-size: 13px;
+			font-weight: 700;
+		}
+
+		&.solo {
+			//background: #5e7790;
+			padding-top: 1px;
+			font-size: 11px;
+		}
+
+		&.record {
+			//background: #5e7790;
+			font-size: 14px;
+			line-height: .95;
+			color: #294a6b;
+		}
 	}
 
 	.row-work {
@@ -364,7 +450,7 @@ content {
 			margin-left: 0;
 			padding: 2px 0 0 0;
 
-			.toggle-button {
+			.ball-button {
 				left: 2px;
 			}
 		}
@@ -503,9 +589,21 @@ content {
 					}
 
 					.mixer {
-						height: 130px;
+						display: flex;
+						justify-content: space-evenly;
+						height: 124px;
 						padding-top: 8px;
 						text-align: center;
+
+						> div:first-child {
+							width: 36px;
+							margin-left: 1px;
+						}
+
+						.pan-knob {
+							margin-top: 1px;
+							margin-bottom: 5px;
+						}
 					}
 				}
 
@@ -579,7 +677,7 @@ content {
 			}
 		}
 
-		.toggle-button {
+		.ball-button {
 			top: 3px;
 		}
 	}

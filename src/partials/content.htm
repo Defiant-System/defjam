@@ -1,11 +1,11 @@
 <content>
 	<div class="row-work">
 		<div class="buttons">
-			<div class="toggle-button" title="Toggle View"><i class="icon-arrow_up right"></i></div>
-			<div class="toggle-button active" title="Sounds"><i class="icon-sounds"></i></div>
-			<div class="toggle-button" title="Drums"><i class="icon-drums"></i></div>
-			<div class="toggle-button" title="Instruments"><i class="icon-instruments"></i></div>
-			<div class="toggle-button" title="Audio Effects"><i class="icon-audio_fx"></i></div>
+			<div class="ball-button" title="Toggle View"><i class="icon-arrow_up right"></i></div>
+			<div class="ball-button active" title="Sounds"><i class="icon-sounds"></i></div>
+			<div class="ball-button" title="Drums"><i class="icon-drums"></i></div>
+			<div class="ball-button" title="Instruments"><i class="icon-instruments"></i></div>
+			<div class="ball-button" title="Audio Effects"><i class="icon-audio_fx"></i></div>
 		</div>
 		<div class="panel-left">
 			<div class="box tree">
@@ -36,8 +36,13 @@
 						<div class="knob" data-value="22" data-label="B"><div></div></div>
 					</div>
 					<div class="mixer">
-						<div class="pan-knob" data-value="-28"><div></div></div>
-						<div class="volume" data-value="100"><div></div></div>
+						<div>
+							<div class="pan-knob" data-value="-28"><div></div></div>
+							<div class="toggle-button activator">1</div>
+							<div class="toggle-button solo">S</div>
+							<div class="toggle-button record">&#9679;</div>
+						</div>
+						<div class="volume" data-value="88"><div></div></div>
 					</div>
 				</div>
 				<div class="track">
@@ -53,8 +58,19 @@
 						<div class="status"></div>
 					</div>
 					<div class="io"></div>
-					<div class="sends"></div>
-					<div class="mixer"></div>
+					<div class="sends">
+						<div class="knob" data-value="0" data-label="A"><div></div></div>
+						<div class="knob" data-value="0" data-label="B"><div></div></div>
+					</div>
+					<div class="mixer">
+						<div>
+							<div class="pan-knob" data-value="0"><div></div></div>
+							<div class="toggle-button activator">2</div>
+							<div class="toggle-button solo">S</div>
+							<div class="toggle-button record">&#9679;</div>
+						</div>
+						<div class="volume" data-value="88"><div></div></div>
+					</div>
 				</div>
 				<div class="track">
 					<div class="title">Trumpet</div>
@@ -69,8 +85,19 @@
 						<div class="status"></div>
 					</div>
 					<div class="io"></div>
-					<div class="sends"></div>
-					<div class="mixer"></div>
+					<div class="sends">
+						<div class="knob" data-value="0" data-label="A"><div></div></div>
+						<div class="knob" data-value="0" data-label="B"><div></div></div>
+					</div>
+					<div class="mixer">
+						<div>
+							<div class="pan-knob" data-value="0"><div></div></div>
+							<div class="toggle-button activator">3</div>
+							<div class="toggle-button solo">S</div>
+							<div class="toggle-button record">&#9679;</div>
+						</div>
+						<div class="volume" data-value="88"><div></div></div>
+					</div>
 				</div>
 
 				<div class="space"></div>
@@ -88,14 +115,25 @@
 						<div class="status"></div>
 					</div>
 					<div class="io"></div>
-					<div class="sends"></div>
-					<div class="mixer"></div>
+					<div class="sends">
+						<div class="knob" data-value="0" data-label="A"><div></div></div>
+						<div class="knob" data-value="0" data-label="B"><div></div></div>
+					</div>
+					<div class="mixer">
+						<div>
+							<div class="pan-knob" data-value="0"><div></div></div>
+							<div class="toggle-button activator">A</div>
+							<div class="toggle-button solo">S</div>
+							<div class="toggle-button record">&#9679;</div>
+						</div>
+						<div class="volume" data-value="88"><div></div></div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="buttons">
-			<div class="toggle-button" title="Arrangement View"><i class="icon-arrangement"></i></div>
-			<div class="toggle-button active" title="Session View"><i class="icon-session"></i></div>
+			<div class="ball-button" title="Arrangement View"><i class="icon-arrangement"></i></div>
+			<div class="ball-button active" title="Session View"><i class="icon-session"></i></div>
 		</div>
 	</div>
 	<div class="row-rack">
@@ -114,7 +152,7 @@
 		<div class="box option-1 active">Device Editor</div>
 		<div class="box option-2">Midi Editor</div>
 		<div class="buttons">
-			<div class="toggle-button" title="Toggle View"><i class="icon-arrow_up"></i></div>
+			<div class="ball-button" title="Toggle View"><i class="icon-arrow_up"></i></div>
 		</div>
 	</div>
 </content>

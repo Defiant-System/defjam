@@ -4,10 +4,10 @@
 		<meta name="title" value="Jam" version="1.0"/>
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
-		<meta name="width" value="1180"/>
+		<meta name="width" value="870"/>
 		<meta name="height" value="730"/>
-		<meta name="top" value="120"/>
-		<meta name="left" value="120"/>
+		<meta name="top" value="40"/>
+		<meta name="left" value="40"/>
 		<meta name="minimize"/>
 		<meta name="maximize"/>
 		<meta name="resize"/>

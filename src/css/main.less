@@ -65,7 +65,6 @@ content {
 		height: 28px;
 		border-radius: 50%;
 		border: 2px solid #b6c5ff;
-		//filter: drop-shadow(0 0 1px red);
 
 		&:after {
 			content: "";
@@ -109,6 +108,8 @@ content {
 				left: calc( 50% - 1px );
 				top: 50%;
 				height: calc( 50% + 1px );
+				//	height: calc( 50% + 3px );
+				//	box-shadow: 0 0 0 1px #466788;
 				width: 2px;
 				background: #254565;
 				z-index: 2;
@@ -168,6 +169,107 @@ content {
 		&[data-value="96"] { div:after { transform: rotate( 313.6deg ); } div { clip-path: polygon(50% 45%, 98% 98%, 20% 70%); } }
 		&[data-value="98"] { div:after { transform: rotate( 318.0deg ); } div { clip-path: polygon(50% 45%, 98% 102%, 20% 70%); } }
 		&[data-value="100"] { div:after { transform: rotate( 320.0deg ); } div { clip-path: polygon(50% 45%, 98% 105%, 20% 70%); } }
+	}
+
+	.pan-knob {
+		margin: 3px 3px 0 3px;
+		position: relative;
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		border: 2px solid #b6c5ff;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -2px;
+			left: 50%;
+			height: 0;
+			width: 8px;
+			transform: translateX(-50%);
+			border-left: 6px solid transparent;
+      		border-right: 6px solid transparent;
+      		border-bottom: 7px solid #466788;
+		}
+
+		div {
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			width: inherit;
+			height: inherit;
+			border-radius: inherit;
+			border: inherit;
+			border-color: #254565;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: calc( 50% - 1px );
+				left: calc( 50% - 1px );
+				top: 50%;
+				height: calc( 50% + 2px );
+				//box-shadow: 0 0 0 1px #466788;
+				width: 2px;
+				background: #254565;
+				z-index: 2;
+				transform-origin: 1px 1px;
+				transform: rotate( 180deg );
+			}
+		}
+
+		&[data-value="-50"] { div:after { transform: rotate( 40.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 50% 50%); } }
+		&[data-value="-48"] { div:after { transform: rotate( 45.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 98%, 50% 50%); } }
+		&[data-value="-46"] { div:after { transform: rotate( 51.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 91%, 50% 50%); } }
+		&[data-value="-44"] { div:after { transform: rotate( 57.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 83%, 50% 50%); } }
+		&[data-value="-42"] { div:after { transform: rotate( 62.8deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 73%, 50% 50%); } }
+		&[data-value="-40"] { div:after { transform: rotate( 68.5deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 69%, 50% 50%); } }
+		&[data-value="-38"] { div:after { transform: rotate( 74.2deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 64%, 50% 50%); } }
+		&[data-value="-36"] { div:after { transform: rotate( 79.9deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 59%, 50% 50%); } }
+		&[data-value="-34"] { div:after { transform: rotate( 85.6deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 56%, 50% 50%); } }
+		&[data-value="-32"] { div:after { transform: rotate( 91.3deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 50%, 50% 50%); } }
+		&[data-value="-30"] { div:after { transform: rotate( 97.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 44%, 50% 50%); } }
+		&[data-value="-28"] { div:after { transform: rotate( 102.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 40%, 52% 48%); } }
+		&[data-value="-26"] { div:after { transform: rotate( 108.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 35%, 52% 48%); } }
+		&[data-value="-24"] { div:after { transform: rotate( 114.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 31%, 52% 48%); } }
+		&[data-value="-22"] { div:after { transform: rotate( 119.8deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 23%, 52% 48%); } }
+		&[data-value="-20"] { div:after { transform: rotate( 125.5deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 15%, 52% 48%); } }
+		&[data-value="-18"] { div:after { transform: rotate( 131.2deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 8%, 52% 48%); } }
+		&[data-value="-16"] { div:after { transform: rotate( 136.9deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 52% 48%); } }
+		&[data-value="-14"] { div:after { transform: rotate( 142.6deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 6% -4%, 52% 48%); } }
+		&[data-value="-12"] { div:after { transform: rotate( 148.3deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 17% -4%, 52% 48%); } }
+		&[data-value="-10"] { div:after { transform: rotate( 154.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 25% -4%, 52% 48%); } }
+		&[data-value="-8"] { div:after { transform: rotate( 159.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 35% -4%, 52% 48%); } }
+		&[data-value="-6"] { div:after { transform: rotate( 165.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 42% -4%, 52% 48%); } }
+		&[data-value="-4"] { div:after { transform: rotate( 171.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 45% -4%, 52% 48%); } }
+		&[data-value="-2"] { div:after { transform: rotate( 176.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 47.5% -4%, 52% 48%); } }
+		&[data-value="0"] { div:after { transform: rotate( 180deg  ); } }
+		&[data-value="2"] { div:after { transform: rotate( 187.0deg ); } }
+		&[data-value="4"] { div:after { transform: rotate( 193.9deg ); } }
+		&[data-value="6"] { div:after { transform: rotate( 199.6deg ); } }
+		&[data-value="8"] { div:after { transform: rotate( 205.3deg ); } }
+		&[data-value="10"] { div:after { transform: rotate( 211.0deg ); } }
+		&[data-value="12"] { div:after { transform: rotate( 216.7deg ); } }
+		&[data-value="14"] { div:after { transform: rotate( 222.4deg ); } }
+		&[data-value="16"] { div:after { transform: rotate( 228.1deg ); } }
+		&[data-value="18"] { div:after { transform: rotate( 233.8deg ); } }
+		&[data-value="20"] { div:after { transform: rotate( 239.5deg ); } }
+		&[data-value="22"] { div:after { transform: rotate( 245.2deg ); } }
+		&[data-value="24"] { div:after { transform: rotate( 250.9deg ); } }
+		&[data-value="26"] { div:after { transform: rotate( 256.6deg ); } }
+		&[data-value="28"] { div:after { transform: rotate( 262.3deg ); } }
+		&[data-value="30"] { div:after { transform: rotate( 268.0deg ); } }
+		&[data-value="32"] { div:after { transform: rotate( 273.7deg ); } }
+		&[data-value="34"] { div:after { transform: rotate( 279.4deg ); } }
+		&[data-value="36"] { div:after { transform: rotate( 285.1deg ); } }
+		&[data-value="38"] { div:after { transform: rotate( 290.8deg ); } }
+		&[data-value="40"] { div:after { transform: rotate( 296.5deg ); } }
+		&[data-value="42"] { div:after { transform: rotate( 302.2deg ); } }
+		&[data-value="44"] { div:after { transform: rotate( 307.9deg ); } }
+		&[data-value="46"] { div:after { transform: rotate( 313.6deg ); } }
+		&[data-value="48"] { div:after { transform: rotate( 318.0deg ); } }
+		&[data-value="50"] { div:after { transform: rotate( 320.0deg ); } }
 	}
 
 	.row-work {
@@ -323,6 +425,8 @@ content {
 
 					.mixer {
 						height: 130px;
+						padding-top: 5px;
+						padding-left: 7px;
 					}
 				}
 

@@ -58,31 +58,19 @@ content {
 	}
 
 	.knob {
-		margin: 3px 3px 0 3px;
 		position: relative;
 		display: inline-block;
-		width: 28px;
-		height: 28px;
-		border-radius: 50%;
-		border: 2px solid #b6c5ff;
-
-		&:after {
-			content: "";
-			position: absolute;
-			bottom: -2px;
-			left: 50%;
-			height: 0;
-			width: 10px;
-			transform: translateX(-50%);
-			border-left: 6px solid transparent;
-			border-right: 6px solid transparent;
-			border-bottom: 7px solid #466788;
-		}
+		width: 34px;
+		height: 34px;
+		margin: 1px 3px 0;
+		background: url(~/icons/knob.png) no-repeat;
+		background-size: 100% auto;
+		//background-color: rgba(0,0,0,.1);
 
 		&:before {
 			content: attr(data-label);
 			position: absolute;
-			bottom: -6px;
+			bottom: -3px;
 			left: 20%;
 			right: 20%;
 			font-size: 11px;
@@ -91,186 +79,119 @@ content {
 			z-index: 3;
 		}
 
-		div {
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			width: inherit;
-			height: inherit;
-			border-radius: inherit;
-			border: inherit;
-			border-color: #254565;
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: calc( 50% - 1px );
-				left: calc( 50% - 1px );
-				top: 50%;
-				height: calc( 50% + 1px );
-				//	height: calc( 50% + 3px );
-				//	box-shadow: 0 0 0 1px #466788;
-				width: 2px;
-				background: #254565;
-				z-index: 2;
-				transform-origin: 1px 1px;
-				transform: rotate( 40.0deg );
-			}
-		}
-
-		&[data-value="0"] { div:after { transform: rotate( 40.0deg ); } } 
-		&[data-value="2"] { div:after { transform: rotate( 45.7deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 113%); } }
-		&[data-value="4"] { div:after { transform: rotate( 51.4deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 103%); } }
-		&[data-value="6"] { div:after { transform: rotate( 57.1deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 93%); } }
-		&[data-value="8"] { div:after { transform: rotate( 62.8deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 85%); } }
-		&[data-value="10"] { div:after { transform: rotate( 68.5deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 79%); } }
-		&[data-value="12"] { div:after { transform: rotate( 74.2deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 74%); } }
-		&[data-value="14"] { div:after { transform: rotate( 79.9deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 67%); } }
-		&[data-value="16"] { div:after { transform: rotate( 85.6deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 62%); } }
-		&[data-value="18"] { div:after { transform: rotate( 91.3deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 50% 58%, -2% 58%); } }
-		&[data-value="20"] { div:after { transform: rotate( 97.0deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 52%); } }
-		&[data-value="22"] { div:after { transform: rotate( 102.7deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 46%); } }
-		&[data-value="24"] { div:after { transform: rotate( 108.4deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 40%); } }
-		&[data-value="26"] { div:after { transform: rotate( 114.1deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 52% 58%, -2% 34%); } }
-		&[data-value="28"] { div:after { transform: rotate( 119.8deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, -2% 28.5%); } }
-		&[data-value="30"] { div:after { transform: rotate( 125.5deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, -2% 23%); } }
-		&[data-value="32"] { div:after { transform: rotate( 131.2deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, -2% 16%); } }
-		&[data-value="34"] { div:after { transform: rotate( 136.9deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, 3% 7%); } }
-		&[data-value="36"] { div:after { transform: rotate( 142.6deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, 5% 1%); } }
-		&[data-value="38"] { div:after { transform: rotate( 148.3deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, 13% 0%); } }
-		&[data-value="40"] { div:after { transform: rotate( 154.0deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 49% 58%, 21% 0%); } }
-		&[data-value="42"] { div:after { transform: rotate( 159.7deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 47% 58%, 26% 0%); } }
-		&[data-value="44"] { div:after { transform: rotate( 165.4deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 47% 58%, 32% 0%); } }
-		&[data-value="46"] { div:after { transform: rotate( 171.1deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 47% 58%, 38% 0%); } }
-		&[data-value="48"] { div:after { transform: rotate( 176.0deg ); } div { clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, 58% 102%, 47% 58%, 42% 0%); } }
-		&[data-value="50"] { div:after { transform: rotate( 180deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 47% 58%); } }
-		&[data-value="52"] { div:after { transform: rotate( 187.0deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 47% 58%, 53% 0%); } }
-		&[data-value="54"] { div:after { transform: rotate( 193.9deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 46% 58%, 61% 0%); } }
-		&[data-value="56"] { div:after { transform: rotate( 199.6deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 43% 58%, 66% 0%); } }
-		&[data-value="58"] { div:after { transform: rotate( 205.3deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 41% 55%, 72% 0%); } }
-		&[data-value="60"] { div:after { transform: rotate( 211.0deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 41% 55%, 79% 0%); } }
-		&[data-value="62"] { div:after { transform: rotate( 216.7deg ); } div { clip-path: polygon(47% -2%, 102% -2%, 102% 102%, 47% 102%, 40% 53%, 85% 0%); } }
-		&[data-value="64"] { div:after { transform: rotate( 222.4deg ); } div { clip-path: polygon(102% -2%, 102% 102%, 47% 102%, 40% 50%, 96% 0%); } }
-		&[data-value="66"] { div:after { transform: rotate( 228.1deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 50%, 102% 6%); } }
-		&[data-value="68"] { div:after { transform: rotate( 233.8deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 15%); } }
-		&[data-value="70"] { div:after { transform: rotate( 239.5deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 22%); } }
-		&[data-value="72"] { div:after { transform: rotate( 245.2deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 28%); } }
-		&[data-value="74"] { div:after { transform: rotate( 250.9deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 33.5%); } }
-		&[data-value="76"] { div:after { transform: rotate( 256.6deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 39%); } }
-		&[data-value="78"] { div:after { transform: rotate( 262.3deg ); } div { clip-path: polygon(102% 102%, 47% 102%, 40% 47%, 102% 45%); } }
-		&[data-value="80"] { div:after { transform: rotate( 268.0deg ); } div { clip-path: polygon(50% 50%, 102% 50%, 102% 102%, 50% 102%, 50% 58%); } }
-		&[data-value="82"] { div:after { transform: rotate( 273.7deg ); } div { clip-path: polygon(50% 50%, 102% 55%, 102% 102%, 50% 102%, 50% 58%); } }
-		&[data-value="84"] { div:after { transform: rotate( 279.4deg ); } div { clip-path: polygon(50% 50%, 102% 60.5%, 102% 102%, 50% 102%, 50% 58%); } }
-		&[data-value="86"] { div:after { transform: rotate( 285.1deg ); } div { clip-path: polygon(50% 50%, 102% 66%, 102% 102%, 50% 102%, 50% 58%); } }
-		&[data-value="88"] { div:after { transform: rotate( 290.8deg ); } div { clip-path: polygon(52% 48%, 102% 71%, 102% 102%, 50% 102%, 47% 58%); } }
-		&[data-value="90"] { div:after { transform: rotate( 296.5deg ); } div { clip-path: polygon(52% 48%, 102% 76%, 102% 102%, 50% 102%, 47% 58%); } }
-		&[data-value="92"] { div:after { transform: rotate( 302.2deg ); } div { clip-path: polygon(52% 48%, 102% 83%, 102% 102%, 50% 102%, 47% 58%); } }
-		&[data-value="94"] { div:after { transform: rotate( 307.9deg ); } div { clip-path: polygon(52% 48%, 102% 90%, 102% 102%, 50% 102%, 47% 58%); } }
-		&[data-value="96"] { div:after { transform: rotate( 313.6deg ); } div { clip-path: polygon(50% 45%, 98% 98%, 20% 70%); } }
-		&[data-value="98"] { div:after { transform: rotate( 318.0deg ); } div { clip-path: polygon(50% 45%, 98% 102%, 20% 70%); } }
-		&[data-value="100"] { div:after { transform: rotate( 320.0deg ); } div { clip-path: polygon(50% 45%, 98% 105%, 20% 70%); } }
+		&[data-value="0"] { background-position: 0 -13px; } 
+		&[data-value="2"] { background-position: 0 -47px; }
+		&[data-value="4"] { background-position: 0 -81px; }
+		&[data-value="6"] { background-position: 0 -115px; }
+		&[data-value="8"] { background-position: 0 -149px; }
+		&[data-value="10"] { background-position: 0 -183px; }
+		&[data-value="12"] { background-position: 0 -217px; }
+		&[data-value="14"] { background-position: 0 -251px; }
+		&[data-value="16"] { background-position: 0 -285px; }
+		&[data-value="18"] { background-position: 0 -319px; }
+		&[data-value="20"] { background-position: 0 -353px; }
+		&[data-value="22"] { background-position: 0 -387px; }
+		&[data-value="24"] { background-position: 0 -421px; }
+		&[data-value="26"] { background-position: 0 -455px; }
+		&[data-value="28"] { background-position: 0 -489px; }
+		&[data-value="30"] { background-position: 0 -523px; }
+		&[data-value="32"] { background-position: 0 -557px; }
+		&[data-value="34"] { background-position: 0 -591px; }
+		&[data-value="36"] { background-position: 0 -625px; }
+		&[data-value="38"] { background-position: 0 -659px; }
+		&[data-value="40"] { background-position: 0 -693px; }
+		&[data-value="42"] { background-position: 0 -727px; }
+		&[data-value="44"] { background-position: 0 -761px; }
+		&[data-value="46"] { background-position: 0 -795px; }
+		&[data-value="48"] { background-position: 0 -829px; }
+		&[data-value="50"] { background-position: 0 -863px; }
+		&[data-value="52"] { background-position: 0 -897px; }
+		&[data-value="54"] { background-position: 0 -931px; }
+		&[data-value="56"] { background-position: 0 -965px; }
+		&[data-value="58"] { background-position: 0 -999px; }
+		&[data-value="60"] { background-position: 0 -1033px; }
+		&[data-value="62"] { background-position: 0 -1067px; }
+		&[data-value="64"] { background-position: 0 -1101px; }
+		&[data-value="66"] { background-position: 0 -1135px; }
+		&[data-value="68"] { background-position: 0 -1169px; }
+		&[data-value="70"] { background-position: 0 -1203px; }
+		&[data-value="72"] { background-position: 0 -1237px; }
+		&[data-value="74"] { background-position: 0 -1271px; }
+		&[data-value="76"] { background-position: 0 -1305px; }
+		&[data-value="78"] { background-position: 0 -1339px; }
+		&[data-value="80"] { background-position: 0 -1373px; }
+		&[data-value="82"] { background-position: 0 -1407px; }
+		&[data-value="84"] { background-position: 0 -1441px; }
+		&[data-value="86"] { background-position: 0 -1475px; }
+		&[data-value="88"] { background-position: 0 -1509px; }
+		&[data-value="90"] { background-position: 0 -1543px; }
+		&[data-value="92"] { background-position: 0 -1577px; }
+		&[data-value="94"] { background-position: 0 -1611px; }
+		&[data-value="96"] { background-position: 0 -1645px; }
+		&[data-value="98"] { background-position: 0 -1679px; }
+		&[data-value="100"] { background-position: 0 -1713px; }
 	}
 
 	.pan-knob {
-		margin: 3px 3px 0 3px;
 		position: relative;
 		display: inline-block;
-		width: 28px;
-		height: 28px;
-		border-radius: 50%;
-		border: 2px solid #b6c5ff;
+		width: 34px;
+		height: 34px;
+		margin: 1px 3px 0;
+		background: url(~/icons/pan-knob.png) no-repeat;
+		background-size: 100% auto;
 
-		&:after {
-			content: "";
-			position: absolute;
-			bottom: -2px;
-			left: 50%;
-			height: 0;
-			width: 8px;
-			transform: translateX(-50%);
-			border-left: 6px solid transparent;
-			border-right: 6px solid transparent;
-			border-bottom: 7px solid #466788;
-		}
-
-		div {
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			width: inherit;
-			height: inherit;
-			border-radius: inherit;
-			//background: red;
-			border: inherit;
-			border-color: #254565;
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: calc( 50% - 1px );
-				left: calc( 50% - 1px );
-				top: 50%;
-				height: calc( 50% + 2px );
-				//box-shadow: 0 0 0 1px #466788;
-				width: 2px;
-				background: #254565;
-				z-index: 2;
-				transform-origin: 1px 1px;
-				transform: rotate( 180deg );
-			}
-		}
-
-		&[data-value="-50"] { div:after { transform: rotate( 40.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 50% 50%); } }
-		&[data-value="-48"] { div:after { transform: rotate( 45.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 98%, 50% 50%); } }
-		&[data-value="-46"] { div:after { transform: rotate( 51.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 91%, 50% 50%); } }
-		&[data-value="-44"] { div:after { transform: rotate( 57.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 83%, 50% 50%); } }
-		&[data-value="-42"] { div:after { transform: rotate( 62.8deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 73%, 50% 50%); } }
-		&[data-value="-40"] { div:after { transform: rotate( 68.5deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 69%, 50% 50%); } }
-		&[data-value="-38"] { div:after { transform: rotate( 74.2deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 64%, 50% 50%); } }
-		&[data-value="-36"] { div:after { transform: rotate( 79.9deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 59%, 50% 50%); } }
-		&[data-value="-34"] { div:after { transform: rotate( 85.6deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 56%, 50% 50%); } }
-		&[data-value="-32"] { div:after { transform: rotate( 91.3deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 50%, 50% 50%); } }
-		&[data-value="-30"] { div:after { transform: rotate( 97.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 44%, 50% 50%); } }
-		&[data-value="-28"] { div:after { transform: rotate( 102.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 40%, 52% 48%); } }
-		&[data-value="-26"] { div:after { transform: rotate( 108.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, 0% 102%, 0% 35%, 52% 48%); } }
-		&[data-value="-24"] { div:after { transform: rotate( 114.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 31%, 52% 48%); } }
-		&[data-value="-22"] { div:after { transform: rotate( 119.8deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 23%, 52% 48%); } }
-		&[data-value="-20"] { div:after { transform: rotate( 125.5deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 15%, 52% 48%); } }
-		&[data-value="-18"] { div:after { transform: rotate( 131.2deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% 8%, 52% 48%); } }
-		&[data-value="-16"] { div:after { transform: rotate( 136.9deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 52% 48%); } }
-		&[data-value="-14"] { div:after { transform: rotate( 142.6deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 6% -4%, 52% 48%); } }
-		&[data-value="-12"] { div:after { transform: rotate( 148.3deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 17% -4%, 52% 48%); } }
-		&[data-value="-10"] { div:after { transform: rotate( 154.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 25% -4%, 52% 48%); } }
-		&[data-value="-8"] { div:after { transform: rotate( 159.7deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 35% -4%, 52% 48%); } }
-		&[data-value="-6"] { div:after { transform: rotate( 165.4deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 42% -4%, 52% 48%); } }
-		&[data-value="-4"] { div:after { transform: rotate( 171.1deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 45% -4%, 52% 48%); } }
-		&[data-value="-2"] { div:after { transform: rotate( 176.0deg ); } div { clip-path: polygon(50% 0%, 102% 0%, 102% 102%, -2% 102%, -2% -4%, 46.5% -4%, 52% 48%); } }
-		&[data-value="0"] { div:after { transform: rotate( 180deg  ); } }
-		&[data-value="2"] { div:after { transform: rotate( 187.0deg ); } div { clip-path: polygon(-2% 0%, 47% 0%, 47% 47%, 53.5% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="4"] { div:after { transform: rotate( 193.9deg ); } div { clip-path: polygon(-2% 0%, 47% 0%, 47% 47%, 61% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="6"] { div:after { transform: rotate( 199.6deg ); } div { clip-path: polygon(-2% 0%, 47% 0%, 47% 47%, 65% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="8"] { div:after { transform: rotate( 205.3deg ); } div { clip-path: polygon(-2% 0%, 47% 0%, 47% 47%, 74% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="10"] { div:after { transform: rotate( 211.0deg ); } div { clip-path: polygon(-2% 0%, 47% 0%, 47% 47%, 81% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="12"] { div:after { transform: rotate( 216.7deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 88% -2%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="14"] { div:after { transform: rotate( 222.4deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 94% 1%, 102% 0%, 102% 100%, -2% 100%); } }
-		&[data-value="16"] { div:after { transform: rotate( 228.1deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 97% 6%, 102% 100%, -2% 100%); } }
-		&[data-value="18"] { div:after { transform: rotate( 233.8deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 102% 12%, 102% 100%, -2% 100%); } }
-		&[data-value="20"] { div:after { transform: rotate( 239.5deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 102% 20%, 102% 100%, -2% 100%); } }
-		&[data-value="22"] { div:after { transform: rotate( 245.2deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 47%, 102% 25%, 102% 100%, -2% 100%); } }
-		&[data-value="24"] { div:after { transform: rotate( 250.9deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 48%, 102% 32%, 102% 100%, -2% 100%); } }
-		&[data-value="26"] { div:after { transform: rotate( 256.6deg ); } div { clip-path: polygon(-2% 0%, 52% 0%, 50% 48%, 100% 38%, 100% 100%, -2% 100%); } }
-		&[data-value="28"] { div:after { transform: rotate( 262.3deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 44%, 100% 100%, 0% 100%); } }
-		&[data-value="30"] { div:after { transform: rotate( 268.0deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 50%, 100% 100%, 0% 100%); } }
-		&[data-value="32"] { div:after { transform: rotate( 273.7deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 54%, 100% 100%, 0% 100%); } }
-		&[data-value="34"] { div:after { transform: rotate( 279.4deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 58%, 100% 100%, 0% 100%); } }
-		&[data-value="36"] { div:after { transform: rotate( 285.1deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 64%, 100% 100%, 0% 100%); } }
-		&[data-value="38"] { div:after { transform: rotate( 290.8deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 69%, 100% 100%, 0% 100%); } }
-		&[data-value="40"] { div:after { transform: rotate( 296.5deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 73%, 100% 100%, 0% 100%); } }
-		&[data-value="42"] { div:after { transform: rotate( 302.2deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 78%, 100% 100%, 0% 100%); } }
-		&[data-value="44"] { div:after { transform: rotate( 307.9deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 86%, 0% 100%); } }
-		&[data-value="46"] { div:after { transform: rotate( 313.6deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 100% 96%, 0% 100%); } }
-		&[data-value="48"] { div:after { transform: rotate( 318.0deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 99% 101%, 0% 100%); } }
-		&[data-value="50"] { div:after { transform: rotate( 320.0deg ); } div { clip-path: polygon(0% 0%, 52% 0%, 50% 48%, 99% 102%, 0% 100%); } }
+		&[data-value="-50"] { background-position: 0 -13px;  }
+		&[data-value="-48"] { background-position: 0 -47px; }
+		&[data-value="-46"] { background-position: 0 -81px; }
+		&[data-value="-44"] { background-position: 0 -115px; }
+		&[data-value="-42"] { background-position: 0 -149px; }
+		&[data-value="-40"] { background-position: 0 -183px; }
+		&[data-value="-38"] { background-position: 0 -217px; }
+		&[data-value="-36"] { background-position: 0 -251px; }
+		&[data-value="-34"] { background-position: 0 -285px; }
+		&[data-value="-32"] { background-position: 0 -319px; }
+		&[data-value="-30"] { background-position: 0 -353px; }
+		&[data-value="-28"] { background-position: 0 -387px; }
+		&[data-value="-26"] { background-position: 0 -421px; }
+		&[data-value="-24"] { background-position: 0 -455px; }
+		&[data-value="-22"] { background-position: 0 -489px; }
+		&[data-value="-20"] { background-position: 0 -523px; }
+		&[data-value="-18"] { background-position: 0 -557px; }
+		&[data-value="-16"] { background-position: 0 -591px; }
+		&[data-value="-14"] { background-position: 0 -625px; }
+		&[data-value="-12"] { background-position: 0 -659px; }
+		&[data-value="-10"] { background-position: 0 -693px; }
+		&[data-value="-8"] { background-position: 0 -727px; }
+		&[data-value="-6"] { background-position: 0 -761px; }
+		&[data-value="-4"] { background-position: 0 -795px; }
+		&[data-value="-2"] { background-position: 0 -829px; }
+		&[data-value="0"] { background-position: 0 -863px; }
+		&[data-value="2"] { background-position: 0 -897px; }
+		&[data-value="4"] { background-position: 0 -931px; }
+		&[data-value="6"] { background-position: 0 -965px; }
+		&[data-value="8"] { background-position: 0 -999px; }
+		&[data-value="10"] { background-position: 0 -1033px; }
+		&[data-value="12"] { background-position: 0 -1067px; }
+		&[data-value="14"] { background-position: 0 -1101px; }
+		&[data-value="16"] { background-position: 0 -1135px; }
+		&[data-value="18"] { background-position: 0 -1169px; }
+		&[data-value="20"] { background-position: 0 -1203px; }
+		&[data-value="22"] { background-position: 0 -1237px; }
+		&[data-value="24"] { background-position: 0 -1271px; }
+		&[data-value="26"] { background-position: 0 -1305px; }
+		&[data-value="28"] { background-position: 0 -1339px; }
+		&[data-value="30"] { background-position: 0 -1373px; }
+		&[data-value="32"] { background-position: 0 -1407px; }
+		&[data-value="34"] { background-position: 0 -1441px; }
+		&[data-value="36"] { background-position: 0 -1475px; }
+		&[data-value="38"] { background-position: 0 -1509px; }
+		&[data-value="40"] { background-position: 0 -1543px; }
+		&[data-value="42"] { background-position: 0 -1577px; }
+		&[data-value="44"] { background-position: 0 -1611px; }
+		&[data-value="46"] { background-position: 0 -1645px; }
+		&[data-value="48"] { background-position: 0 -1679px; }
+		&[data-value="50"] { background-position: 0 -1713px; }
 	}
 
 	.volume {
@@ -581,11 +502,6 @@ content {
 						height: 45px;
 						padding-top: 5px;
 						text-align: center;
-
-						.knob {
-							margin-left: 7px;
-							margin-right: 7px;
-						}
 					}
 
 					.mixer {

@@ -457,9 +457,32 @@ content {
 					display: flex;
 					flex: auto;
 
-					.tracks {
+					.tracks-wrapper {
+						position: relative;
 						display: flex;
 						flex: auto;
+						margin-right: 3px;
+
+						.tracks {
+							position: absolute;
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							overflow-x: auto;
+							// white-space: nowrap;
+							// font-size: 0;
+							display: flex;
+
+							> .space {
+								flex: auto;
+								background: #395d82;
+								border-radius: 3px;
+								//margin-right: 3px;
+								// width: 100px;
+								// height: 100%;
+							}
+						}
 					}
 
 					.io-master {
@@ -469,17 +492,24 @@ content {
 				}
 			}
 
+			.track-wrapper {
+				min-width: 90px;
+				height: 100%;
+				display: flex;
+				margin-right: 3px;
+
+				&:last-child { margin-right: 0; }
+			}
+
 			.track {
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				width: 90px;
+				width: 100%;
 				height: 100%;
 				border-radius: 3px;
-				margin-right: 3px;
 				font-size: 11px;
-
-				&:last-child { margin-right: 0; }
+				white-space: normal;
 
 				> div {
 					background: #466788;
@@ -507,15 +537,15 @@ content {
 						background: #466788;
 						border-radius: 1px;
 						margin-bottom: 1px;
+
+						&.space {
+							flex: auto;
+							margin: 0 0 1px;
+						}
 					}
 
 					.slot {
 						height: 21px;
-					}
-
-					.space {
-						flex: auto;
-						margin: 0 0 1px;
 					}
 				}
 
@@ -524,11 +554,11 @@ content {
 				}
 
 				.io {
-					height: 81px;
+					height: 47px;
 				}
 
 				.sends {
-					height: 45px;
+					height: 48px;
 					padding-top: 5px;
 					text-align: center;
 				}
@@ -536,8 +566,8 @@ content {
 				.mixer {
 					display: flex;
 					justify-content: space-evenly;
-					height: 124px;
-					padding-top: 8px;
+					height: 126px;
+					padding-top: 9px;
 					text-align: center;
 
 					> div:first-child {
@@ -548,13 +578,6 @@ content {
 						margin: 0 0 2px;
 					}
 				}
-			}
-
-			.space {
-				flex: auto;
-				background: #395d82;
-				border-radius: 3px;
-				margin-right: 3px;
 			}
 		}
 	}

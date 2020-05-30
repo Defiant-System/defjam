@@ -66,6 +66,8 @@ content {
 		i[class*="icon-"] {
 			top: 3px;
 			left: 3px;
+			transition: all 150ms ease;
+			//transform-origin: 50% 50%;
 		}
 	}
 
@@ -386,6 +388,13 @@ content {
 
 			.ball-button {
 				left: 2px;
+
+				&.toggled {
+					> i {
+						top: 4px;
+						transform: rotate(180deg);
+					}
+				}
 			}
 		}
 
@@ -396,6 +405,18 @@ content {
 		.panel-left {
 			width: 200px;
 			display: flex;
+			transition: width 200ms ease,
+						margin 200ms ease,
+						opacity 200ms ease 100ms;
+
+			&.hide {
+				width: 0;
+				opacity: 0;
+				margin-left: 0;
+				transition: width 200ms ease,
+							margin 200ms ease 200ms,
+							opacity 200ms ease 100ms;
+			}
 
 			.scrollbar {
 				background: inherit;
@@ -606,9 +627,18 @@ content {
 		}
 	}
 
-	.row-rack {
+	.panel-bottom {
 		height: 170px;
 		display: flex;
+		transition: height 200ms ease,
+					margin 200ms ease,
+					opacity 200ms ease 100ms;
+
+		&.hide {
+			height: 0;
+			opacity: 0;
+			margin-top: 0;
+		}
 
 		.rack {
 			flex: auto;
@@ -668,6 +698,13 @@ content {
 
 		.ball-button {
 			top: 3px;
+
+			&.toggled {
+				> i {
+					left: 2px;
+					transform: rotate(-90deg);
+				}
+			}
 		}
 	}
 

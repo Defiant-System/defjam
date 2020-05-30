@@ -20,6 +20,9 @@ const jam = {
 		this.content = window.find("content");
 		this.panelLeft = window.find(".panel-left");
 		this.panelBottom = window.find(".panel-bottom");
+		this.footDevices = window.find(".foot-devices");
+		this.footMidi = window.find(".foot-midi");
+		this.rowFoot = window.find(".row-foot");
 
 		// bind event handlers
 		this.content.on("mousedown", ".knob, .pan-knob", this.doKnob);
@@ -53,6 +56,27 @@ const jam = {
 				isOn = el.hasClass("toggled");
 				el.toggleClass("toggled", isOn);
 				self.panelBottom.toggleClass("hide", isOn);
+
+				self.footDevices.toggleClass("hidden", isOn);
+				self.footMidi.toggleClass("hidden", isOn);
+				break;
+			case "show-device-rack":
+				event.el.addClass("active");
+				self.footMidi.removeClass("active");
+
+				el = self.rowFoot.find(".ball-button");
+				if (el.hasClass("toggled")) {
+					el.trigger("click");
+				}
+				break;
+			case "show-midi-rack":
+				event.el.addClass("active");
+				self.footDevices.removeClass("active");
+
+				el = self.rowFoot.find(".ball-button");
+				if (el.hasClass("toggled")) {
+					el.trigger("click");
+				}
 				break;
 		}
 	},

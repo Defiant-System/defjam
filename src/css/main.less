@@ -658,12 +658,16 @@ content {
 			margin-left: 0;
 		}
 
-		.option-1,
-		.option-2 {
+		.foot-devices,
+		.foot-midi {
 			color: #57a;
 			text-shadow: 0 1px 0 #335;
-			padding: 10px 13px 8px;
 			cursor: pointer;
+
+			.box-body {
+				padding: 6px 10px 0;
+				color: #7495b7;
+			}
 
 			&:hover:not(.active) {
 				color: #8ac;
@@ -672,10 +676,7 @@ content {
 			&.active {
 				color: #ddf;
 				cursor: default;
-				padding: 9px 13px;
-				border-radius: 0 0 5px 5px;
-				margin-top: -5px;
-				border-top: 5px solid #294a6b;
+				border-radius: 5px;
 
 				&:before,
 				&:after {
@@ -687,13 +688,49 @@ content {
 					width: 8px;
 					height: 8px;
 					transform: rotate(270deg);
+					transition: opacity 60ms ease;
 				}
+
 				&:after {
 					left: auto;
 					right: -8px;
 					transform: rotate(180deg);
 				}
+
+				&.hidden {
+					&:before,
+					&:after {
+						opacity: 0;
+						transition: opacity 60ms ease 100ms;
+					}
+					.box-body {
+						background: #466788;
+
+						&:before {
+							opacity: 0;
+							transition: opacity 60ms ease 100ms;
+						}
+					}
+				}
+
+				.box-body {
+					background: transparent;
+					color: #b7cbe0;
+					padding: 6px 10px 0;
+
+					&:before {
+						content: "";
+						background: #294a6b;
+						position: absolute;
+						top: -8px;
+						left: -4px;
+						right: -4px;
+						height: 8px;
+						transition: opacity 60ms ease;
+					}
+				}
 			}
+
 		}
 
 		.ball-button {

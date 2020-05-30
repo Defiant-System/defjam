@@ -217,7 +217,7 @@ content {
 		display: inline-block;
 		//vertical-align: top;
 		margin-left: 3px;
-		margin-right: 11px;
+		margin-right: 12px;
 
 		&.anim:after {
 			animation: 1000ms spectrum linear infinite backwards;
@@ -350,8 +350,8 @@ content {
 		color: #182c40;
 
 		&.activator {
-			height: 27px;
-			padding-top: 5px;
+			height: 25px;
+			padding-top: 4px;
 			background: #b92;
 			font-size: 13px;
 			font-weight: 700;
@@ -448,100 +448,113 @@ content {
 				}
 			}
 
-			.session {
+			.session-wrapper {
 				flex: auto;
 				display: flex;
 				border-bottom-right-radius: 0;
 
-				.track {
+				.session {
+					display: flex;
+					flex: auto;
+
+					.tracks {
+						display: flex;
+						flex: auto;
+					}
+
+					.io-master {
+						width: 276px;
+						display: flex;
+					}
+				}
+			}
+
+			.track {
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				width: 90px;
+				height: 100%;
+				border-radius: 3px;
+				margin-right: 3px;
+				font-size: 11px;
+
+				&:last-child { margin-right: 0; }
+
+				> div {
+					background: #466788;
+					margin-bottom: 1px;
+
+					&:first-child { border-radius: 3px 3px 1px 1px; }
+					&:last-child { border-radius: 1px 1px 3px 3px; margin-bottom: 0; }
+				}
+
+				.title {
+					background: #5e7790;
+					color: #b7cbe0;
+					text-shadow: 0 1px 0 #335;
+					height: 20px;
+					padding: 4px 5px;
+				}
+
+				.slots {
+					flex: auto;
 					display: flex;
 					flex-direction: column;
-					position: relative;
-					width: 90px;
-					height: 100%;
-					border-radius: 3px;
-					margin-right: 3px;
-					font-size: 11px;
-
-					&:last-child { margin-right: 0; }
+					background: transparent;
 
 					> div {
 						background: #466788;
+						border-radius: 1px;
 						margin-bottom: 1px;
-
-						&:first-child { border-radius: 3px 3px 1px 1px; }
-						&:last-child { border-radius: 1px 1px 3px 3px; margin-bottom: 0; }
 					}
 
-					.title {
-						background: #5e7790;
-						color: #b7cbe0;
-						text-shadow: 0 1px 0 #335;
-						height: 20px;
-						padding: 4px 5px;
-					}
-
-					.slots {
-						flex: auto;
-						display: flex;
-						flex-direction: column;
-						background: transparent;
-
-						> div {
-							background: #466788;
-							border-radius: 1px;
-							margin-bottom: 1px;
-						}
-
-						.slot {
-							height: 21px;
-						}
-
-						.space {
-							flex: auto;
-							margin: 0 0 1px;
-						}
-					}
-
-					.status {
+					.slot {
 						height: 21px;
 					}
 
-					.io {
-						height: 81px;
-					}
-
-					.sends {
-						height: 45px;
-						padding-top: 5px;
-						text-align: center;
-					}
-
-					.mixer {
-						display: flex;
-						justify-content: space-evenly;
-						height: 124px;
-						padding-top: 8px;
-						text-align: center;
-
-						> div:first-child {
-							width: 36px;
-							margin-left: 1px;
-						}
-
-						.pan-knob {
-							margin-top: 1px;
-							margin-bottom: 5px;
-						}
+					.space {
+						flex: auto;
+						margin: 0 0 1px;
 					}
 				}
 
-				.space {
-					flex: auto;
-					background: #395d82;
-					border-radius: 3px;
-					margin-right: 3px;
+				.status {
+					height: 21px;
 				}
+
+				.io {
+					height: 81px;
+				}
+
+				.sends {
+					height: 45px;
+					padding-top: 5px;
+					text-align: center;
+				}
+
+				.mixer {
+					display: flex;
+					justify-content: space-evenly;
+					height: 124px;
+					padding-top: 8px;
+					text-align: center;
+
+					> div:first-child {
+						width: 36px;
+					}
+
+					.pan-knob {
+						margin: 0 0 2px;
+					}
+				}
+			}
+
+			.space {
+				flex: auto;
+				background: #395d82;
+				border-radius: 3px;
+				margin-right: 3px;
 			}
 		}
 	}

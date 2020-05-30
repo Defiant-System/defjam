@@ -15,6 +15,7 @@
 		<meta name="script" value="src/js/main.js"/>
 		<meta name="style" value="src/css/main.less"/>
 		<meta name="content" value="src/partials/content.htm"/>
+		<meta name="xsl" value="src/partials/templates.xsl"/>
 
 		@import "src/partials/menubar.xml"
 		@import "src/partials/caption-toolbar.xml"

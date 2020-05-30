@@ -1,4 +1,17 @@
 
+let file = `<data>
+		<Tracks>
+			<i name="Drums" />
+			<i name="Grand Piano" />
+			<i name="Vocals" />
+		</Tracks>
+		<IoMaster>
+			<i name="Reverb" />
+			<i name="Delay" />
+			<i name="Master" />
+		</IoMaster>
+	</data>`;
+
 const jam = {
 	init() {
 		// fast references
@@ -6,10 +19,23 @@ const jam = {
 
 		// bind event handlers
 		this.content.on("mousedown", ".knob, .pan-knob", this.doKnob);
+
+		// temp
+		this.dispatch({ type: "render-view" });
 	},
 	dispatch(event) {
+		let self = jam,
+			el;
+		//console.log(event);
 		switch (event.type) {
-			case "window.open":
+			case "render-view":
+				let data = $.xmlFromString(file);
+
+				window.render({
+					data,
+					template: "session",
+					prepend: self.content.find(".session-wrapper")
+				});
 				break;
 		}
 	},

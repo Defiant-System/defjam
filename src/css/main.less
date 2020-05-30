@@ -13,6 +13,18 @@ content {
 	flex-direction: column;
 	padding: @margin + 1px;
 
+	&.hide-cursor:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		background: transparent;
+		cursor: none;
+	}
+
 	> div {
 		margin-top: @margin;
 	}
@@ -77,6 +89,7 @@ content {
 			font-weight: 600;
 			color: #254565;
 			z-index: 3;
+			pointer-events: none;
 		}
 
 		&[data-value="0"] { background-position: 0 -13px; } 

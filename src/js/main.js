@@ -19,7 +19,7 @@ const jam = {
 		// fast references
 		this.content = window.find("content");
 		this.panelLeft = window.find(".panel-left");
-		this.panelBodies = window.find(".panel-bodies");
+		this.sidebar = window.find(".sidebar");
 		this.panelBottom = window.find(".panel-bottom");
 		this.footDevices = window.find(".foot-devices");
 		this.footMidi = window.find(".foot-midi");
@@ -55,17 +55,16 @@ const jam = {
 				event.el.addClass("active");
 
 				name = ["from"];
-				name.push(self.panelBodies.prop("className").split("show-")[1].split(" ")[0]);
+				name.push(self.sidebar.prop("className").split("show-")[1].split(" ")[0]);
 				name.push("to");
 				name.push(event.type.split("-")[1]);
 				name = name.join("-");
-console.log(name);
-				self.panelBodies
-					.cssSequence(name, "animationend", el => {
+
+				self.sidebar
+					.cssSequence(name, "animationend", el =>
 						el.parent()
 							.removeClass("show-sounds show-drums show-instruments show-fx "+ name)
-							.addClass(event.type);
-					});
+							.addClass(event.type));
 				break;
 			case "toggle-work-panel":
 				el = event.el;

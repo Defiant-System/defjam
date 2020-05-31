@@ -404,7 +404,8 @@ content {
 		}
 		
 		.panel-left {
-			width: 200px;
+			--sidebar-width: 210px;
+			width: var( --sidebar-width );
 			display: flex;
 			transition: width 200ms ease,
 						margin 200ms ease,
@@ -470,24 +471,33 @@ content {
 					height: 100%;
 					transform-style: preserve-3d;
 					transition: transform 350ms ease;
-				}
 
-				.box-body {
-					transform-style: preserve-3d;
-					//backface-visibility: hidden;
-					position: absolute;
-					width: inherit;
-					height: inherit;
-					opacity: 0.5;
-					padding: 3px 0 0 5px;
-					color: #b7cbe0;
-					text-shadow: 0 1px 0 #335;
-					transition: opacity 500ms ease;
+					> div {
+						transform-style: preserve-3d;
+						//backface-visibility: hidden;
+						position: absolute;
+						width: inherit;
+						height: inherit;
+						display: flex;
+						flex-direction: column;
+						opacity: 0.5;
+						transition: opacity 500ms ease;
 
-					&.sounds-body      { transform: rotateY(   0deg) translateZ(100px); }
-					&.drums-body       { transform: rotateY(  90deg) translateZ(100px); }
-					&.instruments-body { transform: rotateY(-180deg) translateZ(100px); }
-					&.fx-body          { transform: rotateY( -90deg) translateZ(100px); }
+						&.sounds-body      { transform: rotateY(   0deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
+						&.drums-body       { transform: rotateY(  90deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
+						&.instruments-body { transform: rotateY(-180deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
+						&.fx-body          { transform: rotateY( -90deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
+					}
+					.box-title {
+						height: 19px;
+						padding: 2px 0 0 3px;
+						font-size: 11px;
+						color: #b7cbe0;
+						text-shadow: 0 1px 0 #335;
+					}
+					.box-body {
+						flex: auto;
+					}
 				}
 
 				&.from-sounds-to-drums,
@@ -507,7 +517,7 @@ content {
 						div.drums-body,
 						div.instruments-body,
 						div.fx-body {
-							display: block;
+							display: flex;
 							opacity: 0.5;
 							visibility: visible;
 						}
@@ -529,9 +539,9 @@ content {
 
 				&.show-sounds {
 					.box-3d {
-						transform: rotateY(0deg) translateZ(-100px);
+						transform: rotateY(0deg) translateZ( calc( var( --sidebar-width ) / -2) );
 					
-						.sounds-body { display: block; opacity: 1; }
+						.sounds-body { display: flex; opacity: 1; }
 						.drums-body,
 						.instruments-body,
 						.fx-body { display: none; }
@@ -540,9 +550,9 @@ content {
 
 				&.show-drums {
 					.box-3d {
-						transform: rotateY(-90deg) translateX(-100px);
+						transform: rotateY(-90deg) translateX( calc( var( --sidebar-width ) / -2) );
 					
-						.drums-body { display: block; opacity: 1; }
+						.drums-body { display: flex; opacity: 1; }
 						.sounds-body,
 						.instruments-body,
 						.fx-body { display: none; }
@@ -551,9 +561,9 @@ content {
 
 				&.show-instruments {
 					.box-3d {
-						transform: rotateY(180deg) translateZ(100px);
+						transform: rotateY(180deg) translateZ( calc( var( --sidebar-width ) / 2) );
 					
-						.instruments-body { display: block; opacity: 1; }
+						.instruments-body { display: flex; opacity: 1; }
 						.drums-body,
 						.sounds-body,
 						.fx-body { display: none; }
@@ -562,9 +572,9 @@ content {
 
 				&.show-fx {
 					.box-3d {
-						transform: rotateY(90deg) translateX(100px);
+						transform: rotateY(90deg) translateX( calc( var( --sidebar-width ) / 2) );
 					
-						.fx-body { display: block; opacity: 1; }
+						.fx-body { display: flex; opacity: 1; }
 						.sounds-body,
 						.instruments-body,
 						.drums-body { display: none; }
@@ -883,87 +893,87 @@ content {
 
 
 @keyframes soundsToDrums {
-	0%   { transform: translateZ(-100px) rotateY(0deg); }
-	30%  { transform: translateZ(-200px) rotateY(0deg); }
-	70%  { transform: translateZ(-200px) rotateY(-90deg); }
-	100% { transform: translateZ(-100px) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes soundsToInstruments {
-	0%   { transform: translateZ(-100px) rotateY(0deg); }
-	15%  { transform: translateZ(-200px) rotateY(0deg); }
-	85%  { transform: translateZ(-200px) rotateY(-180deg); }
-	100% { transform: translateZ(-100px) rotateY(-180deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
 }
 
 @keyframes soundsToFx {
-	0%   { transform: translateZ(-100px) rotateY(0deg); }
-	30%  { transform: translateZ(-200px) rotateY(0deg); }
-	70%  { transform: translateZ(-200px) rotateY(90deg); }
-	100% { transform: translateZ(-100px) rotateY(90deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
 }
 
 @keyframes drumsToSounds {
-	0%   { transform: translateZ(-100px) rotateY(-90deg); }
-	30%  { transform: translateZ(-200px) rotateY(-90deg); }
-	70%  { transform: translateZ(-200px) rotateY(0deg); }
-	100% { transform: translateZ(-100px) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes drumsToInstruments {
-	0%   { transform: translateZ(-100px) rotateY(-90deg); }
-	30%  { transform: translateZ(-200px) rotateY(-90deg); }
-	70%  { transform: translateZ(-200px) rotateY(-180deg); }
-	100% { transform: translateZ(-100px) rotateY(-180deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
 }
 
 @keyframes drumsToFx {
-	0%   { transform: translateZ(-100px) rotateY(-90deg); }
-	15%  { transform: translateZ(-200px) rotateY(-90deg); }
-	85%  { transform: translateZ(-200px) rotateY(90deg); }
-	100% { transform: translateZ(-100px) rotateY(90deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
 }
 
 @keyframes instrumentsToSounds {
-	0%   { transform: translateZ(-100px) rotateY(-180deg); }
-	15%  { transform: translateZ(-200px) rotateY(-180deg); }
-	85%  { transform: translateZ(-200px) rotateY(0deg); }
-	100% { transform: translateZ(-100px) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
+	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
+	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes instrumentsToDrums {
-	0%   { transform: translateZ(-100px) rotateY(-180deg); }
-	30%  { transform: translateZ(-200px) rotateY(-180deg); }
-	70%  { transform: translateZ(-200px) rotateY(-90deg); }
-	100% { transform: translateZ(-100px) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes instrumentsToFx {
-	0%   { transform: translateZ(-100px) rotateY(-180deg); }
-	30%  { transform: translateZ(-200px) rotateY(-180deg); }
-	70%  { transform: translateZ(-200px) rotateY(-270deg); }
-	100% { transform: translateZ(-100px) rotateY(-270deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-270deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-270deg); }
 }
 
 @keyframes fxToSounds {
-	0%   { transform: translateZ(-100px) rotateY(90deg); }
-	30%  { transform: translateZ(-200px) rotateY(90deg); }
-	70%  { transform: translateZ(-200px) rotateY(0deg); }
-	100% { transform: translateZ(-100px) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes fxToDrums {
-	0%   { transform: translateZ(-100px) rotateY(90deg); }
-	15%  { transform: translateZ(-200px) rotateY(90deg); }
-	85%  { transform: translateZ(-200px) rotateY(-90deg); }
-	100% { transform: translateZ(-100px) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
+	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
+	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes fxToInstruments {
-	0%   { transform: translateZ(-100px) rotateY(90deg); }
-	30%  { transform: translateZ(-200px) rotateY(90deg); }
-	70%  { transform: translateZ(-200px) rotateY(180deg); }
-	100% { transform: translateZ(-100px) rotateY(180deg); }
+	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
+	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
+	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(180deg); }
+	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(180deg); }
 }
 
 

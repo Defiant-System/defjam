@@ -51,6 +51,7 @@ const jam = {
 			case "show-drums":
 			case "show-instruments":
 			case "show-fx":
+				if (event.el.hasClass("active")) return;
 				event.el.parent().find(".active").removeClass("active");
 				event.el.addClass("active");
 

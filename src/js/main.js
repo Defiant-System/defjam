@@ -59,7 +59,7 @@ const jam = {
 				name.push("to");
 				name.push(event.type.split("-")[1]);
 				name = name.join("-");
-
+console.log(name);
 				self.panelBodies
 					.cssSequence(name, "animationend", el => {
 						el.parent()

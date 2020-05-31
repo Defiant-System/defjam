@@ -1,7 +1,17 @@
 
 @margin: 4px;
+@base: #182c40;
+@face: #294a6b;
+@boxBg: #466788;
+@text: #b7cbe0;
 
-background: #182c40;
+// @base: darken(@boxBg, 23%);
+// @face: darken(@boxBg, 10%);
+// @boxBg: #466788;
+// @text: lighten(@boxBg, 29%);
+
+
+background: @base;
 
 content {
 	position: absolute;
@@ -11,6 +21,7 @@ content {
 	bottom: 0;
 	display: flex;
 	flex-direction: column;
+	font-size: 11px;
 	padding: @margin + 1px;
 
 	&.hide-cursor:before {
@@ -30,13 +41,15 @@ content {
 	}
 
 	.box {
-		background: #294a6b;
+		background: @face;
 		position: relative;
 		padding: @margin;
 		border-radius: 5px;
 
 		.box-body {
-			background: #466788;
+			background: @boxBg;
+			color: @text;
+			text-shadow: 0 1px 0 darken(@boxBg, 17%);
 			position: relative;
 			width: 100%;
 			height: 100%;
@@ -49,7 +62,7 @@ content {
 	}
 
 	.ball-button {
-		background: #294a6b;
+		background: @face;
 		position: relative;
 		width: 23px;
 		height: 23px;
@@ -60,7 +73,7 @@ content {
 		&.active {
 			i[class*="icon-"] {
 				background-size: 85% auto;
-				filter: brightness(5) hue-rotate(30deg) drop-shadow(0 1px 0 #335);
+				filter: brightness(5) hue-rotate(30deg) drop-shadow(0 1px 0 darken(@boxBg, 21%));
 			}
 		}
 
@@ -88,9 +101,8 @@ content {
 			bottom: -3px;
 			left: 20%;
 			right: 20%;
-			font-size: 11px;
 			font-weight: 600;
-			color: #254565;
+			color: darken(@face, 5%);
 			z-index: 3;
 			pointer-events: none;
 		}
@@ -211,11 +223,11 @@ content {
 	}
 
 	.volume {
-		background: #182c40;
+		background: @base;
 		position: relative;
 		width: 10px;
 		height: 108px;
-		border: 2px solid #294a6b;
+		border: 2px solid @face;
 		border-radius: 3px;
 		display: inline-block;
 		//vertical-align: top;
@@ -256,8 +268,8 @@ content {
 			bottom: 0;
 			right: -13px;
 			width: 7px;
-			border-top: 1px solid #294a6b;
-			border-bottom: 1px solid #294a6b;
+			border-top: 1px solid @face;
+			border-bottom: 1px solid @face;
 
 			&:before {
 				content: "0";
@@ -265,17 +277,16 @@ content {
 				top: 12%;
 				height: 1px;
 				right: -6px;
-				border-left: 5px solid #294a6b;
+				border-left: 5px solid @face;
 				padding-left: 1px;
 				line-height: .15;
-				font-size: 11px;
 				font-weight: 600;
-				color: #254565;
+				color: darken(@face, 5%);
 			}
 
 			&:after {
 				content: "";
-				background: #466788;
+				background: @boxBg;
 				position: absolute;
 				top: 12%;
 				left: -17px;
@@ -345,12 +356,12 @@ content {
 		position: relative;
 		width: 27px;
 		height: 18px;
-		background: #466788;
-		border: 2px solid #294a6b;
+		background: @boxBg;
+		border: 2px solid @face;
 		border-radius: 3px;
 		display: inline-block;
 		margin: 2px 0 2px;
-		color: #182c40;
+		color: @base;
 
 		&.activator {
 			height: 25px;
@@ -363,14 +374,13 @@ content {
 		&.solo {
 			//background: #5e7790;
 			padding-top: 1px;
-			font-size: 11px;
 		}
 
 		&.record {
 			//background: #5e7790;
 			font-size: 14px;
 			line-height: .95;
-			color: #294a6b;
+			color: @face;
 		}
 	}
 
@@ -448,7 +458,7 @@ content {
 					width: 11px;
 					border-radius: 9px;
 					background: #1d344c;
-					box-shadow: inset 0 0 0 1px #182c40;
+					box-shadow: inset 0 0 0 1px @base;
 				}
 			}
 
@@ -491,12 +501,12 @@ content {
 					.box-title {
 						height: 19px;
 						padding: 2px 0 0 3px;
-						font-size: 11px;
-						color: #b7cbe0;
-						text-shadow: 0 1px 0 #335;
+						color: @text;
+						text-shadow: 0 1px 0 darken(@boxBg, 21%);
 					}
 					.box-body {
 						flex: auto;
+						padding: 1px;
 					}
 				}
 
@@ -581,6 +591,21 @@ content {
 					}
 				}
 			}
+
+			.folder,
+			.item {
+				//background: lighten(@face, 5%);
+				padding: 4px 3px 4px 23px;
+				border-radius: 2px;
+
+				&:not(:first-child) {
+					margin-top: 1px;
+				}
+
+				&.active {
+					background: lighten(@boxBg, 5%);
+				}
+			}
 		}
 
 		.panel-right {
@@ -616,7 +641,7 @@ content {
 					width: 11px;
 					border-radius: 9px;
 					background: #1d344c;
-					box-shadow: inset 0 0 0 1px #182c40;
+					box-shadow: inset 0 0 0 1px @base;
 				}
 			}
 
@@ -680,11 +705,10 @@ content {
 				width: 100%;
 				height: 100%;
 				border-radius: 3px;
-				font-size: 11px;
 				white-space: normal;
 
 				> div {
-					background: #466788;
+					background: @boxBg;
 					margin-bottom: 1px;
 
 					&:first-child { border-radius: 3px 3px 1px 1px; }
@@ -692,9 +716,9 @@ content {
 				}
 
 				.title {
-					background: #5e7790;
-					color: #b7cbe0;
-					text-shadow: 0 1px 0 #335;
+					background: lighten(@boxBg, 4%);
+					color: @text;
+					text-shadow: 0 1px 0 darken(@boxBg, 13%);
 					height: 20px;
 					padding: 4px 5px;
 				}
@@ -706,7 +730,7 @@ content {
 					background: transparent;
 
 					> div {
-						background: #466788;
+						background: @boxBg;
 						border-radius: 1px;
 						margin-bottom: 1px;
 
@@ -787,21 +811,19 @@ content {
 
 		.foot-devices,
 		.foot-midi {
-			color: #57a;
 			cursor: pointer;
 
 			.box-body {
 				padding: 6px 10px 0;
-				text-shadow: 0 1px 0 #447;
-				color: #88aace;
+				text-shadow: 0 1px 0 darken(@boxBg, 17%);
+				color: darken(@text, 7%);
 			}
 
-			&:hover:not(.active) {
-				color: #8ac;
+			&:hover:not(.active) .box-body {
+				color: lighten(@text, 11%);
 			}
 
 			&.active {
-				color: #ddf;
 				cursor: default;
 				border-radius: 5px;
 
@@ -831,7 +853,7 @@ content {
 						transition: opacity 60ms ease 100ms;
 					}
 					.box-body {
-						background: #466788;
+						background: @boxBg;
 
 						&:before {
 							opacity: 0;
@@ -842,13 +864,13 @@ content {
 
 				.box-body {
 					background: transparent;
-					color: #b7cbe0;
-					text-shadow: 0 1px 0 #335;
+					color: @text;
+					text-shadow: 0 1px 0 darken(@boxBg, 13%);
 					padding: 6px 10px 0;
 
 					&:before {
 						content: "";
-						background: #294a6b;
+						background: @face;
 						position: absolute;
 						top: -8px;
 						left: -4px;

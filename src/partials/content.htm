@@ -4,24 +4,29 @@
 			<div class="ball-button" title="Toggle View" data-click="toggle-work-panel">
 				<i class="icon-arrow_up right"></i>
 			</div>
-			<div class="ball-button active" title="Sounds">
+			<div class="ball-button active" title="Sounds" data-click="show-sounds">
 				<i class="icon-sounds"></i>
 			</div>
-			<div class="ball-button" title="Drums">
+			<div class="ball-button" title="Drums" data-click="show-drums">
 				<i class="icon-drums"></i>
 			</div>
-			<div class="ball-button" title="Instruments">
+			<div class="ball-button" title="Instruments" data-click="show-instruments">
 				<i class="icon-instruments"></i>
 			</div>
-			<div class="ball-button" title="Audio Effects">
+			<div class="ball-button" title="Audio Effects" data-click="show-fx">
 				<i class="icon-audio_fx"></i>
 			</div>
 		</div>
 		<div class="panel-left">
-			<div class="box tree">
+			<div class="box panel-content">
 				<div class="scrollbar"></div>
-				<div class="box-body">
-					
+				<div class="panel-bodies show-sounds">
+					<div class="box-3d">
+						<div class="box-body sounds-body">Sounds</div>
+						<div class="box-body drums-body">Drums</div>
+						<div class="box-body instruments-body">Instruments</div>
+						<div class="box-body fx-body">Audio Effects</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -19,6 +19,7 @@ const jam = {
 		// fast references
 		this.content = window.find("content");
 		this.panelLeft = window.find(".panel-left");
+		this.panelBodies = window.find(".panel-bodies");
 		this.panelBottom = window.find(".panel-bottom");
 		this.footDevices = window.find(".foot-devices");
 		this.footMidi = window.find(".foot-midi");
@@ -32,6 +33,7 @@ const jam = {
 	},
 	dispatch(event) {
 		let self = jam,
+			name,
 			isOn,
 			el;
 		//console.log(event);
@@ -44,6 +46,26 @@ const jam = {
 					template: "session",
 					prepend: self.content.find(".session-wrapper")
 				});
+				break;
+			case "show-sounds":
+			case "show-drums":
+			case "show-instruments":
+			case "show-fx":
+				event.el.parent().find(".active").removeClass("active");
+				event.el.addClass("active");
+
+				name = ["from"];
+				name.push(self.panelBodies.prop("className").split("show-")[1].split(" ")[0]);
+				name.push("to");
+				name.push(event.type.split("-")[1]);
+				name = name.join("-");
+
+				self.panelBodies
+					.cssSequence(name, "animationend", el => {
+						el.parent()
+							.removeClass("show-sounds show-drums show-instruments show-fx "+ name)
+							.addClass(event.type);
+					});
 				break;
 			case "toggle-work-panel":
 				el = event.el;
@@ -63,7 +85,7 @@ const jam = {
 			case "show-device-rack":
 				event.el.addClass("active");
 				self.footMidi.removeClass("active");
-
+				// expand rack - if needed
 				el = self.rowFoot.find(".ball-button");
 				if (el.hasClass("toggled")) {
 					el.trigger("click");
@@ -72,7 +94,7 @@ const jam = {
 			case "show-midi-rack":
 				event.el.addClass("active");
 				self.footDevices.removeClass("active");
-
+				// expand rack - if needed
 				el = self.rowFoot.find(".ball-button");
 				if (el.hasClass("toggled")) {
 					el.trigger("click");

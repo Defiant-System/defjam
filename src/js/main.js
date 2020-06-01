@@ -10,6 +10,10 @@ const jam = {
 		this.footMidi = window.find(".foot-midi");
 		this.rowFoot = window.find(".row-foot");
 
+		// tag all list items with id's
+		window.bluePrint.selectNodes("//Sounds//*")
+			.map((node, i) => node.setAttribute("id", 100 + i));
+
 		// bind event handlers
 		this.content.on("mousedown", ".knob, .pan-knob", this.doKnob);
 
@@ -19,18 +23,45 @@ const jam = {
 	dispatch(event) {
 		let self = jam,
 			name,
+			value,
 			isOn,
 			el;
 		//console.log(event);
 		switch (event.type) {
 			case "render-view":
-				let data = window.bluePrint.selectSingleNode("//file");
+				window.render({
+					template: "sidebar-list",
+					data: window.bluePrint.selectSingleNode("//Sounds"),
+					append: self.sidebar.find(".sounds-body .box-body")
+				});
 
 				window.render({
-					data,
 					template: "session",
+					data: window.bluePrint.selectSingleNode("//file"),
 					prepend: self.content.find(".session-wrapper")
 				});
+				break;
+			case "preview-audio":
+				el = $(event.target);
+				if (el.prop("nodeName") === "SPAN") el.parents(".folder, .item");
+
+				if (el.hasClass("item")) {
+					el.parents(".box-body").find(".active").removeClass("active");
+					el.addClass("active");
+				} else {
+					// folder
+					if (el.hasClass("open")) {
+						el.cssSequence("!open", "transitionend", e => e.find("> div > div").html(""));
+					} else {
+						window.render({
+							template: "sidebar-list",
+							data: window.bluePrint.selectSingleNode("//data"),
+							match: `//*[@id = "${el.data("id")}"]`,
+							append: el.find("> div > div")
+						});
+						el.addClass("open");
+					}
+				}
 				break;
 			case "show-sounds":
 			case "show-drums":

@@ -1,5 +1,26 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+<xsl:template name="sidebar-list">
+	<xsl:for-each select="./*">
+		<xsl:sort order="ascending" select="@type"/>
+		<xsl:choose>
+			<xsl:when test="@type = 'folder'">
+				<div class="folder">
+					<xsl:attribute name="data-id">
+						<xsl:value-of select="@id"/>
+					</xsl:attribute>
+					<i class="icon-arrow_up"></i>
+					<span><xsl:value-of select="@name"/></span>
+					<div><div></div></div>
+				</div>
+			</xsl:when>
+			<xsl:otherwise>
+				<div class="item"><xsl:value-of select="@name"/></div>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:for-each>
+</xsl:template>
+
 <xsl:template name="session">
 	<div class="session">
 		<div class="tracks-wrapper">

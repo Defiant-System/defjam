@@ -48,7 +48,7 @@ content {
 
 		.box-body {
 			background: @boxBg;
-			color: @text;
+			color: darken(@text, 7%);
 			text-shadow: 0 1px 0 darken(@boxBg, 17%);
 			position: relative;
 			width: 100%;
@@ -506,7 +506,7 @@ content {
 					}
 					.box-body {
 						flex: auto;
-						padding: 1px 2px;
+						padding: 2px;
 					}
 				}
 
@@ -592,7 +592,6 @@ content {
 				}
 			}
 
-			.folder,
 			.item {
 				padding: 4px 3px 4px 3px;
 				border-radius: 2px;
@@ -603,43 +602,69 @@ content {
 
 				&.active {
 					background-color: lighten(@boxBg, 5%);
+					color: @text;
 				}
 			}
-			.folder {
-				&.open {
-					i {
-						transform: rotate(180deg);
-					}
-					> div {
-						display: block;
-					}
+
+			.folder {				
+				position: relative;
+				padding: 4px 3px 4px 3px;
+				box-shadow: 0 0 0 transparent;
+				transition: box-shadow 300ms ease;
+
+				&:not(:first-child) {
+					margin-top: 1px;
 				}
+
+				&.open {
+					box-shadow: 0 1px 0 transparent;
+
+					> i         { transform: rotate(180deg); }
+					> span      { color: @text; }
+					> div > div { margin-top: 0; }
+				}
+
 				i {
-					position: relative;
-					top: 2px;
-					left: 4px;
+					position: absolute;
+					top: 5px;
+					left: 7px;
 					width: 10px;
 					height: 10px;
 					transform: rotate(90deg);
-					opacity: .5;
+					filter: brightness(1.75);
 					margin-right: 7px;
+					transition: transform 100ms ease;
+				}
+
+				span {
+					position: relative;
+					display: block;
+					padding-left: 20px;
+					z-index: 2;
+
+					&:hover { color: @text; }
 				}
 
 				> div {
-					display: none;
+					position: relative;
 					padding-top: 5px;
 					margin: 0 -2px -5px;
+					overflow: hidden;
 
-					> .item {
-						background-position: 13px 50%;
-						padding-left: 33px;
+					> div {
+						margin-top: -100%;
+						transition: margin-top 290ms ease;
+
+						> .item {
+							background-position: 15px 50%;
+							padding-left: 35px;
+						}
 					}
 				}
 			}
 			.item {
 				background: url(~/icons/icon-audio.png) 3px 50% no-repeat;
 				background-size: auto 90%;
-				//background-color: lighten(@boxBg, 5%);
 				padding-left: 23px;
 			}
 		}

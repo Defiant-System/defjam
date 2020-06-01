@@ -1,0 +1,36 @@
+<file>
+	<Tracks>
+		<i name="Drums" />
+		<i name="Grand Piano" />
+		<i name="Vocals" />
+	</Tracks>
+	<IoMaster>
+		<i name="Reverb" />
+		<i name="Delay" />
+		<i name="Master" />
+	</IoMaster>
+</file>
+
+<data>
+	<Sounds>
+		<i type="folder" name="Kick">
+			<i type="item" name="A-Kick Remo" />
+			<i type="item" name="E-Kick" />
+			<i type="item" name="Kick Deep" />
+		</i>
+		<i type="folder" name="Bell">
+			<i type="item" name="Agogo" />
+			<i type="item" name="Cowbell" />
+		</i>
+		<i type="folder" name="Bongo">
+			<i type="item" name="High Open Hard" />
+			<i type="item" name="High Open Soft" />
+			<i type="item" name="Low Open Hard" />
+			<i type="item" name="Low Open Soft" />
+		</i>
+		<i type="item" name="E-Kick" />
+	</Sounds>
+	<Drums></Drums>
+	<Instruments></Instruments>
+	<AudioFx></AudioFx>
+</data>

@@ -506,7 +506,7 @@ content {
 					}
 					.box-body {
 						flex: auto;
-						padding: 1px;
+						padding: 1px 2px;
 					}
 				}
 
@@ -594,8 +594,7 @@ content {
 
 			.folder,
 			.item {
-				//background: lighten(@face, 5%);
-				padding: 4px 3px 4px 23px;
+				padding: 4px 3px 4px 3px;
 				border-radius: 2px;
 
 				&:not(:first-child) {
@@ -603,8 +602,45 @@ content {
 				}
 
 				&.active {
-					background: lighten(@boxBg, 5%);
+					background-color: lighten(@boxBg, 5%);
 				}
+			}
+			.folder {
+				&.open {
+					i {
+						transform: rotate(180deg);
+					}
+					> div {
+						display: block;
+					}
+				}
+				i {
+					position: relative;
+					top: 2px;
+					left: 4px;
+					width: 10px;
+					height: 10px;
+					transform: rotate(90deg);
+					opacity: .5;
+					margin-right: 7px;
+				}
+
+				> div {
+					display: none;
+					padding-top: 5px;
+					margin: 0 -2px -5px;
+
+					> .item {
+						background-position: 13px 50%;
+						padding-left: 33px;
+					}
+				}
+			}
+			.item {
+				background: url(~/icons/icon-audio.png) 3px 50% no-repeat;
+				background-size: auto 90%;
+				//background-color: lighten(@boxBg, 5%);
+				padding-left: 23px;
 			}
 		}
 

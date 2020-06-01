@@ -13,6 +13,74 @@
 
 <data>
 	<Sounds>
+		<i type="folder" name="Ambient &amp; Evolving">
+			<i type="item" name="All Alone Pad" />
+			<i type="item" name="Ambient Sweels" />
+			<i type="item" name="Chill Outzone" />
+			<i type="item" name="Chimes &amp; Bow" />
+			<i type="item" name="Cosmos Soundscape" />
+			<i type="item" name="Duetta" />
+		</i>
+		<i type="folder" name="Bass">
+			<i type="item" name="Analog Saw Bass" />
+			<i type="item" name="Analog Bass" />
+			<i type="item" name="Bass Floor Bounce" />
+			<i type="item" name="BBass" />
+			<i type="item" name="Bit Growl Bass" />
+			<i type="item" name="Boffner Bass" />
+			<i type="item" name="Boom Sub Bass" />
+			<i type="item" name="BSeven Bass" />
+			<i type="item" name="Burned Bass" />
+			<i type="item" name="Cinder Blast" />
+			<i type="item" name="Blub Amp Bass" />
+			<i type="item" name="Dank Moug" />
+			<i type="item" name="Deep in Dark" />
+		</i>
+		<i type="folder" name="Brass">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Effects">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Guitar &amp; Plucked">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Mallets">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Pad">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Percussive">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Piano &amp; Keys">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Strings">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Synth Keys">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Synth Lead">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Synth Misc">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Synth Rythmic">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Voices">
+			<i type="item" name="" />
+		</i>
+		<i type="folder" name="Winds">
+			<i type="item" name="" />
+		</i>
+	</Sounds>
+
+	<Drums>
 		<i type="folder" name="Kick">
 			<i type="item" name="A-Kick Remo" />
 			<i type="item" name="E-Kick" />
@@ -29,7 +97,8 @@
 			<i type="item" name="Low Open Soft" />
 		</i>
 		<i type="item" name="E-Kick" />
-	</Sounds>
+	</Drums>
+
 	<Drums></Drums>
 	<Instruments></Instruments>
 	<AudioFx></AudioFx>

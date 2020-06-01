@@ -25,6 +25,7 @@ const jam = {
 			name,
 			value,
 			isOn,
+			pEl,
 			el;
 		//console.log(event);
 		switch (event.type) {
@@ -43,22 +44,28 @@ const jam = {
 				break;
 			case "preview-audio":
 				el = $(event.target);
-				if (el.prop("nodeName") === "SPAN") el.parents(".folder, .item");
+				if (event.target === event.el[0]) return;
+				if (el.prop("nodeName") === "SPAN") el = el.parents(".folder, .item");
+				pEl = el.parents(".box-body");
 
 				if (el.hasClass("item")) {
-					el.parents(".box-body").find(".active").removeClass("active");
+					pEl.find(".active").removeClass("active");
 					el.addClass("active");
 				} else {
 					// folder
 					if (el.hasClass("open")) {
 						el.cssSequence("!open", "transitionend", e => e.find("> div > div").html(""));
 					} else {
+						// collapse previously open folder
+						pEl.find(".open span").trigger("click");
+						// render contents of folder
 						window.render({
 							template: "sidebar-list",
 							data: window.bluePrint.selectSingleNode("//data"),
 							match: `//*[@id = "${el.data("id")}"]`,
 							append: el.find("> div > div")
 						});
+						// expand folder
 						el.addClass("open");
 					}
 				}

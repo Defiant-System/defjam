@@ -1,4 +1,6 @@
 
+import { Audio } from "./modules/audio";
+
 const jam = {
 	init() {
 		// fast references
@@ -33,7 +35,7 @@ const jam = {
 				window.render({
 					template: "sidebar-list",
 					data: window.bluePrint.selectSingleNode("//Sounds"),
-					append: self.sidebar.find(".sounds-body .box-body")
+					append: self.sidebar.find(".sounds-body .box-body:first")
 				});
 
 				window.render({
@@ -41,6 +43,8 @@ const jam = {
 					data: window.bluePrint.selectSingleNode("//file"),
 					prepend: self.content.find(".session-wrapper")
 				});
+
+				Audio.visualizeFile("~/sounds/drumkit/kick.wav");
 				break;
 			case "preview-audio":
 				el = $(event.target);

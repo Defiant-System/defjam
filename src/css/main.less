@@ -452,6 +452,7 @@ content {
 				}
 
 				&:after {
+					display: none;
 					content: "";
 					position: absolute;
 					top: 9px;
@@ -506,11 +507,15 @@ content {
 						color: @text;
 						text-shadow: 0 1px 0 darken(@boxBg, 21%);
 					}
-					.box-body {
+					.box-body:not(.audio-chart) {
 						flex: auto;
 						padding: 2px;
 						overflow-x: hidden;
 						overflow-y: auto;
+					}
+					.audio-chart {
+						height: 37px;
+						margin-top: 3px;
 					}
 				}
 
@@ -695,6 +700,7 @@ content {
 				}
 
 				&:after {
+					display: none;
 					content: "";
 					position: absolute;
 					top: 9px;

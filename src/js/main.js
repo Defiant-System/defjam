@@ -50,6 +50,9 @@ const jam = {
 					data: window.bluePrint.selectSingleNode("//file"),
 					prepend: self.content.find(".session-wrapper")
 				});
+
+				let test = await Audio.visualizeFile("~/sounds/drumkit/kick.wav", self.ctx);
+				console.log(test);
 				break;
 			case "preview-audio":
 				el = $(event.target);

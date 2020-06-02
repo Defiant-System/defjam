@@ -1,16 +1,16 @@
 
 const Audio = {
-	async visualizeFile(url) {
+	async visualizeFile(url, ctx) {
 		let arrayBuffer = await $.fetch(url);
-
 		let audioContext = new AudioContext();
 		let buffer = await audioContext.decodeAudioData(arrayBuffer);
+		let data = this.visualize(buffer);
 
-		return this.visualize(buffer)
+		this.draw(ctx, data);
 	},
 	visualize(buffer) {
 		let rawData = buffer.getChannelData(0);
-		let samples = 70;
+		let samples = 96;
 		let blockSize = Math.floor(rawData.length / samples);
 		let filteredData = [];
 
@@ -27,6 +27,24 @@ const Audio = {
 		filteredData = filteredData.map(n => n * multiplier);
 
 		return filteredData;
+	},
+	draw(ctx, data) {
+		ctx.clearRect(0, 0, 1e4, 1e4);
+		ctx.save();
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = "#9eb9d5";
+		ctx.translate(0.5, 0.5);
+
+		data.map((v, x) => {
+			let y = (v * 11);
+
+			ctx.beginPath();
+			ctx.moveTo(5 + (x * 2), 15 - y);
+			ctx.lineTo(5 + (x * 2), 1 + y + 15);
+			ctx.stroke();
+		});
+		
+		ctx.restore();
 	}
 };
 

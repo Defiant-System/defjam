@@ -41,7 +41,7 @@ const jam = {
 			case "render-view":
 				window.render({
 					template: "sidebar-list",
-					data: window.bluePrint.selectSingleNode("//Sounds"),
+					data: window.bluePrint.selectSingleNode("//Drums"),
 					append: self.sidebar.find(".sounds-body .box-body:first")
 				});
 
@@ -49,21 +49,6 @@ const jam = {
 					template: "session",
 					data: window.bluePrint.selectSingleNode("//file"),
 					prepend: self.content.find(".session-wrapper")
-				});
-
-				let data = await Audio.visualizeFile("~/sounds/drumkit/kick.wav");
-
-				self.ctx.lineWidth = 1;
-				self.ctx.strokeStyle = "#9eb9d5";
-				self.ctx.translate(0.5, 0.5);
-
-				data.map((v, x) => {
-					let y = (v * 11);
-
-					self.ctx.beginPath();
-					self.ctx.moveTo(5 + (x * 2), 15 - y);
-					self.ctx.lineTo(5 + (x * 2), 1 + y + 15);
-					self.ctx.stroke();
 				});
 				break;
 			case "preview-audio":
@@ -75,6 +60,9 @@ const jam = {
 				if (el.hasClass("item")) {
 					pEl.find(".active").removeClass("active");
 					el.addClass("active");
+
+					name = "~/sounds/"+ el.data("path");
+					await Audio.visualizeFile(name, self.ctx);
 				} else {
 					// folder
 					if (el.hasClass("open")) {

@@ -15,7 +15,12 @@
 				</div>
 			</xsl:when>
 			<xsl:otherwise>
-				<div class="item"><xsl:value-of select="@name"/></div>
+				<div class="item">
+					<xsl:attribute name="data-path">
+						<xsl:value-of select="@path"/>
+					</xsl:attribute>
+					<xsl:value-of select="@name"/>
+				</div>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:for-each>

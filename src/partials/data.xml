@@ -81,22 +81,12 @@
 	</Sounds>
 
 	<Drums>
-		<i type="folder" name="Kick">
-			<i type="item" name="A-Kick Remo" />
-			<i type="item" name="E-Kick" />
-			<i type="item" name="Kick Deep" />
-		</i>
-		<i type="folder" name="Bell">
-			<i type="item" name="Agogo" />
-			<i type="item" name="Cowbell" />
-		</i>
-		<i type="folder" name="Bongo">
-			<i type="item" name="High Open Hard" />
-			<i type="item" name="High Open Soft" />
-			<i type="item" name="Low Open Hard" />
-			<i type="item" name="Low Open Soft" />
-		</i>
-		<i type="item" name="E-Kick" />
+		<i type="item" name="Hihat" path="drumkit/hihat.wav" />
+		<i type="item" name="Kick" path="drumkit/kick.wav" />
+		<i type="item" name="Snare" path="drumkit/snare.wav" />
+		<i type="item" name="Tom 1" path="drumkit/tom1.wav" />
+		<i type="item" name="Tom 2" path="drumkit/tom2.wav" />
+		<i type="item" name="Tom 3" path="drumkit/tom3.wav" />
 	</Drums>
 
 	<Drums></Drums>

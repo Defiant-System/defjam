@@ -1,7 +1,7 @@
 
 import { Audio } from "./modules/audio";
 
-const jam = {
+const defjam = {
 	init() {
 		// fast references
 		this.content = window.find("content");
@@ -30,7 +30,7 @@ const jam = {
 		this.dispatch({ type: "render-view" });
 	},
 	async dispatch(event) {
-		let self = jam,
+		let self = defjam,
 			name,
 			value,
 			isOn,
@@ -141,7 +141,7 @@ const jam = {
 		}
 	},
 	doKnob(event) {
-		let self = jam,
+		let self = defjam,
 			drag = self.drag,
 			value,
 			el;
@@ -182,4 +182,4 @@ const jam = {
 	}
 };
 
-window.exports = jam;
+window.exports = defjam;

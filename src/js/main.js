@@ -12,12 +12,7 @@ const defjam = {
 		this.footMidi = window.find(".foot-midi");
 		this.rowFoot = window.find(".row-foot");
 
-		this.cvs = window.find("canvas");
-		this.cvs.prop({
-			width: 202,
-			height: 31
-		});
-		this.ctx = this.cvs[0].getContext("2d");
+		Audio.init();
 
 		// tag all list items with id's
 		window.bluePrint.selectNodes("//Sounds//*")
@@ -51,8 +46,8 @@ const defjam = {
 					prepend: self.content.find(".session-wrapper")
 				});
 
-				let test = await Audio.visualizeFile("~/sounds/drumkit/kick.wav", self.ctx);
-				console.log(test);
+				// let test = await Audio.visualizeFile("~/sounds/drumkit/kick.wav", self.ctx);
+				// console.log(test);
 				break;
 			case "preview-audio":
 				el = $(event.target);

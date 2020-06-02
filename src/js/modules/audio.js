@@ -1,12 +1,19 @@
 
 const Audio = {
-	async visualizeFile(url, ctx) {
+	init() {
+		this.cvs = document.createElement("canvas");
+		this.ctx = this.cvs.getContext("2d");
+		this.cvs.width = 202;
+		this.cvs.height = 31;
+	},
+	async visualizeFile(url) {
 		let arrayBuffer = await $.fetch(url);
 		let audioContext = new AudioContext();
 		let buffer = await audioContext.decodeAudioData(arrayBuffer);
 		let data = this.visualize(buffer);
 
-		this.draw({ url, ctx, data });
+		url = url.slice(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +".png";
+		this.draw({ url, data });
 	},
 	visualize(buffer) {
 		let rawData = buffer.getChannelData(0);
@@ -29,35 +36,25 @@ const Audio = {
 		return filteredData;
 	},
 	draw(opt) {
-		opt.ctx.clearRect(0, 0, 1e4, 1e4);
-		opt.ctx.save();
-		opt.ctx.lineWidth = 1;
-		opt.ctx.strokeStyle = "#71a1ca";
-		opt.ctx.translate(0.5, 0.5);
-
+		this.ctx.clearRect(0, 0, 1e4, 1e4);
+		this.ctx.save();
+		this.ctx.lineWidth = 1;
+		this.ctx.strokeStyle = "#71a1ca";
+		this.ctx.translate(0.5, 0.5);
+		// iterate points
 		opt.data.map((v, x) => {
-			//let y = (v * 11);
-			// opt.ctx.beginPath();
-			// opt.ctx.moveTo(5 + (x * 2), 15 - y);
-			// opt.ctx.lineTo(5 + (x * 2), 1 + y + 15);
-			// opt.ctx.stroke();
-
 			let y = (v * 11),
 				x1 = 2 + (x * 3),
-				y1 = 16 - y,
+				y1 = 15 - y,
 				x2 = 1,
 				y2 = (y * 2);
-			opt.ctx.strokeRect(x1, y1, x2, y2);
+			this.ctx.strokeRect(x1, y1, x2, y2);
 		});
+		this.ctx.restore();
 
-		opt.ctx.restore();
-
-		// let url = "test123.png",
-		// 	uri = opt.ctx.canvas.toDataURL();
-		// defiant.cache({ url, uri });
-
-		let url = "test123.png";
-		opt.ctx.canvas.toBlob(blob => defiant.cache({ url, blob }));
+		// store wave in cache to avoid multiple renders
+		let url = opt.url;
+		this.ctx.canvas.toBlob(blob => defiant.cache.set({ url, blob }));
 	}
 };
 

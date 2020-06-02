@@ -12,6 +12,13 @@ const jam = {
 		this.footMidi = window.find(".foot-midi");
 		this.rowFoot = window.find(".row-foot");
 
+		this.cvs = window.find("canvas");
+		this.cvs.prop({
+			width: 202,
+			height: 31
+		});
+		this.ctx = this.cvs[0].getContext("2d");
+
 		// tag all list items with id's
 		window.bluePrint.selectNodes("//Sounds//*")
 			.map((node, i) => node.setAttribute("id", 100 + i));
@@ -22,7 +29,7 @@ const jam = {
 		// temp
 		this.dispatch({ type: "render-view" });
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let self = jam,
 			name,
 			value,
@@ -44,7 +51,20 @@ const jam = {
 					prepend: self.content.find(".session-wrapper")
 				});
 
-				Audio.visualizeFile("~/sounds/drumkit/kick.wav");
+				let data = await Audio.visualizeFile("~/sounds/drumkit/kick.wav");
+
+				self.ctx.lineWidth = 1;
+				self.ctx.strokeStyle = "#9eb9d5";
+				self.ctx.translate(0.5, 0.5);
+
+				data.map((v, x) => {
+					let y = (v * 11);
+
+					self.ctx.beginPath();
+					self.ctx.moveTo(5 + (x * 2), 15 - y);
+					self.ctx.lineTo(5 + (x * 2), 1 + y + 15);
+					self.ctx.stroke();
+				});
 				break;
 			case "preview-audio":
 				el = $(event.target);

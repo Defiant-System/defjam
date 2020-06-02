@@ -501,21 +501,29 @@ content {
 						&.instruments-body { transform: rotateY(-180deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
 						&.fx-body          { transform: rotateY( -90deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
 					}
+
 					.box-title {
 						height: 19px;
 						padding: 2px 0 0 3px;
 						color: @text;
 						text-shadow: 0 1px 0 darken(@boxBg, 21%);
 					}
+
 					.box-body:not(.audio-chart) {
 						flex: auto;
 						padding: 2px;
 						overflow-x: hidden;
 						overflow-y: auto;
 					}
+
 					.audio-chart {
 						height: 37px;
 						margin-top: 3px;
+
+						canvas {
+							width: 202px;
+							height: 31px;
+						}
 					}
 				}
 

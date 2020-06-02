@@ -1,7 +1,7 @@
 <Application>
 	<Head>
-		<meta name="id" value="jam"/>
-		<meta name="title" value="Jam" version="1.0"/>
+		<meta name="id" value="defjam"/>
+		<meta name="title" value="DefJam" version="1.0"/>
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
 		<meta name="width" value="1180"/>

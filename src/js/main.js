@@ -49,7 +49,8 @@ const defjam = {
 				});
 
 				// temp
-				setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
+				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
+				await defiant.cache.clear("/cache/kick.png");
 				break;
 			case "preview-audio":
 				el = $(event.target);

@@ -23,7 +23,7 @@
 	</svg>
 
 	<svg id="icon-record" viewBox="0 0 500 500">
-		<circle cx="250" cy="250" r="203"/>
+		<circle fill="#f00" cx="250" cy="250" r="203"/>
 	</svg>
 
 	<svg id="icon-loop" viewBox="0 0 500 500">

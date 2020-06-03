@@ -1,22 +1,34 @@
 
 .tools-left {
 	text-align: right;
-	padding-right: 5px;
+
+	> div:last-child {
+		margin-right: 0;
+	}
 }
 
 .timer {
+	padding-left: 13px;
+	padding-right: 13px;
+
 	.toolbar-field_ {
-		background: #333;
+		background: #182c40;
+		position: relative;
+		top: -2px;
 		border: 0;
 		border-radius: 4px;
 		box-shadow: 0 0 0;
 		height: 26px;
-		position: relative;
-		top: -2px;
+		padding: 3px 0 0;
+		font-size: 14px;
+		color: #b7cbe0;
+
+		&:before {
+			content: "12:34:56";
+		}
 	}
 }
 
 .tools-right:last-child {
 	text-align: left;
-	padding-left: 12px;
 }

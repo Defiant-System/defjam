@@ -48,8 +48,8 @@ const defjam = {
 					prepend: self.content.find(".session-wrapper")
 				});
 
-				// let test = await Audio.visualizeFile("~/sounds/drumkit/kick.wav", self.ctx);
-				// console.log(test);
+				// temp
+				setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
 				break;
 			case "preview-audio":
 				el = $(event.target);
@@ -60,12 +60,12 @@ const defjam = {
 				if (el.hasClass("item")) {
 					pEl.find(".active").removeClass("active");
 					el.addClass("active");
-
+					// update audio chart box
 					name = "~/sounds/"+ el.data("path");
 					path = await Audio.visualizeFile(name, self.ctx);
-					
-					self.audioChart.css({ "background-image": `url(${path})` });
-
+					self.audioChart
+						.css({ "background-image": `url(${path})` })
+						.cssSequence("play", "transitionend", el => el.removeClass("play"));
 				} else {
 					// folder
 					if (el.hasClass("open")) {

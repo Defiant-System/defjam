@@ -522,6 +522,23 @@ content {
 						//background-image: url(~/cache/kick.png);
 						background-position: 1px 50%;
 						background-repeat: no-repeat;
+
+						&:before {
+							opacity: 0;
+							content: "";
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							width: 0%;
+							border-right: 1px solid #71a1ca;
+							transition: width linear 600ms;
+						}
+
+						&.play:before {
+							opacity: 1;
+							width: 100%;
+						}
 					}
 				}
 
@@ -945,7 +962,7 @@ content {
 					color: @text;
 					text-shadow: 0 1px 0 darken(@boxBg, 13%);
 					box-shadow: 0 0 0;
-					padding: 6px 10px 0;
+					padding-top: 4px;
 
 					&:before {
 						content: "";

@@ -13,7 +13,13 @@ const Audio = {
 		let data = this.visualize(buffer);
 
 		url = url.slice(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +".png";
-		this.draw({ url, data });
+		let path = await defiant.cache.get(url);
+		if (!path) {
+			this.draw({ url, data });
+			path = "~/cache/"+ url;
+		}
+
+		return path;
 	},
 	visualize(buffer) {
 		let rawData = buffer.getChannelData(0);
@@ -53,8 +59,7 @@ const Audio = {
 		this.ctx.restore();
 
 		// store wave in cache to avoid multiple renders
-		let url = opt.url;
-		this.ctx.canvas.toBlob(blob => defiant.cache.set({ url, blob }));
+		this.ctx.canvas.toBlob(blob => defiant.cache.set({ url: opt.url, blob }));
 	}
 };
 

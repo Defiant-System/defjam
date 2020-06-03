@@ -7,6 +7,7 @@ const defjam = {
 		this.content = window.find("content");
 		this.panelLeft = window.find(".panel-left");
 		this.sidebar = window.find(".sidebar");
+		this.audioChart = window.find(".audio-chart");
 		this.panelBottom = window.find(".panel-bottom");
 		this.footDevices = window.find(".foot-devices");
 		this.footMidi = window.find(".foot-midi");
@@ -26,6 +27,7 @@ const defjam = {
 	},
 	async dispatch(event) {
 		let self = defjam,
+			path,
 			name,
 			value,
 			isOn,
@@ -60,7 +62,12 @@ const defjam = {
 					el.addClass("active");
 
 					name = "~/sounds/"+ el.data("path");
-					await Audio.visualizeFile(name, self.ctx);
+					path = await Audio.visualizeFile(name, self.ctx);
+					
+					setTimeout(() => {
+						self.audioChart.css({ "background-image": `url(${path})` });
+					}, 500);
+
 				} else {
 					// folder
 					if (el.hasClass("open")) {

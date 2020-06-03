@@ -64,9 +64,7 @@ const defjam = {
 					name = "~/sounds/"+ el.data("path");
 					path = await Audio.visualizeFile(name, self.ctx);
 					
-					setTimeout(() => {
-						self.audioChart.css({ "background-image": `url(${path})` });
-					}, 500);
+					self.audioChart.css({ "background-image": `url(${path})` });
 
 				} else {
 					// folder

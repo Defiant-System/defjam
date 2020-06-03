@@ -7,29 +7,29 @@ const Audio = {
 		this.cvs.height = 31;
 	},
 	async visualizeFile(url) {
-		let arrayBuffer = await $.fetch(url);
-		let audioContext = new AudioContext();
-		let buffer = await audioContext.decodeAudioData(arrayBuffer);
-		let data = this.visualize(buffer);
+		let arrayBuffer = await $.fetch(url),
+			audioContext = new AudioContext(),
+			buffer = await audioContext.decodeAudioData(arrayBuffer),
+			data = this.visualize(buffer);
 
 		url = url.slice(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +".png";
 		let path = await defiant.cache.get(url);
 		if (!path) {
-			this.draw({ url, data });
+			await this.draw({ url, data });
 			path = "~/cache/"+ url;
 		}
 
 		return path;
 	},
 	visualize(buffer) {
-		let rawData = buffer.getChannelData(0);
-		let samples = 66;
-		let blockSize = Math.floor(rawData.length / samples);
-		let filteredData = [];
+		let rawData = buffer.getChannelData(0),
+			samples = 66,
+			blockSize = Math.floor(rawData.length / samples),
+			filteredData = [];
 
 		for (let i=0; i<samples; i++) {
-			let blockStart = blockSize * i;
-			let sum = 0;
+			let blockStart = blockSize * i,
+				sum = 0;
 			for (let j=0; j<blockSize; j++) {
 				sum = sum + Math.abs(rawData[blockStart + j])
 			}
@@ -58,8 +58,13 @@ const Audio = {
 		});
 		this.ctx.restore();
 
-		// store wave in cache to avoid multiple renders
-		this.ctx.canvas.toBlob(blob => defiant.cache.set({ url: opt.url, blob }));
+		return new Promise(resolve => {
+			// store wave in cache to avoid multiple renders
+			this.ctx.canvas.toBlob(async blob => {
+				await defiant.cache.set({ url: opt.url, blob });
+				resolve();
+			});
+		});
 	}
 };
 

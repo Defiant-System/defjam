@@ -50,7 +50,11 @@ const defjam = {
 
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
-				await defiant.cache.clear("/cache/kick.png");
+				//await defiant.cache.clear("/cache/kick.png");
+				break;
+			case "play-audio":
+				self.audioChart
+					.cssSequence("play", "transitionend", el => el.removeClass("play"));
 				break;
 			case "preview-audio":
 				el = $(event.target);

@@ -59,6 +59,13 @@ content {
 		}
 	}
 
+	.space {
+		flex: auto;
+		background: darken(@boxBg, 2%);
+		border-radius: 3px;
+		box-shadow: 0 0 0;
+	}
+
 	.buttons {
 		width: 25px;
 	}
@@ -171,6 +178,17 @@ content {
 		background: url(~/icons/pan-knob.png) no-repeat;
 		background-size: 100% auto;
 
+		&:before {
+			content: "";
+			display: none;
+			position: absolute;
+			top: -3px;
+			left: 14px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-top: 5px solid @face;
+		}
+
 		&[data-value="-50"] { background-position: 0 -13px;  }
 		&[data-value="-48"] { background-position: 0 -47px; }
 		&[data-value="-46"] { background-position: 0 -81px; }
@@ -196,7 +214,7 @@ content {
 		&[data-value="-6"] { background-position: 0 -761px; }
 		&[data-value="-4"] { background-position: 0 -795px; }
 		&[data-value="-2"] { background-position: 0 -829px; }
-		&[data-value="0"] { background-position: 0 -863px; }
+		&[data-value="0"] { background-position: 0 -863px; &:before { display: block; } }
 		&[data-value="2"] { background-position: 0 -897px; }
 		&[data-value="4"] { background-position: 0 -931px; }
 		&[data-value="6"] { background-position: 0 -965px; }
@@ -762,15 +780,6 @@ content {
 							// white-space: nowrap;
 							// font-size: 0;
 							display: flex;
-
-							> .space {
-								flex: auto;
-								background: #395d82;
-								border-radius: 3px;
-								//margin-right: 3px;
-								// width: 100px;
-								// height: 100%;
-							}
 						}
 					}
 
@@ -832,7 +841,6 @@ content {
 						}
 
 						&.space {
-							flex: auto;
 							margin: 0 0 1px;
 						}
 
@@ -875,7 +883,7 @@ content {
 	}
 
 	.panel-bottom {
-		height: 170px;
+		height: 210px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -889,6 +897,15 @@ content {
 
 		.rack {
 			flex: auto;
+			display: flex;
+			
+			&.show-devices .devices-body { display: block; }
+			&.show-drumkit .drumkit-body { display: block; }
+			&.show-midi .midi-body       { display: block; }
+
+			> div {
+				display: none;
+			}
 		}
 	}
 
@@ -906,6 +923,7 @@ content {
 		}
 
 		.foot-devices,
+		.foot-drumkit,
 		.foot-midi {
 			cursor: pointer;
 
@@ -950,6 +968,7 @@ content {
 					}
 					.box-body {
 						background: @boxBg;
+						padding-top: 5px;
 
 						&:before {
 							opacity: 0;

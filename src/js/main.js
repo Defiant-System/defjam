@@ -9,8 +9,7 @@ const defjam = {
 		this.sidebar = window.find(".sidebar");
 		this.audioChart = window.find(".audio-chart");
 		this.panelBottom = window.find(".panel-bottom");
-		this.footDevices = window.find(".foot-devices");
-		this.footMidi = window.find(".foot-midi");
+		this.rack = window.find(".box.rack");
 		this.rowFoot = window.find(".row-foot");
 
 		Audio.init();
@@ -122,21 +121,18 @@ const defjam = {
 				el.toggleClass("toggled", isOn);
 				self.panelBottom.toggleClass("hide", isOn);
 
-				self.footDevices.toggleClass("hidden", isOn);
-				self.footMidi.toggleClass("hidden", isOn);
+				self.rowFoot.find(".box.active").toggleClass("hidden", isOn);
 				break;
-			case "show-device-rack":
-				event.el.addClass("active");
-				self.footMidi.removeClass("active");
-				// expand rack - if needed
-				el = self.rowFoot.find(".ball-button");
-				if (el.hasClass("toggled")) {
-					el.trigger("click");
-				}
-				break;
+			case "show-devices-rack":
+			case "show-drumkit-rack":
 			case "show-midi-rack":
+				event.el.parent().find(".box.active").removeClass("active");
 				event.el.addClass("active");
-				self.footDevices.removeClass("active");
+
+				self.rack
+					.removeClass("show-devices show-drumkit show-midi")
+					.addClass("show-"+ event.type.split("-")[1]);
+
 				// expand rack - if needed
 				el = self.rowFoot.find(".ball-button");
 				if (el.hasClass("toggled")) {

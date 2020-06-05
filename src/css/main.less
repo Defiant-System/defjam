@@ -900,7 +900,7 @@ content {
 	}
 
 	.panel-bottom {
-		height: 200px;
+		height: 195px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -944,12 +944,30 @@ content {
 		.aed-box {
 			display: flex;
 			flex-direction: column;
-			width: 420px;
+			width: 411px;
 
 			.graph {
 				background: @base;
 				border-radius: 3px;
 				height: 110px;
+				padding: 5px;
+
+				svg {
+					width: 285px;
+					height: 100px;
+
+					.shape {
+						fill: none;
+						stroke: saturate(lighten(@boxBg, 29%), 59%);
+						stroke-width: 2;
+					}
+
+					.handle {
+						fill: @base;
+						stroke: @highlight;
+						stroke-width: 2;
+					}
+				}
 			}
 
 			.controls {
@@ -958,11 +976,11 @@ content {
 
 				.knob {
 					transform: scale(.9);
-					margin-left: 11px;
+					margin-left: 7px;
 					margin-right: 11px;
 
 					&:last-child {
-						margin-left: 29px;
+						margin-left: 41px;
 					}
 				}
 			}

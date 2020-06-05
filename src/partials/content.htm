@@ -63,7 +63,15 @@
 			<div class="devices-body">
 				<div class="box-body aed-box">
 					<div class="title">Amplitude Envelope Display</div>
-					<div class="graph"></div>
+					<div class="graph">
+						<svg class="envelope-visualizer" viewBox="0 0 285 100">
+							<path class="shape" d="M5,95C5,5,5,5,50,5c0,45,32,45,120,45c0,23,19,45,115,45"></path>
+							<circle class="handle attack" cx="50" cy="5" r="4"></circle>
+							<circle class="handle decay" cx="136" cy="50" r="4"></circle>
+							<circle class="handle release" cx="280" cy="95" r="4"></circle>
+							-->
+						</svg>
+					</div>
 					<div class="controls">
 						<div class="knob" data-value="34" data-title="Attack"></div>
 						<div class="knob" data-value="66" data-title="Decay"></div>

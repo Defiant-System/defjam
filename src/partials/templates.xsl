@@ -64,8 +64,8 @@
 				</div>
 				<div class="io"></div>
 				<div class="sends">
-					<div class="knob" data-value="0" data-label="A"><div></div></div>
-					<div class="knob" data-value="0" data-label="B"><div></div></div>
+					<div class="knob" data-value="0" data-label="A"></div>
+					<div class="knob" data-value="0" data-label="B"></div>
 				</div>
 				<div class="mixer">
 					<div>

@@ -59,9 +59,22 @@
 		</div>
 	</div>
 	<div class="panel-bottom">
-		<div class="box rack show-drumkit">
+		<div class="box rack show-devices">
 			<div class="devices-body">
-				<div class="box-body"></div>
+				<div class="box-body aed-box">
+					<div class="title">Amplitude Envelope Display</div>
+					<div class="graph"></div>
+					<div class="controls">
+						<div class="knob" data-value="34" data-title="Attack"></div>
+						<div class="knob" data-value="66" data-title="Decay"></div>
+						<div class="knob" data-value="84" data-title="Sustain"></div>
+						<div class="knob" data-value="48" data-title="Release"></div>
+						<div class="knob" data-value="80" data-title="Volume"></div>
+					</div>
+				</div>
+				<div class="box-body">
+					
+				</div>
 			</div>
 			<div class="drumkit-body">
 				<div class="box-body controls"></div>
@@ -131,8 +144,8 @@
 				
 			</div>
 		</div>
-		<div class="box foot-devices" data-click="show-devices-rack"><div class="box-body">Devices</div></div>
-		<div class="box foot-drumkit active" data-click="show-drumkit-rack"><div class="box-body">Drumkit</div></div>
+		<div class="box foot-devices active" data-click="show-devices-rack"><div class="box-body">Devices</div></div>
+		<div class="box foot-drumkit" data-click="show-drumkit-rack"><div class="box-body">Drumkit</div></div>
 		<div class="box foot-midi" data-click="show-midi-rack"><div class="box-body">Midi</div></div>
 		<div class="buttons">
 			<div class="ball-button" title="Toggle View" data-click="toggle-rack-panel">

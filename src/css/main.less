@@ -103,16 +103,30 @@ content {
 		margin: 1px 3px 0;
 		background: url(~/icons/knob.png) no-repeat;
 		background-size: 100% auto;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 10px;
+		font-weight: 100;
+		color: darken(@face, 2%);
+		text-shadow: 0 0 0;
 		//background-color: rgba(0,0,0,.1);
 
-		&:before {
+		&[data-label]:before {
 			content: attr(data-label);
 			position: absolute;
 			bottom: -3px;
-			left: 20%;
-			right: 20%;
-			font-weight: 600;
-			color: darken(@face, 5%);
+			left: 0;
+			right: 0;
+			z-index: 3;
+			pointer-events: none;
+		}
+
+		&[data-title]:before {
+			content: attr(data-title);
+			position: absolute;
+			bottom: -11px;
+			left: -11px;
+			right: -11px;
 			z-index: 3;
 			pointer-events: none;
 		}
@@ -886,7 +900,7 @@ content {
 	}
 
 	.panel-bottom {
-		height: 210px;
+		height: 200px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -912,8 +926,44 @@ content {
 				display: none;
 				flex: auto;
 
-				> div:not(:first-child) {
-					margin-left: 3px;
+				> div {
+					padding: 5px;
+					
+					&:not(:first-child) {
+						margin-left: 3px;
+					}
+
+					> .title {
+						height: 19px;
+						padding: 1px 0 0 2px;
+					}
+				}
+			}
+		}
+
+		.aed-box {
+			display: flex;
+			flex-direction: column;
+			width: 420px;
+
+			.graph {
+				background: @base;
+				border-radius: 3px;
+				height: 110px;
+			}
+
+			.controls {
+				padding: 4px 0 0;
+				display: flex;
+
+				.knob {
+					transform: scale(.9);
+					margin-left: 11px;
+					margin-right: 11px;
+
+					&:last-child {
+						margin-left: 29px;
+					}
 				}
 			}
 		}
@@ -925,6 +975,7 @@ content {
 			.sequencer {
 				flex: auto;
 				display: flex;
+				padding: 0;
 
 				.instruments {
 					width: 140px;

@@ -919,57 +919,98 @@ content {
 
 		.drumkit-body {
 			.controls {
-				width: 350px;
+				width: 220px;
 			}
 			.sequencer {
 				flex: auto;
+				display: flex;
 
-				.row {
+				.instruments {
+					width: 140px;
 					display: flex;
-					margin-bottom: 1px;
+					flex-direction: column;
 
-					&:first-child {
-						.step:nth-child(4n + 1) {
-							border-radius: 3px 0 0 0;
-						}
-
-						.step:nth-child(4n) {
-							border-radius: 0 3px 0 0;
-						}
+					.head { border-radius: 3px 0 0 0; }
+					.body { border-radius: 0 0 0 3px; }
+					.row {
+						padding: 5px 5px 6px 7px;
+						border-bottom: 1px solid @face;
+						font-size: 11px;
 					}
-					&:last-child {
-						.step:nth-child(4n + 1) {
-							border-radius: 0 0 0 3px;
-						}
-
-						.step:nth-child(4n) {
-							border-radius: 0 0 3px 0;
-						}
-					}
-				}
-
-				.name {
-					background: @boxBg;
-					width: 131px;
-					padding: 6px 0 0 6px;
-					border-radius: 3px 0 0 3px;
-					margin-right: 2px;
 				}
 
 				.steps {
-					flex: auto;
+					flex: 1;
 					display: flex;
+					flex-direction: column;
+
+					.head { border-radius: 0 3px 0 0; }
+					.body { border-radius: 0 0 3px 0; }
 				}
 
-				.step {
+				.head {
+					height: 17px;
 					background: @boxBg;
-					border-radius: 0;
-					margin: 0 1px 0 0;
-					height: 23px;
-					width: 37px;
+					margin-bottom: 1px;
+					font-size: 0;
 
-					&:nth-child(4n) {
-						margin-right: 2px;
+					.step {
+						position: relative;
+						display: inline-block;
+						width: 47px;
+						height: 100%;
+						border: 0;
+						border-right: 1px solid transparent;
+
+						&:nth-child(4n + 1) {
+							border-left: 1px solid @face;
+						}
+						&:nth-child(4n) {
+							border-right-color: @face;
+						}
+						&:first-child {
+							border-left-width: 2px;
+						}
+						&:last-child {
+							border-right: 1px solid @face;
+						}
+						&:before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 8px;
+							height: 8px;
+							margin: -4px 0 0 -4px;
+							border-radius: 50%;
+							background: @face;
+						}
+					}
+				}
+				
+				.body {
+					flex: 1;
+					background: @boxBg;
+				}
+
+				.row {
+					height: 23px;
+					font-size: 0;
+
+					.step {
+						display: inline-block;
+						width: 47px;
+						height: 100%;
+						border-right: 1px solid @face;
+						border-bottom: 1px solid @face;
+						font: 12px;
+
+						&:nth-child(4n + 1) {
+							border-left: 1px solid @face;
+						}
+						&:first-child {
+							border-left-width: 2px;
+						}
 					}
 				}
 			}

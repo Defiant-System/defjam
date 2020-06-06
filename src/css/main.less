@@ -937,12 +937,13 @@ content {
 						height: 17px;
 						padding: 0 5px;
 						border-bottom: 1px solid @face;
-						margin: 0 -5px 5px;
+						margin: -1px -5px 5px;
 					}
 				}
 			}
 		}
 
+		.sd-box,
 		.aed-box,
 		.fr-box {
 			display: flex;
@@ -953,7 +954,13 @@ content {
 				border-radius: 3px;
 				padding: 4px;
 
+				.sample {
+					//background: red;
+				}
+
 				svg {
+					//background: red;
+
 					.shape {
 						fill: none;
 						stroke: saturate(lighten(@boxBg, 29%), 59%);
@@ -1011,11 +1018,10 @@ content {
 		}
 
 		.fr-box {
-			width: 220px;
+			width: 222px;
 
 			.graph {
 				svg {
-					//background: red;
 					width: 204px;
 					height: 70px;
 				}
@@ -1029,6 +1035,18 @@ content {
 				svg {
 					width: 321px;
 					height: 70px;
+				}
+			}
+		}
+
+		.sd-box {
+			width: 480px;
+
+			.graph {
+				.sample {
+					background: url(~/cache/snare.png) 50% 50%/contain no-repeat;
+					width: 460px;
+					height: 71px;
 				}
 			}
 		}

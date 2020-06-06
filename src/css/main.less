@@ -1012,7 +1012,7 @@ content {
 				}
 
 				.knob {
-					transform: scale(.95);
+					transform: scale(.85);
 				}
 			}
 		}
@@ -1023,7 +1023,7 @@ content {
 			.graph {
 				svg {
 					width: 204px;
-					height: 70px;
+					height: 75px;
 				}
 			}
 		}
@@ -1034,7 +1034,7 @@ content {
 			.graph {
 				svg {
 					width: 321px;
-					height: 70px;
+					height: 75px;
 				}
 			}
 		}
@@ -1046,9 +1046,20 @@ content {
 				.sample {
 					background: url(~/cache/snare.png) 50% 50%/contain no-repeat;
 					width: 460px;
-					height: 71px;
+					height: 76px;
 				}
 			}
+			.controls {
+				> div {
+					&:first-child {
+						flex: auto;
+					}
+					&:last-child {
+						flex: initial;
+					}
+				}
+			}
+
 		}
 
 		.drumkit-body {

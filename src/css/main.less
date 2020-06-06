@@ -900,7 +900,7 @@ content {
 	}
 
 	.panel-bottom {
-		height: 195px;
+		height: 183px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -934,32 +934,30 @@ content {
 					}
 
 					> .title {
-						height: 19px;
-						padding: 1px 0 0 2px;
+						height: 17px;
+						padding: 0 5px;
+						border-bottom: 1px solid @face;
+						margin: 0 -5px 5px;
 					}
 				}
 			}
 		}
 
-		.aed-box {
+		.aed-box,
+		.fr-box {
 			display: flex;
 			flex-direction: column;
-			width: 411px;
 
 			.graph {
 				background: @base;
 				border-radius: 3px;
-				height: 110px;
-				padding: 5px;
+				padding: 4px;
 
 				svg {
-					width: 285px;
-					height: 100px;
-
 					.shape {
 						fill: none;
 						stroke: saturate(lighten(@boxBg, 29%), 59%);
-						stroke-width: 2;
+						stroke-width: 1.5;
 					}
 
 					.handle {
@@ -968,20 +966,69 @@ content {
 						stroke-width: 2;
 					}
 				}
+
+				.values {
+					border-top: 1px solid @face;
+					height: 13px;
+					margin-top: 3px;
+				}
 			}
 
 			.controls {
-				padding: 4px 0 0;
+				padding: 3px 0 0;
 				display: flex;
 
-				.knob {
-					transform: scale(.9);
-					margin-left: 7px;
-					margin-right: 11px;
+				> div {
+					position: relative;
+					margin-right: 17px;
 
 					&:last-child {
-						margin-left: 41px;
+						flex: auto;
+						margin-right: 0;
+						text-align: right;
+
+						> span {
+							left: auto;
+							width: 40px;
+						}
 					}
+
+					> span {
+						position: absolute;
+						top: -16px;
+						left: 0;
+						right: 0;
+						font-size: 10px;
+						text-align: center;
+						color: lighten(@boxBg, 7%);
+					}
+				}
+
+				.knob {
+					transform: scale(.95);
+				}
+			}
+		}
+
+		.fr-box {
+			width: 220px;
+
+			.graph {
+				svg {
+					//background: red;
+					width: 204px;
+					height: 70px;
+				}
+			}
+		}
+
+		.aed-box {
+			width: 339px;
+
+			.graph {
+				svg {
+					width: 321px;
+					height: 70px;
 				}
 			}
 		}

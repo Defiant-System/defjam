@@ -6,24 +6,23 @@ const Audio = {
 		this.cvs.width = 202;
 		this.cvs.height = 31;
 	},
-	async visualizeFile(url) {
-		let arrayBuffer = await $.fetch(url),
+	async visualizeFile(options) {
+		let arrayBuffer = await $.fetch(options.url),
 			audioContext = new AudioContext(),
 			buffer = await audioContext.decodeAudioData(arrayBuffer),
-			data = this.visualize(buffer);
+			data = this.visualize(buffer, Math.floor(options.width / 3));
 
-		url = url.slice(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +".png";
+		let url = options.url.slice(options.url.lastIndexOf("/") + 1, options.url.lastIndexOf(".")) +".png";
 		let path = await defiant.cache.get(url);
 		if (!path) {
-			await this.draw({ url, data });
+			await this.draw({ ...options, url, data });
 			path = "~/cache/"+ url;
 		}
 
 		return path;
 	},
-	visualize(buffer) {
+	visualize(buffer, samples) {
 		let rawData = buffer.getChannelData(0),
-			samples = 66,
 			blockSize = Math.floor(rawData.length / samples),
 			filteredData = [];
 
@@ -41,17 +40,22 @@ const Audio = {
 
 		return filteredData;
 	},
-	draw(opt) {
-		this.ctx.clearRect(0, 0, 1e4, 1e4);
+	draw(options) {
+		this.cvs.width = options.width;
+		this.cvs.height = options.height;
+		this.ctx.clearRect(0, 0, options.width, options.height);
+		
 		this.ctx.save();
 		this.ctx.lineWidth = 1;
 		this.ctx.strokeStyle = "#71a1ca";
 		this.ctx.translate(0.5, 0.5);
+
 		// iterate points
-		opt.data.map((v, x) => {
-			let y = (v * 11),
+		let h = Math.floor(options.height / 2);
+		options.data.map((v, x) => {
+			let y = (v * (h - 4)),
 				x1 = 2 + (x * 3),
-				y1 = 15 - y,
+				y1 = h - y,
 				x2 = 1,
 				y2 = (y * 2);
 			this.ctx.strokeRect(x1, y1, x2, y2);
@@ -61,7 +65,7 @@ const Audio = {
 		return new Promise(resolve => {
 			// store wave in cache to avoid multiple renders
 			this.ctx.canvas.toBlob(async blob => {
-				await defiant.cache.set({ url: opt.url, blob });
+				await defiant.cache.set({ url: options.url, blob });
 				resolve();
 			});
 		});

@@ -27,6 +27,7 @@ const defjam = {
 	async dispatch(event) {
 		let self = defjam,
 			path,
+			url,
 			name,
 			value,
 			isOn,
@@ -49,7 +50,14 @@ const defjam = {
 
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
-				//await defiant.cache.clear("/cache/kick.png");
+				//await defiant.cache.clear();
+				
+				//await defiant.cache.clear("/cache/snare.png");
+				await Audio.visualizeFile({
+					url: "~/sounds/drumkit/kick.wav",
+					width: 480,
+					height: 76
+				});
 				break;
 			case "play-audio":
 				self.audioChart
@@ -65,8 +73,8 @@ const defjam = {
 					pEl.find(".active").removeClass("active");
 					el.addClass("active");
 					// update audio chart box
-					name = "~/sounds/"+ el.data("path");
-					path = await Audio.visualizeFile(name, self.ctx);
+					url = "~/sounds/"+ el.data("path");
+					path = await Audio.visualizeFile({ url, width: 202, height: 31 });
 					self.audioChart
 						.css({ "background-image": `url(${path})` })
 						.cssSequence("play", "transitionend", el => el.removeClass("play"));

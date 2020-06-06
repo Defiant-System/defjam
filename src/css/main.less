@@ -935,7 +935,7 @@ content {
 
 					> .title {
 						height: 17px;
-						padding: 0 5px;
+						padding: 0 5px 5px;
 						border-bottom: 1px solid @face;
 						margin: -1px -5px 5px;
 					}
@@ -964,7 +964,7 @@ content {
 					.shape {
 						fill: none;
 						stroke: saturate(lighten(@boxBg, 29%), 59%);
-						stroke-width: 1.5;
+						stroke-width: 1.75;
 					}
 
 					.handle {
@@ -989,18 +989,17 @@ content {
 					position: relative;
 					margin-right: 17px;
 
-					&:last-child {
+					&.space {
 						flex: auto;
-						margin-right: 0;
-						text-align: right;
-
-						> span {
-							left: auto;
-							width: 40px;
-						}
+						background: transparent;
+						margin: 0;
 					}
 
-					> span {
+					&:last-child {
+						margin: 0;
+					}
+
+					span {
 						position: absolute;
 						top: -16px;
 						left: 0;
@@ -1008,6 +1007,17 @@ content {
 						font-size: 10px;
 						text-align: center;
 						color: lighten(@boxBg, 7%);
+					}
+
+					label {
+						position: relative;
+						top: -2px;
+						display: block;
+						color: darken(@face, 3%);
+						font-size: 9px;
+						text-align: center;
+						text-transform: uppercase;
+						text-shadow: 0 0 0;
 					}
 				}
 
@@ -1044,22 +1054,11 @@ content {
 
 			.graph {
 				.sample {
-					background: url(~/cache/snare.png) 50% 50%/contain no-repeat;
+					background: url(~/cache/kick.png) 0 50% no-repeat;
 					width: 460px;
 					height: 76px;
 				}
 			}
-			.controls {
-				> div {
-					&:first-child {
-						flex: auto;
-					}
-					&:last-child {
-						flex: initial;
-					}
-				}
-			}
-
 		}
 
 		.drumkit-body {

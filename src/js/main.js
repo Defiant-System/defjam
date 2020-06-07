@@ -1,4 +1,5 @@
 
+import { EventHandlers } from "./modules/eventHandlers";
 import { Audio } from "./modules/audio";
 
 const defjam = {
@@ -12,14 +13,12 @@ const defjam = {
 		this.rack = window.find(".box.rack");
 		this.rowFoot = window.find(".row-foot");
 
+		EventHandlers.init();
 		Audio.init();
 
 		// tag all list items with id's
 		window.bluePrint.selectNodes("//Sounds//*")
 			.map((node, i) => node.setAttribute("id", 100 + i));
-
-		// bind event handlers
-		this.content.on("mousedown", ".knob, .pan-knob", this.doKnob);
 
 		// temp
 		this.dispatch({ type: "render-view" });
@@ -65,10 +64,10 @@ const defjam = {
 					prepend: self.content.find(".devices-body")
 				});
 
-				window.render({
-					template: "device-sd",
-					prepend: self.content.find(".devices-body")
-				});
+				// window.render({
+				// 	template: "device-sd",
+				// 	prepend: self.content.find(".devices-body")
+				// });
 
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
@@ -78,7 +77,7 @@ const defjam = {
 				// await Audio.visualizeFile({
 				// 	url: "~/sounds/drumkit/kick.wav",
 				// 	width: 480,
-				// 	height: 76
+				// 	height: 74
 				// });
 				break;
 			case "play-audio":
@@ -168,46 +167,6 @@ const defjam = {
 				if (el.hasClass("toggled")) {
 					el.trigger("click");
 				}
-				break;
-		}
-	},
-	doKnob(event) {
-		let self = defjam,
-			drag = self.drag,
-			value,
-			el;
-		switch (event.type) {
-			case "mousedown":
-				// prevent default behaviour
-				event.preventDefault();
-
-				el = $(event.target);
-				value = +el.data("value");
-
-				self.drag = {
-					el,
-					value,
-					clientY: event.clientY,
-					clientX: event.clientX,
-					min: el.hasClass("pan-knob") ? -50 : 0,
-					max: el.hasClass("pan-knob") ? 50 : 100,
-				};
-				// bind event handlers
-				self.content
-					.addClass("hide-cursor")
-					.on("mousemove mouseup", self.doKnob);
-				break;
-			case "mousemove":
-				value = ((drag.clientY - event.clientY) * 2) + drag.value;
-				value = Math.min(Math.max(value, drag.min), drag.max);
-				value -= value % 2;
-				drag.el.data({ value });
-				break;
-			case "mouseup":
-				// unbind event handlers
-				self.content
-					.removeClass("hide-cursor")
-					.off("mousemove mouseup", self.doKnob);
 				break;
 		}
 	}

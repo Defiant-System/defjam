@@ -959,7 +959,7 @@ content {
 				}
 
 				svg {
-					//background: red;
+					//background: rgba(255,255,255,.1);
 
 					.shape {
 						fill: none;
@@ -971,6 +971,9 @@ content {
 						fill: @base;
 						stroke: @highlight;
 						stroke-width: 2;
+						cursor: pointer;
+
+						&.on { fill: @highlight; }
 					}
 				}
 
@@ -1055,6 +1058,7 @@ content {
 			.graph {
 				.sample {
 					background: url(~/cache/kick.png) 0 50% no-repeat;
+					margin-top: -1px;
 					width: 460px;
 					height: 76px;
 				}

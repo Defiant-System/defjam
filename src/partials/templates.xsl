@@ -141,21 +141,21 @@
 	<div class="box-body fr-box">
 		<div class="title">Frequency Response</div>
 		<div class="graph">
-			<svg class="visualizer" viewBox="0 0 244 70">
-				<path class="shape" d="M41,105c45-45,53-79,73-79c21,0,31,25,135,25"/>
-				<circle class="handle attack" cx="112" cy="40" r="4"></circle>
+			<svg class="visualizer" viewBox="0 0 204 75">
+				<path class="shape" d="M41,75c45-45 53-60 80-60c30,0 10,30 90,30"/>
+				<circle class="handle filter" cx="112" cy="40" r="4" data-conn="frequence;5;199;response;5;70"></circle>
 			</svg>
 			<div class="values"></div>
 		</div>
 		<div class="controls">
 			<div>
 				<span>12Hz</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob frequence" data-value="0"></div>
 				<label title="Frequency">Freq</label>
 			</div>
 			<div>
 				<span>32%</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob response" data-value="0"></div>
 				<label title="Response">Resp</label>
 			</div>
 			<div class="space"></div>
@@ -167,33 +167,33 @@
 	<div class="box-body aed-box">
 		<div class="title">Amplitude Envelope Display</div>
 		<div class="graph">
-			<svg class="visualizer" viewBox="0 0 321 70">
-				<path class="shape" d="M6,80C6,6,6,6,50,6c0,31,32,31,140,31c0,28,19,28,126,28"></path>
-				<circle class="handle attack" cx="50" cy="6" r="4"></circle>
-				<circle class="handle decay" cx="135" cy="37" r="4"></circle>
-				<circle class="handle release" cx="315" cy="65" r="4"></circle>
+			<svg class="visualizer" viewBox="0 0 321 75">
+				<path class="shape" d="M6,70C6,6,6,6,50,6c0,31,32,31,140,31c0,28,19,28,126,28"></path>
+				<circle class="handle attack" cx="50" cy="5" r="4" data-conn="attack;5;107"></circle>
+				<circle class="handle decsus" cx="135" cy="37" r="4" data-conn="decay;107;214;sustain;5;70"></circle>
+				<circle class="handle release" cx="316" cy="70" r="4" data-conn="release;214;316"></circle>
 			</svg>
 			<div class="values"></div>
 		</div>
 		<div class="controls">
 			<div>
 				<span>12s</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob attack" data-value="0" data-conn="attack"></div>
 				<label title="Attack">Att</label>
 			</div>
 			<div>
 				<span>32s</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob decay" data-value="0" data-conn="decsus"></div>
 				<label title="Decay">Dec</label>
 			</div>
 			<div>
 				<span>52dB</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob sustain" data-value="0" data-conn="decsus"></div>
 				<label title="Sustain">Sust</label>
 			</div>
 			<div>
 				<span>34s</span>
-				<div class="knob" data-value="0"></div>
+				<div class="knob release" data-value="0" data-conn="release"></div>
 				<label title="Release">Rel</label>
 			</div>
 			<div class="space"></div>

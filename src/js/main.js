@@ -48,16 +48,38 @@ const defjam = {
 					prepend: self.content.find(".session-wrapper")
 				});
 
+				// rendering drumkit
+				window.render({
+					template: "rack-drumkit",
+					prepend: self.content.find(".drumkit-body")
+				});
+
+				// rendering devices
+				window.render({
+					template: "device-aed",
+					prepend: self.content.find(".devices-body")
+				});
+
+				window.render({
+					template: "device-fr",
+					prepend: self.content.find(".devices-body")
+				});
+
+				window.render({
+					template: "device-sd",
+					prepend: self.content.find(".devices-body")
+				});
+
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
 				//await defiant.cache.clear();
 				
 				//await defiant.cache.clear("/cache/snare.png");
-				await Audio.visualizeFile({
-					url: "~/sounds/drumkit/kick.wav",
-					width: 480,
-					height: 76
-				});
+				// await Audio.visualizeFile({
+				// 	url: "~/sounds/drumkit/kick.wav",
+				// 	width: 480,
+				// 	height: 76
+				// });
 				break;
 			case "play-audio":
 				self.audioChart

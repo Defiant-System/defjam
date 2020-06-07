@@ -1062,13 +1062,22 @@ content {
 		}
 
 		.drumkit-body {
+			display: block;
+
+			.rack-drumkit {
+				display: flex;
+				padding: 0;
+			}
+
 			.controls {
 				width: 220px;
 			}
+
 			.sequencer {
 				flex: auto;
 				display: flex;
 				padding: 0;
+				margin-left: 3px;
 
 				.instruments {
 					width: 140px;

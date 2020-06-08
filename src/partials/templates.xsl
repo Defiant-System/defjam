@@ -141,9 +141,13 @@
 	<div class="box-body fr-box">
 		<div class="title">Frequency Response</div>
 		<div class="graph">
-			<svg class="visualizer" viewBox="0 0 204 75">
-				<path class="shape" d="M41,75c45-45 53-60 80-60c30,0 10,30 90,30"/>
-				<circle class="handle filter" cx="112" cy="40" r="4" data-conn="frequence;5;199;response;5;70"></circle>
+			<svg class="visualizer" viewBox="0 0 204 89" data-curve="fr">
+				<line class="line" x1="0" y1="44.5" x2="204" y2="44.5"/>
+				<line class="line" x1="31" y1="0" x2="31" y2="89"/>
+				<line class="line" x1="102" y1="0" x2="102" y2="89"/>
+				<line class="line" x1="173" y1="0" x2="173" y2="89"/>
+				<path class="shape" />
+				<circle class="handle filter" cx="112" cy="40" r="4" data-conn="frequence;5;199;response;5;89"></circle>
 			</svg>
 			<div class="values"></div>
 		</div>
@@ -167,10 +171,10 @@
 	<div class="box-body aed-box">
 		<div class="title">Amplitude Envelope Display</div>
 		<div class="graph">
-			<svg class="visualizer" viewBox="0 0 321 75">
-				<path class="shape" d="M6,70C6,6,6,6,50,6c0,31,32,31,140,31c0,28,19,28,126,28"></path>
+			<svg class="visualizer" viewBox="0 0 321 89" data-curve="adsr">
+				<path class="shape" d="M5,75C5,5 5,5 50,5c0,31 32,31 140,31c0,35 19,35 126,35"></path>
 				<circle class="handle attack" cx="50" cy="5" r="4" data-conn="attack;5;107"></circle>
-				<circle class="handle decsus" cx="135" cy="37" r="4" data-conn="decay;107;214;sustain;5;70"></circle>
+				<circle class="handle decsus" cx="135" cy="37" r="4" data-conn="decay;107;214;sustain;5;75"></circle>
 				<circle class="handle release" cx="316" cy="70" r="4" data-conn="release;214;316"></circle>
 			</svg>
 			<div class="values"></div>

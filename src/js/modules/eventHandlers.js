@@ -124,7 +124,7 @@ const EventHandlers = {
 				cy = Math.min(Math.max(drag.cY + event.clientY - drag.clientY, drag.min.y), drag.max.y);
 				drag.el.attr({ cx, cy });
 
-				value = drag.points.map(p => [p.getAttribute("cx"), p.getAttribute("cy")]);
+				value = drag.points.map(p => [+p.getAttribute("cx"), +p.getAttribute("cy")]);
 				//console.log({ d: drag.curve(value) }.d);
 				drag.shape.attr({ d: drag.curve(value) });
 
@@ -158,7 +158,7 @@ const Shapes = {
 			y = value[0][1],
 			r = ["M"];
 
-		r.push(41, 89);
+		r.push(43, 89);
 
 		r.push("C", 54, 76);
 		r.push(75, 55);
@@ -175,10 +175,27 @@ const Shapes = {
 		return r.join(" ");
 	},
 	adsr(value) {
-		let h = 89,
+		let h = 75,
 			w = 321,
 			r = ["M", 5, h];
-		r = r.concat(value.map(p => p));
+		//r = r.concat(value.map(p => p));
+
+		r.push("C", 5, 5);
+		r.push(Math.max(value[0][0] * .2, 5), 5);
+		r.push(value[0]); // anchor
+
+		r.push("C", value[0][0] + 10, value[1][1]);
+		r.push(value[0][0] + 10, value[1][1]);
+		r.push(value[1]); // anchor
+
+		r.push("C", 135, value[1][1]);
+		r.push(135, value[1][1]);
+		r.push((w / 3) * 2, value[1][1]); // anchor
+
+		r.push("C", (w / 3) * 2, 70);
+		r.push(((w / 3) * 2) + 20, 70);
+		r.push(value[2]); // anchor
+
 		return r.join(" ");
 		//return `M5,89C5,5 5,5 ${value[0][0]},${value[0][1]}c0,31 32,31 140,31c0,49 19,49 126,49`;
 	}

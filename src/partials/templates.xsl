@@ -167,16 +167,21 @@
 	</div>
 </xsl:template>
 
-<xsl:template name="device-aed">
-	<div class="box-body aed-box">
+<xsl:template name="device-adsr">
+	<div class="box-body adsr-box">
 		<div class="title">Amplitude Envelope Display</div>
 		<div class="graph">
-			<svg class="visualizer" viewBox="0 0 321 89" data-curve="adsr">
-				<path class="shape" d="M5,75C5,5 5,5 50,5c0,31 32,31 140,31c0,35 19,35 126,35"></path>
+			<svg class="visualizer" viewBox="0 0 321 69" data-curve="adsr">
+				<path class="shape"></path>
 				<circle class="handle attack" cx="50" cy="5" r="4" data-conn="attack;5;107"></circle>
-				<circle class="handle decsus" cx="135" cy="37" r="4" data-conn="decay;107;214;sustain;5;70"></circle>
-				<circle class="handle release" cx="316" cy="70" r="4" data-conn="release;214;316"></circle>
+				<circle class="handle decsus" cx="135" cy="37" r="4" data-conn="decay;107;214;sustain;5;64"></circle>
+				<circle class="handle release" cx="316" cy="64" r="4" data-conn="release;214;316"></circle>
 			</svg>
+			<div class="options">
+				<div>Attack: <i class="icon-curve_bounce"></i></div>
+				<div>Decay: <i class="icon-curve_decay_exponential"></i></div>
+				<div>Release: <i class="icon-curve_decay_bounce"></i></div>
+			</div>
 			<div class="values"></div>
 		</div>
 		<div class="controls">
@@ -202,8 +207,8 @@
 			</div>
 			<div class="space"></div>
 			<div>
-				<span>90%</span>
-				<div class="knob" data-value="0"></div>
+				<span>4.00dB</span>
+				<div class="knob" data-value="50"></div>
 				<label title="Volume">Vol</label>
 			</div>
 		</div>

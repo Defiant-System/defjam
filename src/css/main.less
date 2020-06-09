@@ -944,7 +944,7 @@ content {
 		}
 
 		.sd-box,
-		.aed-box,
+		.adsr-box,
 		.fr-box {
 			display: flex;
 			flex-direction: column;
@@ -969,7 +969,7 @@ content {
 					.shape {
 						fill: none;
 						stroke: saturate(lighten(@boxBg, 29%), 59%);
-						stroke-width: 1.75;
+						stroke-width: 1.5;
 					}
 
 					.handle {
@@ -979,6 +979,55 @@ content {
 						cursor: pointer;
 
 						&.on { fill: @highlight; }
+					}
+				}
+
+				.options {
+					display: flex;
+					justify-content: space-between;
+					height: 16px;
+					margin-top: 1px;
+					padding-top: 2px;
+					text-transform: uppercase;
+					font-size: 9px;
+					color: lighten(@boxBg, 7%);
+					border-top: 1px solid @face;
+
+					div {
+						padding-top: 3px;
+						padding: 3px 8px 0 5px;
+						height: 16px;
+					}
+
+					i {
+						background-position: 50% 50%;
+						background-size: 90% auto;
+						background-repeat: no-repeat;
+						display: inline-block;
+						width: 14px;
+						height: 14px;
+						vertical-align: top;
+						position: relative;
+						top: -2px;
+						left: 3px;
+						border: 1px solid darken(@face, 5%);
+						border-radius: 3px;
+
+						&.icon-curve_exponential       { background-image: url(~/icons/icon-curve_exponential.png); }
+						&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_decay_exponential.png); }
+						&.icon-curve_linear            { background-image: url(~/icons/icon-curve_linear.png); }
+						&.icon-curve_sine              { background-image: url(~/icons/icon-curve_sine.png); }
+						&.icon-curve_cosine            { background-image: url(~/icons/icon-curve_cosine.png); }
+						&.icon-curve_step              { background-image: url(~/icons/icon-curve_step.png); }
+						&.icon-curve_ripple            { background-image: url(~/icons/icon-curve_ripple.png); }
+						&.icon-curve_bounce            { background-image: url(~/icons/icon-curve_bounce.png); }
+
+						&.icon-curve_decay_linear      { background-image: url(~/icons/icon-curve_decay_linear.png); }
+						&.icon-curve_decay_sine        { background-image: url(~/icons/icon-curve_decay_sine.png); }
+						&.icon-curve_decay_cosine      { background-image: url(~/icons/icon-curve_decay_cosine.png); }
+						&.icon-curve_decay_step        { background-image: url(~/icons/icon-curve_decay_step.png); }
+						&.icon-curve_decay_ripple      { background-image: url(~/icons/icon-curve_decay_ripple.png); }
+						&.icon-curve_decay_bounce      { background-image: url(~/icons/icon-curve_decay_bounce.png); }
 					}
 				}
 
@@ -1046,13 +1095,17 @@ content {
 			}
 		}
 
-		.aed-box {
+		.adsr-box {
 			width: 339px;
 
 			.graph {
 				svg {
 					width: 321px;
-					height: 89px;
+					height: 71px;
+				}
+
+				.values {
+					border-top: 0;
 				}
 			}
 		}

@@ -67,10 +67,109 @@
 		<path fill="#294a6b" d="M288,99.7c-6.4-8.9-18.7-10.8-27.6-3.9c-3.5,2.5-6.4,6.4-7.4,10.8L192.8,332L142,224.5c-3.5-6.9-10.4-11.3-17.8-11.3H40.9 v39.4h70.5l69,144.5c3.5,6.9,10.4,11.3,17.8,11.3h2c8.4-1,15.3-6.4,17.3-14.3l63.1-237.7l65.6,88.3c3.9,4.9,9.9,7.9,15.8,7.9h97.1 v-39.4h-86.8L288,99.7z"/>
 	</svg>
 
+	<svg id="icon-curve_exponential" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M62.8,457.2c0-288.7,109-394.3,394.3-394.3"/>
+	</svg>
+
+	<svg id="icon-curve_linear" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<line class="st0" x1="52.8" y1="447.2" x2="447.2" y2="52.8"/>
+	</svg>
+
+	<svg id="icon-curve_sine" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M487.2,52.8c-474.3,0,0,394.3-474.3,394.3"/>
+	</svg>
+
+	<svg id="icon-curve_cosine" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M62.8,457.2C116.7,156.3,337.3,62.8,457.2,62.8"/>
+	</svg>
+
+	<svg id="icon-curve_step" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<polyline class="st0" points="86.1,447 86.1,262 266,262 266,77 445.9,77 "/>
+	</svg>
+
+	<svg id="icon-curve_bounce" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M33.3,454.8c81.9,0,177-251,177-409.5c0,158.5,40,204.8,98.1,204.8s72.3-113.6,72.3-204.8 c0,89.8,85.9,93.8,85.9,0"/>
+	</svg>
+
+	<svg id="icon-curve_ripple" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M465,77.1c-97.8,0-145.3,17.1-144.7,75.5c0.7,57.9-26.1,106.9-88.2,106.9s-85.8,43.7-84.7,82 c1.8,60.7-27.2,100.3-111.3,100.3"/>
+	</svg>
+
+
+	<svg id="icon-curve_decay_exponential" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M457.2,437.2c-288.7,0-394.3-109-394.3-394.3"/>
+	</svg>
+
+	<svg id="icon-curve_decay_linear" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<line class="st0" x1="52.8" y1="52.8" x2="447.2" y2="447.2"/>
+	</svg>
+
+	<svg id="icon-curve_decay_sine" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M12.8,52.8c394.3,0,80,394.3,474.3,394.3"/>
+	</svg>
+
+	<svg id="icon-curve_decay_cosine" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M457.2,457.2C156.3,403.3,62.8,182.7,62.8,62.8"/>
+	</svg>
+
+	<svg id="icon-curve_decay_step" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<polyline class="st0" points="55,87.1 240,87.1 240,267 425,267 425,446.9 "/>
+	</svg>
+
+	<svg id="icon-curve_decay_bounce" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M33.3,45.2c81.9,0,177,251,177,409.5c0-158.5,40-204.8,98.1-204.8s72.3,113.6,72.3,204.8 c0-89.8,85.9-93.8,85.9,0"/>
+	</svg>
+
+	<svg id="icon-curve_decay_ripple" viewBox="0 0 500 500">
+		<style type="text/css">
+			.st0{fill:none;stroke:#466788;stroke-width:50;}
+		</style>
+		<path class="st0" d="M36.1,77.1c97.8,0,145.3,17.1,144.7,75.5c-0.7,57.9,26.1,106.9,88.2,106.9s85.8,43.7,84.7,82 c-1.8,60.7,27.2,100.3,111.3,100.3"/>
+	</svg>
+
 	<svg id="knob" viewBox="0 0 34 1734">
 		<style type="text/css">
-			.st0{fill:none;stroke:#8ad;stroke-width:2.25;stroke-linecap:round;stroke-miterlimit:10;}
-			.st1{fill:none;stroke:#254565;stroke-width:2.25;stroke-linecap:round;stroke-miterlimit:10;}
+			.st0{fill:none;stroke:#8ad;stroke-width:2.25;stroke-linecap:round;}
+			.st1{fill:none;stroke:#254565;stroke-width:2.25;stroke-linecap:round;}
 		</style>
 		<path class="st0" d="M7.1,60.9c0.4,0.4,0.7,0.7,1.1,1"/>
 		<path class="st0" d="M6.2,94c0.6,0.7,1.2,1.4,2,1.9"/>
@@ -177,8 +276,8 @@
 
 	<svg id="pan-knob" viewBox="0 0 34 1734">
 		<style type="text/css">
-			.st0{fill:none;stroke:#8ad;stroke-width:2.25;stroke-linecap:round;stroke-miterlimit:10;}
-			.st1{fill:none;stroke:#254565;stroke-width:2.25;stroke-linecap:round;stroke-miterlimit:10;}
+			.st0{fill:none;stroke:#8ad;stroke-width:2.25;stroke-linecap:round;}
+			.st1{fill:none;stroke:#254565;stroke-width:2.25;stroke-linecap:round;}
 		</style>
 		<path class="st0" d="M25.8,1727.9c3.1-2.5,5.2-6.5,5.2-10.9c0-7.7-6.3-14-14-14"/>
 		<path class="st0" d="M17,3C9.3,3,3,9.3,3,17c0,4.4,2.1,8.4,5.2,10.9"/>

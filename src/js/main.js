@@ -55,7 +55,7 @@ const defjam = {
 
 				// rendering devices
 				window.render({
-					template: "device-aed",
+					template: "device-adsr",
 					prepend: self.content.find(".devices-body")
 				});
 

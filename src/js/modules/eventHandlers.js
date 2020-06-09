@@ -15,7 +15,7 @@ const EventHandlers = {
 				.trigger("mousemove")
 				.trigger("mouseup");
 
-			this.content.find(".aed-box .handle:last")
+			this.content.find(".adsr-box .handle:last")
 				.trigger("mousedown")
 				.trigger("mousemove")
 				.trigger("mouseup");
@@ -129,12 +129,12 @@ const EventHandlers = {
 				drag.shape.attr({ d: drag.curve(value) });
 
 				if (self.drag.xConn) {
-					value = Math.floor((cx / drag.max.x) * 100);
+					value = Math.floor(((cx - drag.min.x) / (drag.max.x - drag.min.x)) * 100);
 					value -= value % 2;
 					self.drag.xConn.data({ value });
 				}
 				if (self.drag.yConn) {
-					value = Math.floor((cy / drag.max.y) * 100);
+					value = Math.floor(((cy - drag.min.y) / (drag.max.y - drag.min.y)) * 100);
 					value -= value % 2;
 					self.drag.yConn.data({ value });
 				}
@@ -175,29 +175,29 @@ const Shapes = {
 		return r.join(" ");
 	},
 	adsr(value) {
-		let h = 75,
+		let h = 69,
 			w = 321,
-			r = ["M", 5, h];
-		//r = r.concat(value.map(p => p));
+			r = ["M", 5, h],
+			aThird = w / 3,
+			twoThirds = aThird * 2;
 
 		r.push("C", 5, 5);
 		r.push(Math.max(value[0][0] * .2, 5), 5);
 		r.push(value[0]); // anchor
 
-		r.push("C", value[0][0] + 10, value[1][1]);
-		r.push(value[0][0] + 10, value[1][1]);
+		r.push("C", value[0][0], value[1][1]);
+		r.push(value[0][0], value[1][1]);
 		r.push(value[1]); // anchor
 
-		r.push("C", 135, value[1][1]);
-		r.push(135, value[1][1]);
-		r.push((w / 3) * 2, value[1][1]); // anchor
+		r.push("C", value[1][0], value[1][1]);
+		r.push(value[1][0], value[1][1]);
+		r.push(twoThirds, value[1][1]); // anchor
 
-		r.push("C", (w / 3) * 2, 70);
-		r.push(((w / 3) * 2) + 20, 70);
+		r.push("C", twoThirds, h - 5);
+		r.push(Math.min(twoThirds * 1.15, twoThirds), h - 5);
 		r.push(value[2]); // anchor
 
 		return r.join(" ");
-		//return `M5,89C5,5 5,5 ${value[0][0]},${value[0][1]}c0,31 32,31 140,31c0,49 19,49 126,49`;
 	}
 };
 

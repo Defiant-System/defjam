@@ -169,7 +169,7 @@
 
 <xsl:template name="device-adsr">
 	<div class="box-body adsr-box">
-		<div class="title">Amplitude Envelope Display</div>
+		<div class="title">ADSR Envelope</div>
 		<div class="graph">
 			<svg class="visualizer" viewBox="0 0 321 69" data-curve="adsr">
 				<path class="shape"></path>

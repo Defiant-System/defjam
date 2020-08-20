@@ -7,7 +7,7 @@ const Audio = {
 		this.cvs.height = 31;
 	},
 	async visualizeFile(options) {
-		let arrayBuffer = await $.fetch(options.url),
+		let arrayBuffer = await window.fetch(options.url),
 			audioContext = new AudioContext(),
 			buffer = await audioContext.decodeAudioData(arrayBuffer),
 			data = this.visualize(buffer, Math.floor(options.width / 3));

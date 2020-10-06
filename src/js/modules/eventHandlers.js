@@ -83,8 +83,8 @@ const EventHandlers = {
 				curve = Shapes[pEl.data("curve")];
 				points = el.parent().find(".handle");
 				shape = el.parent().find(".shape");
-				cX = +el.attr("cx");
-				cY = +el.attr("cy");
+				cX = +el.attr("cX");
+				cY = +el.attr("cY");
 
 				self.drag = {
 					el,
@@ -120,21 +120,21 @@ const EventHandlers = {
 				break;
 			case "mousemove":
 				//console.log(drag.cY , event.clientY , drag.clientY, drag.min.y, drag.max.y);
-				cx = Math.min(Math.max(drag.cX + event.clientX - drag.clientX, drag.min.x), drag.max.x);
-				cy = Math.min(Math.max(drag.cY + event.clientY - drag.clientY, drag.min.y), drag.max.y);
-				drag.el.attr({ cx, cy });
+				cX = Math.min(Math.max(drag.cX + event.clientX - drag.clientX, drag.min.x), drag.max.x);
+				cY = Math.min(Math.max(drag.cY + event.clientY - drag.clientY, drag.min.y), drag.max.y);
+				drag.el.attr({ cX, cY });
 
-				value = drag.points.map(p => [+p.getAttribute("cx"), +p.getAttribute("cy")]);
+				value = drag.points.map(p => [+p.getAttribute("cX"), +p.getAttribute("cY")]);
 				//console.log({ d: drag.curve(value) }.d);
 				drag.shape.attr({ d: drag.curve(value) });
 
 				if (self.drag.xConn) {
-					value = Math.floor(((cx - drag.min.x) / (drag.max.x - drag.min.x)) * 100);
+					value = Math.floor(((cX - drag.min.x) / (drag.max.x - drag.min.x)) * 100);
 					value -= value % 2;
 					self.drag.xConn.data({ value });
 				}
 				if (self.drag.yConn) {
-					value = Math.floor(((cy - drag.min.y) / (drag.max.y - drag.min.y)) * 100);
+					value = Math.floor(((cY - drag.min.y) / (drag.max.y - drag.min.y)) * 100);
 					value -= value % 2;
 					self.drag.yConn.data({ value });
 				}

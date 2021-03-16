@@ -84,6 +84,22 @@
 			l2.1,4.5C6.4,13.9,6.7,14,6.9,14H7c0.3,0,0.5-0.2,0.5-0.4l2-7.4l2,2.7c0.1,0.2,0.3,0.2,0.5,0.2h3V7.9h-2.7L9.7,4.4z"/>
 	</svg>
 
+	<svg id="icon-curve_exponential" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_linear" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_sine" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_cosine" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_step" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_bounce" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_ripple" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_exponential" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_linear" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_sine" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_cosine" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_step" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_bounce" viewBox="0 0 13 13"></svg>
+	<svg id="icon-curve_decay_ripple" viewBox="0 0 13 13"></svg>
+
+
 	<!--
 	<svg id="icon-curve_exponential" viewBox="0 0 500 500">
 		<style type="text/css">

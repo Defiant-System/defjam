@@ -13,7 +13,7 @@ const Audio = {
 			data = this.visualize(buffer, Math.floor(options.width / 3));
 
 		let url = options.url.slice(options.url.lastIndexOf("/") + 1, options.url.lastIndexOf(".")) +".png";
-		let path = await defiant.cache.get(url);
+		let path = await karaqu.cache.get(url);
 		if (!path) {
 			await this.draw({ ...options, url, data });
 			path = "~/cache/"+ url;
@@ -65,7 +65,7 @@ const Audio = {
 		return new Promise(resolve => {
 			// store wave in cache to avoid multiple renders
 			this.ctx.canvas.toBlob(async blob => {
-				await defiant.cache.set({ url: options.url, blob });
+				await karaqu.cache.set({ url: options.url, blob });
 				resolve();
 			});
 		});

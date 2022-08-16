@@ -71,9 +71,9 @@ const defjam = {
 
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
-				//await defiant.cache.clear();
+				//await karaqu.cache.clear();
 				
-				//await defiant.cache.clear("/cache/snare.png");
+				//await karaqu.cache.clear("/cache/snare.png");
 				// await Audio.visualizeFile({
 				// 	url: "~/sounds/drumkit/kick.wav",
 				// 	width: 480,

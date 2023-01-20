@@ -1,13 +1,25 @@
 <file>
 	<Tracks>
-		<i name="Drums" />
-		<i name="Grand Piano" />
-		<i name="Vocals" />
+		<i name="Drums">
+			<volume eq="30"/>
+		</i>
+		<i name="Grand Piano">
+			<volume eq="73"/>
+		</i>
+		<i name="Vocals">
+			<volume eq="65"/>
+		</i>
 	</Tracks>
 	<IoMaster>
-		<i name="Reverb" />
-		<i name="Delay" />
-		<i name="Master" />
+		<i name="Reverb">
+			<volume eq="0"/>
+		</i>
+		<i name="Delay">
+			<volume eq="0"/>
+		</i>
+		<i name="Master">
+			<volume eq="75"/>
+		</i>
 	</IoMaster>
 </file>
 

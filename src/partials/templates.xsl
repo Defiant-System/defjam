@@ -82,7 +82,10 @@
 							<div class="toggle-button record">&#9679;</div>
 						</xsl:if>
 					</div>
-					<div class="volume" data-value="88"><div></div></div>
+					<div class="volume" data-value="88">
+						<xsl:attribute name="style">--eq: <xsl:value-of select="volume/@eq"/>%;</xsl:attribute>
+						<div></div>
+					</div>
 				</div>
 			</div>
 		</div>

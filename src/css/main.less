@@ -267,6 +267,7 @@ content {
 		//vertical-align: top;
 		margin-left: 3px;
 		margin-right: 12px;
+		--eq: 0%;
 
 		&.anim:after {
 			animation: 1000ms spectrum linear infinite backwards;
@@ -289,7 +290,7 @@ content {
 			top: 0;
 			left: 0;
 			right: 0;
-			height: 100%;
+			height: calc( 100% - var( --eq ) );
 			//transform: scaleY(0.3);
 			transform-origin: 0 0;
 			border-radius: 2px 2px 0 0;

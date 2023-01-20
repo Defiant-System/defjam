@@ -5,6 +5,7 @@
 @boxBg: #466788;
 @text: #b7cbe0;
 @highlight: #b92;
+@gridlines: darken(@boxBg, 5%);
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -51,7 +52,7 @@ content {
 
 		.box-body {
 			background: @boxBg;
-			box-shadow: inset 0 1px 0 lighten(@boxBg, 3%),
+			box-shadow: inset 0 1px 0 fadeout(lighten(@boxBg, 5%), 50%),
 						0 1px 0 darken(@boxBg, 15%);
 			position: relative;
 			width: 100%;
@@ -738,6 +739,16 @@ content {
 			flex: auto;
 			display: flex;
 
+			&.show-session {
+				.session-wrapper { display: inherit; }
+				.arrangement-wrapper { display: none; }
+			}
+
+			&.show-arrangement {
+				.session-wrapper { display: none; }
+				.arrangement-wrapper { display: inherit; }
+			}
+
 			.scrollbar {
 				background: inherit;
 				border-radius: 0 5px 5px 0;
@@ -769,6 +780,38 @@ content {
 					border-radius: 9px;
 					background: #1d344c;
 					box-shadow: inset 0 0 0 1px @base;
+				}
+			}
+
+			.arrangement-wrapper {
+				flex: auto;
+				display: flex;
+				border-bottom-right-radius: 0;
+
+				.arr-layout {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+
+					.row-overview {
+						height: 19px;
+						margin-bottom: 3px;
+						background-image:
+							repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
+					}
+
+					.row-ruler {
+						height: 49px;
+						margin-bottom: 3px;
+					}
+
+					.row-track {
+						flex: 1;
+						background-image:
+							repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
+							linear-gradient(transparent, transparent);
+					}
+
 				}
 			}
 
@@ -1089,6 +1132,7 @@ content {
 
 			.graph {
 				svg {
+					opacity: 0; // temp
 					width: 204px;
 					height: 89px;
 				}
@@ -1100,6 +1144,7 @@ content {
 
 			.graph {
 				svg {
+					opacity: 0; // temp
 					width: 321px;
 					height: 71px;
 				}

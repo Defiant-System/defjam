@@ -47,15 +47,28 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel-right">
+		<div class="panel-right show-session">
 			<div class="box session-wrapper">
 				<div class="scrollbar"></div>
 				<!-- Session content goes here -->
 			</div>
+			<div class="box arrangement-wrapper">
+				<div class="scrollbar"></div>
+				<div class="arr-layout">
+					<div class="box-body row-overview"></div>
+					<div class="box-body row-ruler"></div>
+					<div class="box-body row-track"></div>
+				</div>
+				<!-- arrangement content goes here -->
+			</div>
 		</div>
 		<div class="buttons">
-			<div class="ball-button" title="Arrangement View"><i class="icon-arrangement"></i></div>
-			<div class="ball-button active" title="Session View"><i class="icon-session"></i></div>
+			<div class="ball-button" title="Arrangement View" data-click="show-arrangement-view">
+				<i class="icon-arrangement"></i>
+			</div>
+			<div class="ball-button active" title="Session View" data-click="show-session-view">
+				<i class="icon-session"></i>
+			</div>
 		</div>
 	</div>
 	<div class="panel-bottom">

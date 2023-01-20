@@ -2,6 +2,10 @@
 import { EventHandlers } from "./modules/eventHandlers";
 import { Audio } from "./modules/audio";
 
+
+@import "./modules/test.js";
+
+
 const defjam = {
 	init() {
 		// fast references
@@ -20,8 +24,14 @@ const defjam = {
 		window.bluePrint.selectNodes("//Sounds//*")
 			.map((node, i) => node.setAttribute("id", 100 + i));
 
+
 		// temp
 		this.dispatch({ type: "render-view" });
+
+
+		// DEV-ONLY-START
+		Test.init();
+		// DEV-ONLY-END
 	},
 	async dispatch(event) {
 		let self = defjam,
@@ -137,6 +147,18 @@ const defjam = {
 						el.parent()
 							.removeClass("show-sounds show-drums show-instruments show-fx "+ name)
 							.addClass(event.type));
+				break;
+			case "show-arrangement-view":
+				event.el.parents(".row-work")
+					.find(".panel-right")
+					.removeClass("show-session")
+					.addClass("show-arrangement");
+				break;
+			case "show-session-view":
+				event.el.parents(".row-work")
+					.find(".panel-right")
+					.removeClass("show-arrangement")
+					.addClass("show-session");
 				break;
 			case "toggle-work-panel":
 				el = event.el;

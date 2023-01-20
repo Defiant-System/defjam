@@ -6,6 +6,7 @@
 @text: #b7cbe0;
 @highlight: #b92;
 @gridlines: darken(@boxBg, 5%);
+@griddark: darken(@boxBg, 9%);
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -793,25 +794,68 @@ content {
 					display: flex;
 					flex-direction: column;
 
+
+						.col-clips {
+							flex: 1;
+
+							.box-body {
+								background-image: repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px);
+							}
+						}
+
+						.col-mixers {
+							width: 220px;
+							margin-left: 2px;
+						}
+
+						.channel {
+							height: 67px;
+							border-bottom: 2px solid @griddark;
+
+							&.collapsed {
+								height: 21px;
+							}
+						}
+
+
 					.row-overview {
 						height: 19px;
 						margin-bottom: 3px;
-						background-image:
-							repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
+						background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
 					}
 
 					.row-ruler {
-						height: 49px;
-						margin-bottom: 3px;
+						height: 37px;
+						display: flex;
+						margin-bottom: 2px;
+
+						.col-clips .box-body  { border-radius: 3px 3px 0 0; }
 					}
 
 					.row-track {
 						flex: 1;
-						background-image:
-							repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
-							linear-gradient(transparent, transparent);
+						display: flex;
+						margin-bottom: 2px;
+
+						.col-clips .box-body  { border-radius: 0 0 0 0; }
+						.col-mixers .box-body { border-radius: 0 3px 0 0; }
 					}
 
+					.row-outputs {
+						height: 56px;
+						display: flex;
+
+						.col-clips .box-body  {
+							border-radius: 0 0 0 3px;
+							background-image: repeating-linear-gradient(0deg, @griddark 19px, @griddark 20px, transparent 20px, transparent 38px),
+											repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px);
+						}
+
+						.col-mixers .box-body {
+							border-radius: 0 0 3px 0;
+							background-image: repeating-linear-gradient(0deg, @griddark 19px, @griddark 20px, transparent 20px, transparent 38px);
+						}
+					}
 				}
 			}
 

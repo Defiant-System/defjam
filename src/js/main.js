@@ -149,15 +149,21 @@ const defjam = {
 							.addClass(event.type));
 				break;
 			case "show-arrangement-view":
+				event.el.parent().find(".active").removeClass("active");
+				event.el.addClass("active");
+
 				event.el.parents(".row-work")
 					.find(".panel-right")
-					.removeClass("show-session")
+					.removeClass("show-session show-arrangement")
 					.addClass("show-arrangement");
 				break;
 			case "show-session-view":
+				event.el.parent().find(".active").removeClass("active");
+				event.el.addClass("active");
+
 				event.el.parents(".row-work")
 					.find(".panel-right")
-					.removeClass("show-arrangement")
+					.removeClass("show-session show-arrangement")
 					.addClass("show-session");
 				break;
 			case "toggle-work-panel":

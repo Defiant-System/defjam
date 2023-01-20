@@ -7,6 +7,7 @@
 @highlight: #b92;
 @gridlines: darken(@boxBg, 5%);
 @griddark: darken(@boxBg, 9%);
+@gridgroup: darken(@boxBg, 1.5%);
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -799,7 +800,8 @@ content {
 							flex: 1;
 
 							.box-body {
-								background-image: repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px);
+								background-image: repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
+												repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 128px, transparent 128px, transparent 256px);
 							}
 						}
 
@@ -820,13 +822,24 @@ content {
 
 					.row-overview {
 						height: 19px;
-						margin-bottom: 3px;
+						margin: 1px 0;
 						background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
+
+						.hotspot {
+							position: absolute;
+							top: -2px;
+							left: 73px;
+							width: 223px;
+							bottom: -2px;
+							border: 2px solid @base;
+							// border-width: 2px 3px;
+						}
 					}
 
 					.row-ruler {
 						height: 37px;
 						display: flex;
+						margin-top: 11px;
 						margin-bottom: 2px;
 
 						.col-clips .box-body  { border-radius: 3px 3px 0 0; }
@@ -848,7 +861,8 @@ content {
 						.col-clips .box-body  {
 							border-radius: 0 0 0 3px;
 							background-image: repeating-linear-gradient(0deg, @griddark 19px, @griddark 20px, transparent 20px, transparent 38px),
-											repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px);
+											repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
+											repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 128px, transparent 128px, transparent 256px);
 						}
 
 						.col-mixers .box-body {
@@ -884,12 +898,52 @@ content {
 							// white-space: nowrap;
 							// font-size: 0;
 							display: flex;
+
+							.slots {
+								.slot:before {
+									content: "";
+									position: absolute;
+									top: 6px;
+									left: 5px;
+									width: 7px;
+									height: 7px;
+									border-radius: 50%;
+									background: darken(@boxBg, 9%);
+									border: 1px solid darken(@boxBg, 13%);
+								}
+
+								.status {
+									&:before {
+										content: "";
+										position: absolute;
+										top: 6px;
+										left: 5px;
+										width: 7px;
+										height: 7px;
+										background: darken(@boxBg, 9%);
+										border: 1px solid darken(@boxBg, 13%);
+									}
+								}
+							}
 						}
 					}
 
 					.io-master {
 						width: 276px;
 						display: flex;
+
+						.track-wrapper:last-child .status {
+							&:before {
+								content: "";
+								position: absolute;
+								top: 6px;
+								left: 5px;
+								width: 7px;
+								height: 7px;
+								background: darken(@boxBg, 9%);
+								border: 1px solid darken(@boxBg, 13%);
+							}
+						}
 					}
 				}
 			}
@@ -937,6 +991,7 @@ content {
 
 					> div {
 						background: @boxBg;
+						position: relative;
 						border-radius: 0;
 						margin-bottom: 1px;
 

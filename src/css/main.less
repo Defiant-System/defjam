@@ -1167,21 +1167,46 @@ content {
 					}
 
 				.row-head {
-					height: 50px;
+					height: 53px;
 					display: flex;
 
 					.col-right .box-body  {
 						border-radius: 3px 3px 0 0;
+						// background-image: ;
 
 						&:before {
 							content: "";
 							position: absolute;
-							top: 11px;
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							z-index: 1;
+							background-image: linear-gradient(180deg,
+									transparent 0px,
+									transparent 15px,
+									lighten(@boxBg, 1.5%) 15px,
+									lighten(@boxBg, 1.5%) 38px,
+									darken(@boxBg, 1.5%) 38px
+								);
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							top: 15px;
 							left: 0;
 							right: 0;
 							bottom: 0;
 							z-index: 2;
-							background-image: repeating-linear-gradient(90deg,
+							background-image: linear-gradient(180deg,
+									transparent 0px,
+									transparent 23px,
+									@face 23px,
+									@face 24px,
+									transparent 24px
+								),
+								repeating-linear-gradient(90deg,
 									transparent 0px,
 									transparent calc( calc( var( --noteW ) * 4 ) - 1px ),
 									@griddark calc( calc( var( --noteW ) * 4 ) - 1px ),
@@ -1195,21 +1220,10 @@ content {
 								);
 						}
 
-						&:after {
-							content: "";
-							position: absolute;
-							bottom: 0;
-							left: 0;
-							right: 0;
-							height: 13px;
-							z-index: 1;
-							border-top: 1px solid @griddark;
-							background: fadeout(@gridgroup, 11%);
-						}
-
 						.loop-span {
+							// display: none;
 							position: absolute;
-							top: 11px;
+							top: 15px;
 							left: 0;
 							width: 960px;
 							height: 11px;
@@ -1362,6 +1376,36 @@ content {
 								height: 50px; // foot height
 								margin-top: 1px;
 								background: inherit;
+							}
+						}
+
+						.time-end {
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 959px;
+							width: 1px;
+							z-index: 2;
+							background: @base;
+
+							&:before,
+							&:after {
+								content: "";
+								position: absolute;
+								left: 0;
+								width: 1px;
+								margin-top: 1px;
+								background: inherit;
+							}
+
+							&:before {
+								top: -40px;
+								height: 38px; // head height
+							}
+
+							&:after {
+								top: 100%;
+								height: 50px; // foot height
 							}
 						}
 					}

@@ -7,7 +7,11 @@
 @highlight: #b92;
 @gridlines: darken(@boxBg, 3%);
 @griddark: darken(@boxBg, 5%);
+@gridblack: fadeout(darken(@boxBg, 9%), 73%);
 @gridgroup: darken(@boxBg, 1.5%);
+
+@pianoWhite: #eee;
+@pianoBlack: #333;
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -1103,7 +1107,7 @@ content {
 
 	.panel-bottom {
 		// height: 197px;
-		height: 320px;
+		height: 520px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -1151,7 +1155,7 @@ content {
 				flex-direction: column;
 
 					.col-left {
-						width: 70px;
+						width: 50px;
 						margin: 0 1px 0 0;
 					}
 
@@ -1236,10 +1240,56 @@ content {
 					display: flex;
 					margin: 1px 0;
 
-					.col-left .box-body  { border-radius: 3px 0 0 3px; }
+					.col-left .box-body  {
+						border-radius: 3px 0 0 3px;
+						background-image: repeating-linear-gradient(180deg, @griddark 0px, @griddark 1px, transparent 1px, transparent 240px);
+
+						&:after {
+							content: "";
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							right: 0;
+							width: 19px;
+							border-left: 1px solid @griddark;
+							background-image: repeating-linear-gradient(180deg,
+								@pianoWhite 0px, @pianoWhite 20px,
+								@pianoBlack 20px, @pianoBlack 40px,
+								@pianoWhite 40px, @pianoWhite 60px,
+								@pianoBlack 60px, @pianoBlack 80px,
+								@pianoWhite 80px, @pianoWhite 100px,
+								@pianoBlack 100px, @pianoBlack 120px,
+								@pianoWhite 120px, @pianoWhite 140px,
+									@pianoBlack 140px, @pianoBlack 141px,
+								@pianoWhite 140px, @pianoWhite 160px,
+								@pianoBlack 160px, @pianoBlack 180px,
+								@pianoWhite 180px, @pianoWhite 200px,
+								@pianoBlack 200px, @pianoBlack 220px,
+								@pianoWhite 220px, @pianoWhite 240px,
+									@pianoBlack 240px, @pianoBlack 241px
+							);
+						}
+					}
+
 					.col-right .box-body  {
 						border-radius: 0;
-						background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
+						background-image: repeating-linear-gradient(180deg,
+												transparent 0px, transparent 20px,
+												@gridblack 20px, @gridblack 40px,
+												transparent 40px, transparent 60px,
+												@gridblack 60px, @gridblack 80px,
+												transparent 80px, transparent 100px,
+												@gridblack 100px, @gridblack 120px,
+												transparent 120px, transparent 140px,
+													@gridblack 140px, @gridblack 141px,
+												transparent 140px, transparent 160px,
+												@gridblack 160px, @gridblack 180px,
+												transparent 180px, transparent 200px,
+												@gridblack 200px, @gridblack 220px,
+												transparent 220px, transparent 240px,
+													@gridblack 240px, @gridblack 241px
+											),
+											repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
 											repeating-linear-gradient(90deg, transparent 0px, transparent 9px, @gridlines 9px, @gridlines 10px),
 											repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 160px, transparent 160px, transparent 320px);
 					}

@@ -5,8 +5,8 @@
 @boxBg: #466788;
 @text: #b7cbe0;
 @highlight: #b92;
-@gridlines: darken(@boxBg, 5%);
-@griddark: darken(@boxBg, 9%);
+@gridlines: darken(@boxBg, 3%);
+@griddark: darken(@boxBg, 5%);
 @gridgroup: darken(@boxBg, 1.5%);
 
 // @base: darken(@boxBg, 23%);
@@ -28,7 +28,7 @@ content {
 	font-size: 11px;
 	padding: @margin + 1px;
 	color: darken(@text, 7%);
-	text-shadow: 0 1px 0 darken(@boxBg, 17%);
+	text-shadow: 0 1px 0 darken(@boxBg, 15%);
 
 	&.hide-cursor:before {
 		content: "";
@@ -730,10 +730,22 @@ content {
 					}
 				}
 			}
+
 			.item {
-				background: url(~/icons/icon-audio.png) 4px 50% no-repeat;
-				background-size: auto 80%;
+				position: relative;
 				padding-left: 23px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 1px;
+					left: 1px;
+					width: 17px;
+					height: 17px;
+					background: url(~/icons/icon-audio.png) 4px 50% no-repeat;
+					background-size: auto 80%;
+					filter: drop-shadow(0 1px 0 rgba(0,0,0,.65));
+				}
 			}
 		}
 
@@ -800,7 +812,7 @@ content {
 							flex: 1;
 
 							.box-body {
-								background-image: repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
+								background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 15px, @gridlines 15px, @gridlines 16px),
 												repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 128px, transparent 128px, transparent 256px);
 							}
 						}
@@ -851,6 +863,7 @@ content {
 							width: 273px;
 							height: 13px;
 							border: 1px solid @base;
+							cursor: ew-resize;
 
 							&:before {
 								content: "";
@@ -896,7 +909,7 @@ content {
 						.col-clips .box-body  {
 							border-radius: 0 0 0 3px;
 							background-image: repeating-linear-gradient(0deg, @griddark 19px, @griddark 20px, transparent 20px, transparent 38px),
-											repeating-linear-gradient(90deg, @gridlines 0px, @gridlines 1px, transparent 1px, transparent 16px),
+											repeating-linear-gradient(90deg, transparent 0px, transparent 15px, @gridlines 15px, @gridlines 16px),
 											repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 128px, transparent 128px, transparent 256px);
 						}
 
@@ -1089,7 +1102,8 @@ content {
 	}
 
 	.panel-bottom {
-		height: 197px;
+		// height: 197px;
+		height: 320px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -1127,6 +1141,119 @@ content {
 						padding: 0 5px 5px;
 						border-bottom: 1px solid @face;
 						margin: -1px -5px 5px;
+					}
+				}
+			}
+
+			.midi-note-editor {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+
+					.col-left {
+						width: 70px;
+						margin: 0 1px 0 0;
+					}
+
+					.col-right {
+						flex: 1;
+						margin: 0;
+					}
+
+				.row-head {
+					height: 50px;
+					display: flex;
+
+					.col-right .box-body  {
+						border-radius: 3px 3px 0 0;
+
+						&:before {
+							content: "";
+							position: absolute;
+							top: 11px;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							z-index: 2;
+							background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
+											repeating-linear-gradient(90deg, transparent 0px, transparent 9px, @gridlines 9px, @gridlines 10px);
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							height: 13px;
+							z-index: 1;
+							border-top: 1px solid @griddark;
+							background: fadeout(@gridgroup, 11%);
+						}
+
+						.loop-span {
+							position: absolute;
+							top: 11px;
+							left: 0;
+							width: 800px;
+							height: 11px;
+							background: #d5a516; // temp
+							border: 1px solid @base;
+							cursor: ew-resize;
+							z-index: 3;
+
+							&:before {
+								content: "";
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 9px;
+								height: 9px;
+								background-image: url(~/icons/icon-loopspan-start.png);
+								background-position: -2px -2px;
+								background-size: 13px 13px;
+								background-repeat: no-repeat;
+							}
+
+							&:after {
+								content: "";
+								position: absolute;
+								top: 0;
+								right: 0;
+								width: 9px;
+								height: 9px;
+								background-image: url(~/icons/icon-loopspan-end.png);
+								background-position: -2px -2px;
+								background-size: 13px 13px;
+								background-repeat: no-repeat;
+							}
+						}
+					}
+				}
+
+				.row-body {
+					flex: 1;
+					display: flex;
+					margin: 1px 0;
+
+					.col-left .box-body  { border-radius: 3px 0 0 3px; }
+					.col-right .box-body  {
+						border-radius: 0;
+						background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
+											repeating-linear-gradient(90deg, transparent 0px, transparent 9px, @gridlines 9px, @gridlines 10px),
+											repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 160px, transparent 160px, transparent 320px);
+					}
+				}
+
+				.row-foot {
+					height: 50px;
+					display: flex;
+
+					.col-right .box-body  {
+						border-radius: 0 0 3px 3px;
+						background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
+											repeating-linear-gradient(90deg, transparent 0px, transparent 9px, @gridlines 9px, @gridlines 10px),
+											repeating-linear-gradient(90deg, @gridgroup 0px, @gridgroup 160px, transparent 160px, transparent 320px);
 					}
 				}
 			}

@@ -35,14 +35,14 @@
 
 	<svg id="icon-loopspan-start" viewBox="0 0 13 13">
 		<style type="text/css">
-			.st0{fill:none;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}
+			.st0{fill:#466788;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}
 		</style>
 		<polyline class="st0" points="1,1 9,7 1,12 "/>
 	</svg>
 
 	<svg id="icon-loopspan-end" viewBox="0 0 13 13">
 		<style type="text/css">
-			.st0{fill:none;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}
+			.st0{fill:#466788;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}
 		</style>
 		<polyline class="st0" points="12,12 4,6 12,1 "/>
 	</svg>
@@ -94,7 +94,7 @@
 	</svg>
 
 	<svg id="icon-audio" viewBox="0 0 17 17">
-		<path fill="#294A6B" d="M9.7,4.4C9.5,4.1,9.1,4.1,8.8,4.3C8.7,4.4,8.6,4.5,8.6,4.6l-1.9,7L5.1,8.3C5,8.1,4.8,7.9,4.6,7.9H2v1.2h2.2
+		<path fill="#9db9d4" d="M9.7,4.4C9.5,4.1,9.1,4.1,8.8,4.3C8.7,4.4,8.6,4.5,8.6,4.6l-1.9,7L5.1,8.3C5,8.1,4.8,7.9,4.6,7.9H2v1.2h2.2
 			l2.1,4.5C6.4,13.9,6.7,14,6.9,14H7c0.3,0,0.5-0.2,0.5-0.4l2-7.4l2,2.7c0.1,0.2,0.3,0.2,0.5,0.2h3V7.9h-2.7L9.7,4.4z"/>
 	</svg>
 

@@ -11,7 +11,7 @@
 @gridgroup: darken(@boxBg, 1.5%);
 
 @pianoWhite: #eee;
-@pianoBlack: #333;
+@pianoBlack: #222;
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -1260,13 +1260,13 @@ content {
 								@pianoWhite 80px, @pianoWhite 100px,
 								@pianoBlack 100px, @pianoBlack 120px,
 								@pianoWhite 120px, @pianoWhite 140px,
-									@pianoBlack 140px, @pianoBlack 141px,
+								darken(@pianoBlack, 3%) 140px, darken(@pianoBlack, 3%) 141px,
 								@pianoWhite 140px, @pianoWhite 160px,
 								@pianoBlack 160px, @pianoBlack 180px,
 								@pianoWhite 180px, @pianoWhite 200px,
 								@pianoBlack 200px, @pianoBlack 220px,
 								@pianoWhite 220px, @pianoWhite 240px,
-									@pianoBlack 240px, @pianoBlack 241px
+								darken(@pianoBlack, 3%) 240px, darken(@pianoBlack, 3%) 241px
 							);
 						}
 					}
@@ -1281,13 +1281,13 @@ content {
 												transparent 80px, transparent 100px,
 												@gridblack 100px, @gridblack 120px,
 												transparent 120px, transparent 140px,
-													@gridblack 140px, @gridblack 141px,
+												lighten(@gridblack, 2%) 140px, lighten(@gridblack, 2%) 141px,
 												transparent 140px, transparent 160px,
 												@gridblack 160px, @gridblack 180px,
 												transparent 180px, transparent 200px,
 												@gridblack 200px, @gridblack 220px,
 												transparent 220px, transparent 240px,
-													@gridblack 240px, @gridblack 241px
+												darken(@gridblack, 3%) 240px, darken(@gridblack, 3%) 241px
 											),
 											repeating-linear-gradient(90deg, transparent 0px, transparent 39px, @griddark 39px, @griddark 40px),
 											repeating-linear-gradient(90deg, transparent 0px, transparent 9px, @gridlines 9px, @gridlines 10px),

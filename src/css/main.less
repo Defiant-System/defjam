@@ -1330,17 +1330,18 @@ content {
 					margin: 1px 0;
 
 					.col-left .box-body  {
+						overflow: hidden;
 						border-radius: 3px 0 0 3px;
 						
 						.body-frame {
 							position: absolute;
 							width: 100%;
-							height: calc( var( --keyH ) * 120); // temp
+							// height: calc( var( --keyH ) * 120); // temp
 							background-image: repeating-linear-gradient(180deg,
-									@griddark 0px,
-									@griddark 1px,
-									transparent 1px,
-									transparent calc( var( --keyH ) * 12 )
+									transparent 0px,
+									transparent calc( var( --keyH ) * 12 ),
+									@face calc( var( --keyH ) * 12 ),
+									@face calc( calc( var( --keyH ) * 12 ) + 1px ),
 								);
 
 							&:after {
@@ -1367,6 +1368,18 @@ content {
 									@pianoWhite calc( var( --keyH ) * 11 ), @pianoWhite calc( var( --keyH ) * 12 ),
 									darken(@pianoBlack, 3%) calc( var( --keyH ) * 12 ), darken(@pianoBlack, 3%) calc( calc( var( --keyH ) * 12 ) + 1px )
 								);
+							}
+
+							ol {
+								width: 30px;
+
+								li {
+									display: flex;
+									align-items: flex-end;
+									line-height: 1.35;
+									padding-left: 3px;
+									height: calc( calc( var( --keyH ) * 12) + 1px );
+								}
 							}
 						}
 					}

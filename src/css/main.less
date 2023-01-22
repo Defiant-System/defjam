@@ -962,179 +962,93 @@ content {
 			}
 
 			.session-wrapper {
-				flex: auto;
-				display: flex;
-				border-bottom-right-radius: 0;
+				flex: 1;
 
-				.session {
+				.sess-layout {
 					display: flex;
-					flex: auto;
+					flex: 1;
 
 					.tracks-wrapper {
-						position: relative;
 						display: flex;
-						flex: auto;
-						margin-right: 3px;
-
-						.tracks {
-							position: absolute;
-							top: 0;
-							left: 0;
-							right: 0;
-							bottom: 0;
-							overflow-x: auto;
-							// white-space: nowrap;
-							// font-size: 0;
-							display: flex;
-
-							.slots {
-								.slot:before {
-									content: "";
-									position: absolute;
-									top: 6px;
-									left: 5px;
-									width: 7px;
-									height: 7px;
-									border-radius: 50%;
-									background: darken(@boxBg, 9%);
-									border: 1px solid darken(@boxBg, 13%);
-								}
-
-								.status {
-									&:before {
-										content: "";
-										position: absolute;
-										top: 6px;
-										left: 5px;
-										width: 7px;
-										height: 7px;
-										background: darken(@boxBg, 9%);
-										border: 1px solid darken(@boxBg, 13%);
-									}
-								}
-							}
-						}
+						flex: 1;
 					}
 
 					.io-master {
-						width: 276px;
 						display: flex;
+					}
 
-						.track-wrapper:last-child {
-							.slot:before {
-								content: "";
-								position: absolute;
-								top: 6px;
-								left: 5px;
-								width: 0;
-								height: 0;
-								border-top: 5px solid transparent;
-								border-bottom: 5px solid transparent;
-								border-left: 9px solid darken(@boxBg, 9%);
+					.tracks {
+						display: flex;
+						flex: 1;
+					}
+
+					.track-col {
+						// width: 90px;
+						display: flex;
+						margin-right: 3px;
+
+						&:last-child {
+							margin-right: 0;
+						}
+
+						.track {
+							display: flex;
+							flex-direction: column;
+							
+							> div {
+								background: @boxBg;
+								margin-bottom: 1px;
+
+								&.status {
+									height: 21px;
+									border-radius: 0 0 2px 2px;
+								}
 							}
 
-							.status:before {
-								content: "";
-								position: absolute;
-								top: 6px;
-								left: 5px;
-								width: 7px;
-								height: 7px;
-								background: darken(@boxBg, 9%);
-								border: 1px solid darken(@boxBg, 13%);
+							.title {
+								background: lighten(@boxBg, 4%);
+								color: @text;
+								text-shadow: 0 1px 0 darken(@boxBg, 13%);
+								box-shadow: inset 0 1px 0 lighten(@boxBg, 9%);
+								height: 20px;
+								padding: 4px 5px;
+								border-radius: 3px 3px 0 0;
+							}
+
+							.slots {
+								flex: 1;
+								// background: transparent;
+							}
+
+							.io {
+								height: 47px;
+								border-radius: 2px 2px 0 0;
+							}
+
+							.sends {
+								height: 48px;
+								padding-top: 5px;
+								text-align: center;
+							}
+
+							.mixer {
+								display: flex;
+								justify-content: space-evenly;
+								height: 126px;
+								padding-top: 9px;
+								text-align: center;
+								border-radius: 0 0 3px 3px;
+								box-shadow: 0 1px 0 darken(@boxBg, 15%);
+
+								> div:first-child {
+									width: 36px;
+								}
+
+								.pan-knob {
+									margin: 0 0 2px;
+								}
 							}
 						}
-					}
-				}
-			}
-
-			.track-wrapper {
-				min-width: 90px;
-				height: 100%;
-				display: flex;
-				margin-right: 3px;
-
-				&:last-child { margin-right: 0; }
-			}
-
-			.track {
-				display: flex;
-				flex-direction: column;
-				position: relative;
-				width: 100%;
-				height: 100%;
-				border-radius: 3px;
-				white-space: normal;
-
-				> div {
-					background: @boxBg;
-					margin-bottom: 1px;
-
-					&:first-child { border-radius: 3px 3px 0 0; }
-					&:last-child { border-radius: 1px 1px 3px 3px; margin-bottom: 0; }
-				}
-
-				.title {
-					background: lighten(@boxBg, 4%);
-					color: @text;
-					text-shadow: 0 1px 0 darken(@boxBg, 13%);
-					box-shadow: inset 0 1px 0 lighten(@boxBg, 9%);
-					height: 20px;
-					padding: 4px 5px;
-				}
-
-				.slots {
-					flex: auto;
-					display: flex;
-					flex-direction: column;
-					background: transparent;
-
-					> div {
-						background: @boxBg;
-						position: relative;
-						border-radius: 0;
-						margin-bottom: 1px;
-
-						&.slot {
-							height: 21px;
-						}
-
-						&.space {
-							margin: 0 0 1px;
-						}
-
-						&.status {
-							height: 21px;
-							border-radius: 0 0 2px 2px;
-						}
-					}
-				}
-
-				.io {
-					height: 47px;
-					border-radius: 2px 2px 0 0;
-				}
-
-				.sends {
-					height: 48px;
-					padding-top: 5px;
-					text-align: center;
-				}
-
-				.mixer {
-					display: flex;
-					justify-content: space-evenly;
-					height: 126px;
-					padding-top: 9px;
-					text-align: center;
-					box-shadow: 0 1px 0 darken(@boxBg, 15%);
-
-					> div:first-child {
-						width: 36px;
-					}
-
-					.pan-knob {
-						margin: 0 0 2px;
 					}
 				}
 			}

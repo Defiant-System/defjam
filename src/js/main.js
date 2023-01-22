@@ -51,11 +51,11 @@ const defjam = {
 					append: self.sidebar.find(".sounds-body .box-body:first")
 				});
 
-				window.render({
-					template: "session",
-					data: window.bluePrint.selectSingleNode("//file"),
-					prepend: self.content.find(".session-wrapper")
-				});
+				// window.render({
+				// 	template: "session",
+				// 	data: window.bluePrint.selectSingleNode("//file"),
+				// 	prepend: self.content.find(".session-wrapper")
+				// });
 
 				// rendering drumkit
 				window.render({

@@ -443,15 +443,21 @@ content {
 		}
 
 		&.solo {
-			//background: #5e7790;
-			padding-top: 1px;
+			padding-top: 2px;
+
+			&.active {
+				background: #66f;
+			}
 		}
 
 		&.record {
-			//background: #5e7790;
 			font-size: 14px;
 			line-height: .95;
 			color: @face;
+
+			&.active {
+				background: #d66;
+			}
 		}
 	}
 
@@ -992,10 +998,29 @@ content {
 				flex: 1;
 				--slotW: 93px;
 				--slotH: 19px;
+				--selRow: 5;
 
 				.sess-layout {
+					position: relative;
 					display: flex;
 					flex: 1;
+
+					&:after {
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						pointer-events: none;
+						background-image: linear-gradient(180deg,
+								transparent 0,
+								transparent calc( calc( var( --slotH ) * var( --selRow ) ) + 3px ),
+								fadeout(lighten(@boxBg, 13%), 85%) calc( calc( var( --slotH ) * var( --selRow ) ) + 3px ),
+								fadeout(lighten(@boxBg, 13%), 85%) calc( calc( var( --slotH ) * calc( var( --selRow ) + 1 ) ) + 2px ),
+								transparent  calc( calc( var( --slotH ) * calc( var( --selRow ) + 1 ) ) + 2px )
+							);
+					}
 
 					.tracks-wrapper {
 						display: flex;
@@ -1027,6 +1052,7 @@ content {
 								&.status {
 									height: 21px;
 									border-radius: 0 0 2px 2px;
+									margin-bottom: 2px;
 								}
 							}
 

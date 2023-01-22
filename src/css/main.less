@@ -1200,6 +1200,20 @@ content {
 					.col-right {
 						flex: 1;
 						margin: 0;
+						position: relative;
+						display: flex;
+
+						.body-frame  {
+							flex: 1;
+							position: relative;
+							width: 100px;
+							overflow: hidden;
+
+							.box-body  {
+								width: 1400px;
+								transform: translateX(-100px);
+							}
+						}
 					}
 
 				.row-head {
@@ -1339,44 +1353,47 @@ content {
 					}
 
 					.col-right {
-						position: relative;
-
-						.box-body  {
-							border-radius: 0;
-							background-image: repeating-linear-gradient(180deg,
-													transparent 0px, transparent calc( var( --keyH ) * 1 ),
-													@gridblack calc( var( --keyH ) * 1 ), @gridblack calc( var( --keyH ) * 2 ),
-													transparent calc( var( --keyH ) * 2 ), transparent calc( var( --keyH ) * 3 ),
-													@gridblack calc( var( --keyH ) * 3 ), @gridblack calc( var( --keyH ) * 4 ),
-													transparent calc( var( --keyH ) * 4 ), transparent calc( var( --keyH ) * 5 ),
-													@gridblack calc( var( --keyH ) * 5 ), @gridblack calc( var( --keyH ) * 6 ),
-													transparent calc( var( --keyH ) * 6 ), transparent calc( var( --keyH ) * 7 ),
-													lighten(@gridblack, 2%) calc( var( --keyH ) * 7 ), lighten(@gridblack, 2%) calc( calc( var( --keyH ) * 7 ) + 1px ),
-													transparent calc( var( --keyH ) * 7 ), transparent calc( var( --keyH ) * 8 ),
-													@gridblack calc( var( --keyH ) * 8 ), @gridblack calc( var( --keyH ) * 9 ),
-													transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
-													@gridblack calc( var( --keyH ) * 10 ), @gridblack calc( var( --keyH ) * 11 ),
-													transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 ),
-													darken(@gridblack, 3%) calc( var( --keyH ) * 12 ), darken(@gridblack, 3%) calc( calc( var( --keyH ) * 12 ) + 1px )
-												),
-												repeating-linear-gradient(90deg,
-														transparent 0px,
-														transparent calc( calc( var( --noteW ) * 4 ) - 1px ),
-														@griddark calc( calc( var( --noteW ) * 4 ) - 1px ),
-														@griddark calc( var( --noteW ) * 4 )
+						.body-frame {
+							height: 397px;
+						
+							.box-body  {
+								height: calc( var( --keyH ) * 11 * 12 );
+								border-radius: 0;
+								background-image: repeating-linear-gradient(180deg,
+														transparent 0px, transparent calc( var( --keyH ) * 1 ),
+														@gridblack calc( var( --keyH ) * 1 ), @gridblack calc( var( --keyH ) * 2 ),
+														transparent calc( var( --keyH ) * 2 ), transparent calc( var( --keyH ) * 3 ),
+														@gridblack calc( var( --keyH ) * 3 ), @gridblack calc( var( --keyH ) * 4 ),
+														transparent calc( var( --keyH ) * 4 ), transparent calc( var( --keyH ) * 5 ),
+														@gridblack calc( var( --keyH ) * 5 ), @gridblack calc( var( --keyH ) * 6 ),
+														transparent calc( var( --keyH ) * 6 ), transparent calc( var( --keyH ) * 7 ),
+														lighten(@gridblack, 2%) calc( var( --keyH ) * 7 ), lighten(@gridblack, 2%) calc( calc( var( --keyH ) * 7 ) + 1px ),
+														transparent calc( var( --keyH ) * 7 ), transparent calc( var( --keyH ) * 8 ),
+														@gridblack calc( var( --keyH ) * 8 ), @gridblack calc( var( --keyH ) * 9 ),
+														transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
+														@gridblack calc( var( --keyH ) * 10 ), @gridblack calc( var( --keyH ) * 11 ),
+														transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 ),
+														darken(@gridblack, 3%) calc( var( --keyH ) * 12 ), darken(@gridblack, 3%) calc( calc( var( --keyH ) * 12 ) + 1px )
 													),
-												repeating-linear-gradient(90deg,
-														transparent 0px,
-														transparent calc( var( --noteW ) - 1px ),
-														@gridlines calc( var( --noteW ) - 1px ),
-														@gridlines var( --noteW )
-													),
-												repeating-linear-gradient(90deg,
-														@gridgroup 0px,
-														@gridgroup calc( var( --noteW ) * 16 ),
-														transparent calc( var( --noteW ) * 16 ),
-														transparent calc( var( --noteW ) * 32 )
-													);
+													repeating-linear-gradient(90deg,
+															transparent 0px,
+															transparent calc( calc( var( --noteW ) * 4 ) - 1px ),
+															@griddark calc( calc( var( --noteW ) * 4 ) - 1px ),
+															@griddark calc( var( --noteW ) * 4 )
+														),
+													repeating-linear-gradient(90deg,
+															transparent 0px,
+															transparent calc( var( --noteW ) - 1px ),
+															@gridlines calc( var( --noteW ) - 1px ),
+															@gridlines var( --noteW )
+														),
+													repeating-linear-gradient(90deg,
+															@gridgroup 0px,
+															@gridgroup calc( var( --noteW ) * 16 ),
+															transparent calc( var( --noteW ) * 16 ),
+															transparent calc( var( --noteW ) * 32 )
+														);
+							}
 						}
 
 						.time-cursor {

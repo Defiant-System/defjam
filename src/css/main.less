@@ -267,7 +267,7 @@ content {
 		background: @base;
 		position: relative;
 		width: 10px;
-		height: 108px;
+		height: 115px;
 		border: 2px solid @face;
 		border-radius: 3px;
 		display: inline-block;
@@ -310,21 +310,48 @@ content {
 			bottom: 0;
 			right: -13px;
 			width: 7px;
-			border-top: 1px solid @face;
-			border-bottom: 1px solid @face;
+			// border-top: 1px solid @face;
+			// border-bottom: 1px solid @face;
+			// background: rgba(0,0,0,.1);
+			background-image: linear-gradient(180deg,
+					@face 0px, @face 1px,
+					transparent 1px, transparent 10px,
+					@face 10px, @face 11px,
+					transparent 11px, transparent 20px,
+					@face 20px, @face 21px,
+					transparent 21px, transparent 30px,
+					@face 30px, @face 31px,
+					transparent 31px, transparent 40px,
+					@face 40px, @face 41px,
+					transparent 41px, transparent 50px,
+					@face 50px, @face 51px,
+					transparent 51px, transparent 60px,
+					@face 60px, @face 61px,
+					transparent 61px, transparent 70px,
+					@face 70px, @face 71px,
+					transparent 71px, transparent 80px,
+					@face 80px, @face 81px,
+					transparent 81px, transparent 90px,
+					@face 90px, @face 91px,
+					transparent 91px, transparent 100px,
+					@face 100px, @face 101px,
+					transparent 101px, transparent 110px,
+					@face 110px, @face 111px,
+					transparent 111px, transparent 120px
+				);
 
-			&:before {
-				content: "0";
-				position: absolute;
-				top: 12%;
-				height: 1px;
-				right: -6px;
-				border-left: 5px solid @face;
-				padding-left: 1px;
-				line-height: .15;
-				font-weight: 600;
-				color: darken(@face, 5%);
-			}
+			// &:before {
+			// 	content: "0";
+			// 	position: absolute;
+			// 	top: 12%;
+			// 	height: 1px;
+			// 	right: -6px;
+			// 	border-left: 5px solid @face;
+			// 	padding-left: 1px;
+			// 	line-height: .15;
+			// 	font-weight: 600;
+			// 	color: darken(@face, 5%);
+			// }
 
 			&:after {
 				content: "";
@@ -963,6 +990,8 @@ content {
 
 			.session-wrapper {
 				flex: 1;
+				--slotW: 93px;
+				--slotH: 19px;
 
 				.sess-layout {
 					display: flex;
@@ -975,26 +1004,22 @@ content {
 
 					.io-master {
 						display: flex;
+						// width: 285px;
 					}
 
 					.tracks {
 						display: flex;
-						flex: 1;
-					}
-
-					.track-col {
-						// width: 90px;
-						display: flex;
-						margin-right: 3px;
-
-						&:last-child {
-							margin-right: 0;
-						}
 
 						.track {
+							width: var( --slotW );
 							display: flex;
 							flex-direction: column;
-							
+							margin-right: 3px;
+
+							&:last-child {
+								margin-right: 0;
+							}
+
 							> div {
 								background: @boxBg;
 								margin-bottom: 1px;
@@ -1017,7 +1042,17 @@ content {
 
 							.slots {
 								flex: 1;
-								// background: transparent;
+								background: transparent;
+								background-image: linear-gradient(180deg,
+										@boxBg calc( var( --slotH ) * 0 ), @boxBg calc( var( --slotH ) * 1 ), transparent calc( var( --slotH ) * 1 ), transparent calc( calc( var( --slotH ) * 1 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 1 ), @boxBg calc( var( --slotH ) * 2 ), transparent calc( var( --slotH ) * 2 ), transparent calc( calc( var( --slotH ) * 2 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 2 ), @boxBg calc( var( --slotH ) * 3 ), transparent calc( var( --slotH ) * 3 ), transparent calc( calc( var( --slotH ) * 3 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 3 ), @boxBg calc( var( --slotH ) * 4 ), transparent calc( var( --slotH ) * 4 ), transparent calc( calc( var( --slotH ) * 4 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 4 ), @boxBg calc( var( --slotH ) * 5 ), transparent calc( var( --slotH ) * 5 ), transparent calc( calc( var( --slotH ) * 5 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 5 ), @boxBg calc( var( --slotH ) * 6 ), transparent calc( var( --slotH ) * 6 ), transparent calc( calc( var( --slotH ) * 6 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 6 ), @boxBg calc( var( --slotH ) * 7 ), transparent calc( var( --slotH ) * 7 ), transparent calc( calc( var( --slotH ) * 7 ) + 1px ),
+										@boxBg calc( var( --slotH ) * 7 )
+									);
 							}
 
 							.io {
@@ -1034,7 +1069,7 @@ content {
 							.mixer {
 								display: flex;
 								justify-content: space-evenly;
-								height: 126px;
+								height: 133px;
 								padding-top: 9px;
 								text-align: center;
 								border-radius: 0 0 3px 3px;
@@ -1045,10 +1080,14 @@ content {
 								}
 
 								.pan-knob {
-									margin: 0 0 2px;
+									margin: 3px 0 5px;
 								}
 							}
 						}
+					}
+
+					.space {
+						margin: 0 2px;
 					}
 				}
 			}

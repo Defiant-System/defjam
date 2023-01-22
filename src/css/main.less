@@ -1198,12 +1198,11 @@ content {
 				--noteW: 12px;
 
 					.col-left {
+						display: flex;
 						width: 50px;
 						margin: 0 1px 0 0;
 
 						.box-body  {
-							flex: 1;
-							position: relative;
 							overflow: hidden;
 						}
 					}
@@ -1334,9 +1333,9 @@ content {
 						border-radius: 3px 0 0 3px;
 						
 						.body-frame {
-							position: relative;
+							position: absolute;
 							width: 100%;
-							// height: calc( var( --keyH ) * 120);
+							height: calc( var( --keyH ) * 120); // temp
 							background-image: repeating-linear-gradient(180deg,
 									@griddark 0px,
 									@griddark 1px,

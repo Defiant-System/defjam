@@ -1121,7 +1121,7 @@ content {
 	}
 
 	.panel-bottom {
-		height: 230px;
+		height: 222px;
 		// height: 420px;
 		display: flex;
 		transition: height 200ms ease,
@@ -1693,42 +1693,23 @@ content {
 			display: block;
 
 			.drum-rack {
-				width: 520px;
-
-				.pad-matrix {
-					position: relative;
-					background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
-					filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
-					background-size: 20px 40px;
-					width: 20px;
-					height: 100%;
-
-					.cursor {
-						position: absolute;
-						top: 110px;
-						left: 0;
-						width: 19px;
-						height: 19px;
-						box-shadow: 0 0 0 1px darken(@base, 37%);
-						background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
-						background-size: 20px 40px;
-						filter: brightness(1.5);
-					}
-				}
+				// width: 520px;
 			}
 
-			.box-body {
-				padding: 2px;
+			.rack-body {
+				background: lighten(@boxBg, 3%);
 				display: flex;
 				flex-direction: column;
+				border-radius: 3px;
+				padding: 3px;
 
 				.rack-head {
 					position: relative;
-					padding: 5px 5px 5px 25px;
+					padding: 3px 5px 4px 23px;
 
 					.icon-blank {
 						position: absolute;
-						top: 3px;
+						top: 2px;
 						left: 3px;
 						width: 13px;
 						height: 13px;
@@ -1738,11 +1719,96 @@ content {
 					}
 				}
 
-				.rack-body {
+				.box-body {
 					flex: 1;
 					border-radius: 2px;
-					background: darken(@boxBg, 5%);
 					padding: 5px;
+					display: flex;
+					box-shadow: 0 0 0;
+				}
+
+				.pads {
+					flex: 1;
+					display: flex;
+					flex-direction: row;
+
+					.pad-matrix {
+						position: relative;
+						top: 7px;
+						background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
+						filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
+						background-size: 20px 40px;
+						width: 20px;
+						height: 170px;
+						margin-right: 5px;
+
+						.cursor {
+							position: absolute;
+							top: 110px;
+							left: 0;
+							width: 19px;
+							height: 19px;
+							box-shadow: 0 0 0 1px darken(@base, 37%);
+							background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
+							background-size: 20px 40px;
+							filter: brightness(1.5);
+						}
+					}
+
+					ul.pad-list {
+						// background: rgba(0,0,0,.1);
+						list-style: none;
+						width: 253px;
+						padding: 1px 0 0 1px;
+						font-size: 0;
+
+						li {
+							position: relative;
+							vertical-align: top;
+							display: inline-block;
+							width: 59px;
+							height: 41px;
+							font-size: 11px;
+							text-align: center;
+							box-shadow: 0 0 0 1px lighten(@base, 5%);
+							border-radius: 3px;
+							margin: 0 5px 5px 0;
+
+							&:nth-child(4n) {
+								margin-right: 0;
+							}
+
+							&:nth-child(13),
+							&:nth-child(14),
+							&:nth-child(15),
+							&:nth-child(16) {
+								margin-bottom: 0;
+							}
+
+							.pad-name {
+								background: lighten(@boxBg, 4%);
+								// color: @base;
+								// text-shadow: 0 0 0;
+								padding: 2px 0 0;
+								display: block;
+								height: 27px;
+								border-radius: 3px 3px 0 0;
+								border-bottom: 1px solid lighten(@base, 5%);
+							}
+
+							.pad-mute {
+
+							}
+
+							.pad-play {
+
+							}
+
+							.pad-solo {
+
+							}
+						}
+					}
 				}
 			}
 		}

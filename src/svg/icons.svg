@@ -113,6 +113,10 @@
 	<svg id="icon-curve_decay_bounce" viewBox="0 0 13 13"></svg>
 	<svg id="icon-curve_decay_ripple" viewBox="0 0 13 13"></svg>
 
+	<svg id="icon-pad-play" viewBox="0 0 10 10">
+		<path fill="#94abc3" d="M2,1.3v7.4C2,9,2.4,9.2,2.6,9L9,5.3c0.2-0.2,0.2-0.5,0-0.6L2.6,1C2.4,0.9,2,1.1,2,1.3z"/>
+	</svg>
+
 	<svg id="icon-pad-matrix" viewBox="0 0 20 40">
 		<style type="text/css">
 			.st0{fill:#5a87b4;}

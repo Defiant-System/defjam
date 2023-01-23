@@ -457,6 +457,7 @@ content {
 
 			&.active {
 				background: #d66;
+				color: @base;
 			}
 		}
 	}
@@ -1697,7 +1698,7 @@ content {
 			}
 
 			.rack-body {
-				background: lighten(@boxBg, 3%);
+				background: lighten(@boxBg, 5%);
 				display: flex;
 				flex-direction: column;
 				border-radius: 3px;
@@ -1724,7 +1725,8 @@ content {
 					border-radius: 2px;
 					padding: 5px;
 					display: flex;
-					box-shadow: 0 0 0;
+					box-shadow: inset 0 1px 0 darken(@boxBg, 3%),
+								inset 0 -1px 0 lighten(@boxBg, 9%);
 				}
 
 				.pads {
@@ -1756,11 +1758,17 @@ content {
 					}
 
 					ul.pad-list {
-						// background: rgba(0,0,0,.1);
 						list-style: none;
 						width: 253px;
-						padding: 1px 0 0 1px;
+						padding: 1px 0 1px 1px;
 						font-size: 0;
+
+						&.disable-mute {
+							i.pad-mute {
+								opacity: .35;
+								text-shadow: 0 0 0;
+							}
+						}
 
 						li {
 							position: relative;
@@ -1770,7 +1778,7 @@ content {
 							height: 41px;
 							font-size: 11px;
 							text-align: center;
-							box-shadow: 0 0 0 1px lighten(@base, 5%);
+							box-shadow: 0 0 0 1px lighten(@base, 7%);
 							border-radius: 3px;
 							margin: 0 5px 5px 0;
 
@@ -1793,19 +1801,75 @@ content {
 								display: block;
 								height: 27px;
 								border-radius: 3px 3px 0 0;
-								border-bottom: 1px solid lighten(@base, 5%);
+								border-bottom: 1px solid lighten(@base, 7%);
+							}
+
+							i {
+								position: absolute;
+								bottom: 0;
+								width: 20px;
+								height: 14px;
+								font-style: normal;
+								padding-top: 2px;
+								border-right: 1px solid lighten(@base, 7%);
+								cursor: pointer;
+								opacity: .75;
+
+								&:hover {
+									opacity: 1;
+								}
 							}
 
 							.pad-mute {
+								left: 0;
+								border-radius: 0 0 0 3px;
 
+								&:active,
+								&.active {
+									background: #d66;
+									color: @base;
+									text-shadow: 0 0 0;
+									opacity: 1;
+								}
 							}
 
 							.pad-play {
+								left: 19px;
+								width: 21px;
 
+								&:before {
+									content: "";
+									position: absolute;
+									top: 2px;
+									left: 5px;
+									width: 10px;
+									height: 10px;
+									background-image: url(~/icons/icon-pad-play.png);
+									background-position: 0 0;
+									background-size: 10px 10px;
+									background-repeat: no-repeat;
+									filter: drop-shadow(0 1px 0 darken(@boxBg, 13%));
+								}
+
+								&:active:before,
+								&.active:before {
+									filter: brightness(1.25) saturate(2);
+								}
 							}
 
 							.pad-solo {
+								left: 40px;
+								width: 19px;
+								border-right: 0;
+								border-radius: 0 0 3px 0;
 
+								&:active,
+								&.active {
+									background: #66f;
+									color: @base;
+									text-shadow: 0 0 0;
+									opacity: 1;
+								}
 							}
 						}
 					}

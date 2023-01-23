@@ -113,6 +113,44 @@
 	<svg id="icon-curve_decay_bounce" viewBox="0 0 13 13"></svg>
 	<svg id="icon-curve_decay_ripple" viewBox="0 0 13 13"></svg>
 
+	<svg id="icon-pad-matrix" viewBox="0 0 20 40">
+		<style type="text/css">
+			.st0{fill:#6667ff;}
+			.st1{fill:#5b5cee;}
+		</style>
+		<rect class="st0" x="0" y="0" width="4" height="4"/>
+		<rect class="st0" x="5" y="0" width="4" height="4"/>
+		<rect class="st0" x="10" y="0" width="4" height="4"/>
+		<rect class="st0" x="15" y="0" width="4" height="4"/>
+		<rect class="st0" x="0" y="5" width="4" height="4"/>
+		<rect class="st0" x="5" y="5" width="4" height="4"/>
+		<rect class="st0" x="10" y="5" width="4" height="4"/>
+		<rect class="st0" x="15" y="5" width="4" height="4"/>
+		<rect class="st0" x="0" y="10" width="4" height="4"/>
+		<rect class="st0" x="5" y="10" width="4" height="4"/>
+		<rect class="st0" x="10" y="10" width="4" height="4"/>
+		<rect class="st0" x="15" y="10" width="4" height="4"/>
+		<rect class="st0" x="0" y="15" width="4" height="4"/>
+		<rect class="st0" x="5" y="15" width="4" height="4"/>
+		<rect class="st0" x="10" y="15" width="4" height="4"/>
+		<rect class="st0" x="15" y="15" width="4" height="4"/>
+		<rect class="st1" x="0" y="20" width="4" height="4"/>
+		<rect class="st1" x="5" y="20" width="4" height="4"/>
+		<rect class="st1" x="10" y="20" width="4" height="4"/>
+		<rect class="st1" x="15" y="20" width="4" height="4"/>
+		<rect class="st1" x="0" y="25" width="4" height="4"/>
+		<rect class="st1" x="5" y="25" width="4" height="4"/>
+		<rect class="st1" x="10" y="25" width="4" height="4"/>
+		<rect class="st1" x="15" y="25" width="4" height="4"/>
+		<rect class="st1" x="0" y="30" width="4" height="4"/>
+		<rect class="st1" x="5" y="30" width="4" height="4"/>
+		<rect class="st1" x="10" y="30" width="4" height="4"/>
+		<rect class="st1" x="15" y="30" width="4" height="4"/>
+		<rect class="st1" x="0" y="35" width="4" height="4"/>
+		<rect class="st1" x="5" y="35" width="4" height="4"/>
+		<rect class="st1" x="10" y="35" width="4" height="4"/>
+		<rect class="st1" x="15" y="35" width="4" height="4"/>
+	</svg>
 
 	<!--
 	<svg id="icon-curve_exponential" viewBox="0 0 500 500">

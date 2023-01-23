@@ -58,10 +58,10 @@ const defjam = {
 				// });
 
 				// rendering drumkit
-				window.render({
-					template: "rack-drumkit",
-					prepend: self.content.find(".drumkit-body")
-				});
+				// window.render({
+				// 	template: "rack-drumkit",
+				// 	prepend: self.content.find(".drumkit-body")
+				// });
 
 				// rendering devices
 				window.render({

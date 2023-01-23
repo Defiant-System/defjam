@@ -1121,8 +1121,8 @@ content {
 	}
 
 	.panel-bottom {
-		// height: 197px;
-		height: 420px;
+		height: 230px;
+		// height: 420px;
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -1692,128 +1692,57 @@ content {
 		.drumkit-body {
 			display: block;
 
-			.rack-drumkit {
-				display: flex;
-				padding: 0;
+			.drum-rack {
+				width: 520px;
+
+				.pad-matrix {
+					position: relative;
+					background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
+					filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
+					background-size: 20px 40px;
+					width: 20px;
+					height: 100%;
+
+					.cursor {
+						position: absolute;
+						top: 110px;
+						left: 0;
+						width: 19px;
+						height: 19px;
+						box-shadow: 0 0 0 1px darken(@base, 37%);
+						background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
+						background-size: 20px 40px;
+						filter: brightness(1.5);
+					}
+				}
 			}
 
-			.controls {
-				width: 220px;
-			}
-
-			.sequencer {
-				flex: auto;
+			.box-body {
+				padding: 2px;
 				display: flex;
-				padding: 0;
-				margin-left: 3px;
+				flex-direction: column;
 
-				.instruments {
-					width: 140px;
-					display: flex;
-					flex-direction: column;
+				.rack-head {
+					position: relative;
+					padding: 5px 5px 5px 25px;
 
-					.head { border-radius: 3px 0 0 0; }
-					.body { border-radius: 0 0 0 3px; }
-					.row {
-						padding: 5px 5px 6px 7px;
-						border-bottom: 1px solid @face;
-						font-size: 11px;
+					.icon-blank {
+						position: absolute;
+						top: 3px;
+						left: 3px;
+						width: 13px;
+						height: 13px;
+						border-radius: 50%;
+						background: @highlight;
+						box-shadow: inset 0 0 0 1px darken(@highlight, 29%);
 					}
 				}
 
-				.steps {
+				.rack-body {
 					flex: 1;
-					display: flex;
-					flex-direction: column;
-
-					.head { border-radius: 0 3px 0 0; }
-					.body {
-						border-radius: 0 0 3px 0;
-						overflow: auto;
-					}
-				}
-
-				.head {
-					height: 17px;
-					background: @boxBg;
-					box-shadow: inset 0 1px 0 lighten(@boxBg, 3%);
-					margin-bottom: 1px;
-					white-space: nowrap;
-					font-size: 0;
-
-					.step {
-						position: relative;
-						display: inline-block;
-						width: 43px;
-						height: 100%;
-						border: 0;
-						border-right: 1px solid transparent;
-
-						&.active:before {
-							background: @highlight;
-							box-shadow: 0 1px 0 @face;
-						}
-
-						&:nth-child(4n + 1) {
-							border-left: 1px solid @face;
-						}
-						&:nth-child(4n) {
-							border-right-color: @face;
-						}
-						&:first-child {
-							border-left-width: 2px;
-						}
-						&:last-child {
-							border-right: 1px solid @face;
-						}
-						&:before {
-							content: "";
-							position: absolute;
-							top: 50%;
-							left: 50%;
-							width: 8px;
-							height: 8px;
-							margin: -4px 0 0 -4px;
-							border-radius: 50%;
-							background: @face;
-						}
-					}
-				}
-				
-				.body {
-					flex: 1;
-					background: @boxBg;
-					box-shadow: 0 1px 0 darken(@boxBg, 15%);
-					white-space: nowrap;
-				}
-
-				.row {
-					height: 23px;
-					font-size: 0;
-
-					&:last-child .step:last-child {
-						border-bottom-right-radius: 3px;
-					}
-
-					.step {
-						display: inline-block;
-						width: 43px;
-						height: 100%;
-						border-right: 1px solid @face;
-						border-bottom: 1px solid @face;
-						font: 12px;
-
-						&.active {
-							background: lighten(@boxBg, 5%);
-						}
-
-						&:nth-child(4n + 1) {
-							border-left: 1px solid @face;
-						}
-						&:first-child {
-							border-left-width: 2px;
-						}
-					}
+					border-radius: 2px;
+					background: darken(@boxBg, 5%);
+					padding: 5px;
 				}
 			}
 		}

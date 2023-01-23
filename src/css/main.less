@@ -1730,13 +1730,13 @@ content {
 				}
 
 				.device-control {
-					background: rgba(0,0,0,.05);
+					// background: rgba(0,0,0,.05);
 					width: 130px;
 				}
 
 				.sample-display {
-					background: rgba(0,0,0,.05);
-					width: 420px;
+					// background: rgba(0,0,0,.05);
+					width: 520px;
 				}
 
 				.pads {
@@ -1801,6 +1801,15 @@ content {
 							&:nth-child(15),
 							&:nth-child(16) {
 								margin-bottom: 0;
+							}
+
+							&.active {
+								.pad-name {
+									background: @highlight;
+									color: @base;
+									box-shadow: 0 0 0;
+									text-shadow: 0 0 0;
+								}
 							}
 
 							.pad-name {

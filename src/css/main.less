@@ -1141,11 +1141,11 @@ content {
 				display: flex;
 			}
 
-			.devices-body {
-				> div {
-					padding: 5px;
-				}
-			}
+			// .devices-body {
+			// 	> div {
+			// 		padding: 5px;
+			// 	}
+			// }
 
 			> div {
 				display: none;
@@ -1503,236 +1503,52 @@ content {
 				}
 			}
 		}
-
-		.sd-box,
-		.adsr-box,
-		.fr-box {
-			display: flex;
-			flex-direction: column;
-
-			.graph {
-				background: @base;
-				border-radius: 3px;
-				padding: 4px;
-				
-				.sample {
-					//background: red;
-				}
-
-				svg {
-					//background: rgba(255,255,255,.1);
-
-					.line {
-						stroke: @face;
-						stroke-width: 0.25;
-					}
-
-					.shape {
-						fill: none;
-						stroke: saturate(lighten(@boxBg, 29%), 59%);
-						stroke-width: 1.5;
-					}
-
-					.handle {
-						fill: @base;
-						stroke: @highlight;
-						stroke-width: 2;
-						cursor: pointer;
-
-						&.on { fill: @highlight; }
-					}
-				}
-
-				.options {
-					display: flex;
-					justify-content: space-between;
-					height: 16px;
-					margin-top: 1px;
-					padding-top: 2px;
-					text-transform: uppercase;
-					font-size: 9px;
-					color: lighten(@boxBg, 7%);
-					border-top: 1px solid @face;
-
-					div {
-						padding-top: 3px;
-						padding: 3px 8px 0 5px;
-						height: 16px;
-					}
-
-					i {
-						background-position: 50% 50%;
-						background-size: 90% auto;
-						background-repeat: no-repeat;
-						display: inline-block;
-						width: 14px;
-						height: 14px;
-						vertical-align: top;
-						position: relative;
-						top: -2px;
-						left: 3px;
-						border: 1px solid darken(@face, 5%);
-						border-radius: 3px;
-
-						&.icon-curve_exponential       { background-image: url(~/icons/icon-curve_exponential.png); }
-						&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_decay_exponential.png); }
-						&.icon-curve_linear            { background-image: url(~/icons/icon-curve_linear.png); }
-						&.icon-curve_sine              { background-image: url(~/icons/icon-curve_sine.png); }
-						&.icon-curve_cosine            { background-image: url(~/icons/icon-curve_cosine.png); }
-						&.icon-curve_step              { background-image: url(~/icons/icon-curve_step.png); }
-						&.icon-curve_ripple            { background-image: url(~/icons/icon-curve_ripple.png); }
-						&.icon-curve_bounce            { background-image: url(~/icons/icon-curve_bounce.png); }
-
-						&.icon-curve_decay_linear      { background-image: url(~/icons/icon-curve_decay_linear.png); }
-						&.icon-curve_decay_sine        { background-image: url(~/icons/icon-curve_decay_sine.png); }
-						&.icon-curve_decay_cosine      { background-image: url(~/icons/icon-curve_decay_cosine.png); }
-						&.icon-curve_decay_step        { background-image: url(~/icons/icon-curve_decay_step.png); }
-						&.icon-curve_decay_ripple      { background-image: url(~/icons/icon-curve_decay_ripple.png); }
-						&.icon-curve_decay_bounce      { background-image: url(~/icons/icon-curve_decay_bounce.png); }
-					}
-				}
-
-				.values {
-					border-top: 1px solid @face;
-					height: 13px;
-					margin-top: 3px;
-				}
-			}
-
-			.controls {
-				padding: 3px 0 0;
-				display: flex;
-
-				> div {
-					position: relative;
-					margin-right: 17px;
-
-					&.space {
-						flex: auto;
-						background: transparent;
-						margin: 0;
-					}
-
-					&:last-child {
-						margin: 0;
-					}
-
-					span {
-						position: absolute;
-						top: -16px;
-						left: 0;
-						right: 0;
-						font-size: 10px;
-						text-align: center;
-						color: lighten(@boxBg, 7%);
-					}
-
-					label {
-						position: relative;
-						top: -2px;
-						display: block;
-						color: darken(@face, 3%);
-						font-size: 9px;
-						text-align: center;
-						text-transform: uppercase;
-						text-shadow: 0 0 0;
-					}
-				}
-
-				.knob {
-					transform: scale(.85);
-				}
-			}
-		}
-
-		.fr-box {
-			width: 222px;
-
-			.graph {
-				svg {
-					opacity: 0; // temp
-					width: 204px;
-					height: 89px;
-				}
-			}
-		}
-
-		.adsr-box {
-			width: 339px;
-
-			.graph {
-				svg {
-					opacity: 0; // temp
-					width: 321px;
-					height: 71px;
-				}
-
-				.values {
-					border-top: 0;
-				}
-			}
-		}
-
-		.sd-box {
-			width: 480px;
-
-			.graph {
-				.sample {
-					background: url(~/cache/kick.png) 0 50% no-repeat;
-					margin-top: -1px;
-					width: 460px;
-					height: 90px;
-				}
-			}
-		}
-
+		
 		.drumkit-body {
 			display: block;
+		}
 
-			.drum-rack {
-				// width: 520px;
+		.rack-body {
+			background: lighten(@boxBg, 5%);
+			display: flex;
+			flex-direction: column;
+			border-radius: 3px;
+			padding: 3px 3px 2px;
+
+			.rack-head {
+				position: relative;
+				padding: 3px 5px 5px 23px;
+
+				.icon-blank {
+					position: absolute;
+					top: 2px;
+					left: 3px;
+					width: 13px;
+					height: 13px;
+					border-radius: 50%;
+					background: @highlight;
+					box-shadow: inset 0 0 0 1px darken(@highlight, 29%);
+				}
 			}
 
-			.rack-body {
-				background: lighten(@boxBg, 5%);
+			.box-body {
+				flex: 1;
+				border-radius: 2px;
+				padding: 5px;
 				display: flex;
-				flex-direction: column;
-				border-radius: 3px;
-				padding: 3px 3px 2px;
+				box-shadow: inset 0 1px 0 darken(@boxBg, 3%),
+							inset 0 -1px 0 lighten(@boxBg, 8%);
 
-				.rack-head {
+				.graph {
+					background: @base;
 					position: relative;
-					padding: 3px 5px 5px 23px;
+					height: 132px;
+					border-radius: 3px;
+					padding: 3px 4px 4px 4px;
+					// box-shadow: inset 0 1px 1px lighten(@base, 11%);
 
-					.icon-blank {
-						position: absolute;
-						top: 2px;
-						left: 3px;
-						width: 13px;
-						height: 13px;
-						border-radius: 50%;
-						background: @highlight;
-						box-shadow: inset 0 0 0 1px darken(@highlight, 29%);
-					}
-				}
-
-				.box-body {
-					flex: 1;
-					border-radius: 2px;
-					padding: 5px;
-					display: flex;
-					box-shadow: inset 0 1px 0 darken(@boxBg, 3%),
-								inset 0 -1px 0 lighten(@boxBg, 8%);
-
-					.graph {
-						background: @base;
-						position: relative;
-						height: 132px;
-						border-radius: 3px;
-						padding: 4px;
-						// box-shadow: inset 0 1px 1px lighten(@base, 11%);
-
-						&.has-values:after {
+					&.has-values{
+						&:after {
 							content: "";
 							position: absolute;
 							bottom: 17px;
@@ -1741,266 +1557,277 @@ content {
 							height: 1px;
 							background: @face;
 						}
+
+						canvas {
+							height: calc( 100% - 17px );
+						}
 					}
 
-					.graph + .controls {
-						padding: 3px 0 0;
-						display: flex;
+					canvas {
+						// background: red;
+						width: 100%;
+						height: 100%;
+					}
+				}
 
-						> div {
+				.graph + .controls {
+					padding: 3px 0 0;
+					display: flex;
+
+					> div {
+						position: relative;
+						margin-right: 17px;
+
+						&.space {
+							flex: auto;
+							background: transparent;
+							margin: 0;
+						}
+
+						&:last-child {
+							margin: 0;
+						}
+
+						span {
+							position: absolute;
+							top: -16px;
+							left: 0;
+							right: 0;
+							font-size: 10px;
+							text-align: center;
+							color: lighten(@boxBg, 7%);
+						}
+
+						label {
 							position: relative;
-							margin-right: 17px;
-
-							&.space {
-								flex: auto;
-								background: transparent;
-								margin: 0;
-							}
-
-							&:last-child {
-								margin: 0;
-							}
-
-							span {
-								position: absolute;
-								top: -16px;
-								left: 0;
-								right: 0;
-								font-size: 10px;
-								text-align: center;
-								color: lighten(@boxBg, 7%);
-							}
-
-							label {
-								position: relative;
-								top: -2px;
-								display: block;
-								// color: darken(@face, 3%);
-								font-size: 9px;
-								text-align: center;
-								text-transform: uppercase;
-								// text-shadow: 0 0 0;
-							}
+							top: -2px;
+							display: block;
+							// color: darken(@face, 3%);
+							font-size: 9px;
+							text-align: center;
+							text-transform: uppercase;
+							// text-shadow: 0 0 0;
 						}
+					}
 
-						.knob {
-							transform: scale(.85);
-						}
+					.knob {
+						transform: scale(.85);
+					}
+				}
+			}
+
+			.device-control {
+				width: 239px;
+			}
+
+			.sample-display {
+				width: 520px;
+			}
+
+			ul.controls {
+				list-style: none;
+				padding: 1px 0 0 1px;
+				font-size: 0;
+
+				li {
+					position: relative;
+					vertical-align: top;
+					display: inline-block;
+					width: 55px;
+					height: 87px;
+					font-size: 11px;
+					text-align: center;
+					box-shadow: 0 0 0 1px lighten(@base, 13%);
+					border-radius: 3px;
+					margin: 0 5px 5px 0;
+
+					&:nth-child(3n) {
+						margin-right: 0;
+					}
+
+					&:nth-child(5),
+					&:nth-child(6),
+					&:nth-child(7),
+					&:nth-child(8) {
+						margin-bottom: 0;
+					}
+
+					.ctrl-name {
+						background: lighten(@boxBg, 4%);
+						padding: 5px 2px 0;
+						display: block;
+						height: 32px;
+						overflow: hidden;
+						line-height: 12px;
+						border-radius: 3px 3px 0 0;
+						border-bottom: 1px solid lighten(@base, 13%);
+					}
+
+					.ctrl-knob {
+						margin-top: 5px;
+					}
+
+					.ctrl-value {
+						display: block;
+						text-align: center;
+						font-size: 10px;
+					}
+				}
+			}
+
+			.pads {
+				flex: 1;
+				display: flex;
+				flex-direction: row;
+
+				.pad-matrix {
+					position: relative;
+					top: 7px;
+					background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
+					filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
+					background-size: 20px 40px;
+					width: 20px;
+					height: 170px;
+					margin-right: 5px;
+
+					.cursor {
+						position: absolute;
+						top: 110px;
+						left: 0;
+						width: 19px;
+						height: 19px;
+						box-shadow: 0 0 0 1px darken(@base, 37%);
+						background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
+						background-size: 20px 40px;
+						filter: brightness(1.25) hue-rotate(190deg) saturate(1.25);
 					}
 				}
 
-				.device-control {
-					width: 196px;
-				}
-
-				.sample-display {
-					width: 520px;
-				}
-
-				ul.controls {
+				ul.pad-list {
 					list-style: none;
+					width: 253px;
 					padding: 1px 0 1px 1px;
 					font-size: 0;
+
+					&.disable-mute {
+						i.pad-mute {
+							opacity: .35;
+							text-shadow: 0 0 0;
+						}
+					}
 
 					li {
 						position: relative;
 						vertical-align: top;
 						display: inline-block;
 						width: 59px;
-						height: 87px;
+						height: 41px;
 						font-size: 11px;
 						text-align: center;
-						box-shadow: 0 0 0 1px lighten(@base, 13%);
+						box-shadow: 0 0 0 1px lighten(@base, 7%);
 						border-radius: 3px;
 						margin: 0 5px 5px 0;
 
-						&:nth-child(3n) {
+						&:nth-child(4n) {
 							margin-right: 0;
 						}
 
-						&:nth-child(4),
-						&:nth-child(5),
-						&:nth-child(6) {
+						&:nth-child(13),
+						&:nth-child(14),
+						&:nth-child(15),
+						&:nth-child(16) {
 							margin-bottom: 0;
 						}
 
-						.ctrl-name {
-							background: lighten(@boxBg, 4%);
-							padding: 5px 2px 0;
-							display: block;
-							height: 32px;
-							overflow: hidden;
-							line-height: 12px;
-							border-radius: 3px 3px 0 0;
-							border-bottom: 1px solid lighten(@base, 13%);
-						}
-
-						.ctrl-knob {
-							margin-top: 5px;
-						}
-
-						.ctrl-value {
-							display: block;
-							text-align: center;
-							font-size: 10px;
-						}
-					}
-				}
-
-				.pads {
-					flex: 1;
-					display: flex;
-					flex-direction: row;
-
-					.pad-matrix {
-						position: relative;
-						top: 7px;
-						background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
-						filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
-						background-size: 20px 40px;
-						width: 20px;
-						height: 170px;
-						margin-right: 5px;
-
-						.cursor {
-							position: absolute;
-							top: 110px;
-							left: 0;
-							width: 19px;
-							height: 19px;
-							box-shadow: 0 0 0 1px darken(@base, 37%);
-							background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
-							background-size: 20px 40px;
-							filter: brightness(1.25) hue-rotate(190deg) saturate(1.25);
-						}
-					}
-
-					ul.pad-list {
-						list-style: none;
-						width: 253px;
-						padding: 1px 0 1px 1px;
-						font-size: 0;
-
-						&.disable-mute {
-							i.pad-mute {
-								opacity: .35;
+						&.active {
+							.pad-name {
+								background: @highlight;
+								color: @base;
+								box-shadow: 0 0 0;
 								text-shadow: 0 0 0;
 							}
 						}
 
-						li {
-							position: relative;
-							vertical-align: top;
-							display: inline-block;
-							width: 59px;
-							height: 41px;
-							font-size: 11px;
-							text-align: center;
-							box-shadow: 0 0 0 1px lighten(@base, 7%);
-							border-radius: 3px;
-							margin: 0 5px 5px 0;
+						.pad-name {
+							background: lighten(@boxBg, 4%);
+							box-shadow: inset 0 1px 0 lighten(@boxBg, 7%),
+										inset 0 -1px 0 darken(@boxBg, .5%);
+							padding: 2px 2px 0;
+							display: flex;
+							// align-items: center;
+							justify-content: center;
+							height: 27px;
+							overflow: hidden;
+							line-height: 12px;
+							border-radius: 3px 3px 0 0;
+							border-bottom: 1px solid lighten(@base, 11%);
+						}
 
-							&:nth-child(4n) {
-								margin-right: 0;
+						i {
+							position: absolute;
+							bottom: 0;
+							width: 20px;
+							height: 14px;
+							font-style: normal;
+							padding-top: 2px;
+							border-right: 1px solid lighten(@base, 7%);
+							cursor: pointer;
+							opacity: .6;
+
+							&:hover {
+								opacity: 1;
 							}
+						}
 
-							&:nth-child(13),
-							&:nth-child(14),
-							&:nth-child(15),
-							&:nth-child(16) {
-								margin-bottom: 0;
-							}
+						.pad-mute {
+							left: 0;
+							border-radius: 0 0 0 3px;
 
+							&:active,
 							&.active {
-								.pad-name {
-									background: @highlight;
-									color: @base;
-									box-shadow: 0 0 0;
-									text-shadow: 0 0 0;
-								}
+								background: #d66;
+								color: @base;
+								text-shadow: 0 0 0;
+								opacity: 1;
 							}
+						}
 
-							.pad-name {
-								background: lighten(@boxBg, 4%);
-								box-shadow: inset 0 1px 0 lighten(@boxBg, 7%),
-											inset 0 -1px 0 darken(@boxBg, .5%);
-								padding: 2px 2px 0;
-								display: flex;
-								// align-items: center;
-								justify-content: center;
-								height: 27px;
-								overflow: hidden;
-								line-height: 12px;
-								border-radius: 3px 3px 0 0;
-								border-bottom: 1px solid lighten(@base, 11%);
-							}
+						.pad-play {
+							left: 19px;
+							width: 21px;
 
-							i {
+							&:before {
+								content: "";
 								position: absolute;
-								bottom: 0;
-								width: 20px;
-								height: 14px;
-								font-style: normal;
-								padding-top: 2px;
-								border-right: 1px solid lighten(@base, 7%);
-								cursor: pointer;
-								opacity: .6;
-
-								&:hover {
-									opacity: 1;
-								}
+								top: 2px;
+								left: 5px;
+								width: 10px;
+								height: 10px;
+								background-image: url(~/icons/icon-pad-play.png);
+								background-position: 0 0;
+								background-size: 10px 10px;
+								background-repeat: no-repeat;
+								filter: drop-shadow(0 1px 0 darken(@boxBg, 13%));
 							}
 
-							.pad-mute {
-								left: 0;
-								border-radius: 0 0 0 3px;
-
-								&:active,
-								&.active {
-									background: #d66;
-									color: @base;
-									text-shadow: 0 0 0;
-									opacity: 1;
-								}
+							&:active:before,
+							&.active:before {
+								filter: brightness(1.25) saturate(2);
 							}
+						}
 
-							.pad-play {
-								left: 19px;
-								width: 21px;
+						.pad-solo {
+							left: 40px;
+							width: 19px;
+							border-right: 0;
+							border-radius: 0 0 3px 0;
 
-								&:before {
-									content: "";
-									position: absolute;
-									top: 2px;
-									left: 5px;
-									width: 10px;
-									height: 10px;
-									background-image: url(~/icons/icon-pad-play.png);
-									background-position: 0 0;
-									background-size: 10px 10px;
-									background-repeat: no-repeat;
-									filter: drop-shadow(0 1px 0 darken(@boxBg, 13%));
-								}
-
-								&:active:before,
-								&.active:before {
-									filter: brightness(1.25) saturate(2);
-								}
-							}
-
-							.pad-solo {
-								left: 40px;
-								width: 19px;
-								border-right: 0;
-								border-radius: 0 0 3px 0;
-
-								&:active,
-								&.active {
-									background: #66f;
-									color: @base;
-									text-shadow: 0 0 0;
-									opacity: 1;
-								}
+							&:active,
+							&.active {
+								background: #66f;
+								color: @base;
+								text-shadow: 0 0 0;
+								opacity: 1;
 							}
 						}
 					}

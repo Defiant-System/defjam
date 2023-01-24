@@ -1,7 +1,6 @@
 
-import { EventHandlers } from "./modules/eventHandlers";
-import { Audio } from "./modules/audio";
-
+@import "./modules/ux.js";
+@import "./modules/audio.js";
 
 @import "./modules/test.js";
 
@@ -17,7 +16,7 @@ const defjam = {
 		this.rack = window.find(".box.rack");
 		this.rowFoot = window.find(".row-foot");
 
-		EventHandlers.init();
+		UX.init();
 		Audio.init();
 
 		// tag all list items with id's
@@ -45,40 +44,6 @@ const defjam = {
 		//console.log(event);
 		switch (event.type) {
 			case "render-view":
-				window.render({
-					template: "sidebar-list",
-					data: window.bluePrint.selectSingleNode("//Drums"),
-					append: self.sidebar.find(".sounds-body .box-body:first")
-				});
-
-				// window.render({
-				// 	template: "session",
-				// 	data: window.bluePrint.selectSingleNode("//file"),
-				// 	prepend: self.content.find(".session-wrapper")
-				// });
-
-				// rendering drumkit
-				// window.render({
-				// 	template: "rack-drumkit",
-				// 	prepend: self.content.find(".drumkit-body")
-				// });
-
-				// rendering devices
-				window.render({
-					template: "device-adsr",
-					prepend: self.content.find(".devices-body")
-				});
-
-				window.render({
-					template: "device-fr",
-					prepend: self.content.find(".devices-body")
-				});
-
-				// window.render({
-				// 	template: "device-sd",
-				// 	prepend: self.content.find(".devices-body")
-				// });
-
 				// temp
 				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
 				//await karaqu.cache.clear();
@@ -95,6 +60,7 @@ const defjam = {
 					.cssSequence("play", "transitionend", el => el.removeClass("play"));
 				break;
 			case "preview-audio":
+				/*
 				el = $(event.target);
 				if (event.target === event.el[0]) return;
 				if (el.prop("nodeName") === "SPAN") el = el.parents(".folder, .item");
@@ -127,6 +93,7 @@ const defjam = {
 						el.addClass("open");
 					}
 				}
+				*/
 				break;
 			case "show-sounds":
 			case "show-drums":

@@ -1,6 +1,6 @@
 
-const EventHandlers = {
-	init(content) {
+const UX = {
+	init() {
 		// fast references
 		this.doc = $(document);
 		this.content = window.find("content");
@@ -22,7 +22,7 @@ const EventHandlers = {
 		}, 100);
 	},
 	doKnob(event) {
-		let self = EventHandlers,
+		let self = UX,
 			drag = self.drag,
 			value,
 			el;
@@ -60,7 +60,7 @@ const EventHandlers = {
 		}
 	},
 	doShape(event) {
-		let self = EventHandlers,
+		let self = UX,
 			drag = self.drag,
 			connect,
 			curve,
@@ -200,5 +200,3 @@ const Shapes = {
 		return r.join(" ");
 	}
 };
-
-export  { EventHandlers }

@@ -316,7 +316,6 @@ content {
 			background-image: linear-gradient(180deg,
 					@face 0px, @face 1px,
 					transparent 1px, transparent 11px,
-					
 					@face 11px, @face 12px,
 					transparent 12px, transparent 28px,
 					@face 28px, @face 29px,
@@ -329,7 +328,6 @@ content {
 					transparent 78px, transparent 94px,
 					@face 94px, @face 95px,
 					transparent 95px, transparent 110px,
-
 					@face 110px, @face 111px,
 					transparent 111px, transparent 120px
 				);
@@ -342,10 +340,10 @@ content {
 				width: 9px;
 				right: -11px;
 				text-align: right;
-				line-height: 2.065;
-				font-size: 8px;
+				line-height: 1.82;
+				font-size: 9px;
 				font-weight: 100;
-				color: darken(@base, 7%);
+				color: darken(@face, 5%);
 			}
 
 			&:after {
@@ -1745,7 +1743,7 @@ content {
 						}
 					}
 
-					.controls {
+					.graph + .controls {
 						padding: 3px 0 0;
 						display: flex;
 
@@ -1792,13 +1790,61 @@ content {
 				}
 
 				.device-control {
-					// background: rgba(0,0,0,.05);
-					width: 130px;
+					width: 196px;
 				}
 
 				.sample-display {
-					// background: rgba(0,0,0,.05);
 					width: 520px;
+				}
+
+				ul.controls {
+					list-style: none;
+					padding: 1px 0 1px 1px;
+					font-size: 0;
+
+					li {
+						position: relative;
+						vertical-align: top;
+						display: inline-block;
+						width: 59px;
+						height: 87px;
+						font-size: 11px;
+						text-align: center;
+						box-shadow: 0 0 0 1px lighten(@base, 13%);
+						border-radius: 3px;
+						margin: 0 5px 5px 0;
+
+						&:nth-child(3n) {
+							margin-right: 0;
+						}
+
+						&:nth-child(4),
+						&:nth-child(5),
+						&:nth-child(6) {
+							margin-bottom: 0;
+						}
+
+						.ctrl-name {
+							background: lighten(@boxBg, 4%);
+							padding: 5px 2px 0;
+							display: block;
+							height: 32px;
+							overflow: hidden;
+							line-height: 12px;
+							border-radius: 3px 3px 0 0;
+							border-bottom: 1px solid lighten(@base, 13%);
+						}
+
+						.ctrl-knob {
+							margin-top: 5px;
+						}
+
+						.ctrl-value {
+							display: block;
+							text-align: center;
+							font-size: 10px;
+						}
+					}
 				}
 
 				.pads {
@@ -1887,12 +1933,6 @@ content {
 								line-height: 12px;
 								border-radius: 3px 3px 0 0;
 								border-bottom: 1px solid lighten(@base, 11%);
-
-								// b {
-								// 	font-weight: 400;
-								// 	overflow: hidden;
-								// 	height: 24px;
-								// }
 							}
 
 							i {

@@ -32,8 +32,8 @@ const defjam = {
 		Test.init();
 		// DEV-ONLY-END
 	},
-	async dispatch(event) {
-		let self = defjam,
+	dispatch(event) {
+		let Self = defjam,
 			path,
 			url,
 			name,
@@ -45,18 +45,23 @@ const defjam = {
 		switch (event.type) {
 			case "render-view":
 				// temp
-				//setTimeout(() => self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
+				//setTimeout(() => Self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
 				//await karaqu.cache.clear();
 				
 				//await karaqu.cache.clear("/cache/snare.png");
-				// await Audio.visualizeFile({
-				// 	url: "~/sounds/drumkit/kick.wav",
-				// 	width: 480,
-				// 	height: 74
-				// });
+				Audio.visualizeFile({
+						url: "~/sounds/drumkit/kick.wav",
+						width: 480,
+						height: 74
+					})
+					.then(path => {
+						Self.audioChart.css({ "background-image": `url(${path})` });
+
+						window.find("canvas").css({ "background-image": `url(${path})` });;
+					});
 				break;
 			case "play-audio":
-				self.audioChart
+				Self.audioChart
 					.cssSequence("play", "transitionend", el => el.removeClass("play"));
 				break;
 			case "preview-audio":
@@ -72,7 +77,7 @@ const defjam = {
 					// update audio chart box
 					url = "~/sounds/"+ el.data("path");
 					path = await Audio.visualizeFile({ url, width: 202, height: 31 });
-					self.audioChart
+					Self.audioChart
 						.css({ "background-image": `url(${path})` })
 						.cssSequence("play", "transitionend", el => el.removeClass("play"));
 				} else {
@@ -104,12 +109,12 @@ const defjam = {
 				event.el.addClass("active");
 
 				name = ["from"];
-				name.push(self.sidebar.prop("className").split("show-")[1].split(" ")[0]);
+				name.push(Self.sidebar.prop("className").split("show-")[1].split(" ")[0]);
 				name.push("to");
 				name.push(event.type.split("-")[1]);
 				name = name.join("-");
 
-				self.sidebar
+				Self.sidebar
 					.cssSequence(name, "animationend", el =>
 						el.parent()
 							.removeClass("show-sounds show-drums show-instruments show-fx "+ name)
@@ -137,15 +142,15 @@ const defjam = {
 				el = event.el;
 				isOn = el.hasClass("toggled");
 				el.toggleClass("toggled", isOn);
-				self.panelLeft.toggleClass("hide", isOn);
+				Self.panelLeft.toggleClass("hide", isOn);
 				break;
 			case "toggle-rack-panel":
 				el = event.el;
 				isOn = el.hasClass("toggled");
 				el.toggleClass("toggled", isOn);
-				self.panelBottom.toggleClass("hide", isOn);
+				Self.panelBottom.toggleClass("hide", isOn);
 
-				self.rowFoot.find(".box.active").toggleClass("hidden", isOn);
+				Self.rowFoot.find(".box.active").toggleClass("hidden", isOn);
 				break;
 			case "show-devices-rack":
 			case "show-drumkit-rack":
@@ -153,12 +158,12 @@ const defjam = {
 				event.el.parent().find(".box.active").removeClass("active");
 				event.el.addClass("active");
 
-				self.rack
+				Self.rack
 					.removeClass("show-devices show-drumkit show-midi")
 					.addClass("show-"+ event.type.split("-")[1]);
 
 				// expand rack - if needed
-				el = self.rowFoot.find(".ball-button");
+				el = Self.rowFoot.find(".ball-button");
 				if (el.hasClass("toggled")) {
 					el.trigger("click");
 				}

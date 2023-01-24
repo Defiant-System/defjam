@@ -13,11 +13,11 @@ const Audio = {
 			data = this.visualize(buffer, Math.floor(options.width / 3));
 
 		let url = options.url.slice(options.url.lastIndexOf("/") + 1, options.url.lastIndexOf(".")) +".png";
-		let path = await karaqu.cache.get(url);
-		if (!path) {
+		// let path = await karaqu.cache.get(url);
+		// if (!path) {
 			await this.draw({ ...options, url, data });
-			path = "~/cache/"+ url;
-		}
+			let path = "~/cache/"+ url;
+		// }
 
 		return path;
 	},

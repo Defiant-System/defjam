@@ -50,15 +50,20 @@ const defjam = {
 				
 				//await karaqu.cache.clear("/cache/snare.png");
 				Audio.visualizeFile({
-						url: "~/sounds/drumkit/kick.wav",
-						width: 480,
-						height: 74
+						url: "~/sounds/909 Core Kit/Kick.ogg",
+						width: 202,
+						height: 33,
+						blue: true,
 					})
-					.then(path => {
-						Self.audioChart.css({ "background-image": `url(${path})` });
+					.then(path => Self.audioChart.css({ "background-image": `url(${path})` }));
 
-						window.find("canvas").css({ "background-image": `url(${path})` });;
-					});
+				Audio.visualizeFile({
+						url: "~/sounds/909 Core Kit/Snare.ogg",
+						width: 512,
+						height: 108,
+					})
+					.then(path => window.find("canvas").css({ "background-image": `url(${path})` }));
+
 				break;
 			case "play-audio":
 				Self.audioChart

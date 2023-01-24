@@ -47,7 +47,7 @@ const Audio = {
 		
 		this.ctx.save();
 		this.ctx.lineWidth = 1;
-		this.ctx.strokeStyle = "#71a1ca";
+		this.ctx.strokeStyle = options.blue ? "#71a1ca" : "#d09e45";
 		this.ctx.translate(0.5, 0.5);
 
 		// iterate points

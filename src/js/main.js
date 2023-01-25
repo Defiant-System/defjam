@@ -45,23 +45,23 @@ const defjam = {
 				//setTimeout(() => Self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
 				//await karaqu.cache.clear();
 				
-				window.cache.clear("Snare-512x108.png");
-				//window.cache.clear();
+				//window.cache.clear("Snare-512x108.png");
+				// window.cache.clear();
 
-				// Audio.visualizeFile({
-				// 		url: "~/sounds/909 Core Kit/Kick.ogg",
-				// 		width: 202,
-				// 		height: 33,
-				// 		color: "#71a1ca",
-				// 	})
-				// 	 .then(path => Self.audioChart.css({ "background-image": `url(${path})` }));
+				Audio.visualizeFile({
+						url: "~/sounds/909 Core Kit/Kick.ogg",
+						width: 202,
+						height: 33,
+						color: "#71a1ca",
+					})
+					 .then(path => Self.audioChart.css({ "background-image": `url(${path})` }));
 
-				// Audio.visualizeFile({
-				// 		url: "~/sounds/909 Core Kit/Snare.ogg",
-				// 		width: 512,
-				// 		height: 108,
-				// 	})
-				// 	.then(path => window.find("canvas").css({ "background-image": `url(${path})` }));
+				Audio.visualizeFile({
+						url: "~/sounds/909 Core Kit/Snare.ogg",
+						width: 512,
+						height: 108,
+					})
+					.then(path => window.find("canvas").css({ "background-image": `url(${path})` }));
 
 				break;
 			case "play-audio":

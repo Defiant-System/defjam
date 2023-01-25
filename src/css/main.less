@@ -1052,8 +1052,32 @@ content {
 
 								&.status {
 									height: 21px;
+									padding: 3px 5px 0;
 									border-radius: 0 0 2px 2px;
 									margin-bottom: 2px;
+									font-size: 0;
+
+									> i {
+										font-style: normal;
+										font-size: 11px;
+										margin-right: 7px;
+									}
+								}
+
+								.btn-stop,
+								.btn-play,
+								.btn-record {
+									display: inline-block;
+									vertical-align: middle;
+									width: 13px;
+									height: 13px;
+									background-position: 0 0;
+									background-size: 13px 13px;
+									background-repeat: no-repeat;
+
+									&.btn-stop { background-image: url(~/icons/icon-clip-stop.png); }
+									&.btn-play { background-image: url(~/icons/icon-clip-play.png); }
+									&.btn-record { background-image: url(~/icons/icon-clip-record.png); }
 								}
 							}
 
@@ -1946,6 +1970,59 @@ content {
 		}
 	}
 
+	// temp
+	.track:nth-child(1) .pie-playing { filter: hue-rotate(220deg) saturate(120%); }
+	.track:nth-child(2) .pie-playing { filter: hue-rotate(90deg) saturate(50%); }
+
+
+	.pie-playing {
+		display: inline-block;
+		vertical-align: middle;
+		width: 15px;
+		height: 15px;
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		background-image: url(~/icons/icon-pie-playing.png);
+		// --duration: 9999s;
+
+		&.on { animation: playOn var( --duration ) steps(33) infinite; }
+
+		&[data-value="1"], &[data-value="2"], &[data-value="3"], &[data-value="4"] { background-position: 0 0; }
+		&[data-value="5"], &[data-value="6"], &[data-value="7"] { background-position: 0 -15px; }
+		&[data-value="8"], &[data-value="9"], &[data-value="10"] { background-position: 0 -30px; }
+		&[data-value="11"], &[data-value="12"], &[data-value="13"] { background-position: 0 -45px; }
+		&[data-value="14"], &[data-value="15"], &[data-value="16"] { background-position: 0 -60px; }
+		&[data-value="17"], &[data-value="18"], &[data-value="19"] { background-position: 0 -75px; }
+		&[data-value="20"], &[data-value="21"], &[data-value="22"] { background-position: 0 -90px; }
+		&[data-value="23"], &[data-value="24"], &[data-value="25"] { background-position: 0 -105px; }
+		&[data-value="26"], &[data-value="27"], &[data-value="28"] { background-position: 0 -120px; }
+		&[data-value="29"], &[data-value="30"], &[data-value="31"] { background-position: 0 -135px; }
+		&[data-value="32"], &[data-value="33"], &[data-value="34"] { background-position: 0 -150px; }
+		&[data-value="35"], &[data-value="36"], &[data-value="37"] { background-position: 0 -165px; }
+		&[data-value="38"], &[data-value="39"], &[data-value="40"] { background-position: 0 -180px; }
+		&[data-value="41"], &[data-value="42"], &[data-value="43"] { background-position: 0 -195px; }
+		&[data-value="44"], &[data-value="45"], &[data-value="46"] { background-position: 0 -210px; }
+		&[data-value="47"], &[data-value="48"], &[data-value="49"] { background-position: 0 -225px; }
+		&[data-value="50"], &[data-value="51"], &[data-value="52"] { background-position: 0 -240px; }
+		&[data-value="53"], &[data-value="54"], &[data-value="55"] { background-position: 0 -255px; }
+		&[data-value="56"], &[data-value="57"], &[data-value="58"] { background-position: 0 -270px; }
+		&[data-value="59"], &[data-value="60"], &[data-value="61"] { background-position: 0 -285px; }
+		&[data-value="62"], &[data-value="63"], &[data-value="64"] { background-position: 0 -300px; }
+		&[data-value="65"], &[data-value="66"], &[data-value="67"] { background-position: 0 -315px; }
+		&[data-value="68"], &[data-value="69"], &[data-value="70"] { background-position: 0 -330px; }
+		&[data-value="71"], &[data-value="72"], &[data-value="73"] { background-position: 0 -345px; }
+		&[data-value="74"], &[data-value="75"], &[data-value="76"] { background-position: 0 -360px; }
+		&[data-value="77"], &[data-value="78"], &[data-value="79"] { background-position: 0 -375px; }
+		&[data-value="80"], &[data-value="81"], &[data-value="82"] { background-position: 0 -390px; }
+		&[data-value="83"], &[data-value="84"], &[data-value="85"] { background-position: 0 -405px; }
+		&[data-value="86"], &[data-value="87"], &[data-value="88"] { background-position: 0 -420px; }
+		&[data-value="89"], &[data-value="90"], &[data-value="91"] { background-position: 0 -435px; }
+		&[data-value="92"], &[data-value="93"], &[data-value="94"] { background-position: 0 -450px; }
+		&[data-value="95"], &[data-value="96"], &[data-value="97"] { background-position: 0 -465px; }
+		&[data-value="98"], &[data-value="99"], &[data-value="100"] { background-position: 0 -480px; }
+
+	}
+
 	i[class*="icon-"] {
 		background: 50% 50%/contain no-repeat;
 		position: relative;
@@ -1964,6 +2041,11 @@ content {
 	}
 }
 
+
+@keyframes playOn {
+	0%   { background-position: 0px 0px; }
+	100% { background-position: 0px -495px; }
+}
 
 @keyframes soundsToDrums {
 	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }

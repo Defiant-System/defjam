@@ -43,9 +43,8 @@ const defjam = {
 			case "render-view":
 				// temp
 				//setTimeout(() => Self.sidebar.find(".item:nth-child(2)").trigger("click"), 2000);
-				//await karaqu.cache.clear();
 				
-				//window.cache.clear("Snare-512x108.png");
+				// window.cache.clear("Snare-512x108.png");
 				// window.cache.clear();
 
 				Audio.visualizeFile({

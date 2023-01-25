@@ -12,12 +12,13 @@ const Audio = {
 			buffer = await audioContext.decodeAudioData(arrayBuffer),
 			data = this.visualize(buffer, Math.floor(options.width / 3));
 
-		let url = options.url.slice(options.url.lastIndexOf("/") + 1, options.url.lastIndexOf(".")) +".png";
-		// let path = await karaqu.cache.get(url);
-		// if (!path) {
-			await this.draw({ ...options, url, data });
-			let path = "~/cache/"+ url;
-		// }
+		let dim = `${options.width}x${options.height}`,
+			name = options.url.slice(options.url.lastIndexOf("/") + 1, options.url.lastIndexOf(".")),
+			url = `${name}-${dim}.png`;
+		let path = await window.cache.get(url);
+		if (!path) {
+			path = await this.draw({ ...options, url, data });
+		}
 
 		return path;
 	},
@@ -47,7 +48,7 @@ const Audio = {
 		
 		this.ctx.save();
 		this.ctx.lineWidth = 1;
-		this.ctx.strokeStyle = options.blue ? "#71a1ca" : "#d09e45";
+		this.ctx.strokeStyle = options.color || "#d09e45";
 		this.ctx.translate(0.5, 0.5);
 
 		// iterate points
@@ -65,8 +66,8 @@ const Audio = {
 		return new Promise(resolve => {
 			// store wave in cache to avoid multiple renders
 			this.ctx.canvas.toBlob(async blob => {
-				await karaqu.cache.set({ url: options.url, blob });
-				resolve();
+				let path = await window.cache.set({ url: options.url, blob });
+				resolve(path);
 			});
 		});
 	}

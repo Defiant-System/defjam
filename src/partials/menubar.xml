@@ -13,7 +13,7 @@
 	<Menu for="show-color-menu">
 		<Menu name="Rename"/>
 		<Menu type="divider"/>
-		<Menu type="colors" caption="Track Color:">
+		<Menu type="colors" caption="Track Color:" break="7">
 			<Color arg="#77c" active="1"/>
 			<Color arg="#69b"/>
 			<Color arg="#c77"/>
@@ -21,8 +21,22 @@
 			<Color arg="#09f"/>
 			<Color arg="#f90"/>
 			<Color arg="#c70"/>
+			
 			<Color arg="#0bc"/>
 			<Color arg="#19a"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
+			<Color arg="#ddd"/>
 		</Menu>
 		<Menu type="divider"/>
 		<Menu name="Delete" click="remove-sheet"/>

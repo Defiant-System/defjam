@@ -11,7 +11,9 @@
 @gridgroup: darken(@boxBg, 1.5%);
 
 @pianoWhite: #eee;
-@pianoBlack: #222;
+@pianoBlack: #333;
+@pianoLine1: darken(@pianoBlack, 5%);
+@pianoLine2: lighten(@pianoBlack, 50%);
 
 // @base: darken(@boxBg, 23%);
 // @face: darken(@boxBg, 10%);
@@ -1204,7 +1206,7 @@ content {
 
 					.col-left {
 						display: flex;
-						width: 50px;
+						width: 61px;
 						margin: 0 1px 0 0;
 
 						.box-body  {
@@ -1349,34 +1351,60 @@ content {
 									@face calc( calc( var( --keyH ) * 12 ) + 1px ),
 								);
 
+							&:before {
+								content: "";
+								position: absolute;
+								top: 0;
+								bottom: 0;
+								left: 21px;
+								width: 43px;
+								border-left: 1px solid @griddark;
+								background-image: repeating-linear-gradient(180deg,
+									@pianoWhite 0px, @pianoWhite 30px,
+									@pianoLine2 30px, @pianoLine2 31px,
+									@pianoWhite 31px, @pianoWhite 70px,
+									@pianoLine2 70px, @pianoLine2 71px,
+									@pianoWhite 71px, @pianoWhite 110px,
+									@pianoLine2 110px, @pianoLine2 111px,
+									@pianoWhite 111px, @pianoWhite 140px,
+									@pianoLine1 140px, @pianoLine1 141px,
+									@pianoWhite 141px, @pianoWhite 170px,
+									@pianoLine2 170px, @pianoLine2 171px,
+									@pianoWhite 171px, @pianoWhite 210px,
+									@pianoLine2 210px, @pianoLine2 211px,
+									@pianoWhite 211px, @pianoWhite 240px,
+									@pianoLine1 240px, @pianoLine1 241px
+								);
+							}
+
 							&:after {
 								content: "";
 								position: absolute;
 								top: 0;
 								bottom: 0;
-								right: 0;
-								width: 19px;
-								border-left: 1px solid @griddark;
+								left: 21px;
+								width: 31px;
 								background-image: repeating-linear-gradient(180deg,
-									@pianoWhite 0px, @pianoWhite calc( var( --keyH ) * 1 ),
-									@pianoBlack calc( var( --keyH ) * 1 ), @pianoBlack calc( var( --keyH ) * 2 ),
-									@pianoWhite calc( var( --keyH ) * 2 ), @pianoWhite calc( var( --keyH ) * 3 ),
-									@pianoBlack calc( var( --keyH ) * 3 ), @pianoBlack calc( var( --keyH ) * 4 ),
-									@pianoWhite calc( var( --keyH ) * 4 ), @pianoWhite calc( var( --keyH ) * 5 ),
-									@pianoBlack calc( var( --keyH ) * 5 ), @pianoBlack calc( var( --keyH ) * 6 ),
-									@pianoWhite calc( var( --keyH ) * 6 ), @pianoWhite calc( var( --keyH ) * 7 ),
-									darken(@pianoBlack, 3%) calc( var( --keyH ) * 7 ), darken(@pianoBlack, 3%) calc( calc( var( --keyH ) * 7 ) + 1px ),
-									@pianoWhite calc( var( --keyH ) * 7 ), @pianoWhite calc( var( --keyH ) * 8 ),
-									@pianoBlack calc( var( --keyH ) * 8 ), @pianoBlack calc( var( --keyH ) * 9 ),
-									@pianoWhite calc( var( --keyH ) * 9 ), @pianoWhite calc( var( --keyH ) * 10 ),
-									@pianoBlack calc( var( --keyH ) * 10 ), @pianoBlack calc( var( --keyH ) * 11 ),
-									@pianoWhite calc( var( --keyH ) * 11 ), @pianoWhite calc( var( --keyH ) * 12 ),
-									darken(@pianoBlack, 3%) calc( var( --keyH ) * 12 ), darken(@pianoBlack, 3%) calc( calc( var( --keyH ) * 12 ) + 1px )
+									transparent 0px, transparent 20px,
+									@pianoBlack 20px, @pianoBlack 40px,
+									transparent 40px, transparent 60px,
+									@pianoBlack 60px, @pianoBlack 80px,
+									transparent 80px, transparent 100px,
+									@pianoBlack 100px, @pianoBlack 120px,
+									transparent 120px, transparent 160px,
+									@pianoBlack 160px, @pianoBlack 180px,
+									transparent 180px, transparent 200px,
+									@pianoBlack 200px, @pianoBlack 220px,
+									transparent 220px, transparent 240px
 								);
 							}
 
 							ol {
-								width: 30px;
+								position: relative;
+								display: block;
+								z-index: 2;
+								width: 21px;
+								box-shadow: 3px 0 11px 3px rgba(0,0,0,.45);
 
 								li {
 									display: flex;

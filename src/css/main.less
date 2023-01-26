@@ -1095,6 +1095,7 @@ content {
 
 							.slots {
 								flex: 1;
+								position: relative;
 								background: transparent;
 								background-image: linear-gradient(180deg,
 										@boxBg calc( var( --slotH ) * 0 ), @boxBg calc( var( --slotH ) * 1 ), transparent calc( var( --slotH ) * 1 ), transparent calc( calc( var( --slotH ) * 1 ) + 1px ),
@@ -1106,6 +1107,55 @@ content {
 										@boxBg calc( var( --slotH ) * 6 ), @boxBg calc( var( --slotH ) * 7 ), transparent calc( var( --slotH ) * 7 ), transparent calc( calc( var( --slotH ) * 7 ) + 1px ),
 										@boxBg calc( var( --slotH ) * 7 )
 									);
+								line-height: var( --slotH );
+								// --c: #77c; // default clip color
+
+								b {
+									position: absolute;
+									top: calc( calc( var( --r ) * var( --slotH ) ) + 1px );
+									left: 0;
+									right: 0;
+									height: calc( var( --slotH ) - 1px );
+									padding: 0 5px 0 23px;
+									border-radius: 2px;
+									color: rgba(255,255,255,.65);
+									background: var( --c );
+									background-image: linear-gradient(0deg, rgba(0,0,0,.075) 0%, transparent 100%);
+									box-shadow: inset 0 1px 0 rgba(255,255,255,.075),
+												0 1px 2px rgba(0,0,0,.35);
+
+									&:before {
+										content: "";
+										position: absolute;
+										top: 0;
+										left: 0;
+										bottom: 0;
+										width: calc( var( --slotH ) - 1px );
+										border-right: 1px solid rgba(0,0,0,.35);
+										border-radius: 2px 0 0 2px;
+										background-color: rgba(0,0,0,.175);
+									}
+
+									&:after {
+										content: "";
+										position: absolute;
+										top: 0;
+										left: 0;
+										bottom: 0;
+										width: calc( var( --slotH ) - 1px );
+										background-position: 4px 4px;
+										background-size: 10px 10px;
+										background-repeat: no-repeat;
+										background-image: url(~/icons/icon-pad-play.png);
+										filter: brightness(1.15) drop-shadow(0 1px 0 rgba(0,0,0,.35));
+										opacity: .5;
+										cursor: pointer;
+									}
+
+									&:hover:after{
+										opacity: 1;
+									}
+								}
 							}
 
 							.io {
@@ -1479,8 +1529,8 @@ content {
 									border-radius: 2px;
 									color: rgba(255,255,255,.65);
 									background: var( --c );
-									background-image: linear-gradient(0deg, rgba(0,0,0,.15) 0%, transparent 100%);
-									box-shadow: inset 0 1px 0 rgba(255,255,255,.15),
+									background-image: linear-gradient(0deg, rgba(0,0,0,.075) 0%, transparent 100%);
+									box-shadow: inset 0 1px 0 rgba(255,255,255,.075),
 												0 1px 2px rgba(0,0,0,.35);
 								}
 							}

@@ -33,6 +33,30 @@
 			C7.9,5.6,8,5.6,8,5.5l1.2-1.2c0.3,0.1,0.6,0.3,0.8,0.5c0.4,0.4,0.7,1,0.7,1.6S10.5,7.7,10.1,8.1z"/>
 	</svg>
 
+	<svg id="icon-metronome" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:none;stroke:#333;stroke-width:1;stroke-miterlimit:10;}
+			.st1{fill:#333;stroke:#333;stroke-width:1;stroke-miterlimit:10;}
+		</style>
+		<circle class="st0" cx="3" cy="6.5" r="2.5"/>
+		<circle class="st1" cx="10" cy="6.5" r="2.5"/>
+	</svg>
+
+	<svg id="icon-pencil" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<polygon class="st0" points="3,10 3,8 10,1 12,3 5,10 "/>
+		<rect class="st0" x="1" y="11" width="11" height="1"/>
+	</svg>
+
+	<svg id="icon-piano-keys" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<path class="st0" d="M11,1h-1H9H8H7H6H5H4H3H2H1v1v9v1h1h2h1h3h1h2h1v-1V2V1H11z M2,11V2h1v6h1v3H2z M5,11V8h1V2h1v6h1v3H5z M11,11H9V8h1V2h1V11 z"/>
+	</svg>
+
 	<svg id="icon-loopspan-start" viewBox="0 0 13 13">
 		<style type="text/css">
 			.st0{fill:#466788;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}

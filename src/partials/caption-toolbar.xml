@@ -15,9 +15,9 @@
 	</Group>
 	<Group width="41%" class="tools-right">
 		<Options>
-			<Tool />
-			<Tool />
-			<Tool />
+			<Tool symbol="icon-metronome"/>
+			<Tool symbol="icon-pencil"/>
+			<Tool symbol="icon-piano-keys"/>
 		</Options>
 	</Group>
 </CaptionToolBar>

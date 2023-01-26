@@ -1206,7 +1206,7 @@ content {
 
 					.col-left {
 						display: flex;
-						width: 61px;
+						width: 59px;
 						margin: 0 1px 0 0;
 
 						.box-body  {
@@ -1356,23 +1356,31 @@ content {
 								position: absolute;
 								top: 0;
 								bottom: 0;
-								left: 21px;
-								width: 43px;
-								border-left: 1px solid @griddark;
+								left: 19px;
+								width: 37px;
+								border-left: 2px solid @griddark;
+								border-right: 1px solid rgba(0,0,0,.3);
 								background-image: repeating-linear-gradient(180deg,
-									@pianoWhite 0px, @pianoWhite 30px,
+									#fff 0px, #fff 1px,
+									@pianoWhite 1px, @pianoWhite 30px,
 									@pianoLine2 30px, @pianoLine2 31px,
-									@pianoWhite 31px, @pianoWhite 70px,
+									#fff 31px, #fff 32px,
+									@pianoWhite 32px, @pianoWhite 70px,
 									@pianoLine2 70px, @pianoLine2 71px,
-									@pianoWhite 71px, @pianoWhite 110px,
+									#fff 71px, #fff 72px,
+									@pianoWhite 72px, @pianoWhite 110px,
 									@pianoLine2 110px, @pianoLine2 111px,
-									@pianoWhite 111px, @pianoWhite 140px,
+									#fff 111px, #fff 112px,
+									@pianoWhite 112px, @pianoWhite 140px,
 									@pianoLine1 140px, @pianoLine1 141px,
-									@pianoWhite 141px, @pianoWhite 170px,
+									#fff 141px, #fff 142px,
+									@pianoWhite 142px, @pianoWhite 170px,
 									@pianoLine2 170px, @pianoLine2 171px,
-									@pianoWhite 171px, @pianoWhite 210px,
+									#fff 171px, #fff 172px,
+									@pianoWhite 172px, @pianoWhite 210px,
 									@pianoLine2 210px, @pianoLine2 211px,
-									@pianoWhite 211px, @pianoWhite 240px,
+									#fff 211px, #fff 212px,
+									@pianoWhite 212px, @pianoWhite 240px,
 									@pianoLine1 240px, @pianoLine1 241px
 								);
 							}
@@ -1382,7 +1390,7 @@ content {
 								position: absolute;
 								top: 0;
 								bottom: 0;
-								left: 21px;
+								left: 20px;
 								width: 31px;
 								background-image: repeating-linear-gradient(180deg,
 									transparent 0px, transparent 20px,
@@ -1423,6 +1431,7 @@ content {
 							border-radius: 0;
 						
 							.body-frame  {
+								line-height: var( --keyH );
 								height: calc( var( --keyH ) * 11 * 12 );
 								background-image: repeating-linear-gradient(180deg,
 										transparent 0px, transparent calc( var( --keyH ) * 1 ),
@@ -1458,6 +1467,20 @@ content {
 											transparent calc( var( --noteW ) * 16 ),
 											transparent calc( var( --noteW ) * 32 )
 										);
+
+								b {
+									position: absolute;
+									top: calc( calc( var( --t ) * var( --keyH ) ) + 1px );
+									left: calc( var( --l ) * var( --noteW ) );
+									width: calc( calc( var( --d ) * var( --noteW ) ) - 1px );
+									height: calc( var( --keyH ) - 2px );
+									padding: 0 5px;
+									border-radius: 2px;
+									color: rgba(255,255,255,.65);
+									background: linear-gradient(0deg, #77c, lighten(#77c, 5%));
+									box-shadow: inset 0 1px 0 rgba(255,255,255,.15),
+												0 1px 2px rgba(0,0,0,.35);
+								}
 							}
 						}
 

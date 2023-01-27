@@ -791,6 +791,7 @@ content {
 		.panel-right {
 			flex: auto;
 			display: flex;
+			--c: lighten(saturate(@boxBg, 17%), 13%);
 
 			&.show-session {
 				.session-wrapper { display: inherit; }
@@ -841,6 +842,8 @@ content {
 				display: flex;
 				border-bottom-right-radius: 0;
 				--barW: 16px;
+				--chanH: 67px;
+				--colH: 21px;
 
 				.arr-layout {
 					flex: 1;
@@ -865,16 +868,59 @@ content {
 						.col-mixers {
 							width: 220px;
 							margin-left: 2px;
+
+							.channel {
+								display: flex;
+								flex-direction: row;
+								background-image: linear-gradient(90deg,
+									transparent 0px, transparent 73px,
+									@face 73px, @face 74px,
+									transparent 74px, transparent 132px,
+									@face 132px, @face 133px,
+									transparent 133px
+								);
+
+								> div:not(:first-child) {
+									margin-left: 1px;
+									// border-left: 1px solid @face;
+								}
+
+								.mix-head {
+									width: 73px;
+									display: flex;
+
+									.title {
+										flex: 1;
+										// border-radius: 2px;
+										white-space: nowrap;
+										text-overflow: ellipsis;
+										overflow: hidden;
+										padding: 4px 4px 0;
+										color: rgba(255,255,255,.65);
+										background: var( --c );
+										background-image: linear-gradient(0deg, rgba(0,0,0,.075) 0%, transparent 100%);
+										box-shadow: inset 0 1px 0 rgba(255,255,255,.075),
+													0 1px 2px rgba(0,0,0,.35);
+									}
+								}
+
+								.mix-body {
+									width: 59px;
+								}
+
+								.mix-foot {
+									flex: 1;
+								}
+							}
 						}
 
 						.channel {
-							--chanH: 67px;
 							height: var( --chanH );
 							position: relative;
 							border-bottom: 2px solid @griddark;
 
 							&.collapsed {
-								--chanH: 21px;
+								--chanH: var( --colH );
 							}
 
 							b {
@@ -972,8 +1018,13 @@ content {
 						display: flex;
 						margin-bottom: 2px;
 
-						.col-clips .box-body  { border-radius: 0 0 0 0; }
-						.col-mixers .box-body { border-radius: 0 3px 0 0; }
+						.col-clips .box-body  {
+							border-radius: 0 0 0 0;
+						}
+
+						.col-mixers .box-body {
+							border-radius: 0 3px 0 0;
+						}
 
 						.time-cursor {
 							position: absolute;
@@ -1013,14 +1064,14 @@ content {
 					}
 
 					.row-outputs {
-						height: 56px;
+						height: calc( calc( var( --colH ) * 3 ) + 1px );
 						display: flex;
 
 						.col-clips .box-body  {
 							border-radius: 0 0 0 3px;
 							background-image: repeating-linear-gradient(0deg,
-									@griddark 19px, @griddark 20px,
-									transparent 20px, transparent 38px
+									@griddark calc( var( --colH ) - 1px ), @griddark var( --colH ),
+									transparent var( --colH ), transparent calc( var( --colH ) * 2 )
 								),
 								repeating-linear-gradient(90deg,
 									transparent 0px, transparent calc( var( --barW ) - 1px ),
@@ -1034,7 +1085,17 @@ content {
 
 						.col-mixers .box-body {
 							border-radius: 0 0 3px 0;
-							background-image: repeating-linear-gradient(0deg, @griddark 19px, @griddark 20px, transparent 20px, transparent 38px);
+							background-image: repeating-linear-gradient(0deg,
+									@griddark calc( var( --colH ) - 1px ), @griddark var( --colH ),
+									transparent var( --colH ), transparent calc( var( --colH ) * 2 )
+								),
+								linear-gradient(90deg,
+									transparent 0px, transparent 73px,
+									@face 73px, @face 74px,
+									transparent 74px, transparent 132px,
+									@face 132px, @face 133px,
+									transparent 133px
+								);
 						}
 					}
 				}
@@ -1081,7 +1142,6 @@ content {
 
 					.tracks {
 						display: flex;
-						--c: lighten(@boxBg, 4%);
 
 						.track {
 							width: var( --slotW );

@@ -451,6 +451,7 @@ content {
 		}
 
 		&.record {
+			height: 17px;
 			font-size: 14px;
 			line-height: .95;
 			color: @face;
@@ -866,27 +867,27 @@ content {
 						}
 
 						.col-mixers {
-							width: 220px;
+							width: 250px;
 							margin-left: 2px;
 
 							.channel {
 								display: flex;
 								flex-direction: row;
-								background-image: linear-gradient(90deg,
-									transparent 0px, transparent 73px,
-									@face 73px, @face 74px,
-									transparent 74px, transparent 132px,
-									@face 132px, @face 133px,
-									transparent 133px
-								);
+								// background-image: linear-gradient(90deg,
+								// 	transparent 0px, transparent 73px,
+								// 	@face 73px, @face 74px,
+								// 	transparent 74px, transparent 132px,
+								// 	@face 132px, @face 133px,
+								// 	transparent 133px
+								// );
 
 								> div:not(:first-child) {
 									margin-left: 1px;
-									// border-left: 1px solid @face;
+									border-left: 1px solid @face;
 								}
 
 								.mix-head {
-									width: 73px;
+									width: 79px;
 									display: flex;
 									position: relative;
 
@@ -923,7 +924,7 @@ content {
 								}
 
 								.mix-body {
-									width: 59px;
+									width: 73px;
 								}
 
 								.mix-foot {
@@ -1000,7 +1001,7 @@ content {
 										top: 0;
 										left: 0;
 										right: 0;
-										height: 4px;
+										height: 3px;
 										background-image: repeating-linear-gradient(90deg,
 												rgba(0,0,0,.125) calc( var( --barW ) - 1px ), rgba(0,0,0,.125) var( --barW ),
 												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )

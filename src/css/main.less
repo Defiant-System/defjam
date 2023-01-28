@@ -1397,7 +1397,8 @@ content {
 	}
 
 	.panel-bottom {
-		// height: 223px;
+		// height: 360px;
+		height: 224px;
 		// height: 420px;
 		display: flex;
 		transition: height 200ms ease,
@@ -1487,8 +1488,12 @@ content {
 					height: 51px;
 					display: flex;
 
+					.col-left .box-body {
+						border-radius: 3px 0 0 0;
+					}
+
 					.col-right .box-body  {
-						border-radius: 3px 3px 0 0;
+						border-radius: 0 3px 0 0;
 						// background-image: ;
 
 						.body-frame {
@@ -1546,7 +1551,7 @@ content {
 						position: absolute;
 						top: 15px;
 						left: 0;
-						width: 960px;
+						width: 576px;
 						height: 11px;
 						background-color: #d5a516; // temp
 						box-shadow: inset 0 1px 0 rgba(255,255,255,.1),
@@ -1587,16 +1592,63 @@ content {
 						top: 25px;
 						width: 192px;
 					}
+
+					.time-cursor {
+						position: absolute;
+						top: 51px;
+						height: 250px;
+						// left: 110px;
+						transform: translateX( 107px );
+						width: 1px;
+						z-index: 2;
+						background: #0ff;
+						animation: pulsate 3s ease-in-out infinite;
+
+						&:before {
+							content: "";
+							position: absolute;
+							left: -1px;
+							top: -11px;
+							width: 0;
+							height: 0;
+							border-right: 6px solid transparent;
+							border-bottom: 6px solid #0ff;
+							transform: rotate(-45deg);
+							transform-origin: 100% 100%;
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							left: 0;
+							top: 100%;
+							width: 1px;
+							height: 50px;
+							margin-top: 1px;
+							background: inherit;
+						}
+					}
+
+					.time-end {
+						position: absolute;
+						top: 15px;
+						height: 337px;
+						left: 767px;
+						width: 1px;
+						z-index: 2;
+						background: @base;
+					}
 				}
 
 				.row-body {
 					flex: 1;
 					display: flex;
 					margin: 1px 0;
+					overflow: hidden;
 
 					.col-left .box-body  {
 						overflow: hidden;
-						border-radius: 3px 0 0 3px;
+						border-radius: 0;
 						
 						.body-frame {
 							position: absolute;
@@ -1685,7 +1737,7 @@ content {
 
 					.col-right {
 						.box-body {
-							height: 307px;
+							// height: 307px;
 							border-radius: 0;
 
 							.body-frame  {
@@ -1742,72 +1794,6 @@ content {
 								}
 							}
 						}
-
-						.time-cursor {
-							position: absolute;
-							top: 0;
-							bottom: 0;
-							// left: 110px;
-							transform: translateX( 107px );
-							width: 1px;
-							z-index: 2;
-							background: #0ff;
-							animation: pulsate 3s ease-in-out infinite;
-
-							&:before {
-								content: "";
-								position: absolute;
-								left: -1px;
-								top: -11px;
-								width: 0;
-								height: 0;
-								border-right: 6px solid transparent;
-								border-bottom: 6px solid #0ff;
-								transform: rotate(-45deg);
-								transform-origin: 100% 100%;
-							}
-
-							&:after {
-								content: "";
-								position: absolute;
-								left: 0;
-								top: 100%;
-								width: 1px;
-								height: 50px; // foot height
-								margin-top: 1px;
-								background: inherit;
-							}
-						}
-
-						.time-end {
-							position: absolute;
-							top: 0;
-							bottom: 0;
-							left: 959px;
-							width: 1px;
-							z-index: 2;
-							background: @base;
-
-							&:before,
-							&:after {
-								content: "";
-								position: absolute;
-								left: 0;
-								width: 1px;
-								margin-top: 1px;
-								background: inherit;
-							}
-
-							&:before {
-								top: -40px;
-								height: 38px; // head height
-							}
-
-							&:after {
-								top: 100%;
-								height: 50px; // foot height
-							}
-						}
 					}
 				}
 
@@ -1815,8 +1801,12 @@ content {
 					height: 50px;
 					display: flex;
 
+					.col-left .box-body {
+						border-radius: 0 0 0 3px;
+					}
+
 					.col-right .box-body  {
-						border-radius: 0 0 3px 3px;
+						border-radius: 0 0 3px 0;
 						
 						.body-frame {
 							position: relative;
@@ -1987,220 +1977,220 @@ content {
 					}
 				}
 			}
+		}
 
-			.device-control {
-				width: 239px;
+		.device-control {
+			width: 239px;
+		}
+
+		.sample-display {
+			width: 520px;
+		}
+
+		ul.controls {
+			list-style: none;
+			padding: 1px 0 0 1px;
+			font-size: 0;
+
+			li {
+				position: relative;
+				vertical-align: top;
+				display: inline-block;
+				width: 55px;
+				height: 87px;
+				font-size: 11px;
+				text-align: center;
+				box-shadow: 0 0 0 1px lighten(@base, 13%);
+				border-radius: 3px;
+				margin: 0 5px 5px 0;
+
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+
+				&:nth-child(5),
+				&:nth-child(6),
+				&:nth-child(7),
+				&:nth-child(8) {
+					margin-bottom: 0;
+				}
+
+				.ctrl-name {
+					background: lighten(@boxBg, 4%);
+					padding: 5px 2px 0;
+					display: block;
+					height: 32px;
+					overflow: hidden;
+					line-height: 12px;
+					border-radius: 3px 3px 0 0;
+					border-bottom: 1px solid lighten(@base, 13%);
+				}
+
+				.ctrl-knob {
+					margin-top: 5px;
+				}
+
+				.ctrl-value {
+					display: block;
+					text-align: center;
+					font-size: 10px;
+				}
+			}
+		}
+
+		.pads {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+
+			.pad-matrix {
+				position: relative;
+				top: 7px;
+				background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
+				filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
+				background-size: 20px 40px;
+				width: 20px;
+				height: 170px;
+				margin-right: 5px;
+
+				.cursor {
+					position: absolute;
+					top: 110px;
+					left: 0;
+					width: 19px;
+					height: 19px;
+					box-shadow: 0 0 0 1px darken(@base, 37%);
+					background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
+					background-size: 20px 40px;
+					filter: brightness(1.25) hue-rotate(190deg) saturate(1.25);
+				}
 			}
 
-			.sample-display {
-				width: 520px;
-			}
-
-			ul.controls {
+			ul.pad-list {
 				list-style: none;
-				padding: 1px 0 0 1px;
+				width: 253px;
+				padding: 1px 0 1px 1px;
 				font-size: 0;
+
+				&.disable-mute {
+					i.pad-mute {
+						opacity: .35;
+						text-shadow: 0 0 0;
+					}
+				}
 
 				li {
 					position: relative;
 					vertical-align: top;
 					display: inline-block;
-					width: 55px;
-					height: 87px;
+					width: 59px;
+					height: 41px;
 					font-size: 11px;
 					text-align: center;
-					box-shadow: 0 0 0 1px lighten(@base, 13%);
+					box-shadow: 0 0 0 1px lighten(@base, 7%);
 					border-radius: 3px;
 					margin: 0 5px 5px 0;
 
-					&:nth-child(3n) {
+					&:nth-child(4n) {
 						margin-right: 0;
 					}
 
-					&:nth-child(5),
-					&:nth-child(6),
-					&:nth-child(7),
-					&:nth-child(8) {
+					&:nth-child(13),
+					&:nth-child(14),
+					&:nth-child(15),
+					&:nth-child(16) {
 						margin-bottom: 0;
 					}
 
-					.ctrl-name {
-						background: lighten(@boxBg, 4%);
-						padding: 5px 2px 0;
-						display: block;
-						height: 32px;
-						overflow: hidden;
-						line-height: 12px;
-						border-radius: 3px 3px 0 0;
-						border-bottom: 1px solid lighten(@base, 13%);
-					}
-
-					.ctrl-knob {
-						margin-top: 5px;
-					}
-
-					.ctrl-value {
-						display: block;
-						text-align: center;
-						font-size: 10px;
-					}
-				}
-			}
-
-			.pads {
-				flex: 1;
-				display: flex;
-				flex-direction: row;
-
-				.pad-matrix {
-					position: relative;
-					top: 7px;
-					background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
-					filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
-					background-size: 20px 40px;
-					width: 20px;
-					height: 170px;
-					margin-right: 5px;
-
-					.cursor {
-						position: absolute;
-						top: 110px;
-						left: 0;
-						width: 19px;
-						height: 19px;
-						box-shadow: 0 0 0 1px darken(@base, 37%);
-						background: url(~/icons/icon-pad-matrix.png) 0 0 repeat-y;
-						background-size: 20px 40px;
-						filter: brightness(1.25) hue-rotate(190deg) saturate(1.25);
-					}
-				}
-
-				ul.pad-list {
-					list-style: none;
-					width: 253px;
-					padding: 1px 0 1px 1px;
-					font-size: 0;
-
-					&.disable-mute {
-						i.pad-mute {
-							opacity: .35;
+					&.active {
+						.pad-name {
+							background: lighten(saturate(@boxBg, 23%), 17%);
+							color: @base;
+							box-shadow: 0 0 0;
 							text-shadow: 0 0 0;
 						}
 					}
 
-					li {
-						position: relative;
-						vertical-align: top;
-						display: inline-block;
-						width: 59px;
-						height: 41px;
-						font-size: 11px;
-						text-align: center;
-						box-shadow: 0 0 0 1px lighten(@base, 7%);
-						border-radius: 3px;
-						margin: 0 5px 5px 0;
+					.pad-name {
+						background: lighten(@boxBg, 4%);
+						box-shadow: inset 0 1px 0 lighten(@boxBg, 7%),
+									inset 0 -1px 0 darken(@boxBg, .5%);
+						padding: 2px 2px 0;
+						display: flex;
+						// align-items: center;
+						justify-content: center;
+						height: 27px;
+						overflow: hidden;
+						line-height: 12px;
+						border-radius: 3px 3px 0 0;
+						border-bottom: 1px solid lighten(@base, 11%);
+					}
 
-						&:nth-child(4n) {
-							margin-right: 0;
+					i {
+						position: absolute;
+						bottom: 0;
+						width: 20px;
+						height: 14px;
+						font-style: normal;
+						padding-top: 2px;
+						border-right: 1px solid lighten(@base, 7%);
+						cursor: pointer;
+						opacity: .6;
+
+						&:hover {
+							opacity: 1;
 						}
+					}
 
-						&:nth-child(13),
-						&:nth-child(14),
-						&:nth-child(15),
-						&:nth-child(16) {
-							margin-bottom: 0;
-						}
+					.pad-mute {
+						left: 0;
+						border-radius: 0 0 0 3px;
 
+						&:active,
 						&.active {
-							.pad-name {
-								background: lighten(saturate(@boxBg, 23%), 17%);
-								color: @base;
-								box-shadow: 0 0 0;
-								text-shadow: 0 0 0;
-							}
+							background: #d66;
+							color: @base;
+							text-shadow: 0 0 0;
+							opacity: 1;
 						}
+					}
 
-						.pad-name {
-							background: lighten(@boxBg, 4%);
-							box-shadow: inset 0 1px 0 lighten(@boxBg, 7%),
-										inset 0 -1px 0 darken(@boxBg, .5%);
-							padding: 2px 2px 0;
-							display: flex;
-							// align-items: center;
-							justify-content: center;
-							height: 27px;
-							overflow: hidden;
-							line-height: 12px;
-							border-radius: 3px 3px 0 0;
-							border-bottom: 1px solid lighten(@base, 11%);
-						}
+					.pad-play {
+						left: 19px;
+						width: 21px;
 
-						i {
+						&:before {
+							content: "";
 							position: absolute;
-							bottom: 0;
-							width: 20px;
-							height: 14px;
-							font-style: normal;
-							padding-top: 2px;
-							border-right: 1px solid lighten(@base, 7%);
-							cursor: pointer;
-							opacity: .6;
-
-							&:hover {
-								opacity: 1;
-							}
+							top: 2px;
+							left: 5px;
+							width: 10px;
+							height: 10px;
+							background-image: url(~/icons/icon-pad-play.png);
+							background-position: 0 0;
+							background-size: 10px 10px;
+							background-repeat: no-repeat;
+							filter: drop-shadow(0 1px 0 darken(@boxBg, 13%));
 						}
 
-						.pad-mute {
-							left: 0;
-							border-radius: 0 0 0 3px;
-
-							&:active,
-							&.active {
-								background: #d66;
-								color: @base;
-								text-shadow: 0 0 0;
-								opacity: 1;
-							}
+						&:active:before,
+						&.active:before {
+							filter: brightness(1.25) saturate(2);
 						}
+					}
 
-						.pad-play {
-							left: 19px;
-							width: 21px;
+					.pad-solo {
+						left: 40px;
+						width: 19px;
+						border-right: 0;
+						border-radius: 0 0 3px 0;
 
-							&:before {
-								content: "";
-								position: absolute;
-								top: 2px;
-								left: 5px;
-								width: 10px;
-								height: 10px;
-								background-image: url(~/icons/icon-pad-play.png);
-								background-position: 0 0;
-								background-size: 10px 10px;
-								background-repeat: no-repeat;
-								filter: drop-shadow(0 1px 0 darken(@boxBg, 13%));
-							}
-
-							&:active:before,
-							&.active:before {
-								filter: brightness(1.25) saturate(2);
-							}
-						}
-
-						.pad-solo {
-							left: 40px;
-							width: 19px;
-							border-right: 0;
-							border-radius: 0 0 3px 0;
-
-							&:active,
-							&.active {
-								background: #66f;
-								color: @base;
-								text-shadow: 0 0 0;
-								opacity: 1;
-							}
+						&:active,
+						&.active {
+							background: #66f;
+							color: @base;
+							text-shadow: 0 0 0;
+							opacity: 1;
 						}
 					}
 				}

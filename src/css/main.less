@@ -1819,6 +1819,7 @@ content {
 						border-radius: 0 0 3px 3px;
 						
 						.body-frame {
+							position: relative;
 							background-image: repeating-linear-gradient(90deg,
 									transparent 0px,
 									transparent calc( calc( var( --noteW ) * 4 ) - 1px ),
@@ -1837,6 +1838,35 @@ content {
 									transparent calc( var( --noteW ) * 16 ),
 									transparent calc( var( --noteW ) * 32 )
 								);
+
+							b {
+								position: absolute;
+								bottom: 0;
+								width: 2px;
+								top: calc( calc( 37px - calc( var( --v ) * 37px ) ) + 13px );
+								left: calc( var( --l ) * var( --noteW ) );
+								background: #5bb;
+
+								&:hover {
+									background: #77c;
+
+									&:before {
+										border-color: #77c;
+									}
+								}
+
+								&:before {
+									content: "";
+									position: absolute;
+									top: -6px;
+									left: -3px;
+									width: 4px;
+									height: 4px;
+									border: 2px solid #5bb;
+									border-radius: 50%;
+									cursor: ns-resize;
+								}
+							}
 						}
 					}
 				}

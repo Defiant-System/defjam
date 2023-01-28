@@ -47,6 +47,8 @@ const defjam = {
 				// window.cache.clear("Snare-512x108.png");
 				// window.cache.clear();
 
+				Self.content.find(".channel:nth(1) b").css({ "--clip-bg": `url(/app/ant/defjam/icons/temp-midi-pattern.png)` });
+
 				Audio.visualizeFile({
 						url: "~/sounds/909 Core Kit/Kick.ogg",
 						width: 202,
@@ -54,6 +56,14 @@ const defjam = {
 						color: "#71a1ca",
 					})
 					 .then(path => Self.audioChart.css({ "background-image": `url(${path})` }));
+
+				Audio.visualizeFile({
+						url: "~/sounds/909 Core Kit/ClosedHat.ogg",
+						width: 191,
+						height: 47,
+						color: "#151",
+					})
+					 .then(path => Self.content.find(".channel:nth(2) b").css({ "--clip-bg": `url(${path})` }));
 
 				Audio.visualizeFile({
 						url: "~/sounds/909 Core Kit/Snare.ogg",

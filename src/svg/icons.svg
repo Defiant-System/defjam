@@ -1,5 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
 
+	<svg id="temp-midi-pattern" viewBox="0 0 16 46">
+		<style type="text/css">
+			.st0{fill:#333333a0;}
+		</style>
+		<rect class="st0" x="4" y="2" width="2" height="2"/>
+		<rect class="st0" x="4" y="10" width="2" height="2"/>
+		<rect class="st0" x="7" y="8" width="3" height="2"/>
+		<rect class="st0" x="7" y="15" width="2" height="2"/>
+		<rect class="st0" x="2" y="17" width="2" height="2"/>
+		<rect class="st0" x="4" y="20" width="4" height="2"/>
+		<rect class="st0" x="5" y="31" width="2" height="2"/>
+		<rect class="st0" x="4" y="39" width="2" height="2"/>
+		<rect class="st0" x="5" y="43" width="4" height="2"/>
+		<rect class="st0" x="9" y="17" width="2" height="2"/>
+		<rect class="st0" x="9" y="25" width="2" height="2"/>
+		<rect class="st0" x="2" y="25" width="2" height="2"/>
+		<rect class="st0" x="2" y="35" width="2" height="2"/>
+		<rect class="st0" x="7" y="35" width="4" height="2"/>
+	</svg>
+
+
+
 	<svg id="negative-corner" viewBox="0 0 6 6">
 		<path fill="#294A6B" d="M0,6h6V0C6,3.3,3.3,6,0,6z"/>
 	</svg>
@@ -69,6 +91,13 @@
 			.st0{fill:#466788;stroke:#132537;stroke-width:1;stroke-miterlimit:10;}
 		</style>
 		<polyline class="st0" points="12,12 4,6 12,1 "/>
+	</svg>
+
+	<svg id="icon-arrow-right" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<path class="st0" d="M4,3.2v6.5C4,10,4.4,10.2,4.5,10l5.6-3.3c0.2-0.2,0.2-0.4,0-0.5L4.5,3C4.4,2.9,4,3,4,3.2z"/>
 	</svg>
 
 	<svg id="icon-sounds" viewBox="0 0 17 17">

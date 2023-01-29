@@ -1397,9 +1397,10 @@ content {
 	}
 
 	.panel-bottom {
+		--pH: 224px;
 		// height: 360px;
-		height: 224px;
 		// height: 420px;
+		height: var( --pH );
 		display: flex;
 		transition: height 200ms ease,
 					margin 200ms ease,
@@ -1595,8 +1596,9 @@ content {
 
 					.time-cursor {
 						position: absolute;
-						top: 51px;
-						height: 250px;
+						top: 52px;
+						height: calc( var( --pH ) - 60px );
+						// height: 250px;
 						// left: 110px;
 						transform: translateX( 107px );
 						width: 1px;
@@ -1617,22 +1619,22 @@ content {
 							transform-origin: 100% 100%;
 						}
 
-						&:after {
-							content: "";
-							position: absolute;
-							left: 0;
-							top: 100%;
-							width: 1px;
-							height: 50px;
-							margin-top: 1px;
-							background: inherit;
-						}
+						// &:after {
+						// 	content: "";
+						// 	position: absolute;
+						// 	left: 0;
+						// 	top: 100%;
+						// 	width: 1px;
+						// 	height: 50px;
+						// 	margin-top: 1px;
+						// 	background: inherit;
+						// }
 					}
 
 					.time-end {
 						position: absolute;
 						top: 15px;
-						height: 337px;
+						height: calc( var( --pH ) - 23px );
 						left: 767px;
 						width: 1px;
 						z-index: 2;

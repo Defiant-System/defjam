@@ -1398,6 +1398,7 @@ content {
 
 	.panel-bottom {
 		--pH: 224px;
+		// height: 224px;
 		// height: 360px;
 		// height: 420px;
 		height: var( --pH );
@@ -1451,7 +1452,7 @@ content {
 				flex: 1;
 				display: flex;
 				flex-direction: column;
-				--keyH: 20px;
+				--keyH: 14px;
 				--noteW: 12px;
 				--c: #77c; // default note color
 
@@ -1674,26 +1675,26 @@ content {
 								border-right: 1px solid rgba(0,0,0,.3);
 								background-image: repeating-linear-gradient(180deg,
 									#fff 0px, #fff 1px,
-									@pianoWhite 1px, @pianoWhite 30px,
-									@pianoLine2 30px, @pianoLine2 31px,
-									#fff 31px, #fff 32px,
-									@pianoWhite 32px, @pianoWhite 70px,
-									@pianoLine2 70px, @pianoLine2 71px,
-									#fff 71px, #fff 72px,
-									@pianoWhite 72px, @pianoWhite 110px,
-									@pianoLine2 110px, @pianoLine2 111px,
-									#fff 111px, #fff 112px,
-									@pianoWhite 112px, @pianoWhite 140px,
-									@pianoLine1 140px, @pianoLine1 141px,
-									#fff 141px, #fff 142px,
-									@pianoWhite 142px, @pianoWhite 170px,
-									@pianoLine2 170px, @pianoLine2 171px,
-									#fff 171px, #fff 172px,
-									@pianoWhite 172px, @pianoWhite 210px,
-									@pianoLine2 210px, @pianoLine2 211px,
-									#fff 211px, #fff 212px,
-									@pianoWhite 212px, @pianoWhite 240px,
-									@pianoLine1 240px, @pianoLine1 241px
+									@pianoWhite 1px, @pianoWhite calc( var( --keyH ) * 1.5 ),
+									@pianoLine2 calc( var( --keyH ) * 1.5 ), @pianoLine2 calc( calc( var( --keyH ) * 1.5 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 1.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 1.5 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 1.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 3.5 ),
+									@pianoLine2 calc( var( --keyH ) * 3.5 ), @pianoLine2 calc( calc( var( --keyH ) * 3.5 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 3.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 3.5 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 3.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 5.5 ),
+									@pianoLine2 calc( var( --keyH ) * 5.5 ), @pianoLine2 calc( calc( var( --keyH ) * 5.5 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 5.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 5.5 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 5.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 7 ),
+									@pianoLine1 calc( var( --keyH ) * 7 ), @pianoLine1 calc( calc( var( --keyH ) * 7 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 7 ) + 1px ), #fff calc( calc( var( --keyH ) * 7 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 7 ) + 2px ), @pianoWhite calc( var( --keyH ) * 8.5 ),
+									@pianoLine2 calc( var( --keyH ) * 8.5 ), @pianoLine2 calc( calc( var( --keyH ) * 8.5 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 8.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 8.5 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 8.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 10.5 ),
+									@pianoLine2 calc( var( --keyH ) * 10.5 ), @pianoLine2 calc( calc( var( --keyH ) * 10.5 ) + 1px ),
+									#fff calc( calc( var( --keyH ) * 10.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 10.5 ) + 2px ),
+									@pianoWhite calc( calc( var( --keyH ) * 10.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 12 ),
+									@pianoLine1 calc( var( --keyH ) * 12 ), @pianoLine1 calc( calc( var( --keyH ) * 12 ) + 1px )
 								);
 							}
 
@@ -1705,17 +1706,17 @@ content {
 								left: 20px;
 								width: 26px;
 								background-image: repeating-linear-gradient(180deg,
-									transparent 0px, transparent 20px,
-									@pianoBlack 20px, @pianoBlack 40px,
-									transparent 40px, transparent 60px,
-									@pianoBlack 60px, @pianoBlack 80px,
-									transparent 80px, transparent 100px,
-									@pianoBlack 100px, @pianoBlack 120px,
-									transparent 120px, transparent 160px,
-									@pianoBlack 160px, @pianoBlack 180px,
-									transparent 180px, transparent 200px,
-									@pianoBlack 200px, @pianoBlack 220px,
-									transparent 220px, transparent 240px
+									transparent 0px, transparent calc( var( --keyH ) * 1 ),
+									@pianoBlack calc( var( --keyH ) * 1 ), @pianoBlack calc( var( --keyH ) * 2 ),
+									transparent calc( var( --keyH ) * 2 ), transparent calc( var( --keyH ) * 3 ),
+									@pianoBlack calc( var( --keyH ) * 3 ), @pianoBlack calc( var( --keyH ) * 4 ),
+									transparent calc( var( --keyH ) * 4 ), transparent calc( var( --keyH ) * 5 ),
+									@pianoBlack calc( var( --keyH ) * 5 ), @pianoBlack calc( var( --keyH ) * 6 ),
+									transparent calc( var( --keyH ) * 6 ), transparent calc( var( --keyH ) * 8 ),
+									@pianoBlack calc( var( --keyH ) * 8 ), @pianoBlack calc( var( --keyH ) * 9 ),
+									transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
+									@pianoBlack calc( var( --keyH ) * 10 ), @pianoBlack calc( var( --keyH ) * 11 ),
+									transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 )
 								);
 							}
 

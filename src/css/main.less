@@ -474,7 +474,7 @@ content {
 		.scroll-track {
 			position: absolute;
 			top: 7px;
-			bottom: 37px;
+			bottom: 29px;
 			left: 9px;
 			width: 13px;
 			border-radius: 13px;
@@ -499,9 +499,9 @@ content {
 
 		.togglers {
 			position: absolute;
-			left: 9px;
+			left: 10px;
 			bottom: 7px;
-			padding-bottom: 5px;
+			padding-bottom: 3px;
 			text-align: center;
 			font-size: 10px;
 
@@ -527,7 +527,7 @@ content {
 
 				&.bottom-half {
 					border-radius: 0 0 13px 13px;
-					margin-top: 3px;
+					margin-top: 2px;
 				}
 			}
 		}
@@ -909,11 +909,12 @@ content {
 
 				.scroll-track {
 					left: 7px;
-					bottom: 83px;
+					bottom: 73px;
 				}
 
 				.togglers {
-					left: 7px;
+					left: 8px;
+					padding-bottom: 1px;
 				}
 			}
 
@@ -1315,7 +1316,7 @@ content {
 							width: var( --slotW );
 							display: flex;
 							flex-direction: column;
-							margin-right: 3px;
+							margin-right: 2px;
 
 							&:last-child {
 								margin-right: 0;
@@ -1327,7 +1328,7 @@ content {
 
 								&.status {
 									height: 21px;
-									padding: 3px 5px 0;
+									padding: 4px 5px 0;
 									border-radius: 0 0 2px 2px;
 									margin-bottom: 2px;
 									font-size: 0;
@@ -1343,7 +1344,7 @@ content {
 								.btn-play,
 								.btn-record {
 									display: inline-block;
-									vertical-align: middle;
+									vertical-align: top;
 									width: 13px;
 									height: 13px;
 									background-position: 0 0;
@@ -2407,9 +2408,12 @@ content {
 
 	.pie-playing {
 		display: inline-block;
-		vertical-align: middle;
+		vertical-align: top;
 		width: 15px;
 		height: 15px;
+		position: relative;
+		top: -1px;
+		left: 17px;
 		background-size: 100% auto;
 		background-repeat: no-repeat;
 		background-image: url(~/icons/icon-pie-playing.png);

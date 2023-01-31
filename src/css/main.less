@@ -506,6 +506,7 @@ content {
 			font-size: 10px;
 
 			.toggle-btn {
+				position: relative;
 				background: @base;
 				color: @boxBg;
 				width: 11px;
@@ -519,6 +520,10 @@ content {
 				&.on {
 					background: @highlight;
 					color: @base;
+
+					i[class*="icon-"] {
+						filter: none;
+					}
 				}
 
 				&.top-half {
@@ -529,6 +534,24 @@ content {
 					border-radius: 0 0 13px 13px;
 					margin-top: 2px;
 				}
+			}
+
+			i[class*="icon-"] {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 11px;
+				height: 11px;
+				background-position: 0 0;
+				background-size: 11px 11px;
+				background-repeat: no-repeat;
+				filter: invert(50%) grayscale(100%);
+
+				&.icon-toggle-headphones { background-image: url(~/icons/icon-toggle-headphones.png); }
+				&.icon-toggle-io { background-image: url(~/icons/icon-toggle-io.png); }
+				&.icon-toggle-sends { background-image: url(~/icons/icon-toggle-sends.png); }
+				&.icon-toggle-returns { background-image: url(~/icons/icon-toggle-returns.png); }
+				&.icon-toggle-mixers { background-image: url(~/icons/icon-toggle-mixers.png); }
 			}
 		}
 	}

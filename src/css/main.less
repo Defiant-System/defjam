@@ -463,6 +463,76 @@ content {
 		}
 	}
 
+	// temp
+	.show-session .bg-scrollbar .scroll-track .scroll-bar {
+		top: 11%;
+		height: 51%;
+		bottom: 53px;
+	}
+
+	.bg-scrollbar {
+		.scroll-track {
+			position: absolute;
+			top: 7px;
+			bottom: 37px;
+			left: 9px;
+			width: 13px;
+			border-radius: 13px;
+			background: rgba(0,0,0,.125);
+			// box-shadow: inset 0 0 7px rgba(0,0,0,.35);
+
+			&:hover .scroll-bar {
+				background: lighten(@boxBg, 5%);
+			}
+
+			.scroll-bar {
+				position: absolute;
+				top: 31%;
+				left: 1px;
+				width: 11px;
+				height: 37%;
+				border-radius: 13px;
+				background: @boxBg;
+				cursor: ns-resize;
+			}
+		}
+
+		.togglers {
+			position: absolute;
+			left: 9px;
+			bottom: 7px;
+			padding-bottom: 5px;
+			text-align: center;
+			font-size: 10px;
+
+			.toggle-btn {
+				background: @base;
+				color: @boxBg;
+				width: 11px;
+				height: 11px;
+				border-radius: 50%;
+				padding-top: 2px;
+				margin-top: 6px;
+				cursor: pointer;
+				box-shadow: 0 0 0 1px fadeout(@base, 11%);
+
+				&.on {
+					background: @highlight;
+					color: @base;
+				}
+
+				&.top-half {
+					border-radius: 13px 13px 0 0;
+				}
+
+				&.bottom-half {
+					border-radius: 0 0 13px 13px;
+					margin-top: 3px;
+				}
+			}
+		}
+	}
+
 	.row-work {
 		margin-top: 0;
 		display: flex;
@@ -835,6 +905,15 @@ content {
 					border-radius: 9px;
 					background: #1d344c;
 					box-shadow: inset 0 0 0 1px @base;
+				}
+
+				.scroll-track {
+					left: 7px;
+					bottom: 83px;
+				}
+
+				.togglers {
+					left: 7px;
 				}
 			}
 
@@ -1452,6 +1531,7 @@ content {
 				flex: 1;
 				display: flex;
 				flex-direction: column;
+				position: relative;
 				--keyH: 14px;
 				--noteW: 12px;
 				--c: #77c; // default note color
@@ -1484,6 +1564,23 @@ content {
 								width: 1400px; // temp
 							}
 						}
+					}
+
+					.velocity-toggler {
+						position: absolute;
+						left: 3px;
+						bottom: 3px;
+						width: 13px;
+						height: 13px;
+						cursor: pointer;
+						border-radius: 50%;
+						// transform: rotate(90deg);
+						background-color: darken(@boxBg, 3%);
+						background-position: 0 0;
+						background-size: 13px 13px;
+						background-repeat: no-repeat;
+						background-image: url(~/icons/icon-arrow-right.png);
+						box-shadow: 0 0 0 1px rgba(0,0,0,.35);
 					}
 
 				.row-head {

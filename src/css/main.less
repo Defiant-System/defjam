@@ -1328,7 +1328,20 @@ content {
 
 					.io-master {
 						display: flex;
-						// width: 285px;
+						
+						.tracks {
+							.track {
+								&:not(:last-child) .slots:before {
+									display: none;
+								}
+
+								&:last-child {
+									.slots:before {
+										background-image: url(~/icons/icon-clip-play.png);
+									}
+								}
+							}
+						}
 					}
 
 					.tracks {
@@ -1369,8 +1382,8 @@ content {
 									vertical-align: top;
 									width: 13px;
 									height: 13px;
-									background-position: 0 0;
-									background-size: 13px 13px;
+									background-position: -3px -3px;
+									background-size: 19px 19px;
 									background-repeat: no-repeat;
 
 									&.btn-stop { background-image: url(~/icons/icon-clip-stop.png); }
@@ -1410,12 +1423,27 @@ content {
 								line-height: var( --slotH );
 								// --c: #77c; // default clip color
 
+								&:before {
+									content: "";
+									position: absolute;
+									top: 0;
+									left: 0;
+									width: 19px;
+									height: calc( var( --slotH ) * 7 );
+									z-index: 1;
+									background-position: 0 0;
+									background-size: 19px 19px;
+									background-repeat: space;
+									background-image: url(~/icons/icon-clip-record.png);
+								}
+
 								b {
 									position: absolute;
 									top: calc( calc( var( --r ) * var( --slotH ) ) + 1px );
 									left: 0;
 									right: 0;
 									height: calc( var( --slotH ) - 1px );
+									z-index: 2;
 									padding: 0 5px 0 23px;
 									border-radius: 2px;
 									color: rgba(255,255,255,.65);
@@ -1759,8 +1787,8 @@ content {
 
 					.time-end {
 						position: absolute;
-						top: 15px;
-						height: calc( var( --pH ) - 23px );
+						top: 0;
+						height: calc( var( --pH ) - 8px );
 						left: 767px;
 						width: 1px;
 						z-index: 2;

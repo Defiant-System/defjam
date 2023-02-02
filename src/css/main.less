@@ -1431,6 +1431,7 @@ content {
 									width: 19px;
 									height: calc( var( --slotH ) * 7 );
 									z-index: 1;
+									cursor: pointer;
 									background-position: 0 0;
 									background-size: 19px 19px;
 									background-repeat: space;
@@ -1492,9 +1493,20 @@ content {
 							}
 
 							.sends {
-								height: 48px;
-								padding-top: 5px;
+								height: 59px;
+								padding-top: 19px;
 								text-align: center;
+
+								.knob {
+									&:nth-child(1) {
+										top: -13px;
+										left: 2px;
+									}
+
+									&:nth-child(2) {
+										left: -2px;
+									}
+								}
 							}
 
 							.mixer {
@@ -1941,7 +1953,8 @@ content {
 									width: calc( var( --noteW ) * 10 );
 									height: calc( var( --keyH ) * 6 );
 									background-color: #0ff;
-									mix-blend-mode: color;
+									mix-blend-mode: overlay;
+									opacity: .25;
 								}
 
 								b {

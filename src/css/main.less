@@ -1505,9 +1505,19 @@ content {
 		// height: 420px;
 		height: var( --pH );
 		display: flex;
-		transition: height 200ms ease,
-					margin 200ms ease,
-					opacity 200ms ease 100ms;
+		transition: height 150ms ease,
+					margin 150ms ease,
+					opacity 150ms ease 100ms;
+
+		&.show-midi {
+			--pH: 420px;
+		}
+			
+		&.show-devices .devices-body,
+		&.show-drumkit .drumkit-body,
+		&.show-midi .midi-body {
+			display: flex;
+		}
 
 		&.hide {
 			height: 0;
@@ -1518,12 +1528,6 @@ content {
 		.rack {
 			flex: auto;
 			display: flex;
-			
-			&.show-devices .devices-body,
-			&.show-drumkit .drumkit-body,
-			&.show-midi .midi-body {
-				display: flex;
-			}
 
 			// .devices-body {
 			// 	> div {

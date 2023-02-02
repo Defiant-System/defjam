@@ -13,7 +13,7 @@ const defjam = {
 		this.sidebar = window.find(".sidebar");
 		this.audioChart = window.find(".audio-chart");
 		this.panelBottom = window.find(".panel-bottom");
-		this.rack = window.find(".box.rack");
+		this.rack = window.find(".panel-bottom");
 		this.rowFoot = window.find(".row-foot");
 
 		UX.init();

@@ -1870,6 +1870,7 @@ content {
 							.body-frame  {
 								line-height: var( --keyH );
 								height: calc( var( --keyH ) * 11 * 12 );
+									// background-repeat: no-repeat;
 								background-image: repeating-linear-gradient(180deg,
 										transparent 0px, transparent calc( var( --keyH ) * 1 ),
 										@gridblack calc( var( --keyH ) * 1 ), @gridblack calc( var( --keyH ) * 2 ),
@@ -1904,6 +1905,18 @@ content {
 											transparent calc( var( --noteW ) * 16 ),
 											transparent calc( var( --noteW ) * 32 )
 										);
+
+								.selection {
+									position: absolute;
+									top: 42px;
+									left: 239px;
+									width: 169px;
+									height: 112px;
+									// background: inherit;
+									// background-position: -239px -42px;
+									background-color: rgba(0,0,0,.075);
+									// filter: brightness(1.25) hue-rotate(-20deg);
+								}
 
 								b {
 									position: absolute;
@@ -1995,20 +2008,22 @@ content {
 		}
 
 		.rack-body {
-			background: lighten(@boxBg, 5%);
 			display: flex;
 			flex-direction: column;
-			border-radius: 3px;
-			padding: 3px 3px 2px;
 
 			.rack-head {
 				position: relative;
-				padding: 3px 5px 5px 23px;
+				padding: 5px 5px 5px 23px;
+				// margin-bottom: 1px;
+				border-radius: 3px 3px 0 0;
+				background: lighten(@boxBg, 3%);
+				box-shadow: inset 0 1px 0 fadeout(lighten(@boxBg, 5%), 50%),
+							inset 0 -1px 0 darken(@boxBg, 7%);
 
 				.icon-blank {
 					position: absolute;
-					top: 2px;
-					left: 3px;
+					top: 4px;
+					left: 5px;
 					width: 13px;
 					height: 13px;
 					border-radius: 50%;
@@ -2019,11 +2034,9 @@ content {
 
 			.box-body {
 				flex: 1;
-				border-radius: 2px;
+				border-radius: 0 0 3px 3px;
 				padding: 5px;
 				display: flex;
-				box-shadow: inset 0 1px 0 darken(@boxBg, 3%),
-							inset 0 -1px 0 lighten(@boxBg, 8%);
 
 				.graph {
 					background: @base;
@@ -2031,7 +2044,6 @@ content {
 					height: 132px;
 					border-radius: 3px;
 					padding: 3px 4px 4px 4px;
-					// box-shadow: inset 0 1px 1px lighten(@base, 11%);
 
 					&.has-values{
 						&:after {
@@ -2050,11 +2062,9 @@ content {
 					}
 
 					canvas {
-						// background: red;
 						width: 100%;
 						height: 100%;
-						// background-size: auto 100%;
-						background-position: 1px 50%;
+						background-position: 0 50%;
 						background-repeat: no-repeat;
 					}
 				}

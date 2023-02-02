@@ -1559,8 +1559,9 @@ content {
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				--keyH: 14px;
+				--keyH: 16px;
 				--noteW: 12px;
+				--bars: 4;
 				--c: #77c; // default note color
 
 					.col-left {
@@ -1588,7 +1589,7 @@ content {
 							.body-frame  {
 								position: relative;
 								height: 100%;
-								width: 1400px; // temp
+								width: calc( var( --noteW ) * var( --bars ) * 16 );
 							}
 						}
 					}
@@ -1870,7 +1871,6 @@ content {
 							.body-frame  {
 								line-height: var( --keyH );
 								height: calc( var( --keyH ) * 11 * 12 );
-									// background-repeat: no-repeat;
 								background-image: repeating-linear-gradient(180deg,
 										transparent 0px, transparent calc( var( --keyH ) * 1 ),
 										@gridblack calc( var( --keyH ) * 1 ), @gridblack calc( var( --keyH ) * 2 ),
@@ -1908,14 +1908,12 @@ content {
 
 								.selection {
 									position: absolute;
-									top: 42px;
-									left: 239px;
-									width: 169px;
-									height: 112px;
-									// background: inherit;
-									// background-position: -239px -42px;
-									background-color: rgba(0,0,0,.075);
-									// filter: brightness(1.25) hue-rotate(-20deg);
+									top: calc( var( --keyH ) * 5 );
+									left: calc( var( --noteW ) * 16 );
+									width: calc( var( --noteW ) * 10 );
+									height: calc( var( --keyH ) * 6 );
+									background-color: #0ff;
+									mix-blend-mode: color;
 								}
 
 								b {

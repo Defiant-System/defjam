@@ -115,8 +115,8 @@ content {
 		text-transform: uppercase;
 		text-align: center;
 		font-size: 10px;
-		font-weight: 100;
-		color: darken(@face, 2%);
+		// font-weight: 100;
+		color: darken(@face, 3%);
 		text-shadow: 0 0 0;
 		//background-color: rgba(0,0,0,.1);
 
@@ -1493,9 +1493,21 @@ content {
 							}
 
 							.sends {
+								position: relative;
 								height: 59px;
 								padding-top: 19px;
 								text-align: center;
+
+								&:after {
+									content: attr(data-name);
+									position: absolute;
+									left: 49px;
+									right: 3px;
+									top: 5px;
+									color: darken(@face, 3%);
+									text-shadow: 0 0 0;
+									text-align: left;
+								}
 
 								.knob {
 									&:nth-child(1) {
@@ -1603,6 +1615,41 @@ content {
 				--noteW: 12px;
 				--bars: 4;
 				--c: #77c; // default note color
+
+				&.drumkit {
+					--keyH: 22px;
+
+					.row-head,
+					.row-foot {
+						.col-left {
+							width: 121px;
+						}
+					}
+
+					.row-body {
+						.col-left {
+							width: 121px;
+
+							.box-body {
+								.body-frame {
+									background: none;
+									height: 100%;
+
+									&:before {
+										left: 87px;
+									}
+
+									&:after {
+										left: 88px;
+									}
+
+									ul { display: none; }
+									ol { display: block; } // drumkit names
+								}
+							}
+						}
+					}
+				}
 
 					.col-left {
 						display: flex;
@@ -1814,7 +1861,7 @@ content {
 					margin: 1px 0;
 					overflow: hidden;
 
-					.col-left .box-body  {
+					.col-left .box-body {
 						overflow: hidden;
 						border-radius: 0;
 						
@@ -1886,6 +1933,36 @@ content {
 							}
 
 							ol {
+								display: none;
+								position: relative;
+								display: block;
+								z-index: 2;
+								width: 88px;
+								height: 100%;
+								padding-top: 1px;
+								// background-image: repeating-linear-gradient(180deg,
+								// 	transparent 0px,
+								// 	transparent var( --keyH ),
+								// 	@face var( --keyH ),
+								// 	@face calc( var( --keyH ) + 1px ),
+								// );
+								box-shadow: 3px 0 11px 3px rgba(0,0,0,.45);
+
+								li {
+									white-space: nowrap;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									padding: 1px 0 0 3px;
+									height: var( --keyH );
+									line-height: var( --keyH );
+									// text-shadow: 0 0 0;
+									// color: darken(@face, 3%);
+									box-shadow: inset 0 1px 0 lighten(@boxBg, 1%),
+												inset 0 -1px 0 @face;
+								}
+							}
+
+							ul {
 								position: relative;
 								display: block;
 								z-index: 2;
@@ -1897,6 +1974,8 @@ content {
 									align-items: flex-end;
 									line-height: 1.35;
 									padding-left: 3px;
+									text-shadow: 0 0 0;
+									color: darken(@face, 3%);
 									height: calc( calc( var( --keyH ) * 12) + 1px );
 								}
 							}

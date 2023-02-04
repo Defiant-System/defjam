@@ -417,7 +417,38 @@ content {
 		&[data-value="100"] div:after { top: 0%; }
 	}
 
-	.toggle-button {
+	.toggle-btn {
+		position: relative;
+		display: inline-block;
+		background: @face;
+		padding: 2px 2px 2px 21px;
+		border-radius: 2px;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 2px;
+			bottom: 2px;
+			left: 2px;
+			width: 17px;
+			background: rgba(0,0,0,.1);
+
+			&:after { left: auto; right: 2px; }
+		}
+
+		> span {
+			position: relative;
+			z-index: 2;
+			padding: 3px 5px;
+			background: @boxBg;
+			display: inline-block;
+			border-radius: 2px;
+		}
+	}
+
+	.track-btn {
 		position: relative;
 		width: 27px;
 		height: 18px;
@@ -505,7 +536,7 @@ content {
 			text-align: center;
 			font-size: 10px;
 
-			.toggle-btn {
+			.toggler {
 				position: relative;
 				background: @base;
 				color: @boxBg;
@@ -2236,6 +2267,10 @@ content {
 
 		.device-control {
 			width: 239px;
+
+			.box-body {
+				display: block;
+			}
 		}
 
 		.sample-display {

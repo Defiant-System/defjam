@@ -424,13 +424,17 @@ content {
 
 	input[type="text"] {
 		display: inline-block;
-		background: lighten(@boxBg, 5%);
+		background: lighten(@boxBg, 7%);
 		color: @base;
 		width: auto;
 		height: 19px;
 		border: 0;
-		border-radius: 1px;
-		box-shadow: 0 0 0 2px @face;
+		// border: 1px solid;
+		// border-color: @boxBg transparent lighten(@boxBg, 11%) transparent;
+		border-radius: 2px;
+		box-shadow: 0 0 0 2px @face,
+					// inset 0 1px 0 darken(@boxBg, 2%),
+					inset 0 -1px 0 lighten(@boxBg, 11%);
 		padding: 3px 3px 2px;
 		margin: 2px 3px 0 2px;
 
@@ -569,7 +573,7 @@ content {
 		.togglers {
 			position: absolute;
 			left: 9px;
-			bottom: 7px;
+			bottom: 5px;
 			padding-bottom: 3px;
 			text-align: center;
 			font-size: 10px;
@@ -940,7 +944,7 @@ content {
 				> i {
 					font-style: normal;
 					display: inline-block;
-					padding: 4px 7px 3px 4px;
+					padding: 4px 7px 4px 4px;
 					border-radius: 2px;
 				}
 
@@ -1043,6 +1047,7 @@ content {
 				}
 
 				.togglers {
+					bottom: 7px;
 					left: 7px;
 					padding-bottom: 1px;
 				}
@@ -2167,16 +2172,17 @@ content {
 
 								.selection {
 									position: absolute;
-									top: calc( var( --keyH ) * 5 );
-									left: calc( var( --noteW ) * 16 );
-									width: calc( var( --noteW ) * 10 );
-									height: calc( var( --keyH ) * 6 );
+									top: calc( var( --keyH ) * var( --t ) );
+									left: calc( var( --noteW ) * var( --l ) );
+									width: calc( var( --noteW ) * var( --d ) );
+									height: calc( var( --keyH ) * var( --o ) );
 									background-color: #0ff;
 									mix-blend-mode: overlay;
 									opacity: .25;
 								}
 
 								b {
+									// font-size: calc( var( --keyH ) - 2px );
 									position: absolute;
 									top: calc( calc( var( --t ) * var( --keyH ) ) + 1px );
 									left: calc( var( --l ) * var( --noteW ) );

@@ -442,6 +442,7 @@ content {
 		&.w30 { width: 31px; }
 	}
 
+	.button,
 	.toggle-btn {
 		position: relative;
 		display: inline-block;
@@ -472,6 +473,12 @@ content {
 			right: 3px;
 		}
 
+		&:hover {
+			> span {
+				background: lighten(@boxBg, 5%);
+			}
+		}
+
 		&.on > span {
 			left: -21px;
 			border-radius: 2px 0 0 2px;
@@ -487,6 +494,44 @@ content {
 						inset 0 -1px 0 rgba(0,0,0,.075);
 			display: inline-block;
 			border-radius: 0 2px 2px 0;
+		}
+
+		&.button {
+			padding-left: 2px;
+			padding-right: 2px;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+
+			&:active > span {
+				padding-top: 5px;
+				padding-bottom: 3px;
+				box-shadow: 0 0 0;
+			}
+		}
+	}
+
+	selectbox {
+		width: 120px;
+		background: transparent;
+		border: 2px solid @face;
+		color: darken(@text, 7%);
+		text-shadow: 0 1px 0 rgba(0,0,0,.35);
+
+		&:before {
+			background: transparent;
+			border-color: transparent;
+		}
+
+		&:after {
+			filter: invert(1) drop-shadow(0 1px 0 rgba(0,0,0,.25)) opacity(.75);
+			top: 3px;
+		}
+
+		option {
+			padding-top: 3px;
 		}
 	}
 

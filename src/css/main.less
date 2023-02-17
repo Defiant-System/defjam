@@ -498,24 +498,80 @@ content {
 		padding-bottom: 7px;
 	}
 
-	input[type="text"] {
-		display: inline-block;
-		background: lighten(@boxBg, 7%);
-		color: @base;
-		width: auto;
-		height: 19px;
-		border: 0;
-		// border: 1px solid;
-		// border-color: @boxBg transparent lighten(@boxBg, 11%) transparent;
-		border-radius: 2px;
-		box-shadow: 0 0 0 2px @face,
-					// inset 0 1px 0 darken(@boxBg, 2%),
-					inset 0 -1px 0 lighten(@boxBg, 11%);
-		padding: 3px 3px 2px;
-		margin: 2px 3px 0 2px;
+	input {
+		&[type="text"] {
+			display: inline-block;
+			background: lighten(@boxBg, 7%);
+			color: @base;
+			width: auto;
+			height: 19px;
+			border: 0;
+			// border: 1px solid;
+			// border-color: @boxBg transparent lighten(@boxBg, 11%) transparent;
+			border-radius: 2px;
+			box-shadow: 0 0 0 2px @face,
+						// inset 0 1px 0 darken(@boxBg, 2%),
+						inset 0 -1px 0 lighten(@boxBg, 11%);
+			padding: 3px 3px 2px;
+			margin: 2px 3px 0 2px;
 
-		&.right { text-align: right; }
-		&.w30 { width: 31px; }
+			&.right { text-align: right; }
+			&.w30 { width: 31px; }
+		}
+	}
+
+	.checkbox {
+		background: transparent;
+		position: relative;
+		display: inline-block;
+		width: 13px;
+		height: 13px;
+		margin: 1px 3px 5px 2px;
+		border: 0;
+		border-radius: 2px;
+		box-shadow: 0 0 0 2px @face;
+
+		input[type="checkbox"] {
+			width: inherit;
+			height: inherit;
+			opacity: 0;
+
+			&:checked + i {
+				display: block;
+			}
+		}
+
+		i {
+			display: none;
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			right: 1px;
+			bottom: 1px;
+			z-index: 1;
+			// background: #fff;
+			// border: 1px solid #a5a5a5;
+			// border-radius: inherit;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 1px;
+				left: 0;
+				width: 9px;
+				height: 4px;
+				border: 2px solid @face;
+				border-top: 0;
+				border-right: 0;
+				transform: rotate( -45deg );
+			}
+		}
+
+		+ label {
+			position: relative;
+			top: 1px;
+			// cursor: pointer;
+		}
 	}
 
 	.button,

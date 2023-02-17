@@ -6,7 +6,7 @@ const UX = {
 		this.content = window.find("content");
 
 		// bind event handlers
-		this.content.on("mousedown", ".knob, .pan-knob", this.doKnob);
+		this.content.on("mousedown", ".knob, .knob2, .pan-knob", this.doKnob);
 		this.content.on("mousedown", ".visualizer .handle", this.doShape);
 
 		setTimeout(() => {

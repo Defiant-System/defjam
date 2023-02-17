@@ -5,6 +5,7 @@
 @boxBg: #466788;
 @text: #b7cbe0;
 @highlight: #b92;
+@selected: #5ff;
 @gridlines: darken(@boxBg, 3%);
 @griddark: darken(@boxBg, 5%);
 @gridblack: fadeout(darken(@boxBg, 9%), 73%);
@@ -1355,7 +1356,7 @@ content {
 
 							// temp
 							&:nth-child(2) {
-								b:after {
+								b:before {
 									background-size: 16px auto;
 								}
 							}
@@ -1374,8 +1375,7 @@ content {
 								box-shadow: inset 0 1px 0 rgba(255,255,255,.075),
 											0 1px 2px rgba(0,0,0,.35);
 
-								&:before,
-								&:after {
+								&:before {
 									content: "";
 									position: absolute;
 									top: 17px;
@@ -1383,23 +1383,21 @@ content {
 									right: 0;
 									bottom: 0;
 									background-color: rgba(0,0,0,.125);
-									background-image: var( --clip-bg );
+									background-image: var( --clip-bg ), repeating-linear-gradient(90deg,
+												rgba(0,0,0,.05) calc( var( --barW ) - 1px ), rgba(0,0,0,.05) var( --barW ),
+												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
+											);
 									background-repeat-y: no-repeat;
 									background-repeat-x: repeat;
 									border-top: 1px solid rgba(0,0,0,.1);
 									border-radius: 0 0 2px 2px;
 								}
 
-								&:before {
-									background: transparent;
-									background-image: repeating-linear-gradient(90deg,
-												rgba(0,0,0,.05) calc( var( --barW ) - 1px ), rgba(0,0,0,.05) var( --barW ),
-												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
-											);
-								}
-
 								i {
 									font-style: normal;
+									white-space: nowrap;
+									overflow: hidden;
+									text-overflow: ellipsis;
 
 									&:before,
 									&:after {
@@ -1494,6 +1492,9 @@ content {
 						flex: 1;
 						display: flex;
 						margin-bottom: 2px;
+						--selT: 0;
+						--selL: 0;
+						--selH: 1;
 
 						.channel:nth-child(2) {
 							background: fadeout(lighten(@boxBg, 13%), 85%);
@@ -1542,6 +1543,27 @@ content {
 								background: inherit;
 							}
 						}
+
+						.selection {
+							position: absolute;
+							top: 134px;
+							left: 256px;
+							height: 65px;
+							width: 191px;
+							z-index: 2;
+
+							&:after {
+								content: "";
+								position: absolute;
+								top: -1px;
+								left: -1px;
+								right: -1px;
+								bottom: -1px;
+								border-radius: 3px;
+								box-shadow: 0 0 0 3px @selected;
+								opacity: .25;
+							}
+						}
 					}
 
 					.row-outputs {
@@ -1588,6 +1610,9 @@ content {
 				--slotW: 93px;
 				--slotH: 19px;
 				--selRow: 5;
+				--selT: 0;
+				--selL: 0;
+				--selH: 1;
 
 				.sess-layout {
 					position: relative;
@@ -1637,6 +1662,27 @@ content {
 					.tracks {
 						display: flex;
 
+						.selection {
+							position: absolute;
+							top: calc( calc( var( --selT ) * var( --slotH ) ) + 3px );
+							left: calc( calc( var( --selL ) * var( --slotW ) ) + calc( var( --selL ) * 2px ) );
+							height: calc( calc( var( --selH ) * var( --slotH ) ) - 1px );
+							width: var( --slotW );
+							z-index: 2;
+
+							&:after {
+								content: "";
+								position: absolute;
+								top: -1px;
+								left: -1px;
+								right: -1px;
+								bottom: -1px;
+								border-radius: 2px;
+								box-shadow: 0 0 0 3px @selected;
+								opacity: .25;
+							}
+						}
+
 						.track {
 							position: relative;
 							width: var( --slotW );
@@ -1644,23 +1690,6 @@ content {
 							flex-direction: column;
 							margin-right: 2px;
 							text-shadow: 0 1px 0 rgba(0,0,0,.2);
-
-							&.selected {
-								z-index: 11;
-
-								&:after {
-									content: "";
-									position: absolute;
-									top: -1px;
-									left: -1px;
-									right: -1px;
-									bottom: -1px;
-									z-index: 2;
-									border-radius: 4px;
-									box-shadow: 0 0 0 3px #5ff;
-									opacity: .25;
-								}
-							}
 
 							&:last-child {
 								margin-right: 0;
@@ -1786,18 +1815,6 @@ content {
 									&:hover:before {
 										opacity: 1;
 									}
-
-									&.selected:after {
-										content: "";
-										position: absolute;
-										top: -1px;
-										left: -1px;
-										right: -1px;
-										bottom: -1px;
-										border-radius: inherit;
-										box-shadow: 0 0 0 3px #5ff;
-										opacity: .25;
-									}
 								}
 							}
 
@@ -1865,7 +1882,7 @@ content {
 	}
 
 	.panel-bottom {
-		--pH: 224px;
+		--pH: 220px;
 		// height: 224px;
 		// height: 360px;
 		// height: 420px;
@@ -2408,7 +2425,7 @@ content {
 											right: -1px;
 											bottom: -1px;
 											border-radius: inherit;
-											box-shadow: 0 0 0 3px #5ff;
+											box-shadow: 0 0 0 3px @selected;
 											opacity: .25;
 										}
 									}

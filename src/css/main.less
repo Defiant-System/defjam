@@ -2565,6 +2565,20 @@ content {
 						background-position: 0 50%;
 						background-repeat: no-repeat;
 					}
+
+					svg {
+						.st0 {
+							fill: none;
+							stroke: #3dd;
+							stroke-width: 2;
+						}
+
+						.st1 {
+							fill: #da4;
+							stroke: #da4;
+							stroke-width: 3;
+						}
+					}
 				}
 
 				.graph + .controls {
@@ -2611,6 +2625,42 @@ content {
 						transform: scale(.85);
 					}
 				}
+
+				.envelope-display {
+					width: 420px;
+
+					.controls {
+						> div {
+							position: relative;
+
+							label {
+								top: 2px;
+								left: 1px;
+								// text-transform: none;
+								text-align: left;
+								// color: @face;
+								// text-shadow: 0 0 0;
+							}
+
+							span {
+								top: auto;
+								bottom: 0;
+								left: 19px;
+								color: @face;
+								text-align: left;
+								text-shadow: 0 0 0;
+							}
+						}
+
+						.knob2 {
+							margin-top: 7px;
+
+							&:after {
+								display: none;
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -2625,6 +2675,7 @@ content {
 		.sample-display {
 			width: 520px;
 		}
+
 
 		ul.controls {
 			list-style: none;

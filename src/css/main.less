@@ -522,7 +522,7 @@ content {
 	}
 
 	.checkbox {
-		background: transparent;
+		background: lighten(@boxBg, 7%);
 		position: relative;
 		display: inline-block;
 		width: 13px;
@@ -648,7 +648,9 @@ content {
 
 	selectbox {
 		width: 120px;
-		background: transparent;
+		background: lighten(@boxBg, 7%);
+		// color: lighten(@base, 5%);
+		// text-shadow: 0 0 0;
 		border: 2px solid @face;
 		color: darken(@text, 7%);
 		text-shadow: 0 1px 0 rgba(0,0,0,.35);
@@ -822,9 +824,14 @@ content {
 			.ball-button {
 				left: 2px;
 
+				.icon-arrow_up {
+					left: 4px;
+				}
+
 				&.toggled {
 					> i {
 						top: 4px;
+						left: 3px;
 						transform: rotate(180deg);
 					}
 				}

@@ -619,6 +619,7 @@ content {
 
 		> span {
 			position: relative;
+			left: 0;
 			z-index: 2;
 			padding: 4px 7px;
 			background: lighten(@boxBg, 1%);
@@ -627,6 +628,8 @@ content {
 						inset 0 -1px 0 rgba(0,0,0,.075);
 			display: inline-block;
 			border-radius: 0 2px 2px 0;
+			transition: left 100ms ease-in-out;
+			pointer-events: none;
 		}
 
 		&.button {

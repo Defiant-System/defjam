@@ -7,19 +7,23 @@ const UX = {
 
 		// bind event handlers
 		this.content.on("mousedown", ".knob, .knob2, .pan-knob", this.doKnob);
-		this.content.on("mousedown", ".visualizer .handle", this.doShape);
+		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
+		// this.content.on("mousedown", ".visualizer .handle", this.doShape);
 
-		setTimeout(() => {
-			this.content.find(".fr-box .handle")
-				.trigger("mousedown")
-				.trigger("mousemove")
-				.trigger("mouseup");
 
-			this.content.find(".adsr-box .handle:last")
-				.trigger("mousedown")
-				.trigger("mousemove")
-				.trigger("mouseup");
-		}, 100);
+	},
+	doToggleButton(event) {
+		let self = UX,
+			el;
+		switch (event.type) {
+			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+
+				el = $(event.target);
+				el.toggleClass("on", el.hasClass("on"));
+				break;
+		}
 	},
 	doKnob(event) {
 		let self = UX,
@@ -63,7 +67,6 @@ const UX = {
 		let self = UX,
 			drag = self.drag,
 			connect,
-			curve,
 			points,
 			shape,
 			rect,
@@ -80,7 +83,6 @@ const UX = {
 				rect = event.target.parentNode.getBoundingClientRect();
 				el = $(event.target).addClass("on");
 				pEl = el.parent();
-				curve = Shapes[pEl.data("curve")];
 				points = el.parent().find(".handle");
 				shape = el.parent().find(".shape");
 				cX = +el.attr("cX");
@@ -92,7 +94,6 @@ const UX = {
 					cY,
 					shape,
 					points,
-					curve,
 					clientY: event.clientY,
 					clientX: event.clientX,
 					min: { x: cX, y: cY },
@@ -125,8 +126,6 @@ const UX = {
 				drag.el.attr({ cX, cY });
 
 				value = drag.points.map(p => [+p.getAttribute("cX"), +p.getAttribute("cY")]);
-				//console.log({ d: drag.curve(value) }.d);
-				drag.shape.attr({ d: drag.curve(value) });
 
 				if (self.drag.xConn) {
 					value = Math.floor(((cX - drag.min.x) / (drag.max.x - drag.min.x)) * 100);
@@ -146,57 +145,5 @@ const UX = {
 				self.doc.off("mousemove mouseup", self.doShape);
 				break;
 		}
-	}
-};
-
-const Shapes = {
-	// frequency response
-	fr(value) {
-		let h = 89,
-			w = 204,
-			x = value[0][0],
-			y = value[0][1],
-			r = ["M"];
-
-		r.push(43, 89);
-
-		r.push("C", 54, 76);
-		r.push(75, 55);
-		r.push(83, 46); // anchor
-
-		r.push("C", 120, 11);
-		r.push(115, 45);
-		r.push(172, 45); // anchor
-
-		r.push("C", 198, 45);
-		r.push(204, 45);
-		r.push(204, 45); // anchor
-		
-		return r.join(" ");
-	},
-	adsr(value) {
-		let h = 69,
-			w = 321,
-			r = ["M", 5, h],
-			aThird = w / 3,
-			twoThirds = aThird * 2;
-
-		r.push("C", 5, 5);
-		r.push(Math.max(value[0][0] * .2, 5), 5);
-		r.push(value[0]); // anchor
-
-		r.push("C", value[0][0], value[1][1]);
-		r.push(value[0][0], value[1][1]);
-		r.push(value[1]); // anchor
-
-		r.push("C", value[1][0], value[1][1]);
-		r.push(value[1][0], value[1][1]);
-		r.push(twoThirds, value[1][1]); // anchor
-
-		r.push("C", twoThirds, h - 5);
-		r.push(Math.min(twoThirds * 1.15, twoThirds), h - 5);
-		r.push(value[2]); // anchor
-
-		return r.join(" ");
 	}
 };

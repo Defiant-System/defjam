@@ -13,7 +13,7 @@ const defjam = {
 
 		UX.init();
 		Audio.init();
-		
+
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 
@@ -40,6 +40,7 @@ const defjam = {
 		}
 	},
 	browser: @import "./sections/browser.js",
+	head: @import "./sections/head.js",
 	session: @import "./sections/session.js",
 	arrangement: @import "./sections/arrangement.js",
 	midiEditor: @import "./sections/midiEditor.js",

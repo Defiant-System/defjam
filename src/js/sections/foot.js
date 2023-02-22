@@ -6,6 +6,8 @@
 		// fast references
 		this.els = {
 			rack: window.find(".panel-bottom"),
+			panelBottom: window.find(".panel-bottom"),
+			rowFoot: window.find(".row-foot"),
 		};
 	},
 	dispatch(event) {
@@ -16,6 +18,14 @@
 			el;
 		//console.log(event);
 		switch (event.type) {
+			case "toggle-rack-panel":
+				el = event.el;
+				value = el.hasClass("toggled");
+				el.toggleClass("toggled", value);
+				Self.els.panelBottom.toggleClass("hide", value);
+
+				Self.els.rowFoot.find(".box.active").toggleClass("hidden", value);
+				break;
 			case "show-devices-rack":
 			case "show-drumkit-rack":
 			case "show-midi-rack":

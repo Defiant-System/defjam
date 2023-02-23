@@ -37,6 +37,17 @@ content {
 	color: darken(@text, 7%);
 	text-shadow: 0 1px 0 rgba(0,0,0,.35);
 
+	&.cover {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		background: transparent;
+	}
+
 	&.hide-cursor:before {
 		content: "";
 		position: absolute;
@@ -2052,6 +2063,8 @@ content {
 						// background-image: ;
 
 						.body-frame {
+							transform: translateX(var( --oX ));
+							
 							&:before {
 								content: "";
 								position: absolute;
@@ -2223,6 +2236,7 @@ content {
 						top: 0;
 						height: calc( var( --pH ) - 8px );
 						left: 767px;
+						transform: translateX(var( --oX ));
 						width: 1px;
 						z-index: 2;
 						background: @base;
@@ -2242,6 +2256,7 @@ content {
 						.body-frame {
 							position: absolute;
 							width: 100%;
+							transform: translateY(var( --oY ));
 							// height: calc( var( --keyH ) * 120); // temp
 							background-image: repeating-linear-gradient(180deg,
 									transparent 0px,
@@ -2361,6 +2376,7 @@ content {
 							border-radius: 0;
 
 							.body-frame  {
+								transform: translateY(var( --oY )) translateX(var( --oX ));
 								line-height: var( --keyH );
 								height: calc( var( --keyH ) * 11 * 12 );
 								background-image: repeating-linear-gradient(180deg,
@@ -2458,6 +2474,7 @@ content {
 						
 						.body-frame {
 							position: relative;
+							transform: translateX(var( --oX ));
 							background-image: repeating-linear-gradient(90deg,
 									transparent 0px,
 									transparent calc( calc( var( --noteW ) * 4 ) - 1px ),

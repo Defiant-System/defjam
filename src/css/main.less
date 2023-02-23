@@ -2415,15 +2415,21 @@ content {
 											transparent calc( var( --noteW ) * 32 )
 										);
 
-								.selection {
+								.lasso {
 									position: absolute;
-									top: calc( var( --keyH ) * var( --t ) );
-									left: calc( var( --noteW ) * var( --l ) );
-									width: calc( var( --noteW ) * var( --d ) );
-									height: calc( var( --keyH ) * var( --o ) );
+									// top: calc( var( --keyH ) * var( --t ) );
+									// left: calc( var( --noteW ) * var( --l ) );
+									// width: calc( var( --noteW ) * var( --d ) );
+									// height: calc( var( --keyH ) * var( --o ) );
 									background-color: #0ff;
+									box-shadow: 0 0 0 1px #0ff,
+												inset 0 0 0 1px #0ff;
 									mix-blend-mode: overlay;
 									opacity: .25;
+
+									&.hidden {
+										display: none;
+									}
 								}
 
 								b {

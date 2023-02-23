@@ -1581,7 +1581,7 @@ content {
 								right: -1px;
 								bottom: -1px;
 								border-radius: 3px;
-								box-shadow: 0 0 0 3px @selected;
+								box-shadow: 0 0 0 2px @selected;
 								opacity: .25;
 							}
 						}
@@ -1699,7 +1699,7 @@ content {
 								right: -1px;
 								bottom: -1px;
 								border-radius: 2px;
-								box-shadow: 0 0 0 3px @selected;
+								box-shadow: 0 0 0 2px @selected;
 								opacity: .25;
 							}
 						}
@@ -1963,9 +1963,6 @@ content {
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				--keyH: 16px;
-				--noteW: 12px;
-				--bars: 4;
 				--c: #77c; // default note color
 
 				&.drumkit {
@@ -2128,7 +2125,7 @@ content {
 								right: 1px;
 								bottom: 0;
 								height: 5px;
-								z-index: 3;
+								z-index: 1;
 								background-image: repeating-linear-gradient(90deg,
 										transparent 0px,
 										transparent calc( calc( var( --noteW ) * 16 ) - 1px ),
@@ -2138,6 +2135,8 @@ content {
 							}
 
 							li {
+								position: relative;
+								z-index: 2;
 								display: inline-block;
 								padding: 5px 0 0 0;
 								font-size: 9px;
@@ -2424,6 +2423,7 @@ content {
 									// background-color: #0ff;
 									box-shadow: 0 0 0 1px #0ff,
 												inset 0 0 0 1px #0ff;
+									border-radius: 2px;
 									mix-blend-mode: overlay;
 									opacity: .25;
 
@@ -2438,7 +2438,7 @@ content {
 									top: calc( calc( var( --t ) * var( --keyH ) ) + 1px );
 									left: calc( var( --l ) * var( --noteW ) );
 									width: calc( calc( var( --d ) * var( --noteW ) ) - 1px );
-									height: calc( var( --keyH ) - 2px );
+									height: calc( var( --keyH ) - 1px );
 									padding: 0 5px;
 									border-radius: 2px;
 									color: rgba(255,255,255,.65);

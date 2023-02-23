@@ -11,12 +11,21 @@
 		};
 
 		// bind event handler
+		this.els.el.find(".row-body .col-right .body-frame").on("wheel", this.dispatch);
 		this.els.el.find(".row-body .col-right .body-frame").on("mousedown", this.doLasso);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
 	},
 	dispatch(event) {
-
+		let APP = defjam,
+			Self = APP.midiEditor,
+			Drag = Self.drag,
+			el;
+		switch (event.type) {
+			case "wheel":
+				console.log(event);
+				break;
+		}
 	},
 	doLasso(event) {
 		let APP = defjam,
@@ -44,7 +53,7 @@
 					min_ = Math.min,
 					max_ = Math.max,
 					notes = Self.els.lasso.parent().find("b").map(note => ({
-						el: $(note),
+						el: $(note).removeClass("selected"),
 						top: note.offsetTop,
 						left: note.offsetLeft,
 						th: note.offsetTop + note.offsetHeight,
@@ -145,14 +154,14 @@
 				
 				// prepare drag object
 				let el = Self.els.el,
-					allW = el.find(".row-head .col-right .body-frame").prop("offsetHeight"),
-					viewW = el.find(".row-head .col-right .box-body").prop("offsetHeight"),
+					allW = el.find(".row-head .col-right .body-frame").prop("offsetWidth"),
+					viewW = el.find(".row-head .col-right .box-body").prop("offsetWidth"),
 					offsetX = parseInt(el.cssProp("--oX"), 10),
 					clickX = event.clientX,
 					clickY = event.clientY,
 					limit = {
 						minX: 0,
-						maxX: Math.max(viewW - allW, 0),
+						maxX: Math.min(viewW - allW, 0),
 					},
 					min_ = Math.min,
 					max_ = Math.max;

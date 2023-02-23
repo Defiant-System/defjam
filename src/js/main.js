@@ -10,10 +10,9 @@ const defjam = {
 		this.els = {
 			content: window.find("content"),
 		};
-
+		// init auxiliary objects
 		UX.init();
 		Audio.init();
-
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 

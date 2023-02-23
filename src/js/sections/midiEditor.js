@@ -25,10 +25,11 @@
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
+
 				// prepare drag object
 				let el = Self.els.el,
-					allH = el.find(".row-body .col-right .body-frame").prop("offsetHeight"),
-					viewH = el.find(".row-body .col-right .box-body").prop("offsetHeight"),
+					allH = el.find(".row-body .col-left .body-frame").prop("offsetHeight"),
+					viewH = el.find(".row-body .col-left .box-body").prop("offsetHeight"),
 					offsetY = parseInt(el.cssProp("--oY"), 10),
 					clickX = event.clientX,
 					clickY = event.clientY,
@@ -37,7 +38,7 @@
 					min_ = Math.min,
 					max_ = Math.max;
 				Self.drag = { el, clickX, clickY, offsetY, min, max, min_, max_ };
-				console.log( viewH, allH );
+				
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
 				// bind event handlers
@@ -62,10 +63,36 @@
 			el;
 		switch (event.type) {
 			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+				
+				// prepare drag object
+				let el = Self.els.el,
+					allW = el.find(".row-head .col-right .body-frame").prop("offsetHeight"),
+					viewW = el.find(".row-head .col-right .box-body").prop("offsetHeight"),
+					offsetX = parseInt(el.cssProp("--oX"), 10),
+					clickX = event.clientX,
+					clickY = event.clientY,
+					min = { x: 0 },
+					max = { x: Math.max(viewH - allH, 0) },
+					min_ = Math.min,
+					max_ = Math.max;
+				Self.drag = { el, clickX, clickY, offsetX, min, max, min_, max_ };
+				
+				// prevent mouse from triggering mouseover
+				APP.els.content.addClass("hide-cursor");
+				// bind event handlers
+				Self.els.doc.on("mousemove mouseup", Self.doNoteBars);
 				break;
 			case "mousemove":
+				let oX = Drag.max_(Drag.min_(Drag.offsetX - Drag.clickX + event.clientX, Drag.min.x), Drag.max.x);
+				Drag.el.css({ "--oX": `${oX}px` });
 				break;
 			case "mouseup":
+				// remove class
+				APP.els.content.removeClass("hide-cursor");
+				// unbind event handlers
+				Self.els.doc.off("mousemove mouseup", Self.doNoteBars);
 				break;
 		}
 	}

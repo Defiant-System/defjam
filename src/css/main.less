@@ -2064,7 +2064,7 @@ content {
 
 						.body-frame {
 							transform: translateX(var( --oX ));
-							
+
 							&:before {
 								content: "";
 								position: absolute;
@@ -2149,6 +2149,7 @@ content {
 					.length-span,
 					.loop-span {
 						// display: none;
+						transform: translateX(var( --oX ));
 						position: absolute;
 						top: 15px;
 						left: 0;
@@ -2317,7 +2318,7 @@ content {
 									@pianoBlack calc( var( --keyH ) * 8 ), @pianoBlack calc( var( --keyH ) * 9 ),
 									transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
 									@pianoBlack calc( var( --keyH ) * 10 ), @pianoBlack calc( var( --keyH ) * 11 ),
-									transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 )
+									transparent calc( var( --keyH ) * 11 ), transparent calc( calc( var( --keyH ) * 12 ) + 1px)
 								);
 							}
 

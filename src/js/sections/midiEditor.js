@@ -42,10 +42,16 @@
 						maxY: 500,
 					},
 					min_ = Math.min,
-					max_ = Math.max;
-				Self.drag = { el, oX, oY, cX, cY, eX, eY, limit, min_, max_ };
+					max_ = Math.max,
+					notes = Self.els.lasso.parent().find("b").map(note => ({
+						el: $(note),
+						top: note.offsetTop,
+						left: note.offsetLeft,
+						th: note.offsetTop + note.offsetHeight,
+						lw: note.offsetLeft + note.offsetWidth
+					}));
+				Self.drag = { el, notes, oX, oY, cX, cY, eX, eY, limit, min_, max_ };
 				
-
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
 				// bind event handlers
@@ -56,6 +62,22 @@
 					left = Drag.cX,
 					height = event.clientY - Drag.eY,
 					width = event.clientX - Drag.eX;
+
+				if (width < 0) {
+					left += width;
+					width = Drag.eX - event.clientX;
+				}
+
+				if (height < 0) {
+					top += height;
+					height = Drag.eY - event.clientY;
+				}
+
+				Drag.notes.map(note => {
+					let isOn = top <= note.th && note.top <= top + height && 
+								left <= note.lw && note.left <= left + width;
+					note.el.toggleClass("selected", !isOn);
+				});
 
 				// UI update
 				Drag.el.css({ top, left, width, height });

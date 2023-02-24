@@ -61,7 +61,29 @@ content {
 	}
 
 	> div {
-		margin-top: @margin;
+		// margin-top: @margin;
+	}
+
+	.resize {
+		// background: rgba(255,0,0,.35);
+		position: relative;
+		z-index: 2;
+		
+		&.horisontal {
+			// top: 0;
+			// right: -5px;
+			// bottom: 0;
+			width: 4px;
+			cursor: ew-resize;
+		}
+
+		&.vertical {
+			// top: -5px;
+			// left: 0;
+			// right: 0;
+			height: 4px;
+			cursor: ns-resize;
+		}
 	}
 
 	.box {
@@ -773,20 +795,22 @@ content {
 	}
 
 	.row-work {
+		padding: 0 4px;
 		margin-top: 0;
 		display: flex;
 		flex: auto;
 
 		> div {
-			margin-left: @margin;
+			// margin-left: @margin;
 		}
 
 		.buttons:first-child {
-			margin-left: 0;
+			position: relative;
+			left: -2px;
 			padding: 2px 0 0 0;
 
 			.ball-button {
-				left: 2px;
+				left: 0;
 
 				.icon-arrow_up {
 					left: 4px;
@@ -803,7 +827,9 @@ content {
 		}
 
 		.buttons:last-child {
-			padding: 2px 0 0 0;
+			padding: 2px 0 0 2px;
+			position: relative;
+			left: 2px;
 		}
 		
 		.panel-left {

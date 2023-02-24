@@ -9,6 +9,7 @@ const UX = {
 		this.content.on("mousedown", ".knob, .knob2, .pan-knob", this.doKnob);
 		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
 		this.content.on("mousedown", ".volume", this.doVolume);
+		this.content.on("mousedown", ".resize", this.doResize);
 	},
 	doToggleButton(event) {
 		let self = UX,
@@ -20,6 +21,22 @@ const UX = {
 
 				el = $(event.target);
 				el.toggleClass("on", el.hasClass("on"));
+				break;
+		}
+	},
+	doResize(event) {
+		let Self = UX,
+			Drag = Self.drag,
+			value;
+		switch (event.type) {
+			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+				
+				break;
+			case "mousemove":
+				break;
+			case "mouseup":
 				break;
 		}
 	},

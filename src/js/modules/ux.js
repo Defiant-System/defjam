@@ -26,15 +26,17 @@ const UX = {
 	doVolume(event) {
 		let Self = UX,
 			Drag = Self.drag,
-			value,
-			el;
+			value;
 		switch (event.type) {
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
 
-				el = $(event.target);
-				value = parseInt(el.cssProp("--vol"), 10);
+				let el = $(event.target),
+					height = el.prop("offsetHeight");
+
+				value = Math.round((1-(event.offsetY / height)) * 100);
+				el.css({ "--vol": `${value}%` });
 
 				Self.drag = {
 					el,
@@ -42,7 +44,8 @@ const UX = {
 					min_: Math.min,
 					max_: Math.max,
 				};
-
+				// snap to
+				setTimeout(() => el.addClass("dnd"), 1);
 				// bind event handlers
 				Self.content.addClass("hide-cursor");
 				Self.doc.on("mousemove mouseup", Self.doVolume);
@@ -52,6 +55,8 @@ const UX = {
 				Drag.el.css({ "--vol": `${value}%` });
 				break;
 			case "mouseup":
+				// reset elemeent
+				Drag.el.removeClass("dnd");
 				// unbind event handlers
 				Self.content.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doVolume);

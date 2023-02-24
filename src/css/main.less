@@ -370,6 +370,10 @@ content {
 			animation: 1000ms spectrum linear infinite backwards;
 		}
 
+		&.dnd div:after {
+			transition: 0s;
+		}
+
 		&:before {
 			content: "";
 			position: absolute;
@@ -446,6 +450,7 @@ content {
 				margin-top: -1px;
 				border-left: 3px solid #b6c5ff;
 				border-right: 3px solid #b6c5ff;
+				transition: top 100ms linear;
 			}
 		}
 	}

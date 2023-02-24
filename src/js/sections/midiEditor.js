@@ -20,83 +20,32 @@
 		let APP = defjam,
 			Self = APP.midiEditor,
 			Drag = Self.drag,
+			limit,
+			name,
+			value,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "wheel":
-				console.log(event);
-				break;
-		}
-	},
-	doLasso(event) {
-		let APP = defjam,
-			Self = APP.midiEditor,
-			Drag = Self.drag,
-			el;
-		switch (event.type) {
-			case "mousedown":
-				// prevent default behaviour
-				event.preventDefault();
-
-				// prepare drag object
-				let el = Self.els.lasso.removeClass("hidden"),
-					pEl = Self.els.el,
-					oY = parseInt(el.cssProp("--oY"), 10),
-					oX = parseInt(el.cssProp("--oX"), 10),
-					cY = event.offsetY,
-					cX = event.offsetX,
-					eX = event.clientX,
-					eY = event.clientY,
-					limit = {
-						minY: 0,
-						maxY: 500,
-					},
-					min_ = Math.min,
-					max_ = Math.max,
-					notes = Self.els.lasso.parent().find("b").map(note => ({
-						el: $(note).removeClass("selected"),
-						top: note.offsetTop,
-						left: note.offsetLeft,
-						th: note.offsetTop + note.offsetHeight,
-						lw: note.offsetLeft + note.offsetWidth
-					}));
-				Self.drag = { el, notes, oX, oY, cX, cY, eX, eY, limit, min_, max_ };
-				
-				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
-				// bind event handlers
-				Self.els.doc.on("mousemove mouseup", Self.doLasso);
-				break;
-			case "mousemove":
-				let top = Drag.cY,
-					left = Drag.cX,
-					height = event.clientY - Drag.eY,
-					width = event.clientX - Drag.eX;
-
-				if (width < 0) {
-					left += width;
-					width = Drag.eX - event.clientX;
-				}
-
-				if (height < 0) {
-					top += height;
-					height = Drag.eY - event.clientY;
-				}
-
-				Drag.notes.map(note => {
-					let isOn = top <= note.th && note.top <= top + height && 
-								left <= note.lw && note.left <= left + width;
-					note.el.toggleClass("selected", !isOn);
-				});
-
-				// UI update
-				Drag.el.css({ top, left, width, height });
-				break;
-			case "mouseup":
-				Drag.el.addClass("hidden").css({ width: 0, height: 0 });
-				// remove class
-				APP.els.content.removeClass("hide-cursor");
-				// unbind event handlers
-				Self.els.doc.off("mousemove mouseup", Self.doLasso);
+				el = Self.els.el;
+				limit = {
+					minY: 0,
+					minX: 0,
+					maxY: el.find(".row-body .col-left .box-body").prop("offsetHeight") - el.find(".row-body .col-left .body-frame").prop("offsetHeight"),
+					maxX: Math.min(el.find(".row-head .col-right .box-body").prop("offsetWidth") - el.find(".row-head .col-right .body-frame").prop("offsetWidth"), 0),
+				};
+				// default values
+				value = {
+					"--oY": parseInt(el.cssProp("--oY"), 10),
+					"--oX": parseInt(el.cssProp("--oX"), 10),
+				};
+				value["--oY"] = Math.max(Math.min(value["--oY"] - event.deltaY, limit.minY), limit.maxY);
+				value["--oX"] = Math.max(Math.min(value["--oX"] - event.deltaX, limit.minX), limit.maxX);
+				// add prefix
+				value["--oY"] = value["--oY"] +"px";
+				value["--oX"] = value["--oX"] +"px";
+				// UI apply
+				el.css(value);
 				break;
 		}
 	},
@@ -181,6 +130,79 @@
 				APP.els.content.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doNoteBars);
+				break;
+		}
+	},
+	doLasso(event) {
+		let APP = defjam,
+			Self = APP.midiEditor,
+			Drag = Self.drag,
+			el;
+		switch (event.type) {
+			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+
+				// prepare drag object
+				let el = Self.els.lasso.removeClass("hidden"),
+					pEl = Self.els.el,
+					oY = parseInt(el.cssProp("--oY"), 10),
+					oX = parseInt(el.cssProp("--oX"), 10),
+					cY = event.offsetY,
+					cX = event.offsetX,
+					eX = event.clientX,
+					eY = event.clientY,
+					limit = {
+						minY: 0,
+						maxY: 500,
+					},
+					min_ = Math.min,
+					max_ = Math.max,
+					notes = Self.els.lasso.parent().find("b").map(note => ({
+						el: $(note).removeClass("selected"),
+						top: note.offsetTop,
+						left: note.offsetLeft,
+						th: note.offsetTop + note.offsetHeight,
+						lw: note.offsetLeft + note.offsetWidth
+					}));
+				Self.drag = { el, notes, oX, oY, cX, cY, eX, eY, limit, min_, max_ };
+				
+				// prevent mouse from triggering mouseover
+				APP.els.content.addClass("hide-cursor");
+				// bind event handlers
+				Self.els.doc.on("mousemove mouseup", Self.doLasso);
+				break;
+			case "mousemove":
+				let top = Drag.cY,
+					left = Drag.cX,
+					height = event.clientY - Drag.eY,
+					width = event.clientX - Drag.eX;
+
+				if (width < 0) {
+					left += width;
+					width = Drag.eX - event.clientX;
+				}
+
+				if (height < 0) {
+					top += height;
+					height = Drag.eY - event.clientY;
+				}
+
+				Drag.notes.map(note => {
+					let isOn = top <= note.th && note.top <= top + height && 
+								left <= note.lw && note.left <= left + width;
+					note.el.toggleClass("selected", !isOn);
+				});
+
+				// UI update
+				Drag.el.css({ top, left, width, height });
+				break;
+			case "mouseup":
+				Drag.el.addClass("hidden").css({ width: 0, height: 0 });
+				// remove class
+				APP.els.content.removeClass("hide-cursor");
+				// unbind event handlers
+				Self.els.doc.off("mousemove mouseup", Self.doLasso);
 				break;
 		}
 	}

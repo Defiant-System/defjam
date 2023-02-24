@@ -35,9 +35,13 @@ const defjam = {
 					if (section) {
 						return Self[section].dispatch(event);
 					}
+					if (el.hasClass("toolbar-tool_")) {
+						return Self.toolbar.dispatch(event);	
+					}
 				}
 		}
 	},
+	toolbar: @import "./sections/toolbar.js",
 	browser: @import "./sections/browser.js",
 	head: @import "./sections/head.js",
 	session: @import "./sections/session.js",

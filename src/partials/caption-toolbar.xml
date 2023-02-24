@@ -1,12 +1,12 @@
 <CaptionToolBar>
 	<Group width="37%" class="tools-left">
 		<Options>
-			<Tool symbol="icon-rewind"/>
-			<Tool symbol="icon-forward"/>
-			<Tool symbol="icon-stop"/>
-			<Tool symbol="icon-play"/>
-			<Tool symbol="icon-record"/>
-			<Tool symbol="icon-loop"/>
+			<Tool symbol="icon-rewind" click="rewind"/>
+			<Tool symbol="icon-forward" click="forward"/>
+			<Tool symbol="icon-stop" click="stop"/>
+			<Tool symbol="icon-play" click="play"/>
+			<Tool symbol="icon-record" click="record"/>
+			<Tool symbol="icon-loop" click="loop"/>
 		</Options>
 	</Group>
 	<Group class="timer">
@@ -15,9 +15,9 @@
 	</Group>
 	<Group width="41%" class="tools-right">
 		<Options>
-			<Tool symbol="icon-metronome"/>
-			<Tool symbol="icon-pencil"/>
-			<Tool symbol="icon-piano-keys"/>
+			<Tool symbol="icon-metronome" click="metronome"/>
+			<Tool symbol="icon-pencil" click="pencil"/>
+			<Tool symbol="icon-piano-keys" click="piano-keys"/>
 		</Options>
 	</Group>
 </CaptionToolBar>

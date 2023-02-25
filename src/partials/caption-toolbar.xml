@@ -14,7 +14,7 @@
 		</Field>
 	</Group>
 	<Group width="41%" class="tools-right">
-		<Options>
+		<Options type="singles">
 			<Tool symbol="icon-metronome" click="metronome"/>
 			<Tool symbol="icon-pencil" click="pencil"/>
 			<Tool symbol="icon-piano-keys" click="piano-keys"/>

@@ -12,7 +12,7 @@ const UX = {
 		this.content.on("mousedown", ".resize", this.doResize);
 	},
 	doToggleButton(event) {
-		let self = UX,
+		let Self = UX,
 			el;
 		switch (event.type) {
 			case "mousedown":
@@ -34,33 +34,39 @@ const UX = {
 
 				let el = $(this),
 					type = el.prop("className").split(" ")[1],
+					btnEl,
 					clickX,
 					clickY;
 				if (type == "horisontal") {
 					el = el.prevAll(".panel-left:first");
 					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10);
+					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-work-panel"]`);
 				} else {
 					el = el.nextAll(".panel-bottom:first");
 					clickY = event.clientY + parseInt(el.cssProp("--pH"), 10);
+					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-rack-panel"]`);
 				}
-				Self.drag = { el, type, clickX, clickY };
+				Self.drag = { el, btnEl, type, clickX, clickY };
 
 				// bind event handlers
 				Self.content.addClass("hide-cursor no-anim");
 				Self.doc.on("mousemove mouseup", Self.doResize);
 				break;
 			case "mousemove":
+				let data = {},
+					autoCollapse;
 				if (Drag.type == "horisontal") {
-					let width = event.clientX - Drag.clickX;
-					Drag.el.css({ width });
+					data.width = event.clientX - Drag.clickX;
 					// save value for mouse up
-					Drag.value = width;
+					Drag.value = data.width;
 				} else {
-					let height = Drag.clickY - event.clientY;
-					Drag.el.css({ height });
+					data.height = Drag.clickY - event.clientY;
 					// save value for mouse up
-					Drag.value = height;
+					Drag.value = data.height;
 				}
+				autoCollapse = Drag.value > 120;
+				Drag.btnEl.toggleClass("toggled", autoCollapse);
+				Drag.el.css(data);
 				break;
 			case "mouseup":
 				if (Drag.value) {

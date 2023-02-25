@@ -26,17 +26,42 @@ const UX = {
 	},
 	doResize(event) {
 		let Self = UX,
-			Drag = Self.drag,
-			value;
+			Drag = Self.drag;
 		switch (event.type) {
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
-				
+
+				let el = $(this).prevAll(".panel-left:first").addClass("no-anim"),
+					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10),
+					clickY = event.clientY;
+
+				Self.drag = {
+					el,
+					clickX,
+					clickY,
+				};
+
+				// bind event handlers
+				Self.content.addClass("hide-cursor");
+				Self.doc.on("mousemove mouseup", Self.doResize);
 				break;
 			case "mousemove":
+				let width = event.clientX - Drag.clickX;
+				Drag.el.css({ width });
+				// save value for mouse up
+				Drag.value = width;
 				break;
 			case "mouseup":
+				Drag.el.removeClass("no-anim")
+					.css({
+						"width": "",
+						"--pW": `${Drag.value}px`
+					});
+
+				// unbind event handlers
+				Self.content.removeClass("hide-cursor");
+				Self.doc.off("mousemove mouseup", Self.doResize);
 				break;
 		}
 	},

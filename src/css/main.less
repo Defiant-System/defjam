@@ -75,6 +75,10 @@ content {
 			// bottom: 0;
 			width: 4px;
 			cursor: ew-resize;
+
+			&.hidden {
+				width: 0;
+			}
 		}
 
 		&.vertical {
@@ -83,6 +87,10 @@ content {
 			// right: 0;
 			height: 4px;
 			cursor: ns-resize;
+
+			&.hidden {
+				height: 0;
+			}
 		}
 	}
 
@@ -833,12 +841,16 @@ content {
 		}
 		
 		.panel-left {
-			--sidebar-width: 210px;
-			width: var( --sidebar-width );
+			--pW: 210px;
+			width: var( --pW );
 			display: flex;
 			transition: width 200ms ease,
 						margin 200ms ease,
 						opacity 200ms ease 100ms;
+
+			&.no-anim {
+				transition: all 0s;
+			}
 
 			&.hide {
 				width: 0;
@@ -913,13 +925,15 @@ content {
 						opacity: 0.5;
 						transition: opacity 500ms ease;
 
-						&.sounds-body      { transform: rotateY(   0deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
-						&.drums-body       { transform: rotateY(  90deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
-						&.instruments-body { transform: rotateY(-180deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
-						&.fx-body          { transform: rotateY( -90deg) translateZ( calc( var( --sidebar-width ) / 2) ); }
+						&.sounds-body      { transform: rotateY(   0deg) translateZ( calc( var( --pW ) / 2) ); }
+						&.drums-body       { transform: rotateY(  90deg) translateZ( calc( var( --pW ) / 2) ); }
+						&.instruments-body { transform: rotateY(-180deg) translateZ( calc( var( --pW ) / 2) ); }
+						&.fx-body          { transform: rotateY( -90deg) translateZ( calc( var( --pW ) / 2) ); }
 					}
 
 					.box-title {
+						white-space: nowrap;
+						overflow: hidden;
 						height: 19px;
 						padding: 2px 0 0 3px;
 						color: @text;
@@ -1000,7 +1014,7 @@ content {
 
 				&.show-sounds {
 					.box-3d {
-						transform: rotateY(0deg) translateZ( calc( var( --sidebar-width ) / -2) );
+						transform: rotateY(0deg) translateZ( calc( var( --pW ) / -2) );
 					
 						.sounds-body { display: flex; opacity: 1; }
 						.drums-body,
@@ -1011,7 +1025,7 @@ content {
 
 				&.show-drums {
 					.box-3d {
-						transform: rotateY(-90deg) translateX( calc( var( --sidebar-width ) / -2) );
+						transform: rotateY(-90deg) translateX( calc( var( --pW ) / -2) );
 					
 						.drums-body { display: flex; opacity: 1; }
 						.sounds-body,
@@ -1022,7 +1036,7 @@ content {
 
 				&.show-instruments {
 					.box-3d {
-						transform: rotateY(180deg) translateZ( calc( var( --sidebar-width ) / 2) );
+						transform: rotateY(180deg) translateZ( calc( var( --pW ) / 2) );
 					
 						.instruments-body { display: flex; opacity: 1; }
 						.drums-body,
@@ -1033,7 +1047,7 @@ content {
 
 				&.show-fx {
 					.box-3d {
-						transform: rotateY(90deg) translateX( calc( var( --sidebar-width ) / 2) );
+						transform: rotateY(90deg) translateX( calc( var( --pW ) / 2) );
 					
 						.fx-body { display: flex; opacity: 1; }
 						.sounds-body,
@@ -1043,78 +1057,11 @@ content {
 				}
 			}
 
-			// .item {
-			// 	padding: 4px 3px 4px 3px;
-			// 	border-radius: 2px;
-
-			// 	&:not(:first-child) {
-			// 		margin-top: 1px;
-			// 	}
-
-			// 	&.active {
-			// 		background-color: lighten(@boxBg, 5%);
-			// 		color: @text;
-			// 	}
-			// }
-
-			// .folder {				
-			// 	position: relative;
-			// 	box-shadow: 0 0 0 transparent;
-			// 	transition: box-shadow 400ms ease;
-
-			// 	&:not(:first-child) {
-			// 		margin-top: 1px;
-			// 	}
-
-			// 	&.open {
-			// 		box-shadow: 0 1px 0 transparent;
-
-			// 		> i         { transform: rotate(180deg); }
-			// 		> span      { color: @text; }
-			// 		> div > div { margin-top: 0; }
-			// 	}
-
-			// 	i {
-			// 		position: absolute;
-			// 		top: 5px;
-			// 		left: 6px;
-			// 		width: 10px;
-			// 		height: 10px;
-			// 		transform: rotate(90deg);
-			// 		filter: brightness(1.75);
-			// 		margin-right: 7px;
-			// 		transition: transform 100ms ease;
-			// 	}
-
-			// 	span {
-			// 		position: relative;
-			// 		display: block;
-			// 		padding: 4px 3px 4px 23px;
-			// 		z-index: 2;
-
-			// 		&:hover { color: @text; }
-			// 	}
-
-			// 	> div {
-			// 		position: relative;
-			// 		overflow: hidden;
-
-			// 		> div {
-			// 			margin-top: -100%;
-			// 			transition: margin-top 400ms ease;
-
-			// 			> .item {
-			// 				background-position: 16px 50%;
-			// 				padding-left: 35px;
-			// 			}
-			// 		}
-			// 	}
-			// }
-
 			.folder,
 			.item {
 				position: relative;
 				padding-left: 17px;
+				white-space: nowrap;
 
 				> i {
 					font-style: normal;
@@ -2902,6 +2849,7 @@ content {
 	.row-foot {
 		height: 30px;
 		display: flex;
+		margin-top: 4px;
 
 		> div {
 			margin-left: @margin;
@@ -3082,87 +3030,87 @@ content {
 }
 
 @keyframes soundsToDrums {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes soundsToInstruments {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
-	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
+	15%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	85%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-180deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-180deg); }
 }
 
 @keyframes soundsToFx {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(90deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(90deg); }
 }
 
 @keyframes drumsToSounds {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes drumsToInstruments {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-180deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-180deg); }
 }
 
 @keyframes drumsToFx {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
-	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
+	15%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	85%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(90deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(90deg); }
 }
 
 @keyframes instrumentsToSounds {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
-	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
-	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-180deg); }
+	15%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-180deg); }
+	85%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes instrumentsToDrums {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-180deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-180deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes instrumentsToFx {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-180deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-180deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-270deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-270deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-180deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-180deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-270deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-270deg); }
 }
 
 @keyframes fxToSounds {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(0deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(0deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(90deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(90deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(0deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(0deg); }
 }
 
 @keyframes fxToDrums {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
-	15%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
-	85%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(-90deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(-90deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(90deg); }
+	15%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(90deg); }
+	85%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(-90deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(-90deg); }
 }
 
 @keyframes fxToInstruments {
-	0%   { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(90deg); }
-	30%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(90deg); }
-	70%  { transform: translateZ( calc( var( --sidebar-width ) * -1) ) rotateY(180deg); }
-	100% { transform: translateZ( calc( var( --sidebar-width ) / -2) ) rotateY(180deg); }
+	0%   { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(90deg); }
+	30%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(90deg); }
+	70%  { transform: translateZ( calc( var( --pW ) * -1) ) rotateY(180deg); }
+	100% { transform: translateZ( calc( var( --pW ) / -2) ) rotateY(180deg); }
 }
 
 

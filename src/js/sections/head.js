@@ -23,6 +23,7 @@
 				value = el.hasClass("toggled");
 				el.toggleClass("toggled", value);
 				Self.els.panelLeft.toggleClass("hide", value);
+				Self.els.panelLeft.nextAll(".resize:first").toggleClass("hidden", value);
 				break;
 			case "show-sounds":
 			case "show-drums":

@@ -32,6 +32,7 @@
 				Self.els.panelBottom.toggleClass("hide", value);
 
 				Self.els.rowFoot.find(".box.active").toggleClass("hidden", value);
+				Self.els.rowFoot.prevAll(".resize:first").toggleClass("hidden", value);
 				break;
 			case "show-devices-rack":
 			case "show-drumkit-rack":

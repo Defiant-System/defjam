@@ -32,34 +32,46 @@ const UX = {
 				// prevent default behaviour
 				event.preventDefault();
 
-				let el = $(this).prevAll(".panel-left:first").addClass("no-anim"),
-					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10),
-					clickY = event.clientY;
-
-				Self.drag = {
-					el,
+				let el = $(this),
+					type = el.prop("className").split(" ")[1],
 					clickX,
-					clickY,
-				};
+					clickY;
+
+				if (type == "horisontal") {
+					el = el.prevAll(".panel-left:first");
+					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10);
+				} else {
+					el = el.nextAll(".panel-bottom:first");
+					clickY = event.clientY + parseInt(el.cssProp("--pH"), 10);
+				}
+				
+				Self.drag = { el, type, clickX, clickY };
 
 				// bind event handlers
-				Self.content.addClass("hide-cursor");
+				Self.content.addClass("hide-cursor no-anim");
 				Self.doc.on("mousemove mouseup", Self.doResize);
 				break;
 			case "mousemove":
-				let width = event.clientX - Drag.clickX;
-				Drag.el.css({ width });
-				// save value for mouse up
-				Drag.value = width;
+				if (Drag.type == "horisontal") {
+					let width = event.clientX - Drag.clickX;
+					Drag.el.css({ width });
+					// save value for mouse up
+					Drag.value = width;
+				} else {
+					let height = Drag.clickY - event.clientY;
+					Drag.el.css({ height });
+					// save value for mouse up
+					Drag.value = height;
+				}
 				break;
 			case "mouseup":
-				Drag.el.css({
-						"width": "",
-						"--pW": `${Drag.value}px`
-					});
-
-				setTimeout(() => Drag.el.removeClass("no-anim"), 1);
-
+				if (Drag.type == "horisontal") {
+					Drag.el.css({ "width": "", "--pW": `${Drag.value}px` });
+				} else {
+					Drag.el.css({ "height": "", "--pH": `${Drag.value}px` });
+				}
+				// UI reset on next tick
+				setTimeout(() => Self.content.removeClass("no-anim"), 1);
 				// unbind event handlers
 				Self.content.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doResize);

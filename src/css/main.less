@@ -60,6 +60,22 @@ content {
 		cursor: none;
 	}
 
+	&.no-anim {
+		.row-work {
+			.panel-left {
+				transition: all 0s;
+
+				.sidebar .box-3d {
+					transition: 0s;
+				}
+			}
+		}
+
+		.panel-bottom {
+			transition: 0s;
+		}
+	}
+
 	.resize {
 		// background: rgba(255,0,0,.35);
 		position: relative;
@@ -837,14 +853,6 @@ content {
 			transition: width 200ms ease,
 						margin 200ms ease,
 						opacity 200ms ease 100ms;
-
-			&.no-anim {
-				transition: all 0s;
-
-				.sidebar .box-3d {
-					transition: 0s;
-				}
-			}
 
 			&.hide {
 				width: 0;
@@ -1833,7 +1841,7 @@ content {
 		&.show-midi {
 			--pH: 420px;
 		}
-			
+
 		&.show-devices .devices-body,
 		&.show-drumkit .drumkit-body,
 		&.show-midi .midi-body {

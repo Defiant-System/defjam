@@ -60,19 +60,12 @@ content {
 		cursor: none;
 	}
 
-	> div {
-		// margin-top: @margin;
-	}
-
 	.resize {
 		// background: rgba(255,0,0,.35);
 		position: relative;
 		z-index: 2;
 		
 		&.horisontal {
-			// top: 0;
-			// right: -5px;
-			// bottom: 0;
 			width: 4px;
 			cursor: ew-resize;
 
@@ -82,9 +75,6 @@ content {
 		}
 
 		&.vertical {
-			// top: -5px;
-			// left: 0;
-			// right: 0;
 			height: 4px;
 			cursor: ns-resize;
 
@@ -850,6 +840,10 @@ content {
 
 			&.no-anim {
 				transition: all 0s;
+
+				.sidebar .box-3d {
+					transition: 0s;
+				}
 			}
 
 			&.hide {

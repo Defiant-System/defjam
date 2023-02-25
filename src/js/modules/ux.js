@@ -53,11 +53,12 @@ const UX = {
 				Drag.value = width;
 				break;
 			case "mouseup":
-				Drag.el.removeClass("no-anim")
-					.css({
+				Drag.el.css({
 						"width": "",
 						"--pW": `${Drag.value}px`
 					});
+
+				setTimeout(() => Drag.el.removeClass("no-anim"), 1);
 
 				// unbind event handlers
 				Self.content.removeClass("hide-cursor");

@@ -36,7 +36,6 @@ const UX = {
 					type = el.prop("className").split(" ")[1],
 					clickX,
 					clickY;
-
 				if (type == "horisontal") {
 					el = el.prevAll(".panel-left:first");
 					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10);
@@ -44,7 +43,6 @@ const UX = {
 					el = el.nextAll(".panel-bottom:first");
 					clickY = event.clientY + parseInt(el.cssProp("--pH"), 10);
 				}
-				
 				Self.drag = { el, type, clickX, clickY };
 
 				// bind event handlers

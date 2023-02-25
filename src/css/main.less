@@ -113,8 +113,13 @@ content {
 			position: relative;
 			width: 100%;
 			height: 100%;
+			overflow: hidden;
 			border-radius: 3px;
 		}
+	}
+
+	> .row-foot .box .box-body {
+		overflow: visible;
 	}
 
 	.space {
@@ -727,7 +732,8 @@ content {
 		.scroll-track {
 			position: absolute;
 			top: 7px;
-			bottom: 29px;
+			// bottom: 29px;
+			bottom: 7px;
 			left: 9px;
 			width: 13px;
 			border-radius: 13px;

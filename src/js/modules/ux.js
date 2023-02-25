@@ -63,10 +63,12 @@ const UX = {
 				}
 				break;
 			case "mouseup":
-				if (Drag.type == "horisontal") {
-					Drag.el.css({ "width": "", "--pW": `${Drag.value}px` });
-				} else {
-					Drag.el.css({ "height": "", "--pH": `${Drag.value}px` });
+				if (Drag.value) {
+					if (Drag.type == "horisontal") {
+						Drag.el.css({ "width": "", "--pW": `${Drag.value}px` });
+					} else {
+						Drag.el.css({ "height": "", "--pH": `${Drag.value}px` });
+					}
 				}
 				// UI reset on next tick
 				setTimeout(() => Self.content.removeClass("no-anim"), 1);

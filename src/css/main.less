@@ -2317,6 +2317,17 @@ content {
 									height: calc( calc( var( --keyH ) * 12) + 1px );
 								}
 							}
+
+							.note-hover {
+								position: absolute;
+								top: calc( calc( var( --nT ) * var( --keyH ) ) + 5px );
+								left: 0;
+								width: 21px;
+								padding-left: 3px;
+								pointer-events: none;
+								z-index: 2;
+								border-bottom: 1px solid @face;
+							}
 						}
 					}
 

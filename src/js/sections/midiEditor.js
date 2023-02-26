@@ -10,6 +10,9 @@
 			lasso: window.find(".midi-note-editor .lasso"),
 		};
 
+		// modes: lasso, pencil
+		this.mode = "lasso";
+
 		// bind event handler
 		this.els.el.find(".row-body .col-right .body-frame").on("wheel", this.dispatch);
 		this.els.el.find(".row-body .col-right .body-frame").on("mousedown", this.doLasso);
@@ -26,6 +29,7 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			// native events
 			case "wheel":
 				el = Self.els.el;
 				limit = {
@@ -46,6 +50,17 @@
 				value["--oX"] = value["--oX"] +"px";
 				// UI apply
 				el.css(value);
+				break;
+			// custom events
+			case "get-details":
+				el = Self.els.el;
+				Self.details = {
+					oY: parseInt(el.cssProp("--oY"), 10),
+					oX: parseInt(el.cssProp("--oX"), 10),
+					keyH: parseInt(el.cssProp("--keyH"), 10),
+					noteW: parseInt(el.cssProp("--noteW"), 10),
+					bars: parseInt(el.cssProp("--bars"), 10),
+				};
 				break;
 		}
 	},
@@ -143,6 +158,9 @@
 				// prevent default behaviour
 				event.preventDefault();
 
+				// proxy event depending on mode
+				if (Self.mode === "pencil") return Self.doPencil(event);
+
 				// prepare drag object
 				let el = Self.els.lasso.removeClass("hidden"),
 					pEl = Self.els.el,
@@ -203,6 +221,45 @@
 				APP.els.content.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doLasso);
+				break;
+		}
+	},
+	doPencil(event) {
+		let APP = defjam,
+			Self = APP.midiEditor,
+			Drag = Self.drag;
+		switch (event.type) {
+			case "mousedown":
+
+				let el = $(event.target);
+				if (el.hasClass("body-frame")) {
+					// refresh details
+					Self.dispatch({ type: "get-details" });
+
+					let name = "A4",
+						t = Math.floor(event.offsetY / Self.details.keyH),
+						l = Math.floor(event.offsetX / Self.details.noteW),
+						d = 2;
+					// add note
+					el.append(`<b style="--t: ${t}; --l: ${l}; --d: ${d};">${name}</b>`);
+				} else {
+					// delete note
+					el.remove();
+				}
+
+				// prevent mouse from triggering mouseover
+				// APP.els.content.addClass("hide-cursor");
+				// bind event handlers
+				// Self.els.doc.on("mousemove mouseup", Self.doPencil);
+				break;
+			case "mousemove":
+				
+				break;
+			case "mouseup":
+				// remove class
+				APP.els.content.removeClass("hide-cursor");
+				// unbind event handlers
+				Self.els.doc.off("mousemove mouseup", Self.doPencil);
 				break;
 		}
 	}

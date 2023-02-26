@@ -241,11 +241,13 @@
 						l = Math.floor(event.offsetX / Self.details.noteW),
 						d = 2;
 					// add note
-					el.append(`<b style="--t: ${t}; --l: ${l}; --d: ${d};">${name}</b>`);
+					el = el.append(`<b style="--t: ${t}; --l: ${l}; --d: ${d};">${name}</b>`);
 				} else {
 					// delete note
-					el.remove();
+					return el.remove();
 				}
+
+				console.log( el );
 
 				// prevent mouse from triggering mouseover
 				// APP.els.content.addClass("hide-cursor");

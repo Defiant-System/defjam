@@ -1323,6 +1323,7 @@ content {
 							// temp
 							&:nth-child(2) {
 								b:before {
+									background-image: url(~/icons/temp-midi-pattern.png);
 									background-size: 16px auto;
 								}
 							}
@@ -1393,6 +1394,7 @@ content {
 					.row-overview {
 						height: 19px;
 						margin: 1px 0;
+						overflow: visible;
 						background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
 
 						.hotspot {
@@ -1467,10 +1469,12 @@ content {
 						}
 
 						.col-clips .box-body  {
+							overflow: visible;
 							border-radius: 0 0 0 0;
 						}
 
 						.col-mixers .box-body {
+							overflow: visible;
 							border-radius: 0 3px 0 0;
 						}
 
@@ -1503,7 +1507,7 @@ content {
 								content: "";
 								position: absolute;
 								left: 0;
-								top: 67px;
+								top: 88px;
 								width: 1px;
 								height: 65px; // track height
 								background: inherit;
@@ -1512,7 +1516,7 @@ content {
 
 						.selection {
 							position: absolute;
-							top: 134px;
+							top: 88px;
 							left: 256px;
 							height: 65px;
 							width: 191px;
@@ -1706,7 +1710,6 @@ content {
 								height: 20px;
 								padding: 5px 5px 0;
 								border-radius: 3px 3px 0 0;
-
 								background-image: linear-gradient(0deg, rgba(0,0,0,.1) 0%, transparent 100%);
 								box-shadow: inset 0 1px 0 rgba(255,255,255,.1),
 											0 1px 2px rgba(0,0,0,.35);
@@ -2393,20 +2396,62 @@ content {
 									box-shadow: inset 0 1px 0 rgba(255,255,255,.075),
 												0 1px 2px rgba(0,0,0,.35);
 
-									&.selected {
-										z-index: 2;
+									&:before,
+									&:after {
+										content: "";
+										position: absolute;
+										top: 0;
+										left: 0;
+										bottom: 0;
+										width: 5px;
+										background: transparent;
+										cursor: ew-resize;
+									}
 
-										&:after {
-											content: "";
-											position: absolute;
-											top: -1px;
-											left: -1px;
-											right: -1px;
-											bottom: -1px;
-											border-radius: inherit;
-											box-shadow: 0 0 0 2px @selected;
-											opacity: .25;
-										}
+									&:after {
+										left: auto;
+										right: 0;
+									}
+
+									// &.selected1 {
+									// 	z-index: 2;
+									// 	box-shadow: inset 0 1px 0 rgba(255,255,255,.1),
+									// 				0 1px 3px rgba(0,0,0,.65),
+									// 				0 0 0 2px fadeout(@selected, 65%);
+
+									// 	&:after1 {
+									// 		content: "";
+									// 		position: absolute;
+									// 		top: -1px;
+									// 		left: -1px;
+									// 		right: -1px;
+									// 		bottom: -1px;
+									// 		border-radius: inherit;
+									// 		box-shadow: 0 0 0 2px @selected;
+									// 		opacity: .25;
+									// 	}
+									// }
+								}
+
+								.selection {
+									position: absolute;
+									top: calc( calc( var( --selT ) * var( --keyH ) ) + 1px );
+									left: calc( var( --selL ) * var( --noteW ) );
+									width: calc( calc( var( --selW ) * var( --noteW ) ) - 1px );
+									height: calc( var( --keyH ) - 1px );
+									pointer-events: none;
+									z-index: 2;
+
+									&:after {
+										content: "";
+										position: absolute;
+										top: -1px;
+										left: -1px;
+										right: -1px;
+										bottom: -1px;
+										border-radius: 2px;
+										box-shadow: 0 0 0 2px @selected;
+										opacity: .25;
 									}
 								}
 							}

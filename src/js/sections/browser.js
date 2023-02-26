@@ -8,10 +8,6 @@
 			soundsBody: window.find(".sounds-body"),
 			audioChart: window.find(".audio-chart"),
 		};
-
-		// temp
-		this.els.soundsBody.find(`.leaf[data-path="Kick.ogg"]`).trigger("click");
-		// this.dispatch({ type: "preview-audio", path: "Kick.ogg" });
 	},
 	dispatch(event) {
 		let APP = defjam,

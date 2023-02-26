@@ -228,7 +228,7 @@
 		let APP = defjam,
 			Self = APP.midiEditor,
 			Drag = Self.drag,
-			d;
+			t, l, d;
 		switch (event.type) {
 			case "mousedown":
 				// refresh details
@@ -238,11 +238,11 @@
 					clickY = event.clientY,
 					clickX = event.clientX,
 					floor_ = Math.floor,
-					name = "A4",
-					t = floor_(event.offsetY / Self.details.keyH),
-					l = floor_(event.offsetX / Self.details.noteW);
+					name = "A4";
 
-				d = 2;
+				t = floor_(event.offsetY / Self.details.keyH),
+				l = floor_(event.offsetX / Self.details.noteW);
+				d = 1;
 
 				if (el.hasClass("body-frame")) {
 					// add note
@@ -251,7 +251,7 @@
 					// delete note
 					return el.remove();
 				}
-				Self.drag = { el, d, clickY, clickX, floor_ };
+				Self.drag = { el, d, l, clickY, clickX, floor_ };
 
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
@@ -260,8 +260,15 @@
 				break;
 			case "mousemove":
 				d = Drag.floor_((event.clientX - Drag.clickX) / Self.details.noteW);
-				if (d < 2) d = 2;
-				Drag.el.css({ "--d": d });
+				l = Drag.l;
+
+				if (d < 0) {
+					l += d;
+					d = Drag.l - l;
+				} else if (d < 1) {
+					d = 1;
+				}
+				Drag.el.css({ "--l": l, "--d": d });
 				break;
 			case "mouseup":
 				// remove class

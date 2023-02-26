@@ -227,35 +227,41 @@
 	doPencil(event) {
 		let APP = defjam,
 			Self = APP.midiEditor,
-			Drag = Self.drag;
+			Drag = Self.drag,
+			d;
 		switch (event.type) {
 			case "mousedown":
+				// refresh details
+				Self.dispatch({ type: "get-details" });
 
-				let el = $(event.target);
+				let el = $(event.target),
+					clickY = event.clientY,
+					clickX = event.clientX,
+					floor_ = Math.floor,
+					name = "A4",
+					t = floor_(event.offsetY / Self.details.keyH),
+					l = floor_(event.offsetX / Self.details.noteW);
+
+				d = 2;
+
 				if (el.hasClass("body-frame")) {
-					// refresh details
-					Self.dispatch({ type: "get-details" });
-
-					let name = "A4",
-						t = Math.floor(event.offsetY / Self.details.keyH),
-						l = Math.floor(event.offsetX / Self.details.noteW),
-						d = 2;
 					// add note
 					el = el.append(`<b style="--t: ${t}; --l: ${l}; --d: ${d};">${name}</b>`);
 				} else {
 					// delete note
 					return el.remove();
 				}
-
-				console.log( el );
+				Self.drag = { el, d, clickY, clickX, floor_ };
 
 				// prevent mouse from triggering mouseover
-				// APP.els.content.addClass("hide-cursor");
+				APP.els.content.addClass("hide-cursor");
 				// bind event handlers
-				// Self.els.doc.on("mousemove mouseup", Self.doPencil);
+				Self.els.doc.on("mousemove mouseup", Self.doPencil);
 				break;
 			case "mousemove":
-				
+				d = Drag.floor_((event.clientX - Drag.clickX) / Self.details.noteW);
+				if (d < 2) d = 2;
+				Drag.el.css({ "--d": d });
 				break;
 			case "mouseup":
 				// remove class

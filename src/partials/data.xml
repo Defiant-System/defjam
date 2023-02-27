@@ -1,107 +1,95 @@
+
 <file>
 	<Tracks>
-		<i name="Drums">
-			<volume eq="30"/>
-		</i>
-		<i name="Grand Piano">
-			<volume eq="73"/>
-		</i>
-		<i name="Vocals">
-			<volume eq="65"/>
-		</i>
+		<Track name="Drums" color="#96a" id="track-1">
+			<Clip name="Clip 1" row="0" id="clip-1-0"/>
+
+			<Sends label="A" value="10"/>
+			<Sends label="B" value="30"/>
+			<Volume value="30"/>
+		</Track>
+		<Track name="Grand Piano" color="#77c" id="track-2">
+			<Clip name="Clip 1" row="1" oY="-120" oX="0" keyH="16" noteW="12" langth="4" id="clip-2-1">
+				<b t="14" l="0" d="2" key="A4"/>
+				<b t="16" l="2" d="2" key="G4"/>
+				<b t="18" l="4" d="2" key="F4"/>
+				<b t="16" l="6" d="2" key="G4"/>
+				<b t="14" l="8" d="2" key="A4"/>
+				<b t="14" l="10" d="2" key="A4"/>
+				<b t="14" l="12" d="4" key="A4"/>
+
+				<b t="16" l="16" d="2" key="G4"/>
+				<b t="16" l="18" d="2" key="G4"/>
+				<b t="16" l="20" d="4" key="G4"/>
+				<b t="14" l="24" d="2" key="A4"/>
+				<b t="11" l="26" d="2" key="C5"/>
+				<b t="11" l="28" d="4" key="C5"/>
+
+				<b t="14" l="32" d="2" key="A4"/>
+				<b t="16" l="34" d="2" key="G4"/>
+				<b t="18" l="36" d="2" key="F4"/>
+				<b t="16" l="38" d="2" key="G4"/>
+				<b t="14" l="40" d="2" key="A4"/>
+				<b t="14" l="42" d="2" key="A4"/>
+				<b t="14" l="44" d="2" key="A4"/>
+				<b t="14" l="46" d="2" key="A4"/>
+
+				<b t="16" l="48" d="2" key="G4"/>
+				<b t="16" l="50" d="2" key="G4"/>
+				<b t="14" l="52" d="2" key="A4"/>
+				<b t="16" l="54" d="2" key="G4"/>
+				<b t="18" l="56" d="8" key="F4"/>
+
+				<b t="23" l="0" d="8" key="C4"/>
+				<b t="26" l="0" d="8" key="A3"/>
+				<b t="30" l="0" d="8" key="F3"/>
+				<b t="23" l="8" d="8" key="C4"/>
+				<b t="26" l="8" d="8" key="A3"/>
+				<b t="30" l="8" d="8" key="F3"/>
+				<b t="28" l="16" d="8" key="G3"/>
+				<b t="31" l="16" d="8" key="E3"/>
+				<b t="35" l="16" d="8" key="C3"/>
+				<b t="23" l="24" d="8" key="C4"/>
+				<b t="26" l="24" d="8" key="A3"/>
+				<b t="30" l="24" d="8" key="F3"/>
+				<b t="23" l="32" d="8" key="C4"/>
+				<b t="26" l="32" d="8" key="A3"/>
+				<b t="30" l="32" d="8" key="F3"/>
+				<b t="23" l="40" d="8" key="C4"/>
+				<b t="26" l="40" d="8" key="A3"/>
+				<b t="30" l="40" d="8" key="F3"/>
+				<b t="28" l="48" d="8" key="G3"/>
+				<b t="31" l="48" d="8" key="E3"/>
+				<b t="35" l="48" d="8" key="C3"/>
+				<b t="23" l="56" d="8" key="C4"/>
+				<b t="26" l="56" d="8" key="A3"/>
+				<b t="30" l="56" d="8" key="F3"/>
+			</Clip>
+			<Clip name="Clip 2" row="4" id="clip-2-2"/>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="73"/>
+		</Track>
+		<Track name="Chorus" id="track-3">
+			<Clip name="Clip 1" row="2" id="clip-3-2"/>
+			<Clip name="Clip 2" row="4" id="clip-3-4"/>
+			<Clip name="Clip 3" row="5" id="clip-3-5"/>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="65"/>
+		</Track>
 	</Tracks>
 	<IoMaster>
-		<i name="Reverb">
-			<volume eq="0"/>
-		</i>
-		<i name="Delay">
-			<volume eq="0"/>
-		</i>
-		<i name="Master">
-			<volume eq="75"/>
-		</i>
+		<Track name="Reverb">
+			<Volume value="0"/>
+		</Track>
+		<Track name="Delay">
+			<Volume value="0"/>
+		</Track>
+		<Track name="Master">
+			<Volume value="75"/>
+		</Track>
 	</IoMaster>
 </file>
-
-<data>
-	<Sounds>
-		<i type="folder" name="Ambient &amp; Evolving">
-			<i type="item" name="All Alone Pad" />
-			<i type="item" name="Ambient Sweels" />
-			<i type="item" name="Chill Outzone" />
-			<i type="item" name="Chimes &amp; Bow" />
-			<i type="item" name="Cosmos Soundscape" />
-			<i type="item" name="Duetta" />
-		</i>
-		<i type="folder" name="Bass">
-			<i type="item" name="Analog Saw Bass" />
-			<i type="item" name="Analog Bass" />
-			<i type="item" name="Bass Floor Bounce" />
-			<i type="item" name="BBass" />
-			<i type="item" name="Bit Growl Bass" />
-			<i type="item" name="Boffner Bass" />
-			<i type="item" name="Boom Sub Bass" />
-			<i type="item" name="BSeven Bass" />
-			<i type="item" name="Burned Bass" />
-			<i type="item" name="Cinder Blast" />
-			<i type="item" name="Blub Amp Bass" />
-			<i type="item" name="Dank Moug" />
-			<i type="item" name="Deep in Dark" />
-		</i>
-		<i type="folder" name="Brass">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Effects">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Guitar &amp; Plucked">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Mallets">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Pad">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Percussive">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Piano &amp; Keys">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Strings">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Synth Keys">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Synth Lead">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Synth Misc">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Synth Rythmic">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Voices">
-			<i type="item" name="" />
-		</i>
-		<i type="folder" name="Winds">
-			<i type="item" name="" />
-		</i>
-	</Sounds>
-
-	<Drums>
-		<i type="item" name="Hihat" path="drumkit/hihat.wav" />
-		<i type="item" name="Kick" path="drumkit/kick.wav" />
-		<i type="item" name="Snare" path="drumkit/snare.wav" />
-		<i type="item" name="Tom 1" path="drumkit/tom1.wav" />
-		<i type="item" name="Tom 2" path="drumkit/tom2.wav" />
-		<i type="item" name="Tom 3" path="drumkit/tom3.wav" />
-	</Drums>
-
-	<Drums></Drums>
-	<Instruments></Instruments>
-	<AudioFx></AudioFx>
-</data>

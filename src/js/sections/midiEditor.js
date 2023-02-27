@@ -8,14 +8,15 @@
 			doc: $(document),
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
+			noteBody: window.find(".row-body .col-right .body-frame"),
 		};
 
 		// modes: lasso, pencil
 		this.mode = "lasso";
 
 		// bind event handler
-		this.els.el.find(".row-body .col-right .body-frame").on("wheel", this.dispatch);
-		this.els.el.find(".row-body .col-right .body-frame").on("mousedown", this.doLasso);
+		this.els.noteBody.on("wheel", this.dispatch);
+		this.els.noteBody.on("mousedown", this.doLasso);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
 	},
@@ -61,6 +62,13 @@
 					noteW: parseInt(el.cssProp("--noteW"), 10),
 					bars: parseInt(el.cssProp("--bars"), 10),
 				};
+				break;
+			case "render-clip":
+				window.render({
+					template: "midi-notes",
+					match: `//file//Clip[@id="${event.id}"]`,
+					append: Self.els.noteBody,
+				});
 				break;
 		}
 	},

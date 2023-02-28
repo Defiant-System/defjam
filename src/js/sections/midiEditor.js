@@ -64,6 +64,9 @@
 				};
 				break;
 			case "render-clip":
+				//  remove existing notes
+				Self.els.noteBody.find("b").remove();
+				// render clip notes
 				window.render({
 					template: "midi-notes",
 					match: `//file//Clip[@id="${event.id}"]`,

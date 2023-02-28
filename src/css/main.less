@@ -1980,6 +1980,12 @@ content {
 								}
 							}
 						}
+
+						.col-right {
+							.body-frame {
+								box-shadow: 0 1px 0 darken(@griddark, 7%);
+							}
+						}
 					}
 				}
 
@@ -2135,7 +2141,7 @@ content {
 						position: absolute;
 						top: 15px;
 						left: 0;
-						width: calc( var( --noteW ) * 16 );
+						width: calc( var( --noteW ) * var( --bars ) * 16 );
 						height: 11px;
 						background-color: var( --c ); // temp
 						box-shadow: inset 0 1px 0 rgba(255,255,255,.1),
@@ -2172,9 +2178,9 @@ content {
 					}
 
 					.length-span {
-						background-color: lighten(@boxBg, 3%);
 						top: 25px;
-						width: calc( var( --noteW ) * 16 );
+						background-color: lighten(@boxBg, 3%);
+						width: calc( var( --noteW ) * calc( var( --bars ) / 2 ) * 16 );
 					}
 
 					.time-cursor {

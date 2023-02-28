@@ -100,7 +100,6 @@
 				<li>C-1</li>
 				<li>C-2</li>
 			</ul>
-			<div class="note-hover hidden" style="--nT: 14;">A4</div>
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

@@ -67,6 +67,7 @@
 				break;
 			case "render-clip":
 				//  remove existing notes
+				Self.els.clipPads.find("ul, ol").remove();
 				Self.els.noteBody.find("b").remove();
 				Self.els.noteFoot.find("b").remove();
 				if (!event.xClip) {
@@ -90,7 +91,7 @@
 				window.render({
 					template: "clip-pads",
 					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
-					target: Self.els.clipPads,
+					append: Self.els.clipPads,
 				});
 				// render clip notes
 				window.render({

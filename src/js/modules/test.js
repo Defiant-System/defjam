@@ -13,7 +13,7 @@ let Test = {
 
 		defjam.session.dispatch({ type: "render-file" });
 
-		// window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
-		window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
+		window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
+		// window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
 	}
 };

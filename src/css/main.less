@@ -503,6 +503,18 @@ content {
 
 	.field-row {
 		padding-bottom: 7px;
+
+		label {
+			display: block;
+			padding: 5px 1px 3px;
+		}
+	}
+
+	hr {
+		background: @face;
+		border: 0;
+		height: 1px;
+		margin: 7px 0 13px;
 	}
 
 	input {
@@ -511,19 +523,20 @@ content {
 			background: lighten(@boxBg, 7%);
 			color: @base;
 			width: auto;
-			height: 19px;
+			height: 17px;
 			border: 0;
-			// border: 1px solid;
-			// border-color: @boxBg transparent lighten(@boxBg, 11%) transparent;
 			border-radius: 2px;
 			box-shadow: 0 0 0 2px @face,
-						// inset 0 1px 0 darken(@boxBg, 2%),
 						inset 0 -1px 0 lighten(@boxBg, 11%);
-			padding: 3px 3px 2px;
+			padding: 2px 3px 1px;
 			margin: 2px 3px 0 2px;
 
 			&.right { text-align: right; }
 			&.w30 { width: 31px; }
+			&[disabled] {
+				background: transparent;
+				box-shadow: 0 0 0 2px @face;
+			}
 		}
 	}
 
@@ -1938,13 +1951,15 @@ content {
 					.row-head,
 					.row-foot {
 						.col-left {
-							width: 130px;
+							// width: 130px;
+							width: 96px;
 						}
 					}
 
 					.row-body {
 						.col-left {
-							width: 130px;
+							// width: 130px;
+							width: 96px;
 
 							.box-body {
 								.body-frame {
@@ -2593,7 +2608,7 @@ content {
 			.box-body {
 				flex: 1;
 				border-radius: 0 0 3px 3px;
-				padding: 5px;
+				padding: 5px 9px;
 				display: flex;
 
 				.graph {
@@ -2726,7 +2741,7 @@ content {
 		}
 
 		.device-control {
-			width: 239px;
+			width: 139px;
 
 			.box-body {
 				display: block;

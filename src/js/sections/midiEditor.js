@@ -9,6 +9,7 @@
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
 			noteBody: window.find(".row-body .col-right .body-frame"),
+			noteFoot: window.find(".row-foot .col-right .body-frame"),
 		};
 
 		// modes: lasso, pencil
@@ -64,8 +65,16 @@
 				};
 				break;
 			case "render-clip":
+				//  remove existing notes
+				Self.els.noteBody.find("b").remove();
+				Self.els.noteFoot.find("b").remove();
+				if (!event.xClip) {
+					// TODO: empty rack-bottom
+					return;
+				}
+
 				Self.els.el
-					.toggleClass("drumkit", !event.xClip.getAttribute("drumkit"))
+					.toggleClass("drumkit", !event.xClip.parentNode.selectSingleNode(`./Pads`))
 					.css({
 						"--oY": event.xClip.getAttribute("oY") +"px",
 						"--oX": event.xClip.getAttribute("oX") +"px",
@@ -74,13 +83,17 @@
 						"--bars": event.xClip.getAttribute("bars"),
 						"--c": event.xClip.parentNode.getAttribute("color"),
 					});
-				//  remove existing notes
-				Self.els.noteBody.find("b").remove();
 				// render clip notes
 				window.render({
 					template: "midi-notes",
 					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
 					append: Self.els.noteBody,
+				});
+				// note volumes
+				window.render({
+					template: "midi-note-volume",
+					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
+					append: Self.els.noteFoot,
 				});
 				break;
 		}

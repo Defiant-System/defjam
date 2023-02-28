@@ -65,4 +65,16 @@
 	</xsl:for-each>
 </xsl:template>
 
+
+<xsl:template name="midi-note-volume">
+	<xsl:for-each select="./b">
+		<b>
+			<xsl:attribute name="style">
+				--l: <xsl:value-of select="@l"/>;
+				--v: <xsl:value-of select="@v"/>;
+			</xsl:attribute>
+		</b>
+	</xsl:for-each>
+</xsl:template>
+
 </xsl:stylesheet>

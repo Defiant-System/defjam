@@ -1989,6 +1989,12 @@ content {
 					}
 				}
 
+				&.show-velocity-editor {
+					.row-foot {
+						height: 50px;
+					}
+				}
+
 					.col-left {
 						display: flex;
 						width: 53px;
@@ -2027,13 +2033,17 @@ content {
 						height: 13px;
 						cursor: pointer;
 						border-radius: 50%;
-						// transform: rotate(90deg);
+						transform: rotate(0deg);
 						background-color: darken(@boxBg, 3%);
 						background-position: 0 0;
 						background-size: 13px 13px;
 						background-repeat: no-repeat;
 						background-image: url(~/icons/icon-arrow-right.png);
 						box-shadow: 0 0 0 1px rgba(0,0,0,.35);
+
+						&.toggled {
+							transform: rotate(90deg);
+						}
 					}
 
 				.row-head {
@@ -2516,9 +2526,10 @@ content {
 				}
 
 				.row-foot {
-					height: 50px;
+					height: 0;
 					display: flex;
 					margin-top: 0;
+					transition: height 150ms ease-in-out;
 
 					.col-left .box-body {
 						border-radius: 0 0 0 3px;

@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-<div class="midi-note-editor">
+<div class="midi-note-editor show-velocity-editor" data-section="midiEditor">
 	<div class="row-head">
 		<div class="col-left">
 			<div class="box-body"></div>
@@ -90,62 +90,6 @@
 				<div class="body-frame">
 					<span class="lasso hidden"></span>
 					<!-- <div class="selection" style="--selT: 14; --selL: 8; --selW: 8;"></div> -->
-
-					<!-- <b style="--t: 14; --l: 0; --d: 2;">A4</b>
-					<b style="--t: 16; --l: 2; --d: 2;">G4</b>
-					<b style="--t: 18; --l: 4; --d: 2;">F4</b>
-					<b style="--t: 16; --l: 6; --d: 2;">G4</b>
-					<b style="--t: 14; --l: 8; --d: 2;">A4</b>
-					<b style="--t: 14; --l: 10; --d: 2;">A4</b>
-					<b style="--t: 14; --l: 12; --d: 4;">A4</b>
-
-					<b style="--t: 16; --l: 16; --d: 2;">G4</b>
-					<b style="--t: 16; --l: 18; --d: 2;">G4</b>
-					<b style="--t: 16; --l: 20; --d: 4;">G4</b>
-					<b style="--t: 14; --l: 24; --d: 2;">A4</b>
-					<b style="--t: 11; --l: 26; --d: 2;">C5</b>
-					<b style="--t: 11; --l: 28; --d: 4;">C5</b>
-
-					<b style="--t: 14; --l: 32; --d: 2;">A4</b>
-					<b style="--t: 16; --l: 34; --d: 2;">G4</b>
-					<b style="--t: 18; --l: 36; --d: 2;">F4</b>
-					<b style="--t: 16; --l: 38; --d: 2;">G4</b>
-					<b style="--t: 14; --l: 40; --d: 2;">A4</b>
-					<b style="--t: 14; --l: 42; --d: 2;">A4</b>
-					<b style="--t: 14; --l: 44; --d: 2;">A4</b>
-					<b style="--t: 14; --l: 46; --d: 2;">A4</b>
-
-					<b style="--t: 16; --l: 48; --d: 2;">G4</b>
-					<b style="--t: 16; --l: 50; --d: 2;">G4</b>
-					<b style="--t: 14; --l: 52; --d: 2;">A4</b>
-					<b style="--t: 16; --l: 54; --d: 2;">G4</b>
-					<b style="--t: 18; --l: 56; --d: 8;">F4</b>
-
-
-					<b style="--t: 23; --l: 0; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 0; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 0; --d: 8;">F3</b>
-					<b style="--t: 23; --l: 8; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 8; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 8; --d: 8;">F3</b>
-					<b style="--t: 28; --l: 16; --d: 8;">G3</b>
-					<b style="--t: 31; --l: 16; --d: 8;">E3</b>
-					<b style="--t: 35; --l: 16; --d: 8;">C3</b>
-					<b style="--t: 23; --l: 24; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 24; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 24; --d: 8;">F3</b>
-					<b style="--t: 23; --l: 32; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 32; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 32; --d: 8;">F3</b>
-					<b style="--t: 23; --l: 40; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 40; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 40; --d: 8;">F3</b>
-					<b style="--t: 28; --l: 48; --d: 8;">G3</b>
-					<b style="--t: 31; --l: 48; --d: 8;">E3</b>
-					<b style="--t: 35; --l: 48; --d: 8;">C3</b>
-					<b style="--t: 23; --l: 56; --d: 8;">C4</b>
-					<b style="--t: 26; --l: 56; --d: 8;">A3</b>
-					<b style="--t: 30; --l: 56; --d: 8;">F3</b> -->
 				</div>
 			</div>
 		</div>
@@ -167,5 +111,5 @@
 	</div>
 
 	<!-- velocity editor toggle button -->
-	<span class="velocity-toggler"></span>
+	<span class="velocity-toggler" data-click="toggle-velocity-editor"></span>
 </div>

@@ -65,6 +65,11 @@
 					bars: parseInt(el.cssProp("--bars"), 10),
 				};
 				break;
+			case "toggle-velocity-editor":
+				value = event.el.hasClass("toggled");
+				event.el.toggleClass("toggled", value);
+				Self.els.el.toggleClass("show-velocity-editor", !value);
+				break;
 			case "render-clip":
 				//  remove existing notes
 				Self.els.clipPads.find("ul, ol").remove();

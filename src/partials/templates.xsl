@@ -77,4 +77,33 @@
 	</xsl:for-each>
 </xsl:template>
 
+
+<xsl:template name="clip-pads">
+	<xsl:choose>
+		<xsl:when test="../Pads">
+		<ol>
+			<xsl:for-each select="../Pads/Pad">
+				<li><xsl:value-of select="@name"/></li>
+			</xsl:for-each>
+		</ol>
+		</xsl:when>
+		<xsl:otherwise>
+			<ul>
+				<li>C7</li>
+				<li>C6</li>
+				<li>C5</li>
+				<li>C4</li>
+				<li>C3</li>
+				<li>C2</li>
+				<li>C1</li>
+				<li>C0</li>
+				<li>C-1</li>
+				<li>C-2</li>
+			</ul>
+			<div class="note-hover hidden" style="--nT: 14;">A4</div>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
 </xsl:stylesheet>

@@ -8,6 +8,7 @@
 			doc: $(document),
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
+			clipPads: window.find(".row-body .col-left .body-frame"),
 			noteBody: window.find(".row-body .col-right .body-frame"),
 			noteFoot: window.find(".row-foot .col-right .body-frame"),
 		};
@@ -73,16 +74,24 @@
 					return;
 				}
 
+				value = event.xClip.parentNode.selectSingleNode(`./Pads`);
 				Self.els.el
-					.toggleClass("drumkit", !event.xClip.parentNode.selectSingleNode(`./Pads`))
+					.toggleClass("clip-pads", !value)
 					.css({
 						"--oY": event.xClip.getAttribute("oY") +"px",
 						"--oX": event.xClip.getAttribute("oX") +"px",
 						"--keyH": event.xClip.getAttribute("keyH") +"px",
 						"--noteW": event.xClip.getAttribute("noteW") +"px",
 						"--bars": event.xClip.getAttribute("bars"),
+						"--pads": value ? value.selectNodes("./*").length : "" ,
 						"--c": event.xClip.parentNode.getAttribute("color"),
 					});
+				// render clip notes
+				window.render({
+					template: "clip-pads",
+					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
+					target: Self.els.clipPads,
+				});
 				// render clip notes
 				window.render({
 					template: "midi-notes",

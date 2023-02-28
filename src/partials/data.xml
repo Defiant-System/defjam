@@ -3,10 +3,10 @@
 	<Tracks>
 		<Track name="Drums" color="#48c" id="track-1">
 			<Pads>
-				<i name="Open Hat"/>
-				<i name="Closed Hat"/>
-				<i name="Clap"/>
-				<i name="Kick"/>
+				<Pad name="Open Hat"/>
+				<Pad name="Closed Hat"/>
+				<Pad name="Clap"/>
+				<Pad name="Kick"/>
 			</Pads>
 			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
 				<b t="0" l="3" d="1" v="1"/>

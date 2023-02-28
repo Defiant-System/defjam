@@ -4,6 +4,9 @@
 @import "./modules/test.js";
 
 
+@import "./classes/file.js";
+
+
 const defjam = {
 	init() {
 		// fast references
@@ -15,6 +18,9 @@ const defjam = {
 		Audio.init();
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
+
+		// temp
+		this.File = new File;
 
 		// DEV-ONLY-START
 		Test.init();

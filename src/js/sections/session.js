@@ -24,8 +24,10 @@
 				});
 				break;
 			case "select-clip":
+				let clipId = $(event.target).data("id"),
+					xClip = APP.File._file.selectSingleNode(`//Tracks//Clip[@id="${clipId}"]`);
 				// render clip contents in midi note editor
-				APP.midiEditor.dispatch({ type: "render-clip", id: $(event.target).data("id") });
+				APP.midiEditor.dispatch({ type: "render-clip", xClip });
 				break;
 			case "select-io-track":
 				break;

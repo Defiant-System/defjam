@@ -1926,11 +1926,15 @@ content {
 				display: flex;
 				flex-direction: column;
 				position: relative;
-				--c: #77c; // default note color
+				// default values
+				--oY: 0px;
+				--oX: 0px;
+				--keyH: 16px;
+				--noteW: 12px;
+				--bars: 4;
+				--c: #77c;
 
 				&.drumkit {
-					--keyH: 22px;
-
 					.row-head,
 					.row-foot {
 						.col-left {
@@ -2340,6 +2344,10 @@ content {
 								pointer-events: none;
 								z-index: 2;
 								border-bottom: 1px solid @face;
+
+								&.hidden {
+									display: none;
+								}
 							}
 						}
 					}

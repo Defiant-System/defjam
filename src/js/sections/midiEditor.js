@@ -64,12 +64,22 @@
 				};
 				break;
 			case "render-clip":
+				Self.els.el
+					.toggleClass("drumkit", !event.xClip.getAttribute("drumkit"))
+					.css({
+						"--oY": event.xClip.getAttribute("oY") +"px",
+						"--oX": event.xClip.getAttribute("oX") +"px",
+						"--keyH": event.xClip.getAttribute("keyH") +"px",
+						"--noteW": event.xClip.getAttribute("noteW") +"px",
+						"--bars": event.xClip.getAttribute("bars"),
+						"--c": event.xClip.parentNode.getAttribute("color"),
+					});
 				//  remove existing notes
 				Self.els.noteBody.find("b").remove();
 				// render clip notes
 				window.render({
 					template: "midi-notes",
-					match: `//file//Clip[@id="${event.id}"]`,
+					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
 					append: Self.els.noteBody,
 				});
 				break;

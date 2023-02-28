@@ -597,7 +597,8 @@ content {
 	.button,
 	.toggle-btn {
 		position: relative;
-		display: inline-block;
+		// display: inline-block;
+		display: block;
 		background: @face;
 		padding: 2px 2px 2px 23px;
 		border-radius: 3px;
@@ -639,8 +640,10 @@ content {
 		> span {
 			position: relative;
 			left: 0;
+			width: 100%;
 			z-index: 2;
 			padding: 4px 7px;
+			text-align: center;
 			background: lighten(@boxBg, 1%);
 			// background-image: linear-gradient(0deg, rgba(0,0,0,.075) 50%, transparent 100%);
 			box-shadow: inset 0 1px 0 rgba(255,255,255,.05),
@@ -2033,13 +2036,14 @@ content {
 						height: 13px;
 						cursor: pointer;
 						border-radius: 50%;
-						transform: rotate(0deg);
 						background-color: darken(@boxBg, 3%);
 						background-position: 0 0;
 						background-size: 13px 13px;
 						background-repeat: no-repeat;
 						background-image: url(~/icons/icon-arrow-right.png);
 						box-shadow: 0 0 0 1px rgba(0,0,0,.35);
+						transform: rotate(0deg);
+						transition: transform 60ms;
 
 						&.toggled {
 							transform: rotate(90deg);
@@ -2529,7 +2533,7 @@ content {
 					height: 0;
 					display: flex;
 					margin-top: 0;
-					transition: height 150ms ease-in-out;
+					transition: height 80ms ease-in-out;
 
 					.col-left .box-body {
 						border-radius: 0 0 0 3px;

@@ -7,7 +7,7 @@ let Test = {
 		// window.find(`.foot-drumkit`).trigger("click");
 
 		// window.find(`.channel:nth(3)`).trigger("click");
-		// window.find(`.toolbar-tool_[data-click="pencil"]`).trigger("click");
+		window.find(`.toolbar-tool_[data-click="pencil"]`).trigger("click");
 
 		// window.find(`.panel-left .leaf[data-path="Kick.ogg"]`).trigger("click");
 

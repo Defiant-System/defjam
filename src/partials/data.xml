@@ -1,4 +1,167 @@
 
+<Presets>
+	<Set name="Piano">
+		<Item name="Acoustic Grand Piano"/>
+		<Item name="Bright Acoustic Piano"/>
+		<Item name="Electric Grand Piano"/>
+		<Item name="Honky-tonk Piano"/>
+		<Item name="Electric Piano 1"/>
+		<Item name="Electric Piano 2"/>
+		<Item name="Harpsichord"/>
+		<Item name="Clavinet"/>
+	</Set>
+	<Set name="Chromatic Perc.">
+		<Item name="Celesta"/>
+		<Item name="Glockenspiel"/>
+		<Item name="Music Box"/>
+		<Item name="Vibraphone"/>
+		<Item name="Marimba"/>
+		<Item name="Xylophone"/>
+		<Item name="Tubular Bells"/>
+		<Item name="Dulcimer"/>
+	</Set>
+	<Set name="Organ">
+		<Item name="Drawbar Organ"/>
+		<Item name="Percussive Organ"/>
+		<Item name="Rock Organ"/>
+		<Item name="Church Organ"/>
+		<Item name="Reed Organ"/>
+		<Item name="Accordion"/>
+		<Item name="Harmonica"/>
+		<Item name="Tango Accordion"/>
+	</Set>
+	<Set name="Guitar">
+		<Item name="Acoustic Guitar (nylon)"/>
+		<Item name="Acoustic Guitar (steel)"/>
+		<Item name="Electric Guitar (jazz)"/>
+		<Item name="Electric Guitar (clean)"/>
+		<Item name="Electric Guitar (muted)"/>
+		<Item name="Overdriven Guitar"/>
+		<Item name="Distortion Guitar"/>
+		<Item name="Guitar Harmon"/>
+	</Set>
+	<Set name="Bass">
+		<Item name="Acoustic Bass"/>
+		<Item name="Electric Bass (finger)"/>
+		<Item name="Electric Bass (pick)"/>
+		<Item name="Fretless Bass"/>
+		<Item name="Slap Bass 1"/>
+		<Item name="Slap Bass 2"/>
+		<Item name="Synth Bass 1"/>
+		<Item name="Synth Bass 2"/>
+	</Set>
+	<Set name="Strings">
+		<Item name="Violin"/>
+		<Item name="Viola"/>
+		<Item name="Cello"/>
+		<Item name="Contrabass"/>
+		<Item name="Tremolo Strings"/>
+		<Item name="Pizzicato Strings"/>
+		<Item name="Orchestral Harp"/>
+		<Item name="Timpani"/>
+	</Set>
+	<Set name="Ensemble">
+		<Item name="String Ensemble 1"/>
+		<Item name="String Ensemble 2"/>
+		<Item name="Synth Strings 1"/>
+		<Item name="Synth Strings 2"/>
+		<Item name="Choir Aahs"/>
+		<Item name="Voice Oohs"/>
+		<Item name="Synth Choir"/>
+		<Item name="Orchestra Hit"/>
+	</Set>
+	<Set name="Brass">
+		<Item name="Trumpet"/>
+		<Item name="Trombone"/>
+		<Item name="Tuba"/>
+		<Item name="Muted Trumpet"/>
+		<Item name="French Horn"/>
+		<Item name="Brass Section"/>
+		<Item name="Synth Brass 1"/>
+		<Item name="Synth Brass 2"/>
+	</Set>
+	<Set name="Reed">
+		<Item name="Soprano Sax"/>
+		<Item name="Alto Sax"/>
+		<Item name="Tenor Sax"/>
+		<Item name="Baritone Sax"/>
+		<Item name="Oboe"/>
+		<Item name="English Horn"/>
+		<Item name="Bassoon"/>
+		<Item name="Clarinet"/>
+	</Set>
+	<Set name="Pipe">
+		<Item name="Piccolo"/>
+		<Item name="Flute"/>
+		<Item name="Recorder"/>
+		<Item name="Pan Flute"/>
+		<Item name="Blown Bottle"/>
+		<Item name="Shakuhachi"/>
+		<Item name="Whistle"/>
+		<Item name="Ocarina"/>
+	</Set>
+	<Set name="Synth Lead">
+		<Item name="Square Synth"/>
+		<Item name="Sawtooth Synth"/>
+		<Item name="Calliope Synth"/>
+		<Item name="Chiff Synth"/>
+		<Item name="Charang Synth"/>
+		<Item name="Voice Synth"/>
+		<Item name="Fifths Synth"/>
+		<Item name="Bass + Lead Synth"/>
+	</Set>
+	<Set name="Synth Pad">
+		<Item name="New Age Pads"/>
+		<Item name="Warm Pads"/>
+		<Item name="Polysynth Pads"/>
+		<Item name="Choir Pads"/>
+		<Item name="Bowed Pads"/>
+		<Item name="Metallic Pads"/>
+		<Item name="Halo Pads"/>
+		<Item name="Sweep Pads"/>
+	</Set>
+	<Set name="Synth Effects">
+		<Item name="Rain"/>
+		<Item name="Soundtrack"/>
+		<Item name="Crystal"/>
+		<Item name="Atmosphere"/>
+		<Item name="Brightness"/>
+		<Item name="Goblins"/>
+		<Item name="Echoes"/>
+		<Item name="Sci-Fi"/>
+	</Set>
+	<Set name="World">
+		<Item name="Sitar"/>
+		<Item name="Banjo"/>
+		<Item name="Shamisen"/>
+		<Item name="Koto"/>
+		<Item name="Kalimba"/>
+		<Item name="Bagpipe"/>
+		<Item name="Fiddle"/>
+		<Item name="Shanai"/>
+	</Set>
+	<Set name="Percussive">
+		<Item name="Tinkle Bell"/>
+		<Item name="Agogo"/>
+		<Item name="Steel Drum"/>
+		<Item name="Woodblock"/>
+		<Item name="Taiko Drum"/>
+		<Item name="Melodic Tom"/>
+		<Item name="Synth Drum"/>
+		<Item name="Reverse Cymbal"/>
+	</Set>
+	<Set name="Sound Effects">
+		<Item name="Guitar Fret Noise"/>
+		<Item name="Breath Noise"/>
+		<Item name="Seashore"/>
+		<Item name="Bird Tweet"/>
+		<Item name="Telephone Ring"/>
+		<Item name="Helicopter"/>
+		<Item name="Applause"/>
+		<Item name="Gunshot"/>
+	</Set>
+</Presets>
+
 <file>
 	<Tracks>
 		<Track name="Drums" color="#48c" id="track-1">

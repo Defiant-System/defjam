@@ -65,6 +65,9 @@
 					bars: parseInt(el.cssProp("--bars"), 10),
 				};
 				break;
+			case "loop-clip":
+				console.log( event.el.hasClass("on") );
+				break;
 			case "toggle-velocity-editor":
 				value = event.el.hasClass("toggled");
 				event.el.toggleClass("toggled", value);

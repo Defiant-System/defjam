@@ -1,12 +1,12 @@
 
 <div class="rack-body">
 	<div class="rack-head">
-		<i class="icon-blank"></i> Membrane Synth
+		<i class="icon-blank"></i> AM Synth
 	</div>
 	<div class="box-body">
 		
 		<div class="synth-controls">
-			<ul class="col-3 controls">
+			<ul class="col-4 controls">
 				<li>
 					<span class="ctrl-name">Detune</span>
 					<div class="knob ctrl-knob" data-value="23" data-min="1" data-max="100"></div>
@@ -19,6 +19,16 @@
 				</li>
 				<li>
 					<span class="ctrl-name">Release</span>
+					<div class="knob ctrl-knob" data-value="3" data-min="0" data-max="7"></div>
+					<span class="ctrl-value">6%</span>
+				</li>
+				<li>
+					<span class="ctrl-name">Mod-Attack</span>
+					<div class="knob ctrl-knob" data-value="3" data-min="0" data-max="7"></div>
+					<span class="ctrl-value">26</span>
+				</li>
+				<li>
+					<span class="ctrl-name">Mod-Release</span>
 					<div class="knob ctrl-knob" data-value="3" data-min="0" data-max="7"></div>
 					<span class="ctrl-value">6%</span>
 				</li>
@@ -39,9 +49,10 @@
 				</li>
 
 				context : BaseContext
+				modulation : OmniOscillatorSynthOptions
 				oscillator : OmniOscillatorSynthOptions
 				onsilence : onSilenceCallback
-				octaves : Positive
+				harmonicity : Positive
 				
 			</ul>
 		</div>

@@ -2600,6 +2600,10 @@ content {
 
 		.drumkit-body {
 			display: block;
+
+			.rack-body .box-body {
+				padding-right: 9px;
+			}
 		}
 
 		.rack-body {
@@ -2771,16 +2775,11 @@ content {
 			}
 		}
 
+		
+
+
 		.midi-controls {
 			width: 132px;
-		}
-
-		.drum-control {
-			width: 245px;
-		}
-
-		.synth-controls {
-			width: 248px;
 		}
 
 		.sample-display {
@@ -2792,6 +2791,11 @@ content {
 			list-style: none;
 			padding: 1px 0 0 1px;
 			font-size: 0;
+
+			&.col-2 { width: 127px; }
+			&.col-3 { width: 187px; }
+			&.col-4 { width: 248px; }
+			&.col-5 { width: 307px; }
 
 			li {
 				position: relative;
@@ -2847,6 +2851,7 @@ content {
 			.pad-matrix {
 				position: relative;
 				top: 7px;
+				left: -2px;
 				background: url(~/icons/icon-pad-matrix.png) 0 -10px repeat-y;
 				filter: drop-shadow(0 1px 0 fadeout(@base, 53%));
 				background-size: 20px 40px;

@@ -2630,8 +2630,17 @@ content {
 			.box-body {
 				flex: 1;
 				border-radius: 0 0 3px 3px;
-				padding: 5px 9px;
+				padding: 5px 0 5px 9px;
 				display: flex;
+
+				&.controls {
+					display: block;
+				}
+
+				&.fields {
+					display: block;
+					padding-right: 9px;
+				}
 
 				.graph {
 					background: @base;
@@ -2762,12 +2771,16 @@ content {
 			}
 		}
 
-		.device-control {
-			width: 139px;
+		.midi-controls {
+			width: 132px;
+		}
 
-			.box-body {
-				display: block;
-			}
+		.drum-control {
+			width: 245px;
+		}
+
+		.synth-controls {
+			width: 248px;
 		}
 
 		.sample-display {
@@ -2792,16 +2805,16 @@ content {
 				border-radius: 3px;
 				margin: 0 5px 5px 0;
 
-				&:nth-child(3n) {
-					margin-right: 0;
-				}
+				// &:nth-child(3n) {
+				// 	margin-right: 0;
+				// }
 
-				&:nth-child(5),
-				&:nth-child(6),
-				&:nth-child(7),
-				&:nth-child(8) {
-					margin-bottom: 0;
-				}
+				// &:nth-child(5),
+				// &:nth-child(6),
+				// &:nth-child(7),
+				// &:nth-child(8) {
+				// 	margin-bottom: 0;
+				// }
 
 				.ctrl-name {
 					background: lighten(@boxBg, 4%);

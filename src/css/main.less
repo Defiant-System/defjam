@@ -1950,6 +1950,9 @@ content {
 				--bars: 4;
 				--pads: 11 * 12;
 				--c: #77c;
+				// pressed piano keys
+				--pkL: 21px;
+				--pkW: 32px;
 
 				&.clip-pads {
 					.row-head,
@@ -2275,7 +2278,7 @@ content {
 								bottom: 0;
 								left: 19px;
 								width: 31px;
-								border-left: 2px solid @griddark;
+								border-left: 2px solid @face;
 								border-right: 1px solid rgba(0,0,0,.3);
 								background-image: repeating-linear-gradient(180deg,
 									#fff 0px, #fff 1px,
@@ -2331,12 +2334,6 @@ content {
 								width: 97px;
 								height: 100%;
 								padding-top: 1px;
-								// background-image: repeating-linear-gradient(180deg,
-								// 	transparent 0px,
-								// 	transparent var( --keyH ),
-								// 	@face var( --keyH ),
-								// 	@face calc( var( --keyH ) + 1px ),
-								// );
 								box-shadow: 3px 0 11px 3px rgba(0,0,0,.45);
 
 								li {
@@ -2359,6 +2356,16 @@ content {
 								z-index: 2;
 								width: 21px;
 								box-shadow: 3px 0 11px 3px rgba(0,0,0,.45);
+
+								&:before {
+									content: "";
+									position: absolute;
+									top: var( --pkT );
+									left: var( --pkL );
+									width: var( --pkW );
+									height: var( --keyH );
+									background: rgba(255,0,0,.75);
+								}
 
 								li {
 									display: flex;

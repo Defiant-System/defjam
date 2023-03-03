@@ -10,12 +10,12 @@
 			rowFoot: window.find(".row-foot"),
 		};
 		
-		Audio.visualizeFile({
-				url: "~/sounds/909 Core Kit/Snare.ogg",
-				width: 512,
-				height: 108,
-			})
-			.then(path => window.find("canvas").css({ "background-image": `url(${path})` }));
+		// Audio.visualizeFile({
+		// 		url: "~/sounds/909 Core Kit/Snare.ogg",
+		// 		width: 512,
+		// 		height: 108,
+		// 	})
+		// 	.then(path => window.find("canvas").css({ "background-image": `url(${path})` }));
 	},
 	dispatch(event) {
 		let APP = defjam,

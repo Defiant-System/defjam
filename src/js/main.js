@@ -1,11 +1,10 @@
 
-@import "./ext/tone.js";
-
 @import "./modules/ux.js";
 @import "./modules/audio.js";
 @import "./modules/test.js";
 @import "./classes/file.js";
 
+const { Tone } = await window.fetch("~/js/bundle.js");
 
 const defjam = {
 	init() {

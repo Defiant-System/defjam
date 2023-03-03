@@ -9,13 +9,13 @@
 			sel: window.find(".arr-layout .row-track .selection"),
 		};
 
-		Audio.visualizeFile({
-				url: "~/sounds/909 Core Kit/ClosedHat.ogg",
-				width: 191,
-				height: 47,
-				color: "#151",
-			})
-			 .then(path => this.els.el.find(".channel:nth(2) b").css({ "--clip-bg": `url(${path})` }));
+		// Audio.visualizeFile({
+		// 		url: "~/sounds/909 Core Kit/ClosedHat.ogg",
+		// 		width: 191,
+		// 		height: 47,
+		// 		color: "#151",
+		// 	})
+		// 	 .then(path => this.els.el.find(".channel:nth(2) b").css({ "--clip-bg": `url(${path})` }));
 
 	},
 	dispatch(event) {

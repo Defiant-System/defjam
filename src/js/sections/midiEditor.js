@@ -8,7 +8,7 @@
 			doc: $(document),
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
-			clipPads: window.find(".row-body .col-left .body-frame"),
+			pianoRoll: window.find(".row-body .col-left .body-frame"),
 			noteBody: window.find(".row-body .col-right .body-frame"),
 			noteFoot: window.find(".row-foot .col-right .body-frame"),
 		};
@@ -19,8 +19,22 @@
 		// bind event handler
 		this.els.noteBody.on("wheel", this.dispatch);
 		this.els.noteBody.on("mousedown", this.doLasso);
+		this.els.pianoRoll.on("mousedown", this.doPiano);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
+
+		// Glockenspiel
+		// "G#4": "170.ogg",
+		// "G#6": "171.ogg",
+
+		// this.sampler = new Tone.Sampler({
+		// 	urls: {
+		// 		"F#7": "1.ogg",
+		// 		"A3": "21.ogg",
+		// 		"D#4": "24.ogg",
+		// 	},
+		// 	baseUrl: "/cdn/audio/samples/"
+		// }).toDestination();
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -55,9 +69,6 @@
 				el.css(value);
 				break;
 			// custom events
-			case "play-key":
-				console.log(event);
-				break;
 			case "get-details":
 				el = Self.els.el;
 				Self.details = {
@@ -78,7 +89,7 @@
 				break;
 			case "render-clip":
 				//  remove existing notes
-				Self.els.clipPads.find("ul, ol").remove();
+				Self.els.pianoRoll.find("ul, ol").remove();
 				Self.els.noteBody.find("b").remove();
 				Self.els.noteFoot.find("b").remove();
 				if (!event.xClip) {
@@ -102,7 +113,7 @@
 				window.render({
 					template: "clip-pads",
 					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
-					append: Self.els.clipPads,
+					append: Self.els.pianoRoll,
 				});
 				// render clip notes
 				window.render({
@@ -116,6 +127,44 @@
 					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
 					append: Self.els.noteFoot,
 				});
+				break;
+		}
+	},
+	doPiano(event) {
+		let APP = defjam,
+			Self = APP.midiEditor,
+			el;
+		switch (event.type) {
+			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+
+				el = Self.els.pianoRoll.find("ul");
+				if (event.offsetX > +el.prop("offsetWidth")) {
+					// let synth = new Tone.Synth().toDestination();
+					// synth.triggerAttackRelease("C4", "8n");
+					// Self.sampler.triggerAttackRelease(["C3"], 1);
+
+					Self.els.el.css({
+						"--pkT": "209px",
+						"--pkW": "25px",
+					});
+				}
+
+				// bind event handlers
+				Self.els.doc.on("mouseout mouseup", Self.doPiano);
+				break;
+			case "mouseup":
+				/* falls through */
+			case "mouseout":
+
+				Self.els.el.css({
+					"--pkT": "",
+					"--pkW": "",
+				});
+
+				// unbind event handlers
+				Self.els.doc.off("mousemove mouseup", Self.doPiano);
 				break;
 		}
 	},

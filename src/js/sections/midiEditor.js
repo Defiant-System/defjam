@@ -27,14 +27,14 @@
 		// "G#4": "170.ogg",
 		// "G#6": "171.ogg",
 
-		// this.sampler = new Tone.Sampler({
-		// 	urls: {
-		// 		"F#7": "1.ogg",
-		// 		"A3": "21.ogg",
-		// 		"D#4": "24.ogg",
-		// 	},
-		// 	baseUrl: "/cdn/audio/samples/"
-		// }).toDestination();
+		this.sampler = new Tone.Sampler({
+			urls: {
+				"F#7": "1.ogg",
+				"A3": "21.ogg",
+				"D#4": "24.ogg",
+			},
+			baseUrl: "/cdn/audio/samples/"
+		}).toDestination();
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -144,19 +144,19 @@
 				if (event.offsetX > +el.prop("offsetWidth")) {
 					// let synth = new Tone.Synth().toDestination();
 					// synth.triggerAttackRelease("C4", "8n");
-					// Self.sampler.triggerAttackRelease(["C3"], 1);
 
 					let keyH = parseInt(Self.els.el.cssProp("--keyH"), 10),
 						topIndex = Math.floor(event.offsetY / keyH),
 						octave = Math.floor(topIndex / 12),
 
 						keys = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].reverse(),
-						key = keys[topIndex % keys.length],
+						key = keys[topIndex % keys.length] + (7 - octave),
 
 						top = (topIndex * keyH) + octave,
 						width = key.includes("#") ? 25 : 32;
 
-					console.log( `${key}${7-octave}` );
+					Self.sampler.triggerAttackRelease([key], 1);
+
 					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}
 

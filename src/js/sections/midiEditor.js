@@ -17,7 +17,7 @@
 		this.mode = "lasso";
 
 		// bind event handler
-		this.els.noteBody.on("wheel", this.dispatch);
+		window.find(".row-body").on("wheel", this.dispatch);
 		this.els.noteBody.on("mousedown", this.doLasso);
 		this.els.pianoRoll.on("mousedown mouseout mouseup", this.doPiano);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
@@ -147,11 +147,16 @@
 					// Self.sampler.triggerAttackRelease(["C3"], 1);
 
 					let keyH = parseInt(Self.els.el.cssProp("--keyH"), 10),
-						keyIndex = Math.floor(event.offsetY / keyH),
-						octave = Math.floor(keyIndex / 11),
-						top = (keyIndex * keyH) + octave,
-						width = 32;
+						topIndex = Math.floor(event.offsetY / keyH),
+						octave = Math.floor(topIndex / 12),
 
+						keys = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].reverse(),
+						key = keys[topIndex % keys.length],
+
+						top = (topIndex * keyH) + octave,
+						width = key.includes("#") ? 25 : 32;
+
+					console.log( `${key}${7-octave}` );
 					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}
 

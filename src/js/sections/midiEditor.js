@@ -55,6 +55,9 @@
 				el.css(value);
 				break;
 			// custom events
+			case "play-key":
+				console.log(event);
+				break;
 			case "get-details":
 				el = Self.els.el;
 				Self.details = {

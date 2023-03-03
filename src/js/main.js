@@ -1,9 +1,9 @@
 
+@import "./ext/tone.js";
+
 @import "./modules/ux.js";
 @import "./modules/audio.js";
 @import "./modules/test.js";
-
-
 @import "./classes/file.js";
 
 
@@ -53,6 +53,7 @@ const defjam = {
 	session: @import "./sections/session.js",
 	arrangement: @import "./sections/arrangement.js",
 	midiEditor: @import "./sections/midiEditor.js",
+	drumkit: @import "./sections/drumkit.js",
 	foot: @import "./sections/foot.js",
 };
 

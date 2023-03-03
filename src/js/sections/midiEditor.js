@@ -19,7 +19,7 @@
 		// bind event handler
 		this.els.noteBody.on("wheel", this.dispatch);
 		this.els.noteBody.on("mousedown", this.doLasso);
-		this.els.pianoRoll.on("mousedown", this.doPiano);
+		this.els.pianoRoll.on("mousedown mouseout mouseup", this.doPiano);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
 
@@ -134,6 +134,7 @@
 		let APP = defjam,
 			Self = APP.midiEditor,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "mousedown":
 				// prevent default behaviour
@@ -145,26 +146,27 @@
 					// synth.triggerAttackRelease("C4", "8n");
 					// Self.sampler.triggerAttackRelease(["C3"], 1);
 
-					Self.els.el.css({
-						"--pkT": "209px",
-						"--pkW": "25px",
-					});
+					let keyH = parseInt(Self.els.el.cssProp("--keyH"), 10),
+						keyIndex = Math.floor(event.offsetY / keyH),
+						octave = Math.floor(keyIndex / 11),
+						top = (keyIndex * keyH) + octave,
+						width = 32;
+
+					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}
 
 				// bind event handlers
-				Self.els.doc.on("mouseout mouseup", Self.doPiano);
+				// Self.els.doc.on("mousemove mouseout mouseup", Self.doPiano);
+				break;
+			case "mousemove":
 				break;
 			case "mouseup":
 				/* falls through */
 			case "mouseout":
-
-				Self.els.el.css({
-					"--pkT": "",
-					"--pkW": "",
-				});
-
+				// release key
+				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				// unbind event handlers
-				Self.els.doc.off("mousemove mouseup", Self.doPiano);
+				// Self.els.doc.off("mousemove mouseout mouseup", Self.doPiano);
 				break;
 		}
 	},

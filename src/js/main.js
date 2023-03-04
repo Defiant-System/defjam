@@ -1,42 +1,11 @@
 
-// constants
-const OCTAVE = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-
-const KEYS = note => {
-	let base = {
-	    "C": 24,
-	    "D": 26,
-	    "E": 28,
-	    "F": 29,
-	    "G": 31,
-	    "A": 33,
-	    "B": 35,
-	};
-
-	let keys = {};
-    for (let octave=-2; octave<=8; octave++) {
-        for (let k in base) {
-            let key = base[k] + (octave * 12);
-            keys[`${k}b${octave}`] = key-1;
-            keys[`${k}${octave}`] = key;
-            keys[`${k}#${octave}`] = key+1;
-        }
-    }
-
-console.log( keys );
-
-	return keys[note];
-};
-
-
-KEYS(121);
-
-
-
 @import "./modules/ux.js";
+@import "./modules/misc.js";
 @import "./modules/audio.js";
 @import "./modules/test.js";
 @import "./classes/file.js";
+
+
 
 const { Tone } = await window.fetch("~/js/bundle.js");
 

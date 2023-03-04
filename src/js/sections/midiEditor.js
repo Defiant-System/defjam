@@ -31,29 +31,17 @@
 		// "G#6": "171.ogg",
 
 		let urls = {},
-			xSamples = window.bluePrint.selectSingleNode(`//Presets//Item[@name="Bright Acoustic Piano"]/s`);
+			name = "Glockenspiel",
+			// name = "Bright Acoustic Piano",
+			xSamples = window.bluePrint.selectNodes(`//Presets//Item[@name="${name}"]/s`);
 		
-		// xSamples.map(x => {
-		// 	urls[] = ;
-		// });
-		console.log(urls);
+		xSamples.map(x => {
+			let i = +x.getAttribute("i"),
+				n = +x.getAttribute("n");
+			urls[KEYS.note(n)] = `${i}.ogg`;
+		});
 
-		this.sampler = new Tone.Sampler({
-			urls: {
-				"F#7": "1.ogg",
-				"A7": "3.ogg",
-				"C#1": "5.ogg",
-				"F#1": "7.ogg",
-				"A#1": "9.ogg",
-				"D2": "11.ogg",
-				"G2": "13.ogg",
-				"B2": "15.ogg",
-				"D#3": "17.ogg",
-				"A3": "21.ogg",
-				"D#4": "24.ogg",
-			},
-			baseUrl: "/cdn/audio/samples/"
-		}).toDestination();
+		this.sampler = new Tone.Sampler({ urls, baseUrl: "/cdn/audio/samples/" }).toDestination();
 	},
 	dispatch(event) {
 		let APP = defjam,

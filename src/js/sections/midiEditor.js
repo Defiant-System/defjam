@@ -26,22 +26,8 @@
 		// let synth = new Tone.Synth().toDestination();
 		// synth.triggerAttackRelease("C4", "8n");
 
-		// Glockenspiel
-		// "G#4": "170.ogg",
-		// "G#6": "171.ogg",
-
-		let urls = {},
-			name = "Glockenspiel",
-			// name = "Bright Acoustic Piano",
-			xSamples = window.bluePrint.selectNodes(`//Presets//Item[@name="${name}"]/s`);
-		
-		xSamples.map(x => {
-			let i = +x.getAttribute("i"),
-				n = +x.getAttribute("n");
-			urls[KEYS.note(n)] = `${i}.ogg`;
-		});
-
-		this.sampler = new Tone.Sampler({ urls, baseUrl: "/cdn/audio/samples/" }).toDestination();
+		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
+		this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -85,6 +71,19 @@
 					noteW: parseInt(el.cssProp("--noteW"), 10),
 					bars: parseInt(el.cssProp("--bars"), 10),
 				};
+				break;
+			case "load-instrument":
+				value = {
+					urls: {},
+					baseUrl: "/cdn/audio/samples/",
+				};
+				window.bluePrint.selectNodes(`//Presets//Item[@name="${event.name}"]/s`)
+					.map(x => {
+						let i = +x.getAttribute("i"),
+							n = +x.getAttribute("n");
+						value.urls[KEYS.note(n)] = `${i}.ogg`;
+					});
+				Self.sampler = new Tone.Sampler(value).toDestination();
 				break;
 			case "loop-clip":
 				console.log( event.el.hasClass("on") );

@@ -2,7 +2,32 @@
 <Presets>
 	<Set name="Piano">
 		<Item name="Acoustic Grand Piano"/>
-		<Item name="Bright Acoustic Piano"/>
+		<Item name="Bright Acoustic Piano">
+			<s i="1" k="102"/>
+			<s i="3" k="105"/>
+			<s i="5" k="25"/>
+			<s i="7" k="30"/>
+			<s i="9" k="34"/>
+			<s i="11" k="38"/>
+			<s i="13" k="43"/>
+			<s i="15" k="47"/>
+			<s i="17" k="51"/>
+			<s i="19" k="54"/>
+			<s i="21" k="57"/>
+			<s i="25" k="63"/>
+			<s i="27" k="66"/>
+			<s i="29" k="69"/>
+			<s i="31" k="72"/>
+			<s i="33" k="75"/>
+			<s i="35" k="78"/>
+			<s i="37" k="81"/>
+			<s i="39" k="84"/>
+			<s i="41" k="87"/>
+			<s i="43" k="90"/>
+			<s i="45" k="93"/>
+			<s i="47" k="96"/>
+			<s i="49" k="99"/>
+		</Item>
 		<Item name="Electric Grand Piano"/>
 		<Item name="Honky-tonk Piano"/>
 		<Item name="Electric Piano 1"/>

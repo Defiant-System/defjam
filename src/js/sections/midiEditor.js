@@ -23,13 +23,32 @@
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
 
+		// let synth = new Tone.Synth().toDestination();
+		// synth.triggerAttackRelease("C4", "8n");
+
 		// Glockenspiel
 		// "G#4": "170.ogg",
 		// "G#6": "171.ogg",
 
+		let urls = {},
+			xSamples = window.bluePrint.selectSingleNode(`//Presets//Item[@name="Bright Acoustic Piano"]/s`);
+		
+		// xSamples.map(x => {
+		// 	urls[] = ;
+		// });
+		console.log(urls);
+
 		this.sampler = new Tone.Sampler({
 			urls: {
 				"F#7": "1.ogg",
+				"A7": "3.ogg",
+				"C#1": "5.ogg",
+				"F#1": "7.ogg",
+				"A#1": "9.ogg",
+				"D2": "11.ogg",
+				"G2": "13.ogg",
+				"B2": "15.ogg",
+				"D#3": "17.ogg",
 				"A3": "21.ogg",
 				"D#4": "24.ogg",
 			},
@@ -133,30 +152,46 @@
 	doPiano(event) {
 		let APP = defjam,
 			Self = APP.midiEditor,
+			keyboard,
+			keyH,
+			topIndex,
+			octave,
+			keys,
+			key,
+			top,
+			width,
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "window.keystroke":
+				keyboard = {
+					a: "C4",
+					s: "D4",
+					d: "E4",
+				};
+				// play sound
+				key = keyboard[event.char];
+				if (key) {
+					Self.sampler.triggerAttackRelease([key], 1);
+				}
+				break;
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
 
 				el = Self.els.pianoRoll.find("ul");
 				if (event.offsetX > +el.prop("offsetWidth")) {
-					// let synth = new Tone.Synth().toDestination();
-					// synth.triggerAttackRelease("C4", "8n");
+					keyH = parseInt(Self.els.el.cssProp("--keyH"), 10);
+					topIndex = Math.floor(event.offsetY / keyH);
+					octave = Math.floor(topIndex / 12);
+					keys = [...OCTAVE].reverse();
+					key = keys[topIndex % keys.length] + (7 - octave).toString();
+					top = (topIndex * keyH) + octave;
+					width = key.includes("#") ? 25 : 32;
 
-					let keyH = parseInt(Self.els.el.cssProp("--keyH"), 10),
-						topIndex = Math.floor(event.offsetY / keyH),
-						octave = Math.floor(topIndex / 12),
-
-						keys = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"].reverse(),
-						key = keys[topIndex % keys.length] + (7 - octave),
-
-						top = (topIndex * keyH) + octave,
-						width = key.includes("#") ? 25 : 32;
-
+					// play sound
 					Self.sampler.triggerAttackRelease([key], 1);
-
+					// UI update
 					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}
 
@@ -176,7 +211,7 @@
 		}
 	},
 	doNoteRuler(event) {
-		let APP = defjam,
+		APP = defjam,
 			Self = APP.midiEditor,
 			Drag = Self.drag,
 			el;

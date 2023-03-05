@@ -9,7 +9,7 @@ let Test = {
 		// window.find(`.channel:nth(3)`).trigger("click");
 		// window.find(`.toolbar-tool_[data-click="pencil"]`).trigger("click");
 
-		// window.find(`.panel-left .leaf[data-path="Kick.ogg"]`).trigger("click");
+		window.find(`.panel-left .drums-body .leaf:nth(0) .icon-folder`).trigger("click");
 
 		defjam.session.dispatch({ type: "render-file" });
 

@@ -21,6 +21,8 @@
 			el;
 		//console.log(event);
 		switch (event.type) {
+			case "set-sample-ids":
+				break;
 			case "init-browser-tree":
 				// render sounds
 				window.render({
@@ -36,7 +38,7 @@
 				});
 				break;
 			case "do-tree-leaf":
-				console.log(event);
+				// console.log(event);
 				el = $(event.target);
 				el.parents(".box-body").find(".leaf.active").removeClass("active");
 
@@ -44,7 +46,17 @@
 					// hide audio preview
 					return Self.els.soundsBody.removeClass("show-audio-preview");
 				} else if (el.hasClass("icon-folder")) {
-					el.parent().toggleClass("expanded", el.parent().hasClass("expanded"));
+					el = el.parent();
+					el.toggleClass("expanded", el.hasClass("expanded"));
+
+					if (!el.find(".children").length) {
+						window.render({
+							template: "browser-tree",
+							match: `//Drums/Set[@name="_unsorted"]`,
+							target: el.append(`<div class="children"></div`),
+						});
+					}
+
 					return;
 				} else if (el.parent().hasClass("leaf")) {
 					el = el.parent();

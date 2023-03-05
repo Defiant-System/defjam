@@ -80,6 +80,7 @@
 				break;
 			case "preview-audio":
 				xEl = window.bluePrint.selectSingleNode(`//Samples//*[@_id="${event.id}"]`);
+				if (!xEl.getAttribute("i")) return;
 				
 				let func = () => pad.start(),
 					pad = new Tone.Player(`${BASE_URL}${xEl.getAttribute("i")}.ogg`, func).toDestination();

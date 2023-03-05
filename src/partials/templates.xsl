@@ -1,5 +1,25 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+
+<xsl:template name="browser-tree">
+	<xsl:for-each select="./*">
+		<xsl:sort order="ascending" select="@i"/>
+		<xsl:sort order="ascending" select="@name"/>
+		<div class="leaf">
+			<xsl:if test="@i">
+				<xsl:attribute name="data-id"><xsl:value-of select="@i"/></xsl:attribute>
+			</xsl:if>
+			<i class="icon-folder">
+				<xsl:if test="@i">
+					<xsl:attribute name="class">icon-audio</xsl:attribute>
+				</xsl:if>
+			</i>
+			<span><xsl:value-of select="@name"/></span>
+		</div>
+	</xsl:for-each>
+</xsl:template>
+
+
 <xsl:template name="file-tracks">
 	<xsl:for-each select="./Tracks/Track">
 		<xsl:call-template name="session-track" />

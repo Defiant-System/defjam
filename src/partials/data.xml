@@ -9,6 +9,7 @@
 			<s i="3646" n="1014" name="Cowbell"/>
 			<s i="1839" n="5" name="Metallic"/>
 			<s i="3638" n="16" name="Bell (synth)"/>
+			<s i="1856" n="119" name="Bell"/>
 	</Set>
 	<Set name="Bongo">
 
@@ -42,7 +43,10 @@
 	</Set>
 	<Set name="Misc Percussion">
 			<s i="3632" n="3" name="Bark"/>
+			<s i="1865" n="123" name="Bark"/>
 			<s i="3632" n="4" name="Violin"/>
+			<s i="1859" n="1112" name="Whistle"/>
+			<s i="1860" n="1113" name="Whistle"/>
 	</Set>
 	<Set name="Ride">
 			<s i="3641" n="108" name="Ride"/>
@@ -59,6 +63,8 @@
 	</Set>
 	<Set name="Shaker">
 			<s i="1841" n="7" name="Shaker"/>
+			<s i="1857" n="1110" name="Shaker"/>
+			<s i="1858" n="1111" name="Shaker"/>
 
 	</Set>
 	<Set name="Snare">
@@ -86,30 +92,23 @@
 			<s i="3634" n="11" name="Tom"/>
 	</Set>
 	<Set name="Timbales">
+			<s i="1854" n="116" name="Timbales"/>
+			<s i="1855" n="117" name="Timbales"/>
 
 	</Set>
 	<Set name="Wood">
 		<s i="3629" name="Clave"/>
 			<s i="3631" n="2" name="Clave"/>
+			<s i="1864" n="121" name="Clave"/>
+			<s i="3648" n="1116" name="Clave"/>
+			<s i="1861" n="1114" name="Guiro"/>
+			<s i="1862" n="1115" name="Guiro"/>
 	</Set>
 
 
 
 	<Set name="Drumkit">
 		<Item name="TR Kit">
-			<s i="1854" n="116" name="Timbales"/>
-			<s i="1855" n="117" name="Timbales"/>
-			<s i="1856" n="119" name="Bell"/>
-			<s i="1857" n="1110" name="Shaker"/>
-			<s i="1858" n="1111" name="Shaker"/>
-			<s i="1859" n="1112" name="Whistle"/>
-			<s i="1860" n="1113" name="Whistle"/>
-			<s i="1861" n="1114" name="Guiro"/>
-			<s i="1862" n="1115" name="Guiro"/>
-			<s i="3648" n="1116" name="Clave"/>
-
-			<s i="1864" n="121" name="Clave"/>
-			<s i="1865" n="123" name="Bark"/>
 			<s i="1867" n="125" name="n_a 125"/>
 			<s i="1868" n="126" name="n_a 126"/>
 			<s i="1869" n="128" name="n_a 128"/>
@@ -122,6 +121,7 @@
 		</Item>
 	</Set>
 
+			<s i="1868" n="126" name="n_a 126"/>
 
 </Drums>
 

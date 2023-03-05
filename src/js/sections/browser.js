@@ -5,9 +5,13 @@
 	init() {
 		// fast references
 		this.els = {
+			el: window.find(`.panel-left[data-section="browser"]`),
 			soundsBody: window.find(".sounds-body"),
 			audioChart: window.find(".audio-chart"),
 		};
+
+		// render trees
+		this.dispatch({ type: "init-browser-tree" });
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -17,7 +21,22 @@
 			el;
 		//console.log(event);
 		switch (event.type) {
+			case "init-browser-tree":
+				// render sounds
+				window.render({
+					template: "browser-tree",
+					match: `//Presets`,
+					target: Self.els.el.find(".sounds-body .tree"),
+				});
+				// render drums
+				window.render({
+					template: "browser-tree",
+					match: `//Drums`,
+					target: Self.els.el.find(".drums-body .tree"),
+				});
+				break;
 			case "do-tree-leaf":
+				console.log(event);
 				el = $(event.target);
 				el.parents(".box-body").find(".leaf.active").removeClass("active");
 
@@ -32,11 +51,13 @@
 				}
 				el.addClass("active");
 
-				if (el.data("path")) {
-					return Self.dispatch({ type: "preview-audio", path: el.data("path") });
+				if (el.data("id")) {
+					return Self.dispatch({ type: "preview-audio", id: +el.data("id") });
 				}
 				break;
 			case "preview-audio":
+				console.log(event);
+				/*
 				Audio.visualizeFile({
 					url: `~/sounds/909 Core Kit/${event.path}`,
 					width: 202,
@@ -47,6 +68,7 @@
 					Self.els.soundsBody.addClass("show-audio-preview");
 					Self.els.audioChart.css({ "background-image": `url(${path})` });
 				});
+				*/
 				break;
 		}
 	}

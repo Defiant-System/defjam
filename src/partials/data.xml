@@ -1,34 +1,131 @@
 
-<Presets>
+@import "file.xml"
+
+<Drums>
+	<Set name="Bell">
+			<s i="1842" n="9" name="Bell"/>
+			<s i="1840" n="6" name="Bell"/>
+		<s i="3624" name="Cowbell"/>
+			<s i="3646" n="1014" name="Cowbell"/>
+			<s i="1839" n="5" name="Metallic"/>
+			<s i="3638" n="16" name="Bell (synth)"/>
+	</Set>
+	<Set name="Bongo">
+
+	</Set>
+	<Set name="Clap">
+		<s i="3614" name="Clap"/>
+			<s i="3631" n="14" name="Clap"/>
+	</Set>
+	<Set name="Conga">
+
+	</Set>
+	<Set name="Cymbal">
+		<s i="3623" name="Cymbal"/>
+
+	</Set>
+	<Set name="FX Hit">
+
+	</Set>
+	<Set name="Hihat">
+		<s i="3618" name="Hihat"/>
+		<s i="3619" name="Hihat"/>
+		<s i="3621" name="Hihat"/>
+		<s i="3628" name="Hihat"/>
+			<s i="3639" n="101" name="Hihat"/>
+			<s i="3640" n="103" name="Hihat"/>
+			<s i="3643" n="1011" name="Hihat"/>
+	</Set>
+	<Set name="Kick">
+		<s i="3609" name="Kick"/>
+		<s i="3610" name="Kick"/>
+	</Set>
+	<Set name="Misc Percussion">
+			<s i="3632" n="3" name="Bark"/>
+			<s i="3632" n="4" name="Violin"/>
+	</Set>
+	<Set name="Ride">
+			<s i="3641" n="108" name="Ride"/>
+			<s i="3642" n="1010" name="Ride"/>
+			<s i="3644" n="1012" name="Ride"/>
+			<s i="3645" n="1013" name="Ride"/>
+			<s i="3647" n="1015" name="Ride"/>
+			<s i="3642" n="1016" name="Ride"/>
+	</Set>
+	<Set name="Rim">
+			<s i="1841" n="8" name="Rim"/>
+			<s i="3635" n="12" name="Rim"/>
+
+	</Set>
+	<Set name="Shaker">
+			<s i="1841" n="7" name="Shaker"/>
+
+	</Set>
+	<Set name="Snare">
+		<s i="3612" name="Snare"/>
+		<s i="3613" name="Snare"/>
+		<s i="3615" name="Snare"/>
+		<s i="3616" name="Snare"/>
+			<s i="3636" n="13" name="Snare"/>
+			<s i="3637" n="15" name="Snare"/>
+	</Set>
+	<Set name="Tambourine">
+
+	</Set>
+	<Set name="Tom">
+		<s i="3617" name="Tom"/>
+		<s i="3617" name="Tom"/>
+		<s i="3620" name="Tom"/>
+		<s i="3620" name="Tom"/>
+		<s i="3622" name="Tom"/>
+		<s i="3622" name="Tom"/>
+		<s i="3625" name="Tom"/>
+		<s i="3626" name="Tom"/>
+		<s i="3627" name="Tom"/>
+			<s i="3633" n="10" name="Tom"/>
+			<s i="3634" n="11" name="Tom"/>
+	</Set>
+	<Set name="Timbales">
+
+	</Set>
+	<Set name="Wood">
+		<s i="3629" name="Clave"/>
+			<s i="3631" n="2" name="Clave"/>
+	</Set>
+
+
+
 	<Set name="Drumkit">
 		<Item name="TR Kit">
-			<s i="3609" n="1" name="Kick 1"/>
-			<s i="3610" n="2" name="Kick 2"/>
-			<s i="3611" n="3" name="Rim"/>
-			<s i="3612" n="4" name="Snare"/>
-			<s i="3613" n="5" name="Snare"/>
-			<s i="3614" n="6" name="Clap"/>
-			<s i="3615" n="7" name="Snare"/>
-			<s i="3616" n="8" name="Snare"/>
-			<s i="3617" n="9" name="Tom Low"/>
-			<s i="3618" n="10" name="Hihat"/>
-			<s i="3617" n="11" name="Tom Mid"/>
-			<s i="3619" n="12" name="Hihat"/>
-			<s i="3620" n="13" name="Tom High"/>
-			<s i="3621" n="14" name="Hihat (open)"/>
-			<s i="3620" n="15" name="Bongo"/>
-			<s i="3622" n="16" name="Bongo"/>
-			<s i="3623" n="17" name="Cymbal"/>
-			<s i="3622" n="18" name="Marimba"/>
-			<s i="3624" n="19" name="Cowbell"/>
-			<s i="3625" n="20" name="Marimba"/>
-			<s i="3626" n="21" name="Marimba"/>
-			<s i="3627" n="22" name="Marimba"/>
-			<s i="3628" n="23" name="Hihat"/>
-			<s i="3629" n="24" name="Claves"/>
+			<s i="1854" n="116" name="Timbales"/>
+			<s i="1855" n="117" name="Timbales"/>
+			<s i="1856" n="119" name="Bell"/>
+			<s i="1857" n="1110" name="Shaker"/>
+			<s i="1858" n="1111" name="Shaker"/>
+			<s i="1859" n="1112" name="Whistle"/>
+			<s i="1860" n="1113" name="Whistle"/>
+			<s i="1861" n="1114" name="Guiro"/>
+			<s i="1862" n="1115" name="Guiro"/>
+			<s i="3648" n="1116" name="Clave"/>
 
+			<s i="1864" n="121" name="Clave"/>
+			<s i="1865" n="123" name="Bark"/>
+			<s i="1867" n="125" name="n_a 125"/>
+			<s i="1868" n="126" name="n_a 126"/>
+			<s i="1869" n="128" name="n_a 128"/>
+			<s i="1844" n="129" name="n_a 129"/>
+			<s i="1871" n="1210" name="n_a 1210"/>
+			<s i="1872" n="1211" name="n_a 1211"/>
+			<s i="1870" n="1213" name="n_a 1213"/>
+			<s i="1873" n="1214" name="n_a 1214"/>
+			<s i="3649" n="1215" name="n_a 1215"/>
 		</Item>
 	</Set>
+
+
+</Drums>
+
+<Presets>
 	<Set name="Piano">
 		<Item name="Acoustic Grand Piano"/>
 		<Item name="Bright Acoustic Piano">
@@ -224,123 +321,3 @@
 		<Item name="Gunshot"/>
 	</Set>
 </Presets>
-
-<file>
-	<Tracks>
-		<Track name="Drums" color="#48c" id="track-1">
-			<Pads>
-				<Pad name="Open Hat"/>
-				<Pad name="Closed Hat"/>
-				<Pad name="Clap"/>
-				<Pad name="Kick"/>
-			</Pads>
-			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
-				<b t="0" l="3" d="1" v="1"/>
-
-				<b t="1" l="0" d="1" v="1"/>
-				<b t="1" l="1" d="1" v="1"/>
-				<b t="1" l="4" d="1" v="1"/>
-				<b t="1" l="6" d="1" v="1"/>
-				<b t="1" l="8" d="1" v="1"/>
-				<b t="1" l="10" d="1" v="1"/>
-				<b t="1" l="12" d="1" v="1"/>
-				<b t="1" l="14" d="1" v="1"/>
-
-				<b t="2" l="4" d="1" v="1"/>
-				<b t="2" l="12" d="1" v="1"/>
-
-				<b t="3" l="0" d="1" v="1"/>
-				<b t="3" l="7" d="1" v="1"/>
-				<b t="3" l="10" d="1" v="1"/>
-				<b t="3" l="15" d="1" v="1"/>
-			</Clip>
-
-			<Sends label="A" value="10"/>
-			<Sends label="B" value="30"/>
-			<Volume value="30"/>
-		</Track>
-		<Track name="Grand Piano" color="#77c" id="track-2">
-			<Clip name="Clip 1" row="1" oY="-120" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
-				<b t="14" l="0" d="2" v="1" key="A4"/>
-				<b t="16" l="2" d="2" v="1" key="G4"/>
-				<b t="18" l="4" d="2" v="1" key="F4"/>
-				<b t="16" l="6" d="2" v="1" key="G4"/>
-				<b t="14" l="8" d="2" v="1" key="A4"/>
-				<b t="14" l="10" d="2" v="1" key="A4"/>
-				<b t="14" l="12" d="4" v="1" key="A4"/>
-
-				<b t="16" l="16" d="2" v="1" key="G4"/>
-				<b t="16" l="18" d="2" v="1" key="G4"/>
-				<b t="16" l="20" d="4" v="1" key="G4"/>
-				<b t="14" l="24" d="2" v="1" key="A4"/>
-				<b t="11" l="26" d="2" v="1" key="C5"/>
-				<b t="11" l="28" d="4" v="1" key="C5"/>
-
-				<b t="14" l="32" d="2" v="1" key="A4"/>
-				<b t="16" l="34" d="2" v="1" key="G4"/>
-				<b t="18" l="36" d="2" v="1" key="F4"/>
-				<b t="16" l="38" d="2" v="1" key="G4"/>
-				<b t="14" l="40" d="2" v="1" key="A4"/>
-				<b t="14" l="42" d="2" v="1" key="A4"/>
-				<b t="14" l="44" d="2" v="1" key="A4"/>
-				<b t="14" l="46" d="2" v="1" key="A4"/>
-
-				<b t="16" l="48" d="2" v="1" key="G4"/>
-				<b t="16" l="50" d="2" v="1" key="G4"/>
-				<b t="14" l="52" d="2" v="1" key="A4"/>
-				<b t="16" l="54" d="2" v="1" key="G4"/>
-				<b t="18" l="56" d="8" v="1" key="F4"/>
-
-				<b t="23" l="0" d="8" v="1" key="C4"/>
-				<b t="26" l="0" d="8" v="1" key="A3"/>
-				<b t="30" l="0" d="8" v="1" key="F3"/>
-				<b t="23" l="8" d="8" v="1" key="C4"/>
-				<b t="26" l="8" d="8" v="1" key="A3"/>
-				<b t="30" l="8" d="8" v="1" key="F3"/>
-				<b t="28" l="16" d="8" v="1" key="G3"/>
-				<b t="31" l="16" d="8" v="1" key="E3"/>
-				<b t="35" l="16" d="8" v="1" key="C3"/>
-				<b t="23" l="24" d="8" v="1" key="C4"/>
-				<b t="26" l="24" d="8" v="1" key="A3"/>
-				<b t="30" l="24" d="8" v="1" key="F3"/>
-				<b t="23" l="32" d="8" v="1" key="C4"/>
-				<b t="26" l="32" d="8" v="1" key="A3"/>
-				<b t="30" l="32" d="8" v="1" key="F3"/>
-				<b t="23" l="40" d="8" v="1" key="C4"/>
-				<b t="26" l="40" d="8" v="1" key="A3"/>
-				<b t="30" l="40" d="8" v="1" key="F3"/>
-				<b t="28" l="48" d="8" v="1" key="G3"/>
-				<b t="31" l="48" d="8" v="1" key="E3"/>
-				<b t="35" l="48" d="8" v="1" key="C3"/>
-				<b t="23" l="56" d="8" v="1" key="C4"/>
-				<b t="26" l="56" d="8" v="1" key="A3"/>
-				<b t="30" l="56" d="8" v="1" key="F3"/>
-			</Clip>
-			<Clip name="Clip 2" row="4" id="clip-2-2"/>
-
-			<Sends label="A" value="0"/>
-			<Sends label="B" value="0"/>
-			<Volume value="73"/>
-		</Track>
-		<Track name="Chorus" color="#96a" id="track-3">
-			<Clip name="Clip 1" row="2" id="clip-3-2"/>
-			<Clip name="Clip 2" row="4" id="clip-3-4"/>
-			<Clip name="Clip 3" row="5" id="clip-3-5"/>
-
-			<Sends label="A" value="0"/>
-			<Sends label="B" value="0"/>
-			<Volume value="65"/>
-		</Track>
-	</Tracks>
-	<IoMaster>
-		<Track name="Reverb">
-			<Volume value="0"/>
-		</Track>
-		<Track name="Delay">
-			<Volume value="0"/>
-		</Track>
-		<Track name="Master">
-			<Volume value="75"/>
-		</Track>
-	</IoMaster>
-</file>

@@ -20,7 +20,7 @@
 		// console.log(event);
 		switch (event.type) {
 			case "load-drumkit":
-				xPath = `//Presets//Item[@name="${event.name}"]`;
+				xPath = `//Drums//Item[@name="${event.name}"]`;
 				// render clip notes
 				window.render({
 					template: "drumkit-pads",

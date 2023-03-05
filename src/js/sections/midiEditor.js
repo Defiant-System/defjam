@@ -158,7 +158,7 @@
 				};
 				// play sound
 				key = keyboard[event.char];
-				if (key) {
+				if (key && Self.sampler) {
 					Self.sampler.triggerAttackRelease([key], 1);
 				}
 				break;
@@ -176,8 +176,10 @@
 					top = (topIndex * keyH) + octave;
 					width = key.includes("#") ? 25 : 32;
 
-					// play sound
-					Self.sampler.triggerAttackRelease([key], 1);
+					if (key && Self.sampler) {
+						// play sound
+						Self.sampler.triggerAttackRelease([key], 1);
+					}
 					// UI update
 					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}

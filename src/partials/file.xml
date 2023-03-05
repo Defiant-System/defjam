@@ -1,0 +1,120 @@
+
+<file>
+	<Tracks>
+		<Track name="Drums" color="#48c" id="track-1">
+			<Pads>
+				<Pad name="Open Hat"/>
+				<Pad name="Closed Hat"/>
+				<Pad name="Clap"/>
+				<Pad name="Kick"/>
+			</Pads>
+			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
+				<b t="0" l="3" d="1" v="1"/>
+
+				<b t="1" l="0" d="1" v="1"/>
+				<b t="1" l="1" d="1" v="1"/>
+				<b t="1" l="4" d="1" v="1"/>
+				<b t="1" l="6" d="1" v="1"/>
+				<b t="1" l="8" d="1" v="1"/>
+				<b t="1" l="10" d="1" v="1"/>
+				<b t="1" l="12" d="1" v="1"/>
+				<b t="1" l="14" d="1" v="1"/>
+
+				<b t="2" l="4" d="1" v="1"/>
+				<b t="2" l="12" d="1" v="1"/>
+
+				<b t="3" l="0" d="1" v="1"/>
+				<b t="3" l="7" d="1" v="1"/>
+				<b t="3" l="10" d="1" v="1"/>
+				<b t="3" l="15" d="1" v="1"/>
+			</Clip>
+
+			<Sends label="A" value="10"/>
+			<Sends label="B" value="30"/>
+			<Volume value="30"/>
+		</Track>
+		<Track name="Grand Piano" color="#77c" id="track-2">
+			<Clip name="Clip 1" row="1" oY="-120" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
+				<b t="14" l="0" d="2" v="1" key="A4"/>
+				<b t="16" l="2" d="2" v="1" key="G4"/>
+				<b t="18" l="4" d="2" v="1" key="F4"/>
+				<b t="16" l="6" d="2" v="1" key="G4"/>
+				<b t="14" l="8" d="2" v="1" key="A4"/>
+				<b t="14" l="10" d="2" v="1" key="A4"/>
+				<b t="14" l="12" d="4" v="1" key="A4"/>
+
+				<b t="16" l="16" d="2" v="1" key="G4"/>
+				<b t="16" l="18" d="2" v="1" key="G4"/>
+				<b t="16" l="20" d="4" v="1" key="G4"/>
+				<b t="14" l="24" d="2" v="1" key="A4"/>
+				<b t="11" l="26" d="2" v="1" key="C5"/>
+				<b t="11" l="28" d="4" v="1" key="C5"/>
+
+				<b t="14" l="32" d="2" v="1" key="A4"/>
+				<b t="16" l="34" d="2" v="1" key="G4"/>
+				<b t="18" l="36" d="2" v="1" key="F4"/>
+				<b t="16" l="38" d="2" v="1" key="G4"/>
+				<b t="14" l="40" d="2" v="1" key="A4"/>
+				<b t="14" l="42" d="2" v="1" key="A4"/>
+				<b t="14" l="44" d="2" v="1" key="A4"/>
+				<b t="14" l="46" d="2" v="1" key="A4"/>
+
+				<b t="16" l="48" d="2" v="1" key="G4"/>
+				<b t="16" l="50" d="2" v="1" key="G4"/>
+				<b t="14" l="52" d="2" v="1" key="A4"/>
+				<b t="16" l="54" d="2" v="1" key="G4"/>
+				<b t="18" l="56" d="8" v="1" key="F4"/>
+
+				<b t="23" l="0" d="8" v="1" key="C4"/>
+				<b t="26" l="0" d="8" v="1" key="A3"/>
+				<b t="30" l="0" d="8" v="1" key="F3"/>
+				<b t="23" l="8" d="8" v="1" key="C4"/>
+				<b t="26" l="8" d="8" v="1" key="A3"/>
+				<b t="30" l="8" d="8" v="1" key="F3"/>
+				<b t="28" l="16" d="8" v="1" key="G3"/>
+				<b t="31" l="16" d="8" v="1" key="E3"/>
+				<b t="35" l="16" d="8" v="1" key="C3"/>
+				<b t="23" l="24" d="8" v="1" key="C4"/>
+				<b t="26" l="24" d="8" v="1" key="A3"/>
+				<b t="30" l="24" d="8" v="1" key="F3"/>
+				<b t="23" l="32" d="8" v="1" key="C4"/>
+				<b t="26" l="32" d="8" v="1" key="A3"/>
+				<b t="30" l="32" d="8" v="1" key="F3"/>
+				<b t="23" l="40" d="8" v="1" key="C4"/>
+				<b t="26" l="40" d="8" v="1" key="A3"/>
+				<b t="30" l="40" d="8" v="1" key="F3"/>
+				<b t="28" l="48" d="8" v="1" key="G3"/>
+				<b t="31" l="48" d="8" v="1" key="E3"/>
+				<b t="35" l="48" d="8" v="1" key="C3"/>
+				<b t="23" l="56" d="8" v="1" key="C4"/>
+				<b t="26" l="56" d="8" v="1" key="A3"/>
+				<b t="30" l="56" d="8" v="1" key="F3"/>
+			</Clip>
+			<Clip name="Clip 2" row="4" id="clip-2-2"/>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="73"/>
+		</Track>
+		<Track name="Chorus" color="#96a" id="track-3">
+			<Clip name="Clip 1" row="2" id="clip-3-2"/>
+			<Clip name="Clip 2" row="4" id="clip-3-4"/>
+			<Clip name="Clip 3" row="5" id="clip-3-5"/>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="65"/>
+		</Track>
+	</Tracks>
+	<IoMaster>
+		<Track name="Reverb">
+			<Volume value="0"/>
+		</Track>
+		<Track name="Delay">
+			<Volume value="0"/>
+		</Track>
+		<Track name="Master">
+			<Volume value="75"/>
+		</Track>
+	</IoMaster>
+</file>

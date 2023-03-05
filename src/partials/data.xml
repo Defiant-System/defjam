@@ -4,6 +4,41 @@
 <Samples>
 	<Drums>
 		<Set name="_unsorted">
+			<s i="3492" name="3492"/>
+			<s i="3493" name="3493"/>
+			<s i="3495" name="3495"/>
+			<s i="3494" name="3494"/>
+			<s i="3496" name="3496"/>
+			<s i="3497" name="3497"/>
+			<s i="3498" name="3498"/>
+			<s i="3499" name="3499"/>
+			<s i="3500" name="3500"/>
+			<s i="3501" name="3501"/>
+			<s i="3503" name="3503"/>
+			<s i="3504" name="3504"/>
+			<s i="3505" name="3505"/>
+			<s i="3506" name="3506"/>
+			<s i="3507" name="3507"/>
+			<s i="3508" name="3508"/>
+			<s i="3509" name="3509"/>
+			<s i="3510" name="3510"/>
+			<s i="3512" name="3512"/>
+			<s i="3513" name="3513"/>
+			<s i="3511" name="3511"/>
+			<s i="3514" name="3514"/>
+			<s i="3515" name="3515"/>
+			<s i="3502" name="3502"/>
+			<s i="3516" name="3516"/>
+			<s i="3517" name="3517"/>
+			<s i="3518" name="3518"/>
+			<s i="3519" name="3519"/>
+			<s i="3520" name="3520"/>
+			<s i="3521" name="3521"/>
+			<s i="3522" name="3522"/>
+			<s i="3523" name="3523"/>
+			<s i="3524" name="3524"/>
+			<s i="3525" name="3525"/>
+			<s i="3526" name="3526"/>
 		</Set>
 
 		<Set name="Bell">
@@ -74,6 +109,7 @@
 			<s i="3338" name="Clap"/>
 			<s i="3561" name="Clap"/>
 			<s i="3585" name="Clap"/>
+			<s i="3533" name="Clap"/>
 			<s i="3386" name="Clap"/>
 			<i i="3631" name="Clap FX"/>
 		</Set>
@@ -183,6 +219,7 @@
 			<s i="3609" name="Kick"/>
 			<s i="3610" name="Kick"/>
 			<s i="3650" name="Kick"/>
+			<s i="3527" name="Kick"/>
 			<s i="3558" name="Kick"/>
 			<s i="3559" name="Kick"/>
 			<s i="3582" name="Kick"/>
@@ -238,6 +275,7 @@
 			<s i="3700" name="Rim"/>
 			<s i="3694" name="Rim"/>
 			<s i="3603" name="Rim"/>
+			<s i="1843" name="Rim"/>
 			<s i="3594" name="Rim"/>
 			<s i="3332" name="Rim"/>
 			<s i="3336" name="Rim"/>
@@ -277,6 +315,8 @@
 			<s i="3636" name="Snare"/>
 			<s i="3637" name="Snare"/>
 			<s i="3652" name="Snare"/>
+			<s i="3529" name="Snare"/>
+			<s i="3531" name="Snare"/>
 			<s i="3601" name="Snare"/>
 			<s i="3560" name="Snare"/>
 			<s i="3562" name="Snare"/>
@@ -327,6 +367,13 @@
 			<s i="3380" name="Tom"/>
 			<s i="3347" name="Tom"/>
 			<s i="3349" name="Tom"/>
+			<s i="3536" name="Tom"/>
+			<s i="3538" name="Tom"/>
+			<s i="3540" name="Tom"/>
+			<s i="3542" name="Tom"/>
+			<s i="3544" name="Tom"/>
+			<s i="3545" name="Tom"/>
+			<s i="3546" name="Tom"/>
 			<s i="1872" name="Tom Low"/>
 			<s i="3705" name="Tom Jazz"/>
 			<s i="3706" name="Tom Jazz"/>

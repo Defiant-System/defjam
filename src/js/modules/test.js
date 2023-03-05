@@ -10,6 +10,9 @@ let Test = {
 		// window.find(`.toolbar-tool_[data-click="pencil"]`).trigger("click");
 
 		window.find(`.panel-left .drums-body .leaf:nth(0) .icon-folder`).trigger("click");
+		setTimeout(() => {
+				window.find(`.chWrapper .leaf:nth(0)`).trigger("click");
+			}, 200);
 
 		defjam.session.dispatch({ type: "render-file" });
 

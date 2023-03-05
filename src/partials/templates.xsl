@@ -3,11 +3,11 @@
 
 <xsl:template name="browser-tree">
 	<xsl:for-each select="./*">
-		<xsl:sort order="ascending" select="@i"/>
-		<xsl:sort order="ascending" select="@name"/>
+		<!-- <xsl:sort order="ascending" select="@i"/>
+		<xsl:sort order="ascending" select="@name"/> -->
 		<div class="leaf">
-			<xsl:if test="@i">
-				<xsl:attribute name="data-id"><xsl:value-of select="@i"/></xsl:attribute>
+			<xsl:if test="@_id">
+				<xsl:attribute name="data-id"><xsl:value-of select="@_id"/></xsl:attribute>
 			</xsl:if>
 			<i class="icon-folder">
 				<xsl:if test="@i">

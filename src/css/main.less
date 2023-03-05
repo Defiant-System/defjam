@@ -1109,6 +1109,12 @@ content {
 						transform: rotate(90deg);
 						filter: drop-shadow(1px 0 0 rgba(0,0,0,.35));
 					}
+
+					> .children {
+						.chWrapper {
+							margin-top: 0;
+						}
+					}
 				}
 
 				&.active > span {
@@ -1146,9 +1152,15 @@ content {
 				}
 
 				> .children {
-					padding: 1px 0 0 1px;
+					padding: 0px 0 0 1px;
+					overflow: hidden;
 					// max-height: 0;
 					// overflow: hidden;
+
+					.chWrapper {
+						margin-top: -100%;
+						transition: margin 150ms ease-in-out;
+					}
 				}
 			}
 		}

@@ -10,6 +10,9 @@
 			audioChart: window.find(".audio-chart"),
 		};
 
+		// auto set id's on tree items that does not have id
+		this.dispatch({ type: "set-sample-ids" });
+
 		// render trees
 		this.dispatch({ type: "init-browser-tree" });
 	},
@@ -18,10 +21,15 @@
 			Self =  APP.browser,
 			name,
 			value,
+			xEl,
+			pEl,
 			el;
 		//console.log(event);
 		switch (event.type) {
 			case "set-sample-ids":
+				value = Date.now();
+				window.bluePrint.selectNodes(`//Samples//*[not(@_id)]`)
+					.map(xSample => xSample.setAttribute("_id", value++));
 				break;
 			case "init-browser-tree":
 				// render sounds
@@ -40,7 +48,8 @@
 			case "do-tree-leaf":
 				// console.log(event);
 				el = $(event.target);
-				el.parents(".box-body").find(".leaf.active").removeClass("active");
+				pEl = el.parents(".box-body");
+				pEl.find(".leaf.active").removeClass("active");
 
 				if (el.hasClass("box-body")) {
 					// hide audio preview
@@ -49,11 +58,13 @@
 					el = el.parent();
 					el.toggleClass("expanded", el.hasClass("expanded"));
 
-					if (!el.find(".children").length) {
+					if (el.find(".children").length) {
+
+					} else { // check if node has child nodes ?
 						window.render({
 							template: "browser-tree",
-							match: `//Drums/Set[@name="_unsorted"]`,
-							target: el.append(`<div class="children"></div`),
+							match: `//Drums/Set[@_id="${el.data("id")}"]`,
+							target: el.append(`<div class="children"><div class="chWrapper"></div></div>`).find("div"),
 						});
 					}
 
@@ -68,7 +79,11 @@
 				}
 				break;
 			case "preview-audio":
-				console.log(event);
+				xEl = window.bluePrint.selectSingleNode(`//Samples//*[@_id="${event.id}"]`);
+				
+				let func = () => pad.start(),
+					pad = new Tone.Player(`${BASE_URL}${xEl.getAttribute("i")}.ogg`, func).toDestination();
+
 				/*
 				Audio.visualizeFile({
 					url: `~/sounds/909 Core Kit/${event.path}`,

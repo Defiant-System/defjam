@@ -4,15 +4,61 @@
 <Samples>
 	<Drums>
 		<Set name="_unsorted">
-			<s i="1867" name="n_a 125"/>
-			<s i="1868" name="n_a 126"/>
-			<s i="1869" name="n_a 128"/>
-			<s i="1844" name="n_a 129"/>
-			<s i="1871" name="n_a 1210"/>
-			<s i="1872" name="n_a 1211"/>
-			<s i="1870" name="n_a 1213"/>
-			<s i="1873" name="n_a 1214"/>
-			<s i="3649" name="n_a 1215"/>
+			<s i="3650" name="Kick"/>
+			<s i="3651" name="Rim"/>
+			<s i="3653" name="Clap"/>
+			<s i="3652" name="Snare"/>
+			<s i="3654" name="Tom"/>
+			<s i="3655" name="Blipp"/>
+			<s i="3656" name="Tom"/>
+			<s i="3657" name="Tom"/>
+			<s i="3658" name="Ride"/>
+			<s i="3659" name="Ride"/>
+			<s i="3660" name="Ride"/>
+			<s i="3661" name="Ride"/>
+			<s i="3662" name="Hit"/>
+			<s i="3663" name="Hihat"/>
+			<s i="3664" name="Hihat"/>
+			<s i="3665" name="Cowbell"/>
+			<s i="3666" name="Ride"/>
+			<s i="3667" name="Wood Vibraslap"/>
+			<s i="3668" name="Ride"/>
+			<s i="3669" name="Cowbell"/>
+			<s i="3670" name="Conga"/>
+			<s i="3671" name="Beep High"/>
+			<s i="3672" name="Beep Mid"/>
+			<s i="3673" name="Scratch"/>
+			<s i="3674" name="Beep Low"/>
+			<s i="3675" name="Bucket"/>
+			<s i="3676" name="Conga"/>
+			<s i="3677" name="Cowbell"/>
+			<s i="3678" name="Cowbell"/>
+			<s i="3679" name="Shaker"/>
+			<s i="3680" name="Shaker"/>
+			<s i="3681" name="Whistle"/>
+			<s i="3682" name="Whistle"/>
+			<s i="3683" name="Guiro"/>
+			<s i="3684" name="Scratch"/>
+			<s i="3685" name="Guiro"/>
+			<s i="3686" name="Cowbell"/>
+			<s i="3687" name="Cowbell"/>
+			<s i="3688" name="Calling High"/>
+			<s i="3689" name="Calling Mid"/>
+			<s i="3690" name="Bell"/>
+			<s i="3691" name="Bell"/>
+			<s i="3692" name="Shaker"/>
+			<s i="3693" name="Tambourine"/>
+			<s i="3694" name="Tambourine"/>
+			<s i="3695" name="Rim"/>
+			<s i="3696" name="Chimes"/>
+			<s i="3697" name="Wood Knock"/>
+			<s i="3698" name="Wood Mid"/>
+			<s i="3699" name="Wood Tick"/>
+			<s i="3700" name="Wood Tick"/>
+			<s i="3701" name="Bell"/>
+			<s i="3702" name="Clave"/>
+			<s i="3703" name="Hihat"/>
+			<s i="3704" name="Hihat"/>
 		</Set>
 
 		<Set name="Bell">
@@ -20,9 +66,13 @@
 			<s i="1840" name="Bell"/>
 			<s i="3624" name="Cowbell"/>
 			<s i="3646" name="Cowbell"/>
+			<s i="1869" name="Chimes"/>
+			<s i="1870" name="Chimes"/>
 			<s i="1839" name="Metallic"/>
 			<s i="3638" name="Bell (synth)"/>
 			<s i="1856" name="Bell"/>
+			<s i="1868" name="Triangle"/>
+			<s i="1867" name="Triangle"/>
 		</Set>
 		<Set name="Bongo">
 
@@ -36,7 +86,6 @@
 		</Set>
 		<Set name="Cymbal">
 			<s i="3623" name="Cymbal"/>
-
 		</Set>
 		<Set name="FX Hit">
 
@@ -90,21 +139,20 @@
 		</Set>
 		<Set name="Tom">
 			<s i="3617" name="Tom"/>
-			<s i="3617" name="Tom"/>
 			<s i="3620" name="Tom"/>
-			<s i="3620" name="Tom"/>
-			<s i="3622" name="Tom"/>
 			<s i="3622" name="Tom"/>
 			<s i="3625" name="Tom"/>
 			<s i="3626" name="Tom"/>
 			<s i="3627" name="Tom"/>
 			<s i="3633" name="Tom"/>
 			<s i="3634" name="Tom"/>
+			<s i="1871" name="Tom"/>
+			<s i="1872" name="Tom Low"/>
+			<s i="3649" name="Tom"/>
 		</Set>
 		<Set name="Timbales">
 			<s i="1854" name="Timbales"/>
 			<s i="1855" name="Timbales"/>
-
 		</Set>
 		<Set name="Wood">
 			<s i="3629" name="Clave"/>
@@ -113,6 +161,7 @@
 			<s i="3648" name="Clave"/>
 			<s i="1861" name="Guiro"/>
 			<s i="1862" name="Guiro"/>
+			<s i="1844" name="Wood Block"/>
 		</Set>
 
 		<Set name="Drumkit">

@@ -4,32 +4,6 @@
 <Samples>
 	<Drums>
 		<Set name="_unsorted">
-			<s i="3381" name="3381"/>
-			<s i="3382" name="3382"/>
-			<s i="3383" name="3383"/>
-			<s i="3384" name="3384"/>
-			<s i="3385" name="3385"/>
-			<s i="3554" name="3554"/>
-			<s i="3386" name="3386"/>
-			<s i="3555" name="3555"/>
-			<s i="3388" name="3388"/>
-			<s i="3389" name="3389"/>
-			<s i="3556" name="3556"/>
-			<s i="3391" name="3391"/>
-			<s i="2009" name="2009"/>
-			<s i="3392" name="3392"/>
-			<s i="3393" name="3393"/>
-			<s i="3394" name="3394"/>
-			<s i="3395" name="3395"/>
-			<s i="3396" name="3396"/>
-			<s i="3397" name="3397"/>
-			<s i="3400" name="3400"/>
-			<s i="3402" name="3402"/>
-			<s i="3403" name="3403"/>
-			<s i="3405" name="3405"/>
-			<s i="3406" name="3406"/>
-			<s i="3407" name="3407"/>
-			<s i="3408" name="3408"/>
 		</Set>
 
 		<Set name="Bell">
@@ -42,6 +16,10 @@
 			<s i="3399" name="Bell"/>
 			<s i="3365" name="Bell"/>
 			<s i="3366" name="Bell"/>
+			<s i="3385" name="Bell"/>
+			<s i="3389" name="Bell"/>
+			<s i="3333" name="Bell"/>
+			<s i="3376" name="Bells"/>
 			<s i="3353" name="Bells"/>
 			<i i="1842" name="Bell FX"/>
 			<s i="3624" name="Cowbell"/>
@@ -55,29 +33,48 @@
 			<s i="3598" name="Cowbell"/>
 			<s i="3599" name="Cowbell"/>
 			<s i="3577" name="Cowbell"/>
+			<s i="3391" name="Cowbell"/>
+			<s i="3372" name="Cowbell"/>
+			<s i="3373" name="Cowbell"/>
+			<s i="3352" name="Cowbell"/>
+			<s i="3355" name="Cowbell"/>
 			<s i="1869" name="Chimes"/>
 			<s i="1870" name="Chimes"/>
+			<s i="3377" name="Chimes"/>
 			<s i="3695" name="Chimes"/>
 			<s i="1839" name="Metallic"/>
 			<s i="3638" name="Bell (synth)"/>
 			<s i="3389" name="Triangle"/>
 			<s i="1868" name="Triangle"/>
+			<s i="3403" name="Triangle"/>
+			<s i="3374" name="Triangle"/>
+			<s i="3375" name="Triangle"/>
 			<s i="1867" name="Triangle"/>
 		</Set>
 		<Set name="Bongo">
+			<s i="3393" name="Bongo"/>
+			<s i="3586" name="Bongo"/>
+			<s i="3588" name="Bongo"/>
 			<s i="2009" name="Bongo"/>
 			<s i="3392" name="Bongo"/>
 			<s i="3393" name="Bongo"/>
 			<s i="3394" name="Bongo"/>
-			<s i="3586" name="Bongo"/>
-			<s i="3588" name="Bongo"/>
+			<s i="3396" name="Bongo"/>
+			<s i="3397" name="Bongo"/>
+			<s i="3407" name="Bongo"/>
+			<s i="3408" name="Bongo"/>
+			<s i="3340" name="Bongo"/>
+			<s i="3342" name="Bongo"/>
+			<s i="3344" name="Bongo"/>
 		</Set>
 		<Set name="Clap">
 			<s i="3614" name="Clap"/>
 			<s i="3631" name="Clap"/>
 			<s i="3653" name="Clap"/>
+			<s i="3338" name="Clap"/>
 			<s i="3561" name="Clap"/>
 			<s i="3585" name="Clap"/>
+			<s i="3386" name="Clap"/>
 			<i i="3631" name="Clap FX"/>
 		</Set>
 		<Set name="Conga">
@@ -94,10 +91,16 @@
 		<Set name="Cymbal">
 			<s i="3623" name="Cymbal"/>
 			<s i="3647" name="Cymbal"/>
+			<s i="3388" name="Cymbal"/>
+			<s i="3556" name="Cymbal"/>
 			<s i="3658" name="Cymbal"/>
 			<s i="3597" name="Cymbal"/>
 			<s i="3573" name="Cymbal"/>
 			<s i="3575" name="Cymbal"/>
+			<s i="3354" name="Cymbal"/>
+			<s i="3345" name="Cymbal"/>
+			<s i="3348" name="Cymbal"/>
+			<s i="3356" name="Cymbal"/>
 			<s i="3574" name="Cymbal Reverse"/>
 			<s i="3719" name="Cymbal Jazz"/>
 			<s i="3721" name="Cymbal Jazz"/>
@@ -167,6 +170,9 @@
 			<s i="3704" name="Hihat"/>
 			<s i="3600" name="Hihat"/>
 			<s i="3605" name="Hihat"/>
+			<s i="3341" name="Hihat"/>
+			<s i="3343" name="Hihat"/>
+			<s i="3351" name="Hihat"/>
 			<s i="3580" name="Hihat"/>
 			<s i="3589" name="Hihat"/>
 			<s i="3566" name="Hihat"/>
@@ -182,6 +188,10 @@
 			<s i="3582" name="Kick"/>
 			<s i="3583" name="Kick"/>
 			<s i="3593" name="Kick"/>
+			<s i="3334" name="Kick"/>
+			<s i="3335" name="Kick"/>
+			<s i="3549" name="Kick"/>
+			<s i="3550" name="Kick"/>
 			<s i="3718" name="Kick Jazz"/>
 			<s i="3716" name="Kick Jazz"/>
 			<s i="3717" name="Kick Jazz"/>
@@ -196,6 +206,9 @@
 			<s i="3682" name="Whistle"/>
 			<s i="3688" name="Calling High"/>
 			<s i="3689" name="Calling Mid"/>
+			<s i="3381" name="Snap"/>
+			<s i="3328" name="Snap"/>
+			<s i="3378" name="Snap"/>
 		</Set>
 		<Set name="Ride">
 			<s i="3641" name="Ride"/>
@@ -206,11 +219,14 @@
 			<s i="3660" name="Ride"/>
 			<s i="3661" name="Ride"/>
 			<s i="3666" name="Ride"/>
+			<s i="3390" name="Ride"/>
 			<s i="3668" name="Ride"/>
 			<s i="3595" name="Ride"/>
 			<s i="3571" name="Ride"/>
 			<s i="3576" name="Ride"/>
 			<s i="3578" name="Ride"/>
+			<s i="3350" name="Ride"/>
+			<s i="3358" name="Ride"/>
 			<s i="3596" name="Ride Reverse"/>
 			<s i="3720" name="Ride Jazz"/>
 		</Set>
@@ -223,8 +239,13 @@
 			<s i="3694" name="Rim"/>
 			<s i="3603" name="Rim"/>
 			<s i="3594" name="Rim"/>
+			<s i="3332" name="Rim"/>
+			<s i="3336" name="Rim"/>
 			<s i="3584" name="Rim"/>
 			<s i="3587" name="Rim"/>
+			<s i="3382" name="Rim"/>
+			<s i="3383" name="Rim"/>
+			<s i="3384" name="Rim"/>
 			<s i="3715" name="Rim Jazz"/>
 			<i i="3725" name="Rim Brush"/>
 			<i i="3726" name="Rim Brush"/>
@@ -238,8 +259,11 @@
 			<s i="3692" name="Shaker"/>
 			<s i="3401" name="Shaker"/>
 			<s i="3404" name="Shaker"/>
+			<s i="3367" name="Shaker"/>
 			<s i="3581" name="Shaker"/>
 			<s i="3368" name="Shaker"/>
+			<s i="3400" name="Shaker"/>
+			<s i="3405" name="Shaker"/>
 			<s i="1931" name="Cabasa Maracas"/>
 			<s i="1932" name="Cabasa Maracas"/>
 			<s i="3707" name="Cabasa Maracas"/>
@@ -253,13 +277,17 @@
 			<s i="3636" name="Snare"/>
 			<s i="3637" name="Snare"/>
 			<s i="3652" name="Snare"/>
-			<s i="3396" name="Snare"/>
-			<s i="3397" name="Snare"/>
 			<s i="3601" name="Snare"/>
 			<s i="3560" name="Snare"/>
 			<s i="3562" name="Snare"/>
 			<s i="3363" name="Snare"/>
+			<s i="3547" name="Snare"/>
 			<s i="3364" name="Snare"/>
+			<s i="3554" name="Snare"/>
+			<s i="3555" name="Snare"/>
+			<s i="3548" name="Snare"/>
+			<s i="3551" name="Snare"/>
+			<s i="3552" name="Snare"/>
 			<s i="3710" name="Snare Jazz"/>
 			<s i="3711" name="Snare Jazz"/>
 			<s i="3712" name="Snare Jazz"/>
@@ -294,6 +322,11 @@
 			<s i="3569" name="Tom"/>
 			<s i="3570" name="Tom"/>
 			<s i="3572" name="Tom"/>
+			<s i="3346" name="Tom"/>
+			<s i="3379" name="Tom"/>
+			<s i="3380" name="Tom"/>
+			<s i="3347" name="Tom"/>
+			<s i="3349" name="Tom"/>
 			<s i="1872" name="Tom Low"/>
 			<s i="3705" name="Tom Jazz"/>
 			<s i="3706" name="Tom Jazz"/>
@@ -315,17 +348,25 @@
 			<s i="3631" name="Clave"/>
 			<s i="1864" name="Clave"/>
 			<s i="3648" name="Clave"/>
+			<s i="3371" name="Clave"/>
 			<s i="3702" name="Clave"/>
+			<s i="3402" name="Clave"/>
+			<s i="3406" name="Clave"/>
 			<i i="1839" name="Clave FX"/>
 			<s i="1861" name="Guiro"/>
 			<s i="1862" name="Guiro"/>
+			<s i="3369" name="Guiro"/>
+			<s i="3370" name="Guiro"/>
 			<s i="3683" name="Guiro"/>
 			<s i="3685" name="Guiro"/>
+			<s i="3330" name="Sticks"/>
 			<s i="1844" name="Wood Block"/>
 			<s i="3697" name="Wood Knock"/>
+			<s i="3331" name="Wood knock"/>
 			<s i="3698" name="Wood Mid"/>
 			<s i="3699" name="Wood Tick"/>
 			<s i="3667" name="Wood Vibraslap"/>
+			<s i="3357" name="Wood Vibraslap"/>
 			<i i="1849" name="Wood Tip FX"/>
 		</Set>
 

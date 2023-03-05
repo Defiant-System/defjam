@@ -27,7 +27,7 @@
 		// synth.triggerAttackRelease("C4", "8n");
 
 		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
-		this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
+		// this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -75,7 +75,7 @@
 			case "load-instrument":
 				value = {
 					urls: {},
-					baseUrl: "/cdn/audio/samples/",
+					baseUrl: BASE_URL,
 				};
 				window.bluePrint.selectNodes(`//Presets//Item[@name="${event.name}"]/s`)
 					.map(x => {

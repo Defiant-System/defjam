@@ -1,5 +1,7 @@
 
 // constants
+const BASE_URL = "/cdn/audio/samples/";
+
 const OCTAVE = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 const KEYS = {

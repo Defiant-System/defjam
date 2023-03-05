@@ -105,4 +105,25 @@
 </xsl:template>
 
 
+<xsl:template name="drumkit-pads">
+	<ul class="pad-list disable-mute1">
+	<xsl:for-each select="./s">
+		<xsl:call-template name="drum-pad" />
+	</xsl:for-each>
+	</ul>
+</xsl:template>
+
+
+<xsl:template name="drum-pad">
+	<li>
+		<span class="pad-name"><xsl:value-of select="@name"/></span>
+		<i class="pad-mute">M</i>
+		<i class="pad-play" data-click="play-pad" data-arg="1">
+			<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
+		</i>
+		<i class="pad-solo">S</i>
+	</li>
+</xsl:template>
+
+
 </xsl:stylesheet>

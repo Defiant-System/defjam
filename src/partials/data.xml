@@ -1,5 +1,34 @@
 
 <Presets>
+	<Set name="Drumkit">
+		<Item name="TR Kit">
+			<s i="3609" n="1" name="Kick 1"/>
+			<s i="3610" n="2" name="Kick 2"/>
+			<s i="3611" n="3" name="Rim"/>
+			<s i="3612" n="4" name="Snare"/>
+			<s i="3613" n="5" name="Snare"/>
+			<s i="3614" n="6" name="Clap"/>
+			<s i="3615" n="7" name="Snare"/>
+			<s i="3616" n="8" name="Snare"/>
+			<s i="3617" n="9" name="Tom Low"/>
+			<s i="3618" n="10" name="Hihat"/>
+			<s i="3617" n="11" name="Tom Mid"/>
+			<s i="3619" n="12" name="Hihat"/>
+			<s i="3620" n="13" name="Tom High"/>
+			<s i="3621" n="14" name="Hihat (open)"/>
+			<s i="3620" n="15" name="Bongo"/>
+			<s i="3622" n="16" name="Bongo"/>
+			<s i="3623" n="17" name="Cymbal"/>
+			<s i="3622" n="18" name="Marimba"/>
+			<s i="3624" n="19" name="Cowbell"/>
+			<s i="3625" n="20" name="Marimba"/>
+			<s i="3626" n="21" name="Marimba"/>
+			<s i="3627" n="22" name="Marimba"/>
+			<s i="3628" n="23" name="Hihat"/>
+			<s i="3629" n="24" name="Claves"/>
+
+		</Item>
+	</Set>
 	<Set name="Piano">
 		<Item name="Acoustic Grand Piano"/>
 		<Item name="Bright Acoustic Piano">

@@ -28,7 +28,7 @@
 
 		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
 		// this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
-		this.dispatch({ type: "load-instrument", name: "Dulcimer" });
+		this.dispatch({ type: "load-instrument", name: "Pizzicato Strings" });
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -153,9 +153,9 @@
 		switch (event.type) {
 			case "window.keystroke":
 				keyboard = {
-					a: "C4",
-					s: "D4",
-					d: "E4",
+					a: "C3",
+					s: "D3",
+					d: "E3",
 				};
 				// play sound
 				key = keyboard[event.char];

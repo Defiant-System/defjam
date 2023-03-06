@@ -558,8 +558,6 @@
 
 
 
-
-
 		<Set name="Xylo R">
 			<s i="3288" name="1"/>
 			<s i="3289" name="2"/>
@@ -783,14 +781,72 @@
 			<Item name="Drawbar Organ"/>
 			<Item name="Percussive Organ"/>
 			<Item name="Rock Organ"/>
-			<Item name="Church Organ"/>
+			<Item name="Church Organ">
+				<s i="237" n="43"/>
+				<s i="240" n="51"/>
+				<s i="242" n="60"/>
+				<s i="244" n="68"/>
+				<s i="245" n="83"/>
+				<s i="247" n="91"/>
+				<s i="249" n="127"/>
+				<s i="251" n="76"/>
+			</Item>
 			<Item name="Reed Organ"/>
 			<Item name="Accordion"/>
-			<Item name="Harmonica"/>
+			<Item name="Harmonica">
+				<s i="355" n="50"/>
+				<s i="356" n="57"/>
+				<s i="357" n="60"/>
+				<s i="358" n="63"/>
+				<s i="359" n="66"/>
+				<s i="360" n="69"/>
+				<s i="361" n="72"/>
+				<s i="362" n="75"/>
+				<s i="363" n="81"/>
+				<s i="364" n="84"/>
+			</Item>
 			<Item name="Tango Accordion"/>
 		</Set>
 		<Set name="Guitar">
-			<Item name="Acoustic Guitar (nylon)"/>
+			<Item name="Acoustic Guitar (nylon)">
+				<s i="454" n="40"/>
+				<s i="455" n="41"/>
+				<s i="456" n="42"/>
+				<s i="457" n="43"/>
+				<s i="458" n="44"/>
+				<s i="459" n="45"/>
+				<s i="460" n="46"/>
+				<s i="461" n="47"/>
+				<s i="462" n="48"/>
+				<s i="463" n="49"/>
+				<s i="464" n="50"/>
+				<s i="465" n="51"/>
+				<s i="466" n="52"/>
+				<s i="467" n="53"/>
+				<s i="468" n="54"/>
+				<s i="469" n="55"/>
+				<s i="470" n="56"/>
+				<s i="471" n="57"/>
+				<s i="472" n="58"/>
+				<s i="473" n="59"/>
+				<s i="474" n="60"/>
+				<s i="475" n="61"/>
+				<s i="476" n="62"/>
+				<s i="477" n="63"/>
+				<s i="478" n="64"/>
+				<s i="479" n="65"/>
+				<s i="480" n="66"/>
+				<s i="481" n="67"/>
+				<s i="482" n="68"/>
+				<s i="483" n="69"/>
+				<s i="484" n="70"/>
+				<s i="485" n="71"/>
+				<s i="486" n="72"/>
+				<s i="487" n="73"/>
+				<s i="488" n="74"/>
+				<s i="489" n="75"/>
+				<s i="490" n="76"/>
+			</Item>
 			<Item name="Acoustic Guitar (steel)"/>
 			<Item name="Electric Guitar (jazz)"/>
 			<Item name="Electric Guitar (clean)"/>
@@ -811,11 +867,93 @@
 		</Set>
 		<Set name="Strings">
 			<Item name="Violin"/>
-			<Item name="Viola"/>
-			<Item name="Cello"/>
-			<Item name="Contrabass"/>
-			<Item name="Tremolo Strings"/>
-			<Item name="Pizzicato Strings"/>
+			<Item name="Viola">
+				<s i="549" n="52"/>
+				<s i="550" n="56"/>
+				<s i="551" n="60"/>
+				<s i="552" n="64"/>
+				<s i="553" n="68"/>
+				<s i="554" n="72"/>
+				<s i="555" n="76"/>
+				<s i="556" n="80"/>
+				<s i="557" n="84"/>
+			</Item>
+			<Item name="Cello">
+				<s i="558" n="38"/>
+				<s i="559" n="43"/>
+				<s i="560" n="48"/>
+				<s i="561" n="50"/>
+				<s i="562" n="55"/>
+				<s i="564" n="65"/>
+				<s i="565" n="71"/>
+				<s i="566" n="76"/>
+				<s i="567" n="81"/>
+			</Item>
+			<Item name="Contrabass">
+				<s i="588" n="26"/>
+				<s i="589" n="29"/>
+				<s i="590" n="36"/>
+				<s i="591" n="40"/>
+				<s i="592" n="41"/>
+				<s i="593" n="43"/>
+				<s i="594" n="44"/>
+				<s i="595" n="46"/>
+				<s i="596" n="48"/>
+				<s i="597" n="50"/>
+				<s i="598" n="52"/>
+				<s i="599" n="55"/>
+			</Item>
+			<Item name="Tremolo Strings">
+				<s i="610" n="28"/>
+				<s i="612" n="32"/>
+				<s i="614" n="36"/>
+				<s i="634" n="36"/>
+				<s i="637" n="40"/>
+				<s i="638" n="44"/>
+				<s i="641" n="48"/>
+				<s i="642" n="52"/>
+				<s i="645" n="56"/>
+				<s i="647" n="60"/>
+				<s i="670" n="48"/>
+				<s i="672" n="52"/>
+				<s i="673" n="52"/>
+				<s i="675" n="56"/>
+				<s i="676" n="61"/>
+				<s i="678" n="64"/>
+				<s i="680" n="68"/>
+				<s i="682" n="72"/>
+				<s i="684" n="76"/>
+				<s i="686" n="79"/>
+				<s i="688" n="80"/>
+				<s i="690" n="81"/>
+				<s i="710" n="55"/>
+				<s i="712" n="56"/>
+				<s i="714" n="60"/>
+				<s i="716" n="64"/>
+				<s i="718" n="68"/>
+				<s i="720" n="72"/>
+				<s i="722" n="76"/>
+				<s i="724" n="80"/>
+				<s i="726" n="84"/>
+			</Item>
+			<Item name="Pizzicato Strings">
+				<s i="729" n="36"/>
+				<s i="731" n="39"/>
+				<s i="733" n="42"/>
+				<s i="735" n="45"/>
+				<s i="737" n="48"/>
+				<s i="739" n="51"/>
+				<s i="741" n="54"/>
+				<s i="743" n="57"/>
+				<s i="747" n="63"/>
+				<s i="749" n="66"/>
+				<s i="751" n="69"/>
+				<s i="753" n="72"/>
+				<s i="755" n="75"/>
+				<s i="757" n="78"/>
+				<s i="759" n="81"/>
+				<s i="761" n="84"/>
+			</Item>
 			<Item name="Orchestral Harp"/>
 			<Item name="Timpani"/>
 		</Set>

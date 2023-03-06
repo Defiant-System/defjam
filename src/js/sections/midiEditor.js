@@ -28,6 +28,7 @@
 
 		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
 		// this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
+		this.dispatch({ type: "load-instrument", name: "Dulcimer" });
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -77,7 +78,7 @@
 					urls: {},
 					baseUrl: BASE_URL,
 				};
-				window.bluePrint.selectNodes(`//Presets//Item[@name="${event.name}"]/s`)
+				window.bluePrint.selectNodes(`//Instruments//Item[@name="${event.name}"]/s`)
 					.map(x => {
 						let i = +x.getAttribute("i"),
 							n = +x.getAttribute("n");
@@ -159,7 +160,7 @@
 				// play sound
 				key = keyboard[event.char];
 				if (key && Self.sampler) {
-					Self.sampler.triggerAttackRelease([key], 1);
+					Self.sampler.triggerAttackRelease([key], 1, Tone.now(), .75);
 				}
 				break;
 			case "mousedown":

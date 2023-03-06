@@ -61,6 +61,9 @@
 			<s i="3695" name="Chimes"/>
 			<s i="1839" name="Metallic"/>
 			<s i="3638" name="Bell (synth)"/>
+			<s i="3266" name="Tinkerbell"/>
+			<s i="3267" name="Tinkerbell"/>
+			<s i="3268" name="Tinkerbell"/>
 			<s i="3389" name="Triangle"/>
 			<s i="1868" name="Triangle"/>
 			<s i="3403" name="Triangle"/>
@@ -460,6 +463,7 @@
 			<s i="3448" name="Tom"/>
 			<s i="3450" name="Tom"/>
 			<s i="3452" name="Tom"/>
+			<s i="3313" name="Tom"/>
 			<s i="3454" name="Tom"/>
 			<s i="3314" name="Tom"/>
 			<s i="3519" name="Tom Hi"/>
@@ -551,8 +555,122 @@
 	</Drums>
 
 	<Instruments>
+
+
+
+
+
+		<Set name="Xylo R">
+			<s i="3288" name="1"/>
+			<s i="3289" name="2"/>
+			<s i="3290" name="3"/>
+			<s i="3291" name="4"/>
+			<s i="3292" name="5"/>
+			<s i="3293" name="6"/>
+			<s i="3294" name="7"/>
+			<s i="3295" name="8"/>
+			<s i="3296" name="9"/>
+			<s i="3297" name="10"/>
+			<s i="3298" name="11"/>
+			<s i="3299" name="12"/>
+			<s i="3300" name="13"/>
+			<s i="3301" name="14"/>
+			<s i="3302" name="15"/>
+			<s i="3303" name="16"/>
+			<s i="3304" name="17"/>
+			<s i="3305" name="18"/>
+			<s i="3306" name="19"/>
+		</Set>
+		<Set name="Xylo L">
+			<s i="3269" name="1"/>
+			<s i="3270" name="2"/>
+			<s i="3271" name="3"/>
+			<s i="3272" name="4"/>
+			<s i="3273" name="5"/>
+			<s i="3274" name="6"/>
+			<s i="3275" name="7"/>
+			<s i="3276" name="8"/>
+			<s i="3277" name="9"/>
+			<s i="3278" name="10"/>
+			<s i="3279" name="11"/>
+			<s i="3280" name="12"/>
+			<s i="3281" name="13"/>
+			<s i="3282" name="14"/>
+			<s i="3283" name="15"/>
+			<s i="3284" name="16"/>
+			<s i="3285" name="17"/>
+			<s i="3286" name="18"/>
+			<s i="3287" name="19"/>
+		</Set>
+
+
+		<Set name="Misc">
+			<Item name="Star Theme">
+				<s i="3254" n="52"/>
+				<s i="3255" n="61"/>
+				<s i="3256" n="69"/>
+				<s i="3257" n="74"/>
+				<s i="3258" n="80"/>
+				<s i="3259" n="106"/>
+				<s i="3211" n="67"/>
+				<s i="3212" n="75"/>
+				<s i="3213" n="87"/>
+				<s i="3214" n="106"/>
+			</Item>
+		</Set>
+
 		<Set name="Piano">
-			<Item name="Acoustic Grand Piano"/>
+			<Item name="Acoustic Grand Piano">
+				<s i="51" n="17"/>
+				<s i="52" n="23"/>
+				<s i="53" n="23"/>
+				<s i="54" n="26"/>
+				<s i="55" n="26"/>
+				<s i="56" n="29"/>
+				<s i="57" n="29"/>
+				<s i="58" n="32"/>
+				<s i="59" n="32"/>
+				<s i="60" n="35"/>
+				<s i="61" n="35"/>
+				<s i="62" n="38"/>
+				<s i="63" n="38"/>
+				<s i="64" n="41"/>
+				<s i="65" n="41"/>
+				<s i="66" n="44"/>
+				<s i="67" n="44"/>
+				<s i="68" n="47"/>
+				<s i="69" n="47"/>
+				<s i="70" n="50"/>
+				<s i="71" n="50"/>
+				<s i="72" n="55"/>
+				<s i="73" n="55"/>
+				<s i="74" n="58"/>
+				<s i="75" n="58"/>
+				<s i="76" n="62"/>
+				<s i="77" n="62"/>
+				<s i="78" n="65"/>
+				<s i="79" n="65"/>
+				<s i="80" n="68"/>
+				<s i="81" n="68"/>
+				<s i="82" n="74"/>
+				<s i="83" n="74"/>
+				<s i="84" n="78"/>
+				<s i="85" n="78"/>
+				<s i="86" n="83"/>
+				<s i="87" n="83"/>
+				<s i="88" n="86"/>
+				<s i="89" n="86"/>
+				<s i="90" n="89"/>
+				<s i="91" n="89"/>
+				<s i="92" n="95"/>
+				<s i="93" n="95"/>
+				<s i="94" n="98"/>
+				<s i="95" n="98"/>
+				<s i="96" n="101"/>
+				<s i="97" n="101"/>
+				<s i="98" n="104"/>
+				<s i="99" n="104"/>
+			</Item>
 			<Item name="Bright Acoustic Piano">
 				<s i="1" n="102"/>
 				<s i="3" n="105"/>
@@ -583,11 +701,31 @@
 			<Item name="Honky-tonk Piano"/>
 			<Item name="Electric Piano 1"/>
 			<Item name="Electric Piano 2"/>
-			<Item name="Harpsichord"/>
+			<Item name="Harpsichord">
+				<s i="143" n="28"/>
+				<s i="144" n="35"/>
+				<s i="145" n="40"/>
+				<s i="146" n="47"/>
+				<s i="147" n="52"/>
+				<s i="148" n="59"/>
+				<s i="149" n="64"/>
+				<s i="150" n="71"/>
+				<s i="151" n="76"/>
+				<s i="152" n="83"/>
+				<s i="153" n="88"/>
+			</Item>
 			<Item name="Clavinet"/>
 		</Set>
 		<Set name="Chromatic Perc.">
-			<Item name="Celesta"/>
+			<Item name="Celesta">
+				<s i="157" n="72"/>
+				<s i="159" n="84"/>
+				<s i="161" n="96"/>
+				<s i="163" n="54"/>
+				<s i="165" n="66"/>
+				<s i="167" n="78"/>
+				<s i="169" n="90"/>
+			</Item>
 			<Item name="Glockenspiel">
 				<s i="170" n="68"/>
 				<s i="170" n="68"/>
@@ -598,12 +736,48 @@
 				<s i="171" n="92"/>
 				<s i="171" n="92"/>
 			</Item>
-			<Item name="Music Box"/>
-			<Item name="Vibraphone"/>
-			<Item name="Marimba"/>
-			<Item name="Xylophone"/>
+			<Item name="Music Box">
+				<s i="172" n="89"/>
+				<s i="173" n="106"/>
+			</Item>
+			<Item name="Vibraphone">
+				<s i="177" n="65"/>
+				<s i="179" n="72"/>
+				<s i="181" n="77"/>
+				<s i="183" n="84"/>
+			</Item>
+			<Item name="Marimba">
+				<s i="185" n="48"/>
+				<s i="187" n="50"/>
+				<s i="189" n="52"/>
+				<s i="191" n="55"/>
+				<s i="193" n="64"/>
+				<s i="195" n="65"/>
+				<s i="197" n="67"/>
+				<s i="199" n="71"/>
+				<s i="201" n="74"/>
+				<s i="203" n="76"/>
+				<s i="205" n="81"/>
+				<s i="207" n="83"/>
+				<s i="209" n="91"/>
+				<s i="211" n="93"/>
+				<s i="213" n="96"/>
+			</Item>
+			<Item name="Xylophone">
+				<s i="214" n="64"/>
+				<s i="215" n="68"/>
+				<s i="216" n="76"/>
+				<s i="217" n="96"/>
+			</Item>
 			<Item name="Tubular Bells"/>
-			<Item name="Dulcimer"/>
+			<Item name="Dulcimer">
+				<s i="222" n="48"/>
+				<s i="224" n="72"/>
+				<s i="225" n="83"/>
+				<s i="226" n="96"/>
+				<s i="225" n="83"/>
+				<s i="224" n="72"/>
+			</Item>
 		</Set>
 		<Set name="Organ">
 			<Item name="Drawbar Organ"/>
@@ -682,6 +856,14 @@
 			<Item name="Pan Flute"/>
 			<Item name="Blown Bottle"/>
 			<Item name="Shakuhachi"/>
+			<Item name="Shenai">
+				<s i="3307" n="48"/>
+				<s i="3260" n="54"/>
+				<s i="3262" n="66"/>
+				<s i="3263" n="72"/>
+				<s i="3264" n="78"/>
+				<s i="3265" n="84"/>
+			</Item>
 			<Item name="Whistle"/>
 			<Item name="Ocarina"/>
 		</Set>
@@ -728,7 +910,12 @@
 		<Set name="Percussive">
 			<Item name="Tinkle Bell"/>
 			<Item name="Agogo"/>
-			<Item name="Steel Drum"/>
+			<Item name="Steel Drum">
+				<s i="3307" n="48"/>
+				<s i="3309" n="72"/>
+				<s i="3310" n="84"/>
+				<s i="3311" n="96"/>
+			</Item>
 			<Item name="Woodblock"/>
 			<Item name="Taiko Drum"/>
 			<Item name="Melodic Tom"/>

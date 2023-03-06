@@ -35,7 +35,7 @@
 				// render sounds
 				window.render({
 					template: "browser-tree",
-					match: `//Presets`,
+					match: `//Instruments`,
 					target: Self.els.el.find(".sounds-body .tree"),
 				});
 				// render drums

@@ -1084,6 +1084,24 @@
 				<s i="1205" n="71"/>
 				<s i="1206" n="71"/>
 			</Item>
+			<Item name="Trumpet 2">
+				<s i="1312" n="53"/>
+				<s i="1313" n="60"/>
+				<s i="1314" n="67"/>
+				<s i="1315" n="73"/>
+				<s i="1316" n="79"/>
+				<s i="1317" n="83"/>
+				<s i="1318" n="85"/>
+			</Item>
+			<Item name="Trumpet 3">
+				<s i="1331" n="53"/>
+				<s i="1332" n="58"/>
+				<s i="1333" n="63"/>
+				<s i="1334" n="68"/>
+				<s i="1335" n="73"/>
+				<s i="1336" n="78"/>
+				<s i="1337" n="83"/>
+			</Item>
 			<Item name="Trombone">
 				<s i="1207" n="35"/>
 				<s i="1208" n="38"/>
@@ -1098,15 +1116,77 @@
 				<s i="1217" n="62"/>
 				<s i="1218" n="67"/>
 			</Item>
-			<Item name="Tuba"/>
-			<Item name="Muted Trumpet"/>
-			<Item name="French Horn"/>
+			<Item name="Trombone 2">
+				<s i="1319" n="40"/>
+				<s i="1320" n="43"/>
+				<s i="1321" n="46"/>
+				<s i="1322" n="49"/>
+				<s i="1323" n="52"/>
+				<s i="1324" n="55"/>
+				<s i="1325" n="58"/>
+				<s i="1326" n="61"/>
+				<s i="1327" n="64"/>
+				<s i="1328" n="67"/>
+				<s i="1329" n="73"/>
+				<s i="1330" n="76"/>
+			</Item>
+			<Item name="Tuba">
+				<s i="1236" n="46"/>
+				<s i="1237" n="51"/>
+				<s i="1238" n="56"/>
+				<s i="1239" n="65"/>
+				<s i="1240" n="70"/>
+			</Item>
+			<Item name="Muted Trumpet">
+				<s i="1252" n="63"/>
+				<s i="1253" n="66"/>
+				<s i="1254" n="69"/>
+				<s i="1255" n="72"/>
+				<s i="1256" n="73"/>
+				<s i="1257" n="75"/>
+				<s i="1258" n="78"/>
+				<s i="1259" n="80"/>
+				<s i="1260" n="87"/>
+				<s i="1261" n="94"/>
+				<s i="1262" n="98"/>
+			</Item>
+			<Item name="French Horn">
+				<s i="1277" n="34"/>
+				<s i="1279" n="38"/>
+				<s i="1281" n="42"/>
+				<s i="1283" n="46"/>
+				<s i="1285" n="50"/>
+				<s i="1287" n="54"/>
+				<s i="1289" n="58"/>
+				<s i="1291" n="62"/>
+				<s i="1293" n="66"/>
+				<s i="1295" n="70"/>
+				<s i="1297" n="74"/>
+			</Item>
+			<Item name="French Horn 2">
+				<s i="1299" n="52"/>
+				<s i="1301" n="55"/>
+				<s i="1303" n="60"/>
+				<s i="1305" n="64"/>
+				<s i="1307" n="67"/>
+				<s i="1309" n="70"/>
+				<s i="1311" n="83"/>
+			</Item>
 			<Item name="Brass Section"/>
 			<Item name="Synth Brass 1"/>
 			<Item name="Synth Brass 2"/>
 		</Set>
 		<Set name="Reed">
-			<Item name="Soprano Sax"/>
+			<Item name="Soprano Sax">
+				<s i="1350" n="64"/>
+				<s i="1351" n="68"/>
+				<s i="1352" n="72"/>
+				<s i="1353" n="76"/>
+				<s i="1354" n="80"/>
+				<s i="1355" n="84"/>
+				<s i="1356" n="88"/>
+				<s i="1357" n="92"/>
+			</Item>
 			<Item name="Alto Sax"/>
 			<Item name="Tenor Sax"/>
 			<Item name="Baritone Sax"/>

@@ -1187,9 +1187,26 @@
 				<s i="1356" n="88"/>
 				<s i="1357" n="92"/>
 			</Item>
-			<Item name="Alto Sax"/>
-			<Item name="Tenor Sax"/>
-			<Item name="Baritone Sax"/>
+			<Item name="Alto Sax">
+				<s i="1423" n="51"/>
+				<s i="1424" n="55"/>
+				<s i="1425" n="58"/>
+				<s i="1426" n="62"/>
+				<s i="1427" n="65"/>
+				<s i="1428" n="69"/>
+				<s i="1429" n="72"/>
+				<s i="1430" n="77"/>
+			</Item>
+			<Item name="Baritone Sax">
+				<s i="1439" n="38"/>
+				<s i="1441" n="41"/>
+				<s i="1443" n="48"/>
+				<s i="1445" n="52"/>
+				<s i="1447" n="55"/>
+				<s i="1449" n="64"/>
+				<s i="1451" n="72"/>
+				<s i="1454" n="84"/>
+			</Item>
 			<Item name="Oboe"/>
 			<Item name="English Horn"/>
 			<Item name="Bassoon"/>

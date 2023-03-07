@@ -18,16 +18,18 @@
 
 		// defaults
 		this.display = {
-			show: this.els.display.hasClass("show-time") ? "time" : "barBeat",
+			show: this.els.display.hasClass("show-time") ? "time" : "bar-beat",
 		}
 
 		// bind event handler
 		this.els.display.on("mousedown", ".tempo", this.doDisplayTempo);
 
 		// reset dim
-		let width = this.els.canvas.prop("offsetWidth"),
-			height = this.els.canvas.prop("offsetHeight");
-		this.els.canvas.prop({ width, height });
+		this.els.canvas.attr({
+			width: this.els.canvas.prop("offsetWidth"),
+			height: this.els.canvas.prop("offsetHeight"),
+			"data-context": "display-menu",
+		});
 		// display canvas
 		this.cvs = this.els.canvas[0];
 		this.ctx = this.cvs.getContext("2d");
@@ -40,6 +42,7 @@
 			name,
 			value,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "pencil":
 				value = event.el.hasClass("tool-active_");
@@ -52,6 +55,13 @@
 				value = Self.els.btnPlay.hasClass("tool-active_");
 				Self.els.btnPlay.toggleClass("tool-active_", value);
 				return !value;
+			case "show-display":
+				Self.display.show = event.arg;
+				Self.els.display
+					.removeClass("show-time show-bar-beat")
+					.addClass(`show-${event.arg}`)
+				Self.updateDisplay();
+				break;
 		}
 	},
 	updateDisplay(data={}) {
@@ -71,7 +81,7 @@
 		ctx.textBaseline = "bottom";
 
 		switch (this.display.show) {
-			case "barBeat":
+			case "bar-beat":
 				ctx.fillText("001.1", 44, 23);
 				break;
 			case "time":

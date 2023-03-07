@@ -47,4 +47,9 @@
 		<Menu type="divider"/>
 		<Menu name="Delete" click="remove-sheet"/>
 	</Menu>
+
+	<Menu for="display-menu">
+		<Menu name="Show Bar / Beat" click="show-display" arg="bar-beat" check-group="display-view" is-checked="1"/>
+		<Menu name="Show Time" click="show-display" arg="time" check-group="display-view"/>
+	</Menu>
 </MenuBar>

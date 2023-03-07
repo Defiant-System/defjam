@@ -31,7 +31,7 @@ const defjam = {
 	dispatch(event) {
 		let Self = defjam,
 			el;
-		//console.log(event);
+		// console.log(event);
 		switch (event.type) {
 			// system events
 			case "window.keystroke":
@@ -51,14 +51,14 @@ const defjam = {
 			case "render-view":
 				break;
 			default:
-				el = event.el;
+				el = event.el || (event.origin ? event.origin.el : null);
 				if (el) {
 					let rEl = el.parents("[data-section]"),
 						section = rEl.data("section");
 					if (section) {
 						return Self[section].dispatch(event);
 					}
-					if (el.hasClass("toolbar-tool_")) {
+					if (el.parents(".win-caption-toolbar_").length) {
 						return Self.toolbar.dispatch(event);	
 					}
 				}

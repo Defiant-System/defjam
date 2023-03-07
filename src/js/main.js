@@ -1,9 +1,10 @@
 
 @import "./modules/ux.js";
+@import "./modules/jam.js";
 @import "./modules/misc.js";
 @import "./modules/audio.js";
-@import "./modules/test.js";
 @import "./classes/file.js";
+@import "./modules/test.js";
 
 
 
@@ -17,6 +18,7 @@ const defjam = {
 		};
 		// init auxiliary objects
 		UX.init();
+		Jam.init();
 		Audio.init();
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());

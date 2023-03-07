@@ -374,7 +374,7 @@
 					clickY = event.clientY,
 					clickX = event.clientX,
 					floor_ = Math.floor,
-					name = "A4";
+					name = "";
 
 				t = floor_(event.offsetY / Self.details.keyH),
 				l = floor_(event.offsetX / Self.details.noteW);

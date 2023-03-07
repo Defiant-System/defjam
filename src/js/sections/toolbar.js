@@ -82,14 +82,14 @@
 
 		switch (this.display.show) {
 			case "bar-beat":
-				ctx.fillText("001.1", 44, 23);
+				ctx.fillText("001.1", 44, 22);
 				break;
 			case "time":
-				ctx.fillText("00:00.01", 54, 23);
+				ctx.fillText("00:00.01", 54, 22);
 				break;
 		}
 		// tempo
-		ctx.fillText(tempo, 144, 23);
+		ctx.fillText(tempo, 144, 22);
 	},
 	doDisplayTempo(event) {
 		let APP = defjam,

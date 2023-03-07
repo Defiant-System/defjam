@@ -9,6 +9,11 @@
 			el: window.find(".win-caption-toolbar_"),
 			display: window.find(".win-caption-toolbar_ .display"),
 			canvas: window.find(".win-caption-toolbar_ .display canvas"),
+			btnRewind: window.find(`.toolbar-tool_[data-click="rewind"]`),
+			btnForward: window.find(`.toolbar-tool_[data-click="forward"]`),
+			btnStop: window.find(`.toolbar-tool_[data-click="stop"]`),
+			btnPlay: window.find(`.toolbar-tool_[data-click="play"]`),
+			btnRecord: window.find(`.toolbar-tool_[data-click="record"]`),
 		};
 
 		// defaults
@@ -41,6 +46,11 @@
 				// set midi editor mode
 				APP.midiEditor.mode = value ? "lasso" : "pencil";
 				// UI update toolbar tool
+				return !value;
+			case "toggle-play":
+			case "play":
+				value = Self.els.btnPlay.hasClass("tool-active_");
+				Self.els.btnPlay.toggleClass("tool-active_", value);
 				return !value;
 		}
 	},

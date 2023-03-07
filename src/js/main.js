@@ -36,7 +36,16 @@ const defjam = {
 			// system events
 			case "window.keystroke":
 				// temp pass along
-				Self.midiEditor.doPiano(event);
+				switch (event.char) {
+					case "space":
+						Self.toolbar.dispatch({ type: "toggle-play" });
+						break;
+					case "a":
+					case "s":
+					case "d":
+						Self.midiEditor.doPiano(event);
+						break;
+				}
 				break;
 			// custom events
 			case "render-view":

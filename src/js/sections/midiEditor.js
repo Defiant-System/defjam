@@ -28,7 +28,7 @@
 
 		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
 		// this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
-		this.dispatch({ type: "load-instrument", name: "Pizzicato Strings" });
+		this.dispatch({ type: "load-instrument", name: "Baritone Sax" });
 	},
 	dispatch(event) {
 		let APP = defjam,

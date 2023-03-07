@@ -34,7 +34,7 @@
 			<Volume value="30"/>
 		</Track>
 		<Track name="Grand Piano" color="#77c" id="track-2">
-			<Clip name="Clip 1" row="1" oY="-120" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
+			<Clip name="Clip 1" row="1" oY="-600" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
 				<b t="14" l="0" d="2" v="1" key="A4"/>
 				<b t="16" l="2" d="2" v="1" key="G4"/>
 				<b t="18" l="4" d="2" v="1" key="F4"/>

@@ -1,20 +1,27 @@
 <CaptionToolBar>
-	<Group width="37%" class="tools-left">
+	<Group class="tools-left">
 		<Options>
 			<Tool symbol="icon-rewind" click="rewind"/>
 			<Tool symbol="icon-forward" click="forward"/>
 			<Tool symbol="icon-stop" click="stop"/>
 			<Tool symbol="icon-play" click="play"/>
 			<Tool symbol="icon-record" click="record"/>
-			<Tool symbol="icon-loop" click="loop"/>
 		</Options>
 	</Group>
-	<Group class="timer">
+	<Group class="display show-time1">
 		<Field>
+			<span class="hr">Hr</span>
+			<span class="min">Min</span>
+			<span class="sec">Sec</span>
+			<span class="bar">Bar</span>
+			<span class="beat">Beat</span>
+			<span class="tempo">Tempo</span>
 		</Field>
+		<Canvas/>
 	</Group>
-	<Group width="41%" class="tools-right">
+	<Group class="tools-right">
 		<Options type="grouped">
+			<Tool symbol="icon-loop" click="loop"/>
 			<Tool symbol="icon-metronome" click="metronome"/>
 			<Tool symbol="icon-pencil" click="pencil"/>
 			<Tool symbol="icon-piano-keys" click="piano-keys"/>

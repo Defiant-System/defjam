@@ -4,6 +4,7 @@ class File {
 	constructor() {
 		// temporary
 		this._file = window.bluePrint.selectSingleNode(`//file`);
+		this._tempo = 120;
 	}
 
 	dispatch(event) {

@@ -1,44 +1,57 @@
 
 const Jam = {
 	init() {
-		let channel = new Tone.Channel().toDestination();
+		this.channel1 = new Tone.Channel().toDestination();
+		this.channel2 = new Tone.Channel().toDestination();
 
+		// channel 1
 		let data = {
-			urls: {
-				0: "3609.ogg", // kick
-				1: "3612.ogg", // snare
-				2: "1841.ogg", // rim
-				3: "3639.ogg", // hihat
+				urls: {
+					0: "3609.ogg", // kick
+					1: "3612.ogg", // snare
+					2: "3639.ogg", // hihat
+				},
+				fadeOut: "4n",
+				baseUrl: "/cdn/audio/samples/",
 			},
-			fadeOut: "4n",
-			baseUrl: "/cdn/audio/samples/",
-		};
-		let pads = new Tone.Players(data);
-		
-		pads.connect(channel);
-
-
-		let beat = 0;
-		let grid = [
+			drumkit = new Tone.Players(data).connect(this.channel1),
+			beat = 0,
+			grid = [
 				[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], // kick
 				[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0], // snare
-				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // rim
 				[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
-			];
+			],
+			repeat1 = time => {
+				grid.map((row, index) => {
+					if (row[beat]) {
+						drumkit.player(index).sync().start(time, 0, "4n");
+					}
+				});
+				beat = (beat + 1) % 16;
+			};
 
-		let repeat = time => {
-			grid.map((row, index) => {
-				let pad = pads[index],
-					note = row[beat];
-				if (note) {
-					pads.player(index).start(time, 0, "4n");
-				}
-			});
-			beat = (beat + 1) % 16;
-		};
-
+		// channel 2
+		let data2 = {
+				urls: {
+					0: "3507.ogg", // clave
+				},
+				fadeOut: "4n",
+				baseUrl: "/cdn/audio/samples/",
+			},
+			pad2 = new Tone.Players(data2).connect(this.channel2),
+			grid2 = [
+				[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], // clave
+			],
+			repeat2 = time => {
+				grid2.map((row, index) => {
+					if (row[beat]) {
+						pad2.player(index).sync().start(time, 0, "4n");
+					}
+				});
+			};
 
 		Tone.Transport.bpm.value = 120;
-		Tone.Transport.scheduleRepeat(repeat, "8n");
+		Tone.Transport.scheduleRepeat(repeat1, "8n");
+		Tone.Transport.scheduleRepeat(repeat2, "8n");
 	}
 };

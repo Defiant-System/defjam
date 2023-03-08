@@ -54,6 +54,10 @@
 			case "play":
 				value = Self.els.btnPlay.hasClass("tool-active_");
 				Self.els.btnPlay.toggleClass("tool-active_", value);
+
+				if (value) Tone.Transport.stop();
+				else Tone.Transport.start();
+
 				return !value;
 			case "show-display":
 				Self.display.show = event.arg;

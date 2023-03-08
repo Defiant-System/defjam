@@ -21,7 +21,7 @@ let Test = {
 		window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
 		// window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
 
-		setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 4000);
 	}
 };

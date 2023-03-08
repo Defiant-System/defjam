@@ -69,9 +69,9 @@ const Jam = {
 			let p1 = Math.clamp(Math.log(this.meter1.getValue() + 51) / Math.log(63), 0, 1),
 				p2 = Math.clamp(Math.log(this.meter2.getValue() + 51) / Math.log(63), 0, 1);
 
-			el1.css({ "--v": Math.round( -p1 * 100 ) +"%" });
-			el2.css({ "--v": Math.round( -p2 * 100 ) +"%" });
+			// el1.css({ "--v": `${Math.round( -p1 * 100 )}%` });
+			// el2.css({ "--v": `${Math.round( -p2 * 100 )}%` });
 
-		}, "32n").start(0);
+		}, "64n").start(0);
 	}
 };

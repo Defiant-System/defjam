@@ -406,78 +406,47 @@ content {
 		border: 2px solid @face;
 		border-radius: 3px;
 		display: inline-block;
+		//vertical-align: top;
 		margin-left: 3px;
 		margin-right: 17px;
 		// overflow: hidden;
 		--vol: 12%;
 		--v: 0%;
 
-		&:before {
-			content: "0 10 20 30 40 50 60";
-			position: absolute;
-			top: 4px;
-			bottom: 0px;
-			width: 9px;
-			right: -21px;
-			text-align: right;
-			line-height: 1.82;
-			font-size: 9px;
-			font-weight: 100;
-			color: darken(@face, 7%);
-			pointer-events: none;
-		}
-			
-		&:after {
-			content: "";
-			background: @boxBg;
-			position: absolute;
-			top: calc( 100% - var( --vol ) );
-			left: -5px;
-			height: 3px;
-			width: 10px;
-			z-index: 2;
-			margin-top: -1px;
-			border-left: 3px solid #b6c5ff;
-			border-right: 3px solid #b6c5ff;
-			// transition: top 100ms linear;
+		&.anim:after {
+			animation: 1000ms spectrum linear infinite backwards;
 		}
 
-		div {
+		&.dnd div:after {
+			transition: 0s;
+		}
+
+		&:before {
+			content: "";
 			position: absolute;
 			top: 0;
 			left: 0;
+			right: 0;
 			bottom: 0;
-			width: 6px;
-			overflow: hidden;
 			pointer-events: none;
-
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				pointer-events: none;
-				border-radius: 2px;
-				background: linear-gradient(0deg, #0f0 0%, #96f 75%, #f00 100%);
-			}
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				transform: translateY( var( --v ) );
-				pointer-events: none;
-				transform-origin: 0 0;
-				background: @base;
-			}
+			border-radius: 2px;
+			background: linear-gradient(0deg, #0f0 0%, #96f 75%, #f00 100%);
 		}
 
-		span {
+		&:after1 {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform: translateY( var( --v ) );
+			pointer-events: none;
+			transform-origin: 0 0;
+			background: inherit;
+		}
+
+		div {
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -502,6 +471,47 @@ content {
 					@face 110px, @face 111px,
 					transparent 111px, transparent 120px
 				);
+
+			&:before {
+				// content: "0 6 12 18 24 30 36 42 48 60";
+				content: "0 10 20 30 40 50 60";
+				position: absolute;
+				top: 4px;
+				width: 9px;
+				right: -11px;
+				text-align: right;
+				line-height: 1.82;
+				font-size: 9px;
+				font-weight: 100;
+				color: darken(@face, 5%);
+			}
+
+			&:after {
+				content: "";
+				background: @boxBg;
+				position: absolute;
+				top: calc( 100% - var( --vol ) );
+				left: -17px;
+				height: 3px;
+				width: 10px;
+				z-index: 2;
+				margin-top: -1px;
+				border-left: 3px solid #b6c5ff;
+				border-right: 3px solid #b6c5ff;
+				transition: top 100ms linear;
+			}
+		}
+
+		canvas {
+			// background: @base;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 6px;
+			height: 111px;
+			z-index: 3;
+			border-radius: 1px;
+			pointer-events: none;
 		}
 	}
 

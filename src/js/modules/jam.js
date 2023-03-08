@@ -1,8 +1,12 @@
 
 const Jam = {
 	init() {
-		this.channel1 = new Tone.Channel().toDestination();
-		this.channel2 = new Tone.Channel().toDestination();
+
+		this.meter1 = new Tone.Meter({ channels: 1 });
+		this.meter2 = new Tone.Meter({ channels: 1 });
+
+		this.channel1 = new Tone.Channel().connect(this.meter1).toDestination();
+		this.channel2 = new Tone.Channel().connect(this.meter2).toDestination();
 
 		// channel 1
 		let data = {
@@ -40,7 +44,7 @@ const Jam = {
 			},
 			pad2 = new Tone.Players(data2).connect(this.channel2),
 			grid2 = [
-				[1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], // clave
+				[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0], // clave
 			],
 			repeat2 = time => {
 				grid2.map((row, index) => {
@@ -53,5 +57,24 @@ const Jam = {
 		Tone.Transport.bpm.value = 120;
 		Tone.Transport.scheduleRepeat(repeat1, "8n");
 		Tone.Transport.scheduleRepeat(repeat2, "8n");
+
+		let el1, el2;
+
+		new Tone.Loop(time => {
+			if (!el1) {
+				el1 = window.find(`.track[data-id="track-1"] .volume`);
+				el2 = window.find(`.track[data-id="track-2"] .volume`);
+			}
+
+			let p1 = Math.log(this.meter1.getValue() + 51) / Math.log(63),
+				p2 = Math.log(this.meter2.getValue() + 51) / Math.log(63);
+
+			if (isNaN(p1)) p1 = 0;
+			if (isNaN(p2)) p2 = 0;
+
+			el1.css({ "--v": Math.round( -p1 * 100 ) +"%" });
+			el2.css({ "--v": Math.round( -p2 * 100 ) +"%" });
+
+		}, "32n").start(0);
 	}
 };

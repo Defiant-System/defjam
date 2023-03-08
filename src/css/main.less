@@ -409,7 +409,9 @@ content {
 		//vertical-align: top;
 		margin-left: 3px;
 		margin-right: 17px;
+		// overflow: hidden;
 		--vol: 12%;
+		--v: 0%;
 
 		&.anim:after {
 			animation: 1000ms spectrum linear infinite backwards;
@@ -437,7 +439,8 @@ content {
 			top: 0;
 			left: 0;
 			right: 0;
-			height: calc( 100% - var( --vol ) );
+			bottom: 0;
+			transform: translateY( var( --v ) );
 			pointer-events: none;
 			transform-origin: 0 0;
 			background: inherit;

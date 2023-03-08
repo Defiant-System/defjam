@@ -66,11 +66,8 @@ const Jam = {
 				el2 = window.find(`.track[data-id="track-2"] .volume`);
 			}
 
-			let p1 = Math.log(this.meter1.getValue() + 51) / Math.log(63),
-				p2 = Math.log(this.meter2.getValue() + 51) / Math.log(63);
-
-			if (isNaN(p1)) p1 = 0;
-			if (isNaN(p2)) p2 = 0;
+			let p1 = Math.clamp(Math.log(this.meter1.getValue() + 51) / Math.log(63), 0, 1),
+				p2 = Math.clamp(Math.log(this.meter2.getValue() + 51) / Math.log(63), 0, 1);
 
 			el1.css({ "--v": Math.round( -p1 * 100 ) +"%" });
 			el2.css({ "--v": Math.round( -p2 * 100 ) +"%" });

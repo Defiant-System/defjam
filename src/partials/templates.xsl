@@ -66,6 +66,7 @@
 			<div class="volume">
 				<xsl:attribute name="style">--vol: <xsl:value-of select="Volume/@value"/>%;</xsl:attribute>
 				<div></div>
+				<span></span>
 			</div>
 		</div>
 	</div>

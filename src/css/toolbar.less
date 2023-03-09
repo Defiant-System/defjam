@@ -3,7 +3,7 @@
 @text: #b7cbe0;
 
 .tools-left {
-	width: calc(50% - 105px);
+	width: calc(50% - 140px);
 	text-align: right;
 
 	> div:last-child {
@@ -40,7 +40,8 @@
 		&.sec { display: block; }
 
 		&.bar,
-		&.beat { display: none; }
+		&.beat,
+		&.th16 { display: none; }
 	}
 
 	.toolbar-field_ {
@@ -60,8 +61,41 @@
 		span {
 			position: absolute;
 
-			&.bar { left: 37px; }
-			&.beat { left: 67px; }
+			&.bar:before,
+			&.beat:before,
+			&.th16:before {
+				content: ".";
+				position: absolute;
+				top: -15px;
+				left: -7px;
+				font-size: 15px;
+				font-family: Lucida Console;
+				color: @text;
+				opacity: .25;
+			}
+
+			&.bar {
+				left: 31px;
+
+				&:before {
+					content: "0";
+					font-size: 17px;
+					top: -16px;
+					left: -2px;
+					opacity: .15;
+				}
+			}
+
+			&.beat {
+				left: 55px;
+
+				&:before { left: -4px; }
+			}
+
+			&.th16 {
+				left: 80px;
+			}
+
 			&.tempo {
 				left: 146px;
 
@@ -76,9 +110,43 @@
 					cursor: ns-resize;
 				}
 			}
-			&.hr { left: 35px; display: none; }
-			&.min { left: 63px; display: none; }
-			&.sec { left: 94px; display: none; }
+
+			&.hr {
+				left: 35px;
+				display: none;
+			}
+
+			&.min {
+				left: 63px;
+				display: none;
+
+				&:before {
+					content: ":";
+					position: absolute;
+					top: -17px;
+					left: -11px;
+					font-size: 15px;
+					font-family: Lucida Console;
+					color: @text;
+					opacity: .25;
+				}
+			}
+
+			&.sec {
+				left: 94px;
+				display: none;
+
+				&:before {
+					content: ".";
+					position: absolute;
+					top: -15px;
+					left: -12px;
+					font-size: 15px;
+					font-family: Lucida Console;
+					color: @text;
+					opacity: .25;
+				}
+			}
 		}
 	}
 
@@ -94,7 +162,7 @@
 }
 
 .tools-right {
-	width: calc(50% - 105px);
+	width: calc(40% - 70px);
 
 	&:last-child {
 		text-align: left;
@@ -106,4 +174,8 @@
 			margin-right: 0;
 		}
 	}
+}
+
+.tools-gear {
+	width: 10%;
 }

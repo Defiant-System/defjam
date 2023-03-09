@@ -8,13 +8,14 @@
 			<Tool symbol="icon-record" click="record"/>
 		</Options>
 	</Group>
-	<Group class="display show-time1">
+	<Group class="display">
 		<Field>
 			<span class="hr">Hr</span>
 			<span class="min">Min</span>
 			<span class="sec">Sec</span>
 			<span class="bar">Bar</span>
 			<span class="beat">Beat</span>
+			<span class="th16">16th</span>
 			<span class="tempo">Tempo</span>
 		</Field>
 		<Canvas/>
@@ -26,5 +27,8 @@
 			<Tool symbol="icon-pencil" click="pencil"/>
 			<Tool symbol="icon-piano-keys" click="piano-keys"/>
 		</Options>
+	</Group>
+	<Group class="tools-gear">
+		<Tool symbol="icon-gear"/>
 	</Group>
 </CaptionToolBar>

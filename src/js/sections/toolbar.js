@@ -16,30 +16,9 @@
 			btnRecord: window.find(`.toolbar-tool_[data-click="record"]`),
 		};
 
-		// defaults
-		this.display = {
-			show: this.els.display.hasClass("show-time") ? "time" : "bar-beat",
-		}
-
 		// bind event handler
 		this.els.display.on("mousedown", ".tempo", this.doDisplayTempo);
 
-		// reset dim
-		this.els.canvas.attr({
-			width: this.els.canvas.prop("offsetWidth"),
-			height: this.els.canvas.prop("offsetHeight"),
-			"data-context": "display-menu",
-		});
-		// display canvas
-		this.cvs = this.els.canvas[0];
-		this.ctx = this.cvs.getContext("2d");
-		// text defaults
-		this.ctx.font = "17px Lucida Console";
-		this.ctx.fillStyle = "#b7cbe0";
-		this.ctx.textAlign = "center";
-		this.ctx.textBaseline = "bottom";
-
-		this.updateDisplay();
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -60,39 +39,18 @@
 				value = Self.els.btnPlay.hasClass("tool-active_");
 				Self.els.btnPlay.toggleClass("tool-active_", value);
 
-				if (value) Tone.Transport.stop();
-				else Tone.Transport.start();
+				if (value) Jam.stop();
+				else Jam.start();
 
 				return !value;
 			case "show-display":
-				Self.display.show = event.arg;
 				Self.els.display
 					.removeClass("show-time show-bar-beat")
 					.addClass(`show-${event.arg}`)
-				Self.updateDisplay();
+				Jam.display.show = event.arg;
+				Jam.display.render();
 				break;
 		}
-	},
-	updateDisplay(data={}) {
-		let APP = defjam,
-			File = APP.File,
-			els = this.els,
-			cvs = this.cvs,
-			ctx = this.ctx,
-			tempo = data.tempo ? data.tempo : 120;
-		// clear canvas
-		ctx.clearRect(0, 0, cvs.width, cvs.height);
-
-		switch (this.display.show) {
-			case "bar-beat":
-				ctx.fillText("001.1", 44, 22);
-				break;
-			case "time":
-				ctx.fillText("00:00.01", 54, 22);
-				break;
-		}
-		// tempo
-		ctx.fillText(tempo, 144, 22);
 	},
 	doDisplayTempo(event) {
 		let APP = defjam,
@@ -106,6 +64,7 @@
 				// prepare drag object
 				let el = Self.els.el,
 					value = APP.File._tempo,
+					render = Jam.display.render.bind(Jam.display),
 					clickY = event.clientY,
 					limit = {
 						minY: 20,
@@ -113,7 +72,7 @@
 					},
 					min_ = Math.min,
 					max_ = Math.max;
-				Self.drag = { el, clickY, value, limit, min_, max_ };
+				Self.drag = { el, render, clickY, value, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
@@ -124,7 +83,7 @@
 				// let oY = Drag.max_(Drag.min_(Drag.offsetY - Drag.clickY + event.clientY, Drag.limit.minY), Drag.limit.maxY);
 				// tempo
 				let tempo = Drag.value + Drag.clickY - event.clientY;
-				Self.updateDisplay({ tempo });
+				Drag.render({ tempo });
 				break;
 			case "mouseup":
 				// remove class

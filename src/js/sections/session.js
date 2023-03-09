@@ -14,6 +14,7 @@
 			name,
 			value,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "render-file":
 				// render file tracks

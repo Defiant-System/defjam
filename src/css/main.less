@@ -503,7 +503,6 @@ content {
 		}
 
 		canvas {
-			// background: @base;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -512,6 +511,10 @@ content {
 			z-index: 3;
 			border-radius: 1px;
 			pointer-events: none;
+
+			&:not(.ready) {
+				background: @base;
+			}
 		}
 	}
 
@@ -1674,7 +1677,7 @@ content {
 
 								.mixer {
 									.track-btn.activator:before {
-										content: ""; // reset track counter
+										content: attr(data-label); // reset track counter
 									}
 								}
 							}

@@ -33,6 +33,11 @@
 		// display canvas
 		this.cvs = this.els.canvas[0];
 		this.ctx = this.cvs.getContext("2d");
+		// text defaults
+		this.ctx.font = "17px Lucida Console";
+		this.ctx.fillStyle = "#b7cbe0";
+		this.ctx.textAlign = "center";
+		this.ctx.textBaseline = "bottom";
 
 		this.updateDisplay();
 	},
@@ -74,15 +79,9 @@
 			els = this.els,
 			cvs = this.cvs,
 			ctx = this.ctx,
-			width = cvs.width,
 			tempo = data.tempo ? data.tempo : 120;
-		els.canvas.prop({ width });
-
-		// text defaults
-		ctx.font = "17px Lucida Console";
-		ctx.fillStyle = "#b7cbe0";
-		ctx.textAlign = "center";
-		ctx.textBaseline = "bottom";
+		// clear canvas
+		ctx.clearRect(0, 0, cvs.width, cvs.height);
 
 		switch (this.display.show) {
 			case "bar-beat":

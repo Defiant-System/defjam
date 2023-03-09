@@ -22,6 +22,12 @@
 					match: `//file`,
 					target: Self.els.el.find(`.tracks-wrapper .tracks`),
 				});
+				// render file tracks
+				window.render({
+					template: "file-io",
+					match: `//file`,
+					target: Self.els.el.find(`.io-master .tracks`),
+				});
 				break;
 			case "select-clip":
 				let clipId = $(event.target).data("id"),

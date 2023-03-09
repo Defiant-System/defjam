@@ -20,6 +20,13 @@
 </xsl:template>
 
 
+<xsl:template name="file-io">
+	<xsl:for-each select="./IoMaster/Track">
+		<xsl:call-template name="session-track" />
+	</xsl:for-each>
+</xsl:template>
+
+
 <xsl:template name="file-tracks">
 	<xsl:for-each select="./Tracks/Track">
 		<xsl:call-template name="session-track" />
@@ -49,6 +56,7 @@
 		</div>
 		<div class="io"></div>
 		<div class="sends" data-name="Sends">
+			<xsl:if test="count(./Sends) = 0"><xsl:attribute name="data-name"></xsl:attribute></xsl:if>
 			<xsl:for-each select="./Sends">
 				<div class="knob">
 					<xsl:attribute name="data-label"><xsl:value-of select="@label"/></xsl:attribute>
@@ -59,9 +67,15 @@
 		<div class="mixer">
 			<div>
 				<div class="pan-knob" data-value="0"><div></div></div>
-				<div class="track-btn activator"></div>
-				<div class="track-btn solo">S</div>
-				<div class="track-btn record">&#9679;</div>
+				<xsl:if test="@id != 'master'">
+					<div class="track-btn activator">
+						<xsl:if test="@io-label">
+							<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
+						</xsl:if>
+					</div>
+					<div class="track-btn solo">S</div>
+					<div class="track-btn record">&#9679;</div>
+				</xsl:if>
 			</div>
 			<div class="volume">
 				<xsl:attribute name="style">--vol: <xsl:value-of select="Volume/@value"/>%;</xsl:attribute>

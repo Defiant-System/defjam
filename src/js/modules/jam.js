@@ -8,8 +8,7 @@ const Jam = {
 
 		// temp
 		this.meter1 = new Tone.Meter({ channels: 1 });
-		this.channel1 = new Tone.Channel().connect(this.meter1).toDestination();
-		// channel 1
+		let channel1 = new Tone.Channel().connect(this.meter1).toDestination();
 		let data = {
 				urls: {
 					0: "3609.ogg", // kick
@@ -20,52 +19,68 @@ const Jam = {
 				fadeOut: "4n",
 				baseUrl: "/cdn/audio/samples/",
 			},
-			drumkit = new Tone.Players(data).connect(this.channel1),
+			drumkit = new Tone.Players(data).connect(channel1),
 			beat = 0,
 			grid = [
 				[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], // kick
 				[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0], // snare
 				[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
+				// [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // hihat
 				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
-			],
-			clip1 = time => {
-				grid.map((row, index) => {
-					if (row[beat]) {
-						drumkit.player(index).start(time, 0, "4n");
-					}
-				});
-				beat = (beat + 1) % 16;
-			};
+			];
 
-		Tone.Transport.scheduleRepeat(clip1, "8n");
+		let seq = new Tone.Sequence((time, beat, a) => {
+			grid.map((row, index) => {
+				if (row[beat]) {
+					drumkit.player(index).start(time, 0, "4n");
+				}
+			});
+		}, [...Array(16)].map((e,i) => i)).start(0);
 
 	},
 	start() {
 		this._stopped = false;
+
+		// temp (rewind)
+		// Tone.Transport.set({
+		// 	position: 0
+		// });
+
 		Tone.Transport.start();
 		this.update();
 	},
 	stop() {
-		// temp (rewind)
-		Tone.Transport.position = "0:0:0";
-
 		this._stopped = true;
 		Tone.Transport.stop();
 	},
 	update() {
 		if (this._stopped) return;
 		// do calculations
-		let bars = Tone.Transport.position.split(".")[0].split(":");
+		let bars = Tone.Transport.position.split(".")[0].split(":"),
+			seconds = Math.floor(Tone.Transport.seconds),
+			sec = (seconds % 60).toString().padStart(2, "0"),
+			min = Math.floor(seconds / 60).toString().padStart(2, "0"),
+			hr = Math.floor(seconds / 3600).toString().padStart(2, "0"),
+			time = `${hr} ${min} ${sec}`;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
-		this.display.render({ bars: bars.join(" ") });
-
+		bars = bars.join(" ");
+		// render display
+		this.display.render({ bars, time });
 		// render whats need to be rendered
 		this.render();
-
+		// raf
 		requestAnimationFrame(this.update.bind(this));
 	},
 	render() {
-		
+		if (!this.ctx) {
+			let cvs = window.find(`.track[data-id="track-1"] .volume canvas`).addClass("ready");
+			this.ctx = cvs[0].getContext("2d");
+			this.ctx.fillStyle = "#182c40";
+		}
+		this.ctx.clearRect(0, 0, 6, 111);
+
+		let p1 = (1-Math.clamp(Math.log(this.meter1.getValue() + 51) / Math.log(63), 0, 1)) * 111;
+		this.ctx.fillRect(0, 0, 6, Math.round(p1));
 	},
 	display: {
 		init() {

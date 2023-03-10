@@ -35,6 +35,8 @@
 			Self = APP.midiEditor,
 			Drag = Self.drag,
 			limit,
+			list,
+			sequence,
 			name,
 			value,
 			el;
@@ -85,6 +87,29 @@
 						value.urls[KEYS.note(n)] = `${i}.ogg`;
 					});
 				Self.sampler = new Tone.Sampler(value).toDestination();
+				break;
+			case "drumkit-to-sequence":
+				sequence = [];
+				list = Self.els.pianoRoll.find("li").map(li => {
+					// prepare sequence array
+					sequence.push([...Array(16)]);
+					// add to list
+					return {
+						name: li.innerHTML,
+						key: li.getAttribute("data-key"),
+						sample: +li.getAttribute("data-sample"),
+					};
+				});
+				Self.els.noteBody.find("b").map(note => {
+					let el = $(note),
+						lane = list.length - +el.cssProp("--t") - 1,
+						beat = +el.cssProp("--l"),
+						duration = "4n",
+						velocity = 1;
+					sequence[lane][beat] = { duration, velocity };
+
+				});
+				Jam.track.update({ id: "track-1", sequence });
 				break;
 			case "loop-clip":
 				console.log( event.el.hasClass("on") );

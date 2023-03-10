@@ -18,8 +18,8 @@ let Test = {
 
 		defjam.session.dispatch({ type: "render-file" });
 
-		// window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
-		window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
+		window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
+		// window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
 
 
 		setTimeout(this.jam, 100);
@@ -51,13 +51,18 @@ let Test = {
 		Jam.track.add("track-1", insstrument, sequence, 1);
 
 
-		/* polySynth */
+		/* polySynth 
 		insstrument = new Tone.PolySynth(Tone.Synth, {
 				oscillator: { partials: [0, 2, 3, 4] }
 			});
 		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
 		Jam.track.add("track-2", insstrument, sequence);
+		*/
+
 		
+		// simulating sequence update
+		defjam.midiEditor.dispatch({ type: "drumkit-to-sequence" });
+
 
 		/* amSynth
 		insstrument = new Tone.AMSynth({

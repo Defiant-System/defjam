@@ -16,12 +16,21 @@ const Jam = {
 				channel = new Tone.Channel().connect(meter).toDestination(),
 				cvs = window.find(`.track[data-id="${id}"] .volume canvas`).addClass("ready"),
 				ctx = cvs[0].getContext("2d");
-
+			// canvas defaults
+			ctx.fillStyle = "#182c40";
+			// connect to channel
 			instrument.connect(channel);
-
+			// add to list
 			this._list.push({ id, ctx, instrument, sequence, channel, meter, isDrumkit });
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
+		},
+		update(data) {
+			let track = this._list.find(el => data.id === el.id);
+			for (let key in data) {
+				if (key === "id") continue;
+				track[key] = data[key];
+			}
 		}
 	},
 	start() {

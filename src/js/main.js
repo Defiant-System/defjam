@@ -23,15 +23,13 @@ const defjam = {
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 
-		// temp
-		this.File = new File;
-
 		// DEV-ONLY-START
 		Test.init();
 		// DEV-ONLY-END
 	},
 	dispatch(event) {
 		let Self = defjam,
+			file,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -53,7 +51,12 @@ const defjam = {
 				Jam.stop();
 				break;
 			// custom events
-			case "render-view":
+			case "load-sample":
+				// open application local sample file
+				Self.openLocal(`~/samples/${event.name}`)
+					.then(fsFile => {
+						Self.File = new File(fsFile);
+					});
 				break;
 			default:
 				el = event.el || (event.origin ? event.origin.el : null);
@@ -68,6 +71,24 @@ const defjam = {
 					}
 				}
 		}
+	},
+	openLocal(url) {
+		let parts = url.slice(url.lastIndexOf("/") + 1),
+			[ name, kind ] = parts.split("."),
+			file = new karaqu.File({ name, kind });
+		// return promise
+		return new Promise((resolve, reject) => {
+			// fetch image and transform it to a "fake" file
+			fetch(url)
+				.then(resp => resp.blob())
+				.then(blob => {
+					// here the image is a blob
+					file.blob = blob;
+					file.size = blob.size;
+					resolve(file);
+				})
+				.catch(err => reject(err));
+		});
 	},
 	toolbar: @import "./sections/toolbar.js",
 	browser: @import "./sections/browser.js",

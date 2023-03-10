@@ -1,5 +1,8 @@
-
-<file>
+<Project>
+	<Head>
+		<Tempo value="120"/>
+		<Position bar="0.0.0" time="00:00.00"/>
+	</Head>
 	<Tracks>
 		<Track name="Drums" color="#48c" id="track-1">
 			<Pads>
@@ -122,4 +125,4 @@
 			<Volume value="90"/>
 		</Track>
 	</IoMaster>
-</file>
+</Project>

@@ -8,7 +8,7 @@
 			el: window.find(`.rack-body[data-section="drumkit"] .pads`),
 		};
 		// temp
-		this.dispatch({ type: "load-drumkit", name: "TR Kit" });
+		// this.dispatch({ type: "load-drumkit", name: "TR Kit" });
 	},
 	dispatch(event) {
 		let APP = defjam,

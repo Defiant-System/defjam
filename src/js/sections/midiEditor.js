@@ -432,6 +432,8 @@
 				Drag.el.css({ "--l": l, "--d": d });
 				break;
 			case "mouseup":
+				// sequence update
+				Self.dispatch({ type: "drumkit-to-sequence" });
 				// remove class
 				APP.els.content.removeClass("hide-cursor");
 				// unbind event handlers

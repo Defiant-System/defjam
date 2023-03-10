@@ -116,8 +116,8 @@ const UX = {
 				Drag.el.css({ "--vol": `${value}%` });
 
 				// temp
-				// console.log(  );
-				Jam.channel1.set({ volume: value - 60 });
+				// console.log( value );
+				Jam.channel1.set({ volume: value });
 				break;
 			case "mouseup":
 				// reset elemeent

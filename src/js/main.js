@@ -49,6 +49,9 @@ const defjam = {
 						break;
 				}
 				break;
+			case "window.close":
+				Jam.stop();
+				break;
 			// custom events
 			case "render-view":
 				break;

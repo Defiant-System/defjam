@@ -36,6 +36,7 @@
 			Drag = Self.drag,
 			limit,
 			list,
+			instrument,
 			sequence,
 			name,
 			value,
@@ -88,6 +89,25 @@
 					});
 				Self.sampler = new Tone.Sampler(value).toDestination();
 				break;
+			case "jam-add-track":
+				// drumkit
+				instrument = new Tone.Sampler({
+					urls: {
+						"C0": "3609.ogg", // kick
+						"C1": "3612.ogg", // snare
+						"C2": "3639.ogg", // hihat
+						"C3": "3507.ogg", // clave
+					},
+					baseUrl: "/cdn/audio/samples/",
+				});
+				sequence = [
+					[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], // kick
+					[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0], // snare
+					[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
+					[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
+				];
+				Jam.track.add(event.id, instrument, sequence, 1);
+				break;
 			case "drumkit-to-sequence":
 				sequence = [];
 				list = Self.els.pianoRoll.find("li").map(li => {
@@ -107,9 +127,8 @@
 						duration = "4n",
 						velocity = 1;
 					sequence[lane][beat] = { duration, velocity };
-
 				});
-				Jam.track.update({ id: "track-1", sequence });
+				// Jam.track.update({ id: "track-1", sequence });
 				break;
 			case "loop-clip":
 				console.log( event.el.hasClass("on") );
@@ -159,6 +178,9 @@
 					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
 					append: Self.els.noteFoot,
 				});
+
+				// sequence update
+				Self.dispatch({ type: "jam-add-track", id: "track-1" });
 				break;
 		}
 	},

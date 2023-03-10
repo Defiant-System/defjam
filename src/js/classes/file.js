@@ -5,21 +5,21 @@ class File {
 		// save reference to original FS file
 		this._file = fsFile || new karaqu.File({ kind: "xml" });
 
-		// let str = window.bluePrint.selectSingleNode(`//file`).xml;
-		// this._file = $.xmlFromString(str);
-		// this._tempo = 120;
+		let xTempo = this._file.data.selectSingleNode(`//Head/Tempo`);
+		this._tempo = xTempo ? +xTempo.getAttribute("value") : 120;
 
-		// console.log( this._file );
-		// defjam.session.dispatch({ type: "render-file", file: this._file });
+		this.dispatch({ type: "render-file" });
 	}
 
 	dispatch(event) {
 		let APP = defjam,
+			Self = this,
 			name,
 			value,
 			str;
 		switch (event.type) {
-			case "reset-names":
+			case "render-file":
+				APP.session.dispatch({ type: "render-file", file: Self._file });
 				break;
 		}
 	}

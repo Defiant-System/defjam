@@ -34,8 +34,8 @@ const Jam = {
 		}
 	},
 	start() {
+		// change "flag"
 		this._stopped = false;
-
 		// prepare sequence grid
 		this._loop = new Tone.Sequence((time, beat) => {
 			this.track._list.map(track => {
@@ -55,6 +55,7 @@ const Jam = {
 		this.update();
 	},
 	stop() {
+		// change "flag"
 		this._stopped = true;
 		this._loop.stop();
 		Tone.Transport.stop();

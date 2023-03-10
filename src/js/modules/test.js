@@ -18,8 +18,8 @@ let Test = {
 
 		// defjam.session.dispatch({ type: "render-file" });
 
-		// window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
-		// window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
+		setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
 
 
 		// setTimeout(this.jam, 100);
@@ -29,11 +29,11 @@ let Test = {
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 3000);
 	},
 	jam() {
-		let insstrument,
+		let instrument,
 			sequence;
 
 		// drumkit
-		insstrument = new Tone.Sampler({
+		instrument = new Tone.Sampler({
 			urls: {
 				"C0": "3609.ogg", // kick
 				"C1": "3612.ogg", // snare
@@ -48,15 +48,15 @@ let Test = {
 			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
 			[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
 		];
-		Jam.track.add("track-1", insstrument, sequence, 1);
+		Jam.track.add("track-1", instrument, sequence, 1);
 
 
 		/* polySynth 
-		insstrument = new Tone.PolySynth(Tone.Synth, {
+		instrument = new Tone.PolySynth(Tone.Synth, {
 				oscillator: { partials: [0, 2, 3, 4] }
 			});
 		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
-		Jam.track.add("track-2", insstrument, sequence);
+		Jam.track.add("track-2", instrument, sequence);
 		*/
 
 		
@@ -65,7 +65,7 @@ let Test = {
 
 
 		/* amSynth
-		insstrument = new Tone.AMSynth({
+		instrument = new Tone.AMSynth({
 				harmonicity: 2.5,
 				volume: 15,
 				oscillator: {
@@ -86,7 +86,7 @@ let Test = {
 				}
 			});
 		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
-		Jam.track.add("2", insstrument, sequence);
+		Jam.track.add("2", instrument, sequence);
 		*/
 	}
 };

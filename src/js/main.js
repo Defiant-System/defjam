@@ -82,10 +82,17 @@ const defjam = {
 			fetch(url)
 				.then(resp => resp.blob())
 				.then(blob => {
-					// here the image is a blob
-					file.blob = blob;
-					file.size = blob.size;
-					resolve(file);
+					let reader = new FileReader();
+					reader.addEventListener("load", () => {
+						// file info blob
+						file.blob = blob;
+						file.size = blob.size;
+						// this will then display a text file
+						file.data = $.xmlFromString(reader.result).documentElement;
+						resolve(file);
+					}, false);
+					// get file contents
+					reader.readAsText(blob);
 				})
 				.catch(err => reject(err));
 		});

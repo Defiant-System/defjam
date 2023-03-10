@@ -41,8 +41,8 @@ const Jam = {
 		Tone.Transport.start();
 		this.update();
 	},
-	_stopped: true,
 	stop() {
+		this._stopped = true;
 		this._loop.stop();
 		Tone.Transport.stop();
 	},

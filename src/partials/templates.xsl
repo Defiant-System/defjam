@@ -95,7 +95,7 @@
 				--l: <xsl:value-of select="@l"/>;
 				--d: <xsl:value-of select="@d"/>;
 			</xsl:attribute>
-			<xsl:value-of select="@key"/>
+			<!-- <xsl:value-of select="@key"/> -->
 		</b>
 	</xsl:for-each>
 </xsl:template>

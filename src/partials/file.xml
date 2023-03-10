@@ -29,12 +29,12 @@
 				<b t="3" l="15" d="1" v="1"/>
 			</Clip>
 
-			<Sends label="A" value="10"/>
-			<Sends label="B" value="30"/>
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
 			<Volume value="90"/>
 		</Track>
-		<Track name="Grand Piano" color="#77c" id="track-2">
-			<Clip name="Clip 1" row="1" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
+		<Track name="PolySynth" color="#77c" id="track-2">
+			<Clip name="Clip 1" row="0" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
 				<b t="44" l="0" d="2" v="1" key="A4"/>
 				<b t="46" l="2" d="2" v="1" key="G4"/>
 				<b t="48" l="4" d="2" v="1" key="F4"/>
@@ -90,7 +90,6 @@
 				<b t="56" l="56" d="8" v="1" key="A3"/>
 				<b t="60" l="56" d="8" v="1" key="F3"/>
 			</Clip>
-			<Clip name="Clip 2" row="4" id="clip-2-2"/>
 
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>

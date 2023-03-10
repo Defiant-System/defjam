@@ -18,8 +18,8 @@ let Test = {
 
 		defjam.session.dispatch({ type: "render-file" });
 
-		window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
-		// window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
+		// window.find(`.slots b[data-id="clip-1-0"]`).trigger("click");
+		window.find(`.slots b[data-id="clip-2-1"]`).trigger("click");
 
 
 		setTimeout(this.jam, 100);
@@ -48,7 +48,7 @@ let Test = {
 			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
 			[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
 		];
-		Jam.track.add("1", insstrument, sequence, 1);
+		Jam.track.add("track-1", insstrument, sequence, 1);
 
 
 		/* polySynth */
@@ -56,7 +56,7 @@ let Test = {
 				oscillator: { partials: [0, 2, 3, 4] }
 			});
 		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
-		Jam.track.add("2", insstrument, sequence);
+		Jam.track.add("track-2", insstrument, sequence);
 		
 
 		/* amSynth

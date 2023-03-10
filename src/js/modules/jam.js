@@ -2,6 +2,8 @@
 const Jam = {
 	display: @import "./jam.display.js",
 	init() {
+		// defaults
+		this._stopped = true;
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
@@ -12,12 +14,14 @@ const Jam = {
 		add(id, instrument, sequence, isDrumkit=0) {
 			let meter = new Tone.Meter({ channels: 1 }),
 				channel = new Tone.Channel().connect(meter).toDestination(),
-				cvs = window.find(`.track[data-id="track-${id}"] .volume canvas`).addClass("ready"),
+				cvs = window.find(`.track[data-id="${id}"] .volume canvas`).addClass("ready"),
 				ctx = cvs[0].getContext("2d");
 
 			instrument.connect(channel);
 
 			this._list.push({ id, ctx, instrument, sequence, channel, meter, isDrumkit });
+			// reset volume eq
+			if (Jam._stopped) Jam.render();
 		}
 	},
 	start() {

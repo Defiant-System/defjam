@@ -114,6 +114,10 @@ const UX = {
 			case "mousemove":
 				value = Drag.min_(Drag.max_(Drag.clickY - event.clientY, 0), 100);
 				Drag.el.css({ "--vol": `${value}%` });
+
+				// temp
+				// console.log(  );
+				Jam.channel1.set({ volume: value - 60 });
 				break;
 			case "mouseup":
 				// reset elemeent
@@ -154,6 +158,9 @@ const UX = {
 				value = Math.min(Math.max(value, Drag.min), Drag.max);
 				value -= value % 2;
 				Drag.el.data({ value });
+
+				// temp
+				Jam.channel1.set({ pan: value / 50 });
 				break;
 			case "mouseup":
 				// unbind event handlers

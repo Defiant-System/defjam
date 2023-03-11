@@ -19,14 +19,16 @@
 			case "render-file":
 				// render file tracks
 				window.render({
+					data: event.file.data,
 					template: "file-tracks",
-					match: `//file`,
+					match: `//Project`,
 					target: Self.els.el.find(`.tracks-wrapper .tracks`),
 				});
-				// render file tracks
+				// render io tracks
 				window.render({
+					data: event.file.data,
 					template: "file-io",
-					match: `//file`,
+					match: `//Project`,
 					target: Self.els.el.find(`.io-master .tracks`),
 				});
 				break;

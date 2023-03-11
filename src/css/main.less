@@ -1912,7 +1912,7 @@ content {
 	}
 
 	.panel-bottom {
-		--pH: 220px;
+		--pH: 221px;
 		// height: 224px;
 		// height: 360px;
 		// height: 420px;
@@ -2681,7 +2681,7 @@ content {
 			.box-body {
 				flex: 1;
 				border-radius: 0 0 3px 3px;
-				padding: 5px 0 5px 9px;
+				padding: 5px 0 3px 9px;
 				display: flex;
 
 				&.controls {
@@ -2922,9 +2922,15 @@ content {
 				}
 			}
 
-			ul.pad-list {
-				list-style: none;
+			.pads-wrapper {
+				position: relative;
+				overflow: hidden;
 				width: 253px;
+			}
+
+			ul.pad-list {
+				position: relative;
+				list-style: none;
 				padding: 1px 0 1px 1px;
 				font-size: 0;
 
@@ -2943,7 +2949,7 @@ content {
 					height: 41px;
 					font-size: 11px;
 					text-align: center;
-					box-shadow: 0 0 0 1px lighten(@base, 7%);
+					box-shadow: 0 0 0 1px lighten(@base, 13%);
 					border-radius: 3px;
 					margin: 0 5px 5px 0;
 

@@ -146,7 +146,7 @@
 
 <xsl:template name="drumkit-pads">
 	<ul class="pad-list disable-mute1">
-	<xsl:for-each select="./s">
+	<xsl:for-each select="./Pad">
 		<xsl:call-template name="drum-pad" />
 	</xsl:for-each>
 	</ul>

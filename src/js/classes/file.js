@@ -20,6 +20,7 @@ class File {
 		switch (event.type) {
 			case "render-file":
 				APP.session.dispatch({ type: "render-file", file: Self._file });
+				APP.drumkit.dispatch({ type: "render-file", file: Self._file });
 				break;
 		}
 	}

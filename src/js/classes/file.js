@@ -24,7 +24,7 @@ class File {
 				// load file instruments
 				Jam.loadInstruments(Self._file);
 
-				APP.drumkit.dispatch({ type: "render-file", file: Self._file });
+				// APP.drumkit.dispatch({ type: "render-file", file: Self._file });
 				break;
 		}
 	}

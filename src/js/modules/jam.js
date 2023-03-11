@@ -18,10 +18,22 @@ const Jam = {
 					baseUrl: BASE_URL,
 				};
 			switch (xTrack.getAttribute("type")) {
-				case "sampler": break;
-				case "synth": break;
+				case "sampler":
+					let xPath = xTrack.selectSingleNode(`./Set[@xPath]`).getAttribute("xPath");
+					window.bluePrint.selectNodes(xPath).map(xSample => {
+						let i = +xSample.getAttribute("i"),
+							n = +xSample.getAttribute("n");
+						data.urls[KEYS.note(n)] = `${i}.ogg`;
+					});
+					instrument = new Tone.Sampler(data);
+					break;
+				case "synth":
+					instrument = new Tone.PolySynth(Tone.Synth, {
+						oscillator: { partials: [0, 2, 3, 4] }
+					});
+					break;
 				case "drumkit":
-					xTrack.selectNodes(`./Pads/Pad[@sample]`).map(xPad =>{
+					xTrack.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
 						let key = xPad.getAttribute("key"),
 							sample = xPad.getAttribute("sample");
 						data.urls[key] = `${sample}.ogg`;

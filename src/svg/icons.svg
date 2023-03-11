@@ -227,8 +227,8 @@
 
 	<svg id="icon-pad-matrix" viewBox="0 0 20 40">
 		<style type="text/css">
-			.st0{fill:#5a87b4;}
-			.st1{fill:#4a78a6;}
+			.st0{fill:#557fa9;}
+			.st1{fill:#4773a0;}
 		</style>
 		<rect class="st0" x="0" y="0" width="4" height="4"/>
 		<rect class="st0" x="5" y="0" width="4" height="4"/>

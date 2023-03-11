@@ -117,7 +117,7 @@ const UX = {
 
 				// temp
 				// console.log( value );
-				Jam.channel1.set({ volume: value });
+				// Jam.channel1.set({ volume: value });
 				break;
 			case "mouseup":
 				// reset elemeent
@@ -160,7 +160,7 @@ const UX = {
 				Drag.el.data({ value });
 
 				// temp
-				Jam.channel1.set({ pan: value / 50 });
+				// Jam.channel1.set({ pan: value / 50 });
 				break;
 			case "mouseup":
 				// unbind event handlers

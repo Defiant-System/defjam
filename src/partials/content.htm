@@ -78,23 +78,18 @@
 		</div>
 	</div>
 	<div class="resize vertical"><!-- section resize handle --></div>
-	<div class="panel-bottom show-midi">
+	<div class="panel-bottom show-devices">
 		<div class="box rack">
-			<div class="devices-body">
-				@import "sections/box-membraneSynth.htm"
-				@import "sections/box-amSynth.htm"
-
-				<div class="box-body"><!-- space --></div>
+			<div class="midi-body">
+				<!-- arrangement content goes here -->
+				@import "sections/midi-note-editor.htm"
 			</div>
-			<div class="drumkit-body">
+
+			<div class="devices-body">
 				<!-- drumkit rackt goes here -->
 				@import "sections/box-drumkit.htm"
 
 				<div class="box-body"><!-- space --></div>
-			</div>
-			<div class="midi-body">
-				<!-- arrangement content goes here -->
-				@import "sections/midi-note-editor.htm"
 			</div>
 		</div>
 	</div>
@@ -104,9 +99,8 @@
 				
 			</div>
 		</div>
-		<div class="box foot-devices" data-click="show-devices-rack"><div class="box-body">Devices</div></div>
-		<div class="box foot-drumkit" data-click="show-drumkit-rack"><div class="box-body">Drumkit</div></div>
-		<div class="box foot-midi active" data-click="show-midi-rack"><div class="box-body">Midi</div></div>
+		<div class="box foot-midi" data-click="show-midi-rack"><div class="box-body">Midi</div></div>
+		<div class="box foot-devices active" data-click="show-devices-rack"><div class="box-body">Device</div></div>
 		<div class="buttons">
 			<div class="ball-button" title="Toggle View" data-click="toggle-rack-panel">
 				<i class="icon-arrow_up"></i>

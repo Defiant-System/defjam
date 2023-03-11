@@ -51,8 +51,12 @@
 			</xsl:for-each>
 		</div>
 		<div class="status">
-			<i class="btn-stop"></i>
-			<i class="pie-playing on1" style="--duration: 2s;"></i>
+			<xsl:if test="not(@io-label)">
+				<i class="btn-stop"></i>
+			</xsl:if>
+			<xsl:if test="not(@io-label) and @id != 'master'">
+				<i class="pie-playing on1" style="--duration: 2s;"></i>
+			</xsl:if>
 		</div>
 		<div class="io"></div>
 		<div class="sends" data-name="Sends">
@@ -75,7 +79,10 @@
 					</div>
 					<div class="track-btn solo">S</div>
 					<xsl:if test="not(@io-label)">
-						<div class="track-btn record active">&#9679;</div>
+						<div class="track-btn record">
+							<xsl:if test="./Buttons[@record = 'on']"><xsl:attribute name="class">track-btn record active</xsl:attribute></xsl:if>
+							&#9679;
+						</div>
 					</xsl:if>
 				</xsl:if>
 			</div>
@@ -117,9 +124,9 @@
 
 <xsl:template name="clip-pads">
 	<xsl:choose>
-		<xsl:when test="../Pads">
+		<xsl:when test="../Device/Pads">
 		<ol>
-			<xsl:for-each select="../Pads/Pad">
+			<xsl:for-each select="../Device/Pads/Pad">
 				<li>
 					<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
 					<xsl:attribute name="data-sample"><xsl:value-of select="@sample"/></xsl:attribute>

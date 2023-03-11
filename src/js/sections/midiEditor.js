@@ -98,28 +98,16 @@
 						"C2": "3639.ogg", // hihat
 						"C3": "3507.ogg", // clave
 					},
-					baseUrl: "/cdn/audio/samples/",
+					baseUrl: BASE_URL,
 				});
-				sequence = [
-					[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], // kick
-					[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0], // snare
-					[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
-					[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
-				];
+				
+				sequence = Self.dispatch({ type: "ui-to-sequence" });
+
 				Jam.track.add(event.id, instrument, sequence, 1);
 				break;
-			case "drumkit-to-sequence":
+			case "ui-to-sequence":
 				sequence = [];
-				list = Self.els.pianoRoll.find("li").map(li => {
-					// prepare sequence array
-					sequence.push([...Array(16)]);
-					// add to list
-					return {
-						name: li.innerHTML,
-						key: li.getAttribute("data-key"),
-						sample: +li.getAttribute("data-sample"),
-					};
-				});
+				list = Self.els.pianoRoll.find("li").map(li => sequence.push([...Array(16)]));
 				Self.els.noteBody.find("b").map(note => {
 					let el = $(note),
 						lane = list.length - +el.cssProp("--t") - 1,
@@ -128,8 +116,7 @@
 						velocity = 1;
 					sequence[lane][beat] = { duration, velocity };
 				});
-				// Jam.track.update({ id: "track-1", sequence });
-				break;
+				return sequence;
 			case "loop-clip":
 				console.log( event.el.hasClass("on") );
 				break;
@@ -421,7 +408,12 @@
 					clickY = event.clientY,
 					clickX = event.clientX,
 					floor_ = Math.floor,
-					name = "";
+					name = "",
+					onDone = () => {
+						// sequence update
+						let sequence = Self.dispatch({ type: "ui-to-sequence" });
+						Jam.track.update({ id: "track-1", sequence });
+					};
 
 				t = floor_(event.offsetY / Self.details.keyH),
 				l = floor_(event.offsetX / Self.details.noteW);
@@ -432,9 +424,11 @@
 					el = el.append(`<b style="--t: ${t}; --l: ${l}; --d: ${d};">${name}</b>`);
 				} else {
 					// delete note
-					return el.remove();
+					el.remove();
+					// UI to live sequence
+					return onDone();
 				}
-				Self.drag = { el, d, l, clickY, clickX, floor_ };
+				Self.drag = { el, d, l, onDone, clickY, clickX, floor_ };
 
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
@@ -454,8 +448,8 @@
 				Drag.el.css({ "--l": l, "--d": d });
 				break;
 			case "mouseup":
-				// sequence update
-				Self.dispatch({ type: "drumkit-to-sequence" });
+				// UI to live sequence
+				Drag.onDone();
 				// remove class
 				APP.els.content.removeClass("hide-cursor");
 				// unbind event handlers

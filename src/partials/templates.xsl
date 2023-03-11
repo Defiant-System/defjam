@@ -155,12 +155,20 @@
 
 <xsl:template name="drum-pad">
 	<li>
-		<span class="pad-name"><xsl:value-of select="@name"/></span>
-		<i class="pad-mute">M</i>
-		<i class="pad-play" data-click="play-pad" data-arg="1">
-			<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
-		</i>
-		<i class="pad-solo">S</i>
+		<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
+		<xsl:choose>
+			<xsl:when test="@name">
+				<span class="pad-name"><xsl:value-of select="@name"/></span>
+				<i class="pad-mute">M</i>
+				<i class="pad-play" data-click="play-pad" data-arg="1">
+					<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
+				</i>
+				<i class="pad-solo">S</i>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:attribute name="class">empty</xsl:attribute>
+			</xsl:otherwise>
+		</xsl:choose>
 	</li>
 </xsl:template>
 

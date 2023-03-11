@@ -2953,6 +2953,19 @@ content {
 					border-radius: 3px;
 					margin: 0 5px 5px 0;
 
+					&.empty:before {
+						content: attr(data-key);
+						position: absolute;
+						top: 3px;
+						left: 0;
+						right: 0;
+						z-index: 1;
+						text-transform: uppercase;
+						text-shadow: 0 0 0;
+						color: @base;
+						opacity: .5;
+					}
+
 					&:nth-child(4n) {
 						margin-right: 0;
 					}

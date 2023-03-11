@@ -21,12 +21,12 @@
 		switch (event.type) {
 			case "render-file":
 				// render file tracks
-				// window.render({
-				// 	data: event.file.data,
-				// 	template: "drumkit-pads",
-				// 	match: `//Project//Track[@id="track-1"]/Pads`,
-				// 	target: Self.els.el,
-				// });
+				window.render({
+					data: event.file.data,
+					template: "drumkit-pads",
+					match: `//Project//Track[@id="track-1"]/Pads`,
+					target: Self.els.el,
+				});
 				break;
 			// case "load-drumkit":
 			// 	xPath = `//Drums//Item[@name="${event.name}"]`;

@@ -76,6 +76,7 @@
 					bars: parseInt(el.cssProp("--bars"), 10),
 				};
 				break;
+				/*
 			case "load-instrument":
 				value = {
 					urls: {},
@@ -105,6 +106,7 @@
 
 				Jam.track.add(event.id, instrument, sequence, 1);
 				break;
+				*/
 			case "ui-to-sequence":
 				sequence = [];
 				list = Self.els.pianoRoll.find("li").map(li => sequence.push([...Array(16)]));
@@ -167,7 +169,7 @@
 				});
 
 				// sequence update
-				Self.dispatch({ type: "jam-add-track", id: "track-1" });
+				// Self.dispatch({ type: "jam-add-track", id: "track-1" });
 				break;
 		}
 	},

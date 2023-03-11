@@ -74,7 +74,9 @@
 						</xsl:if>
 					</div>
 					<div class="track-btn solo">S</div>
-					<div class="track-btn record">&#9679;</div>
+					<xsl:if test="not(@io-label)">
+						<div class="track-btn record active">&#9679;</div>
+					</xsl:if>
 				</xsl:if>
 			</div>
 			<div class="volume">
@@ -157,13 +159,13 @@
 	<li>
 		<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
 		<xsl:choose>
-			<xsl:when test="@name">
+			<xsl:when test="@sample">
 				<span class="pad-name"><xsl:value-of select="@name"/></span>
-				<i class="pad-mute">M</i>
-				<i class="pad-play" data-click="play-pad" data-arg="1">
+				<i class="pad-mute" data-click="mute-pad">M</i>
+				<i class="pad-play" data-click="play-pad">
 					<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
 				</i>
-				<i class="pad-solo">S</i>
+				<i class="pad-solo" data-click="solo-pad">S</i>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:attribute name="class">empty</xsl:attribute>

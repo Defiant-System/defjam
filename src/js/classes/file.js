@@ -8,7 +8,7 @@ class File {
 		let xTempo = this._file.data.selectSingleNode(`//Head/Tempo`);
 		this._tempo = xTempo ? +xTempo.getAttribute("value") : 120;
 
-		this.dispatch({ type: "render-file" });
+		this.dispatch({ type: "load-project" });
 	}
 
 	dispatch(event) {
@@ -18,8 +18,12 @@ class File {
 			value,
 			str;
 		switch (event.type) {
-			case "render-file":
+			case "load-project":
+				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });
+				// load file instruments
+				Jam.loadInstruments(Self._file);
+
 				APP.drumkit.dispatch({ type: "render-file", file: Self._file });
 				break;
 		}

@@ -7,6 +7,33 @@ const Jam = {
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
+	loadInstruments(file) {
+		file.data.selectNodes(`//Tracks/Track`).map(xTrack => {
+			let id = xTrack.getAttribute("id"),
+				isDrumkit = 0,
+				sequence = [],
+				instrument,
+				data = {
+					urls: {},
+					baseUrl: BASE_URL,
+				};
+			switch (xTrack.getAttribute("type")) {
+				case "sampler": break;
+				case "synth": break;
+				case "drumkit":
+					xTrack.selectNodes(`./Pads/Pad[@sample]`).map(xPad =>{
+						let key = xPad.getAttribute("key"),
+							sample = xPad.getAttribute("sample");
+						data.urls[key] = `${sample}.ogg`;
+					});
+					instrument = new Tone.Sampler(data);
+					isDrumkit = 1;
+					break;
+			}
+			// add track to jam
+			this.track.add(id, instrument, sequence, isDrumkit);
+		});
+	},
 	track: {
 		init() {
 			this._list = [];
@@ -14,10 +41,13 @@ const Jam = {
 		add(id, instrument, sequence, isDrumkit=0) {
 			let meter = new Tone.Meter({ channels: 1 }),
 				channel = new Tone.Channel().connect(meter).toDestination(),
-				cvs = window.find(`.track[data-id="${id}"] .volume canvas`).addClass("ready"),
-				ctx = cvs[0].getContext("2d");
+				cvs = window.find(`.track[data-id="${id}"] .volume canvas`),
+				ctx = cvs[0].getContext("2d"),
+				color = cvs.css("background-color");
 			// canvas defaults
-			ctx.fillStyle = "#182c40";
+			ctx.fillStyle = cvs.css("background-color");
+			// make canvas ready
+			cvs.addClass("ready");
 			// connect to channel
 			instrument.connect(channel);
 			// add to list
@@ -25,8 +55,13 @@ const Jam = {
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
 		},
+		play(id, key) {
+			let track = this._list.find(el => el.id === id),
+				tone = track.isDrumkit ? [key] : key;
+			track.instrument.triggerAttackRelease(tone, "1n", Tone.now(), 1);
+		},
 		update(data) {
-			let track = this._list.find(el => data.id === el.id);
+			let track = this._list.find(el => el.id === data.id);
 			for (let key in data) {
 				if (key === "id") continue;
 				track[key] = data[key];

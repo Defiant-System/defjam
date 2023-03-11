@@ -122,6 +122,109 @@
 </xsl:template>
 
 
+<xsl:template name="devices">
+	<xsl:choose>
+		<xsl:when test="@type = 'drumkit'">
+			<xsl:call-template name="rack-drumkit" />
+		</xsl:when>
+		<xsl:when test="@type = 'synth'">
+			<xsl:call-template name="rack-synth" />
+		</xsl:when>
+		<xsl:when test="@type = 'sampler'">
+			<xsl:call-template name="rack-sampler" />
+		</xsl:when>
+	</xsl:choose>
+</xsl:template>
+
+
+<xsl:template name="rack-synth">
+	<div class="rack-body">
+		<div class="rack-head">
+			<i class="icon-blank"></i> <xsl:value-of select="./Device/@name"/>
+		</div>
+		<div class="box-body">
+			<div class="synth-controls">
+				<xsl:call-template name="device-controls" />
+			</div>
+			<!--
+			context : BaseContext
+			modulation : OmniOscillatorSynthOptions
+			oscillator : OmniOscillatorSynthOptions
+			onsilence : onSilenceCallback
+			harmonicity : Positive
+			-->
+		</div>
+	</div>
+</xsl:template>
+
+
+<xsl:template name="rack-sampler">
+	<div>sampler</div>
+</xsl:template>
+
+
+<xsl:template name="rack-drumkit">
+	<div class="rack-body" data-section="drumkit">
+		<div class="rack-head">
+			<i class="icon-blank"></i> <xsl:value-of select="./Device/@name"/>
+		</div>
+		<div class="box-body">
+			<div class="drum-control">
+				<xsl:call-template name="device-controls" />
+			</div>
+
+			<div class="pads">
+				<div class="pad-matrix">
+					<div class="selection"></div>
+				</div>
+				<div class="pads-wrapper">
+					<ul class="pad-list disable-mute1">
+					<xsl:for-each select="./Device/Pads/Pad">
+						<xsl:call-template name="drum-pad" />
+					</xsl:for-each>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</xsl:template>
+
+
+<xsl:template name="device-controls">
+	<ul class="col-4 controls">
+		<xsl:for-each select="./Device/Settings/Knob">
+		<li>
+			<span class="ctrl-name"><xsl:value-of select="@name"/></span>
+			<div class="knob ctrl-knob">
+				<xsl:attribute name="data-value"><xsl:value-of select="@value"/></xsl:attribute>
+			</div>
+			<span class="ctrl-value"><xsl:value-of select="@value"/> <xsl:value-of select="@suffix"/></span>
+		</li>
+		</xsl:for-each>
+	</ul>
+</xsl:template>
+
+
+<xsl:template name="drum-pad">
+	<li>
+		<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
+		<xsl:choose>
+			<xsl:when test="@sample">
+				<span class="pad-name"><xsl:value-of select="@name"/></span>
+				<i class="pad-mute" data-click="mute-pad">M</i>
+				<i class="pad-play" data-click="play-pad">
+					<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
+				</i>
+				<i class="pad-solo" data-click="solo-pad">S</i>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:attribute name="class">empty</xsl:attribute>
+			</xsl:otherwise>
+		</xsl:choose>
+	</li>
+</xsl:template>
+
+
 <xsl:template name="clip-pads">
 	<xsl:choose>
 		<xsl:when test="../Device/Pads">
@@ -150,35 +253,6 @@
 			</ul>
 		</xsl:otherwise>
 	</xsl:choose>
-</xsl:template>
-
-
-<xsl:template name="drumkit-pads">
-	<ul class="pad-list disable-mute1">
-	<xsl:for-each select="./Pad">
-		<xsl:call-template name="drum-pad" />
-	</xsl:for-each>
-	</ul>
-</xsl:template>
-
-
-<xsl:template name="drum-pad">
-	<li>
-		<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
-		<xsl:choose>
-			<xsl:when test="@sample">
-				<span class="pad-name"><xsl:value-of select="@name"/></span>
-				<i class="pad-mute" data-click="mute-pad">M</i>
-				<i class="pad-play" data-click="play-pad">
-					<xsl:attribute name="data-arg"><xsl:value-of select="@n"/></xsl:attribute>
-				</i>
-				<i class="pad-solo" data-click="solo-pad">S</i>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:attribute name="class">empty</xsl:attribute>
-			</xsl:otherwise>
-		</xsl:choose>
-	</li>
 </xsl:template>
 
 

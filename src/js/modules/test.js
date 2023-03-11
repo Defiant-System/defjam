@@ -12,9 +12,9 @@ let Test = {
 		// window.find(`.panel-left .drums-body .leaf:nth(0) .icon-folder`).trigger("click");
 		// setTimeout(() => window.find(`.chWrapper .leaf:nth(0)`).trigger("click"), 200);
 
-		// setTimeout(() => defjam.midiEditor.doPiano({ type: "window.keystroke", char: "a" }), 1000);
-		// setTimeout(() => defjam.midiEditor.doPiano({ type: "window.keystroke", char: "s" }), 1300);
-		// setTimeout(() => defjam.midiEditor.doPiano({ type: "window.keystroke", char: "d" }), 1600);
+		// setTimeout(() => defjam.midi.doPiano({ type: "window.keystroke", char: "a" }), 1000);
+		// setTimeout(() => defjam.midi.doPiano({ type: "window.keystroke", char: "s" }), 1300);
+		// setTimeout(() => defjam.midi.doPiano({ type: "window.keystroke", char: "d" }), 1600);
 
 		// defjam.session.dispatch({ type: "render-file" });
 
@@ -61,7 +61,7 @@ let Test = {
 
 		
 		// simulating sequence update
-		// defjam.midiEditor.dispatch({ type: "drumkit-to-sequence" });
+		// defjam.midi.dispatch({ type: "drumkit-to-sequence" });
 
 
 		/* amSynth

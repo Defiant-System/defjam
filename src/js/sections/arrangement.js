@@ -38,7 +38,7 @@
 						height = cEl.prop("offsetHeight");
 					Self.els.sel.css({ top, left, width, height });
 					// change midi note editor color
-					APP.midiEditor.els.el.css({ "--c": el.cssProp("--c") });
+					APP.midi.els.el.css({ "--c": el.cssProp("--c") });
 				}
 				break;
 		}

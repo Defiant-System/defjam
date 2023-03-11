@@ -31,7 +31,7 @@
 			case "pencil":
 				value = event.el.hasClass("tool-active_");
 				// set midi editor mode
-				APP.midiEditor.mode = value ? "lasso" : "pencil";
+				APP.midi.mode = value ? "lasso" : "pencil";
 				// UI update toolbar tool
 				return !value;
 			case "toggle-play":

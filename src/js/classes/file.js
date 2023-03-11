@@ -23,8 +23,8 @@ class File {
 				APP.session.dispatch({ type: "render-file", file: Self._file });
 				// load file instruments
 				Jam.loadInstruments(Self._file);
-
-				// APP.drumkit.dispatch({ type: "render-file", file: Self._file });
+				// TODO: auto select a track
+				
 				break;
 		}
 	}

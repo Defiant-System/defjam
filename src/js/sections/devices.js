@@ -1,29 +1,31 @@
 
-// defjam.drumkit
+// defjam.devices
 
 {
 	init() {
 		// fast references
 		this.els = {
-			el: window.find(`.rack-body[data-section="drumkit"] .pads-wrapper`),
+			el: window.find(`.panel-bottom .devices-body`),
 		};
 	},
 	dispatch(event) {
 		let APP = defjam,
-			Self = APP.drumkit,
+			Self = APP.devices,
 			xPath,
 			name,
 			value,
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "render-file":
+			case "render-device":
+				// remove existing device, if any
+				Self.els.el.find("> div:not(.box-body)").remove();
 				// render file tracks
 				window.render({
 					data: event.file.data,
-					template: "drumkit-pads",
-					match: `//Project//Track[@id="track-1"]/Pads`,
-					target: Self.els.el,
+					template: "devices",
+					match: `//Project//Track[@id="${event.trackId}"]`,
+					prepend: Self.els.el,
 				});
 				break;
 			case "mute-pad": break;

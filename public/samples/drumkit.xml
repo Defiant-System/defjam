@@ -5,7 +5,7 @@
 	</Head>
 	<Tracks>
 		<Track name="Drums" color="#48c" id="track-1" type="drumkit">
-			<Device>
+			<Device name="Drumkit">
 				<Settings>
 					<Knob name="DrBus Amount" value="23" suffix="%"/>
 					<Knob name="DrBus Drive" value="14" suffix=""/>
@@ -66,6 +66,18 @@
 		</Track>
 		
 		<Track name="PolySynth" color="#77c" id="track-2" type="synth">
+			<Device name="PolySynth">
+				<Settings>
+					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
+					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
+					<Knob name="Pitch Decay" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
+					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
+					<Knob name="Volume" value="27" min="0" max="100" suffix=""/>
+				</Settings>
+			</Device>
 			<Clip name="Clip 1" row="0" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
 				<b t="44" l="0" d="2" v="1" key="A4"/>
 				<b t="46" l="2" d="2" v="1" key="G4"/>

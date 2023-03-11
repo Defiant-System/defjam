@@ -43,7 +43,7 @@ const defjam = {
 					case "a":
 					case "s":
 					case "d":
-						Self.midiEditor.doPiano(event);
+						Self.midi.doPiano(event);
 						break;
 				}
 				break;
@@ -102,8 +102,8 @@ const defjam = {
 	head: @import "./sections/head.js",
 	session: @import "./sections/session.js",
 	arrangement: @import "./sections/arrangement.js",
-	midiEditor: @import "./sections/midiEditor.js",
-	drumkit: @import "./sections/drumkit.js",
+	midi: @import "./sections/midi.js",
+	devices: @import "./sections/devices.js",
 	foot: @import "./sections/foot.js",
 };
 

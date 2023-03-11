@@ -40,10 +40,28 @@
 				if (row < 8) {
 					Self.els.wrapper.css({ "--selRow": row });
 				}
+
+				// track column element
+				el = $(event.target).parents(".track");
+
+				// signlal devices panel to render
+				APP.devices.dispatch({
+					type: "render-device",
+					file: APP.File._file,
+					trackId: el.data("id"),
+				});
+
+				// signlal midi panel to render
+				APP.midi.dispatch({
+					type: "render-device",
+					file: APP.File._file,
+					trackId: el.data("id"),
+				});
+
 				// let clipId = $(event.target).data("id"),
 				// 	xClip = APP.File._file.data.selectSingleNode(`//Tracks//Clip[@id="${clipId}"]`);
 				// // render clip contents in midi note editor
-				// APP.midiEditor.dispatch({ type: "render-clip", xClip });
+				// APP.midi.dispatch({ type: "render-clip", xClip });
 				break;
 			case "select-io-track":
 				console.log(event);

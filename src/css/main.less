@@ -2829,6 +2829,10 @@ content {
 			width: 520px;
 		}
 
+		.drum-control {
+			ul.controls.col-4 { width: 248px; }
+		}
+
 
 		ul.controls {
 			list-style: none;
@@ -2836,9 +2840,24 @@ content {
 			font-size: 0;
 
 			&.col-2 { width: 127px; }
-			&.col-3 { width: 187px; }
-			&.col-4 { width: 248px; }
-			&.col-5 { width: 307px; }
+			
+			&.col-3 {
+				width: 187px;
+
+				li:nth-child(3n) { margin-right: 0; }
+			}
+
+			&.col-4 {
+				width: 239px;
+
+				li:nth-child(4n) { margin-right: 0; }
+			}
+			
+			&.col-5 {
+				width: 307px;
+
+				li:nth-child(5n) { margin-right: 0; }
+			}
 
 			li {
 				position: relative;

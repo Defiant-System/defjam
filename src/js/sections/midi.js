@@ -1,5 +1,5 @@
 
-// defjam.midiEditor
+// defjam.midi
 
 {
 	init() {
@@ -32,7 +32,7 @@
 	},
 	dispatch(event) {
 		let APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			Drag = Self.drag,
 			limit,
 			list,
@@ -150,11 +150,11 @@
 						"--c": event.xClip.parentNode.getAttribute("color"),
 					});
 				// render clip notes
-				window.render({
-					template: "clip-pads",
-					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
-					append: Self.els.pianoRoll,
-				});
+				// window.render({
+				// 	template: "clip-pads",
+				// 	match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
+				// 	append: Self.els.pianoRoll,
+				// });
 				// render clip notes
 				window.render({
 					template: "midi-notes",
@@ -175,7 +175,7 @@
 	},
 	doPiano(event) {
 		let APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			keyboard,
 			keyH,
 			topIndex,
@@ -238,7 +238,7 @@
 	},
 	doNoteRuler(event) {
 		APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			Drag = Self.drag,
 			el;
 		switch (event.type) {
@@ -280,7 +280,7 @@
 	},
 	doNoteBars(event) {
 		let APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			Drag = Self.drag,
 			el;
 		switch (event.type) {
@@ -322,7 +322,7 @@
 	},
 	doLasso(event) {
 		let APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			Drag = Self.drag,
 			el;
 		switch (event.type) {
@@ -398,7 +398,7 @@
 	},
 	doPencil(event) {
 		let APP = defjam,
-			Self = APP.midiEditor,
+			Self = APP.midi,
 			Drag = Self.drag,
 			t, l, d;
 		switch (event.type) {

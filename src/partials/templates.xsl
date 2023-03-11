@@ -159,12 +159,21 @@
 
 
 <xsl:template name="rack-sampler">
-	<div>sampler</div>
+	<div class="rack-body">
+		<div class="rack-head">
+			<i class="icon-blank"></i> <xsl:value-of select="./Device/@name"/>
+		</div>
+		<div class="box-body">
+			<div class="synth-controls">
+				<xsl:call-template name="device-controls" />
+			</div>
+		</div>
+	</div>
 </xsl:template>
 
 
 <xsl:template name="rack-drumkit">
-	<div class="rack-body" data-section="drumkit">
+	<div class="rack-body">
 		<div class="rack-head">
 			<i class="icon-blank"></i> <xsl:value-of select="./Device/@name"/>
 		</div>

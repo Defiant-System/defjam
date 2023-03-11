@@ -75,7 +75,7 @@
 					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
-					<Knob name="Volume" value="27" min="0" max="100" suffix=""/>
+					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
 			</Device>
 			<Clip name="Clip 1" row="0" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
@@ -142,7 +142,19 @@
 		</Track>
 		
 		<Track name="Acoustic Grand Piano" color="#96a" id="track-3" type="sampler">
-			<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+			<Device name="Acoustic Grand Piano">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+				<Settings>
+					<Knob name="Bright" value="23" min="1" max="100" suffix=""/>
+					<Knob name="Hardness" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Glue" value="13" min="0" max="7" suffix=""/>
+					<Knob name="Reverb Amount" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Release" value="23" min="0" max="7" suffix=""/>
+					<Knob name="Tone" value="31" min="0" max="5" suffix=""/>
+					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
+				</Settings>
+			</Device>
 
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>

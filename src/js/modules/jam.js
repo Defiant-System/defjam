@@ -19,7 +19,7 @@ const Jam = {
 				};
 			switch (xTrack.getAttribute("type")) {
 				case "sampler":
-					let xPath = xTrack.selectSingleNode(`./Set[@xPath]`).getAttribute("xPath");
+					let xPath = xTrack.selectSingleNode(`./Device/Set[@xPath]`).getAttribute("xPath");
 					window.bluePrint.selectNodes(xPath).map(xSample => {
 						let i = +xSample.getAttribute("i"),
 							n = +xSample.getAttribute("n");

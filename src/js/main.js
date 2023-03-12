@@ -30,6 +30,7 @@ const defjam = {
 	dispatch(event) {
 		let Self = defjam,
 			file,
+			char,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -40,12 +41,20 @@ const defjam = {
 					case "space":
 						Self.toolbar.dispatch({ type: "toggle-play" });
 						break;
-					case "a":
-					case "s":
-					case "d":
-						Self.midi.doPiano(event);
-						break;
+					default:
+						char = event.char.toUpperCase();
+						if (!KEYS._down[char]) {
+							Jam.track.triggerAttack("track-2", VKEYS[char]);
+						}
+						KEYS._down[char] = true;
 				}
+				break;
+			case "window.keyup":
+				char = event.char.toUpperCase();
+				if (KEYS._down[char]) {
+					Jam.track.triggerRelease("track-2", VKEYS[char]);
+				}
+				delete KEYS._down[char];
 				break;
 			case "window.close":
 				Jam.stop();

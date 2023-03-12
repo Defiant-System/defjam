@@ -155,7 +155,7 @@
 					Self.drag = { trackId, key };
 
 					if (key) {
-						// TODO: triggerAttack
+						// triggerAttack
 						Jam.track.triggerAttack(trackId, key);
 					}
 					// UI update
@@ -170,8 +170,10 @@
 			case "mouseup":
 				/* falls through */
 			case "mouseout":
-				// TODO: Jam.track.triggerRelease
-				Jam.track.triggerRelease(Drag.trackId, Drag.key);
+				if (Drag.key) {
+					// triggerRelease
+					Jam.track.triggerRelease(Drag.trackId, Drag.key);
+				}
 				// release key
 				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				// unbind event handlers

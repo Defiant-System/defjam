@@ -12,7 +12,7 @@ const DURS = {
 	"1n": 16,
 };
 
-const VKEYS {
+const VKEYS = {
 	"A": "C3",
 	"W": "C#3",
 	"S": "D3",
@@ -22,15 +22,16 @@ const VKEYS {
 	"T": "F#3",
 	"G": "G3",
 	"Y": "G#3",
-	"H": "A4",
-	"U": "A#4",
-	"J": "B4",
+	"H": "A3",
+	"U": "A#3",
+	"J": "B3",
 	"K": "C4",
 	"O": "C#4",
 	"L": "D4",
 };
 
 const KEYS = {
+	_down: {},
 	_keys: {},
 	init() {
 		let base = { "C": 24, "D": 26, "E": 28, "F": 29, "G": 31, "A": 33, "B": 35 };

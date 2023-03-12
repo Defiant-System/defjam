@@ -146,7 +146,7 @@
 					octave = Math.floor(topIndex / 12);
 					keys = [...OCTAVE].reverse();
 					key = keys[topIndex % keys.length] + (7 - octave).toString();
-					top = (topIndex * keyH) + octave;
+					top = (topIndex * keyH);
 					width = key.includes("#") ? 25 : 32;
 
 					// if (key && Self.sampler) {

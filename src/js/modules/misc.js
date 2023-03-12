@@ -4,6 +4,14 @@ const BASE_URL = "/cdn/audio/samples/";
 
 const OCTAVE = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
+const DURS = {
+	"16n": 1,
+	"8n": 2,
+	"4n": 4,
+	"2n": 8,
+	"1n": 16,
+};
+
 const KEYS = {
 	_keys: {},
 	init() {

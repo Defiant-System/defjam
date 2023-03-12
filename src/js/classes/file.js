@@ -21,12 +21,12 @@ class File {
 			case "load-project":
 				// prepare track clip notes
 				Self._file.data.selectNodes(`//Track/Clip/b[@n]`).map(xNote => {
-					let duration = +xNote.getAttribute("d"),
+					let w = DURS[xNote.getAttribute("d")],
 						key = xNote.getAttribute("n").slice(0,1),
 						octave = +xNote.getAttribute("n").slice(1),
 						y = ((7 - octave) * 12) + (11 - OCTAVE.indexOf(key));
 					xNote.setAttribute("y", y);
-					xNote.setAttribute("w", 2);
+					xNote.setAttribute("w", w);
 				});
 				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });

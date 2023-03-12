@@ -61,7 +61,7 @@
 
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
-			<Buttons activator="on" solo="off" record="on"/>
+			<Buttons activator="on" solo="off" record="off"/>
 			<Volume value="90"/>
 		</Track>
 		
@@ -137,7 +137,7 @@
 
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
-			<Buttons activator="on" solo="off" record="off"/>
+			<Buttons activator="on" solo="off" record="on"/>
 			<Volume value="90"/>
 		</Track>
 		

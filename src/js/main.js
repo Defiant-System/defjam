@@ -43,6 +43,7 @@ const defjam = {
 						break;
 					default:
 						char = event.char.toUpperCase();
+						if (!VKEYS[char]) return;
 						if (!KEYS._down[char]) {
 							Jam.track.triggerAttack("track-2", VKEYS[char]);
 						}
@@ -51,6 +52,7 @@ const defjam = {
 				break;
 			case "window.keyup":
 				char = event.char.toUpperCase();
+				if (!VKEYS[char]) return;
 				if (KEYS._down[char]) {
 					Jam.track.triggerRelease("track-2", VKEYS[char]);
 				}

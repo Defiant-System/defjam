@@ -2053,8 +2053,7 @@ content {
 
 					.col-left {
 						display: flex;
-						// width: 63px;
-						width: 53px;
+						width: 63px;
 						margin: 0 1px 0 0;
 
 						.box-body  {
@@ -2378,7 +2377,7 @@ content {
 									@pianoBlack calc( var( --keyH ) * 8 ), @pianoBlack calc( var( --keyH ) * 9 ),
 									transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
 									@pianoBlack calc( var( --keyH ) * 10 ), @pianoBlack calc( var( --keyH ) * 11 ),
-									transparent calc( var( --keyH ) * 11 ), transparent calc( calc( var( --keyH ) * 12 ) + 1px)
+									transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 )
 								);
 							}
 
@@ -2434,7 +2433,7 @@ content {
 									padding-left: 13px;
 									text-shadow: 0 0 0;
 									color: darken(@face, 3%);
-									height: calc( calc( var( --keyH ) * 12) + 1px );
+									height: calc( calc( var( --keyH ) * 12) - 1px );
 								}
 							}
 

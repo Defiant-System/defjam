@@ -1921,9 +1921,6 @@ content {
 
 	.panel-bottom {
 		--pH: 221px;
-		// height: 224px;
-		// height: 360px;
-		// height: 420px;
 		height: var( --pH );
 		display: flex;
 		transition: height 150ms ease,
@@ -1934,7 +1931,12 @@ content {
 			--pH: 320px;
 		}
 
-		&.show-devices .devices-body,
+		&.show-devices {
+			.devices-body {
+				display: flex;
+			}
+		}
+		
 		&.show-midi {
 			.midi-body {
 				display: flex;

@@ -20,8 +20,13 @@ class File {
 		switch (event.type) {
 			case "load-project":
 				// prepare track clips
-				
-
+				Self._file.data.selectNodes(`//Track/Clip/b[@n]`).map(xNote => {
+					let duration = +xNote.getAttribute("d"),
+						[key, octave] = xNote.getAttribute("n").split(""),
+						y = (octave * 11) + OCTAVE.indexOf(key);
+					xNote.setAttribute("y", y);
+					xNote.setAttribute("w", 2);
+				});
 				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });
 				// load file instruments

@@ -79,21 +79,21 @@
 				</Settings>
 			</Device>
 			<Clip name="Clip 1" row="0" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
-				<!-- <b n="A4" b="0" d="4n" v="1"/>
+				<b n="A4" b="0" d="4n" v="1"/>
 				<b n="G4" b="2" d="4n" v="1"/>
 				<b n="F4" b="4" d="4n" v="1"/>
 				<b n="G4" b="6" d="4n" v="1"/>
 				<b n="A4" b="8" d="4n" v="1"/>
 				<b n="A4" b="10" d="4n" v="1"/>
-				<b n="A4" b="12" d="4n" v="1"/> -->
+				<b n="A4" b="12" d="4n" v="1"/>
 
-				<b y="44" x="0" w="2" v="1" key="A4"/>
+				<!-- <b y="44" x="0" w="2" v="1" key="A4"/>
 				<b y="46" x="2" w="2" v="1" key="G4"/>
 				<b y="48" x="4" w="2" v="1" key="F4"/>
 				<b y="46" x="6" w="2" v="1" key="G4"/>
 				<b y="44" x="8" w="2" v="1" key="A4"/>
 				<b y="44" x="10" w="2" v="1" key="A4"/>
-				<b y="44" x="12" w="4" v="1" key="A4"/>
+				<b y="44" x="12" w="4" v="1" key="A4"/> -->
 			</Clip>
 
 			<Sends label="A" value="0"/>

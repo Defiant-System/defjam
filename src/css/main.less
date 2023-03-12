@@ -2318,9 +2318,9 @@ content {
 							// height: calc( var( --keyH ) * 120); // temp
 							background-image: repeating-linear-gradient(180deg,
 									transparent 0px,
-									transparent calc( var( --keyH ) * 12 ),
+									transparent calc( calc( var( --keyH ) * 12 ) - 1px ),
+									@face calc( calc( var( --keyH ) * 12 ) - 1px ),
 									@face calc( var( --keyH ) * 12 ),
-									@face calc( calc( var( --keyH ) * 12 ) + 1px ),
 								);
 
 							&:before {
@@ -2429,11 +2429,19 @@ content {
 								li {
 									display: flex;
 									align-items: flex-end;
-									line-height: 1.35;
-									padding-left: 13px;
-									text-shadow: 0 0 0;
-									color: darken(@face, 3%);
-									height: calc( calc( var( --keyH ) * 12) - 1px );
+									position: relative;
+									height: calc( var( --keyH ) * 12);
+
+									&:after {
+										content: attr(data-label);
+										position: absolute;
+										bottom: 3px;
+										left: 0;
+										right: 7px;
+										text-align: right;
+										text-shadow: 0 0 0;
+										color: darken(@face, 3%);
+									}
 								}
 							}
 

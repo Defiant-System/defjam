@@ -58,6 +58,11 @@
 				el.css(value);
 				break;
 			// custom events
+			case "toggle-velocity-editor":
+				value = event.el.hasClass("toggled");
+				event.el.toggleClass("toggled", value);
+				Self.els.el.toggleClass("show-velocity-editor", !value);
+				break;
 			case "render-clip":
 				//  remove existing notes
 				Self.els.pianoRoll.find("ul, ol").remove();

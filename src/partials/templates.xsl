@@ -252,16 +252,16 @@
 		</xsl:when>
 		<xsl:otherwise>
 			<ul>
-				<li>C7</li>
-				<li>C6</li>
-				<li>C5</li>
-				<li>C4</li>
-				<li>C3</li>
-				<li>C2</li>
-				<li>C1</li>
-				<li>C0</li>
-				<li>C-1</li>
-				<li>C-2</li>
+				<li data-label="C7"></li>
+				<li data-label="C6"></li>
+				<li data-label="C5"></li>
+				<li data-label="C4"></li>
+				<li data-label="C3"></li>
+				<li data-label="C2"></li>
+				<li data-label="C1"></li>
+				<li data-label="C0"></li>
+				<li data-label="C-1"></li>
+				<li data-label="C-2"></li>
 			</ul>
 		</xsl:otherwise>
 	</xsl:choose>

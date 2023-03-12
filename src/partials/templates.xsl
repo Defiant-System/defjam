@@ -242,11 +242,14 @@
 		<xsl:when test="../Device/Pads">
 		<ol>
 			<xsl:for-each select="../Device/Pads/Pad">
-				<li>
-					<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
-					<xsl:attribute name="data-sample"><xsl:value-of select="@sample"/></xsl:attribute>
-					<xsl:value-of select="@name"/>
-				</li>
+				<xsl:sort order="ascending" select="@kI"/>
+				<xsl:if test="@sample">
+					<li>
+						<xsl:attribute name="data-key"><xsl:value-of select="@key"/></xsl:attribute>
+						<xsl:attribute name="data-sample"><xsl:value-of select="@sample"/></xsl:attribute>
+						<xsl:value-of select="@name"/>
+					</li>
+				</xsl:if>
 			</xsl:for-each>
 		</ol>
 		</xsl:when>

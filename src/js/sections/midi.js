@@ -73,16 +73,16 @@
 				if (!event.clipId) return;
 
 				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="${event.clipId}"]`);
-				value = xClip.parentNode.selectSingleNode(`./Pads`);
+				value = xClip.parentNode.selectNodes(`./Device/Pads/Pad[@sample]`).length;
 				Self.els.el
-					.toggleClass("clip-pads", !value)
+					.toggleClass("clip-pads", value == 0)
 					.css({
 						"--oY": xClip.getAttribute("oY") +"px",
 						"--oX": xClip.getAttribute("oX") +"px",
 						"--keyH": xClip.getAttribute("keyH") +"px",
 						"--noteW": xClip.getAttribute("noteW") +"px",
 						"--bars": xClip.getAttribute("bars"),
-						"--pads": value ? value.selectNodes("./*").length : "" ,
+						"--pads": value || "" ,
 						"--c": xClip.parentNode.getAttribute("color"),
 					});
 				// render clip notes

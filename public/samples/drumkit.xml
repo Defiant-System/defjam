@@ -17,25 +17,25 @@
 					<Knob name="Hi Gain" value="0.21" suffix=""/>
 				</Settings>
 				<Pads>
-					<Pad key="c2"/>
-					<Pad key="c#2"/>
-					<Pad key="d2"/>
-					<Pad key="d#2" sample="3659" name="Ride"/>
+					<Pad kI="14" key="c2"/>
+					<Pad kI="13" key="c#2"/>
+					<Pad kI="12" key="d2"/>
+					<Pad kI="11" key="d#2" sample="3659" name="Ride"/>
 
-					<Pad key="g#1" sample="3507" name="Clave"/>
-					<Pad key="a1"/>
-					<Pad key="a#1" sample="3564" name="Hihat Open"/>
-					<Pad key="b1"/>
+					<Pad kI="24" key="g#1" sample="3507" name="Clave"/>
+					<Pad kI="23" key="a1"/>
+					<Pad kI="22" key="a#1" sample="3564" name="Hihat Open"/>
+					<Pad kI="21" key="b1"/>
 
-					<Pad key="e1"/>
-					<Pad key="f1"/>
-					<Pad key="f#1" sample="3639" name="Hihat Closed"/>
-					<Pad key="g1"/>
+					<Pad kI="34" key="e1"/>
+					<Pad kI="33" key="f1"/>
+					<Pad kI="32" key="f#1" sample="3639" name="Hihat Closed"/>
+					<Pad kI="31" key="g1"/>
 
-					<Pad key="c1" sample="3609" name="Kick"/>
-					<Pad key="c#1" sample="3603" name="Rim"/>
-					<Pad key="d1" sample="3612" name="Snare"/>
-					<Pad key="d#1" sample="3561" name="Clap"/>
+					<Pad kI="44" key="c1" sample="3609" name="Kick"/>
+					<Pad kI="43" key="c#1" sample="3603" name="Rim"/>
+					<Pad kI="42" key="d1" sample="3612" name="Snare"/>
+					<Pad kI="41" key="d#1" sample="3561" name="Clap"/>
 				</Pads>
 			</Device>
 			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">

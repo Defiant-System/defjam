@@ -78,7 +78,7 @@
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
 			</Device>
-			<Clip name="Clip 1" row="0" oY="-640" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
+			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-1">
 				<b n="A4" b="0" d="4n" v="1"/>
 				<b n="G4" b="2" d="4n" v="1"/>
 				<b n="F4" b="4" d="4n" v="1"/>

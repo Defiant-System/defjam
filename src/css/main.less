@@ -1928,7 +1928,7 @@ content {
 					opacity 150ms ease 100ms;
 
 		&.show-midi {
-			--pH: 320px;
+			--pH: 420px;
 		}
 
 		&.show-devices {
@@ -1936,7 +1936,7 @@ content {
 				display: flex;
 			}
 		}
-		
+
 		&.show-midi {
 			.midi-body {
 				display: flex;
@@ -2053,6 +2053,7 @@ content {
 
 					.col-left {
 						display: flex;
+						// width: 63px;
 						width: 53px;
 						margin: 0 1px 0 0;
 
@@ -2310,6 +2311,7 @@ content {
 						overflow: hidden;
 						border-radius: 0;
 						
+						// piano roll
 						.body-frame {
 							position: absolute;
 							width: 100%;
@@ -2352,8 +2354,8 @@ content {
 									@pianoWhite calc( calc( var( --keyH ) * 8.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 10.5 ),
 									@pianoLine2 calc( var( --keyH ) * 10.5 ), @pianoLine2 calc( calc( var( --keyH ) * 10.5 ) + 1px ),
 									#fff calc( calc( var( --keyH ) * 10.5 ) + 1px ), #fff calc( calc( var( --keyH ) * 10.5 ) + 2px ),
-									@pianoWhite calc( calc( var( --keyH ) * 10.5 ) + 2px ), @pianoWhite calc( var( --keyH ) * 12 ),
-									@pianoLine1 calc( var( --keyH ) * 12 ), @pianoLine1 calc( calc( var( --keyH ) * 12 ) + 1px )
+									@pianoWhite calc( calc( var( --keyH ) * 10.5 ) + 2px ), @pianoWhite calc( calc( var( --keyH ) * 12 ) - 1px ),
+									@pianoLine1 calc( calc( var( --keyH ) * 12 ) - 1px ), @pianoLine1 calc( var( --keyH ) * 12 )
 								);
 							}
 
@@ -2475,8 +2477,8 @@ content {
 										@gridblack calc( var( --keyH ) * 8 ), @gridblack calc( var( --keyH ) * 9 ),
 										transparent calc( var( --keyH ) * 9 ), transparent calc( var( --keyH ) * 10 ),
 										@gridblack calc( var( --keyH ) * 10 ), @gridblack calc( var( --keyH ) * 11 ),
-										transparent calc( var( --keyH ) * 11 ), transparent calc( var( --keyH ) * 12 ),
-										darken(@gridblack, 3%) calc( var( --keyH ) * 12 ), darken(@gridblack, 3%) calc( calc( var( --keyH ) * 12 ) + 1px )
+										transparent calc( var( --keyH ) * 11 ), transparent calc( calc( var( --keyH ) * 12 ) - 1px ),
+										darken(@gridblack, 3%)  calc( calc( var( --keyH ) * 12 ) - 1px ), darken(@gridblack, 3%) calc( var( --keyH ) * 12 )
 									),
 									repeating-linear-gradient(90deg,
 											transparent 0px,

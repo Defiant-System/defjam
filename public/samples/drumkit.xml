@@ -4,7 +4,7 @@
 		<Position bar="0.0.0" time="00:00.00"/>
 	</Head>
 	<Tracks>
-		<Track name="Drums" color="#48c" id="track-1" type="drumkit">
+		<Track name="Drums" color="#48c" class="selected" id="track-1" type="drumkit">
 			<Device name="Drumkit">
 				<Settings>
 					<Knob name="DrBus Amount" value="23" suffix="%"/>

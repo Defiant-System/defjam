@@ -37,6 +37,9 @@
 <xsl:template name="session-track">
 	<div class="track">
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
+		<xsl:if test="@class">
+			<xsl:attribute name="class">track <xsl:value-of select="@class"/></xsl:attribute>
+		</xsl:if>
 		<xsl:if test="@color">
 			<xsl:attribute name="style">--c: <xsl:value-of select="@color"/>;</xsl:attribute>
 		</xsl:if>

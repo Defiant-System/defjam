@@ -22,22 +22,13 @@
 		this.els.pianoRoll.on("mousedown mouseout mouseup", this.doPiano);
 		this.els.el.find(".row-body .body-frame ul").on("mousedown", this.doNoteRuler);
 		this.els.el.find(".col-right .body-frame ul").on("mousedown", this.doNoteBars);
-
-		// let synth = new Tone.Synth().toDestination();
-		// synth.triggerAttackRelease("C4", "8n");
-
-		// this.dispatch({ type: "load-instrument", name: "Glockenspiel" });
-		// this.dispatch({ type: "load-instrument", name: "Bright Acoustic Piano" });
-		// this.dispatch({ type: "load-instrument", name: "Baritone Sax" });
 	},
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.midi,
 			Drag = Self.drag,
+			xClip,
 			limit,
-			list,
-			instrument,
-			sequence,
 			name,
 			value,
 			el;
@@ -66,110 +57,40 @@
 				el.css(value);
 				break;
 			// custom events
-			case "get-details":
-				el = Self.els.el;
-				Self.details = {
-					oY: parseInt(el.cssProp("--oY"), 10),
-					oX: parseInt(el.cssProp("--oX"), 10),
-					keyH: parseInt(el.cssProp("--keyH"), 10),
-					noteW: parseInt(el.cssProp("--noteW"), 10),
-					bars: parseInt(el.cssProp("--bars"), 10),
-				};
-				break;
-				/*
-			case "load-instrument":
-				value = {
-					urls: {},
-					baseUrl: BASE_URL,
-				};
-				window.bluePrint.selectNodes(`//Instruments//Item[@name="${event.name}"]/s`)
-					.map(x => {
-						let i = +x.getAttribute("i"),
-							n = +x.getAttribute("n");
-						value.urls[KEYS.note(n)] = `${i}.ogg`;
-					});
-				Self.sampler = new Tone.Sampler(value).toDestination();
-				break;
-			case "jam-add-track":
-				// drumkit
-				instrument = new Tone.Sampler({
-					urls: {
-						"C0": "3609.ogg", // kick
-						"C1": "3612.ogg", // snare
-						"C2": "3639.ogg", // hihat
-						"C3": "3507.ogg", // clave
-					},
-					baseUrl: BASE_URL,
-				});
-				
-				sequence = Self.dispatch({ type: "ui-to-sequence" });
-
-				Jam.track.add(event.id, instrument, sequence, 1);
-				break;
-				*/
-			case "ui-to-sequence":
-				sequence = [];
-				list = Self.els.pianoRoll.find("li").map(li => sequence.push([...Array(16)]));
-				Self.els.noteBody.find("b").map(note => {
-					let el = $(note),
-						lane = list.length - +el.cssProp("--t") - 1,
-						beat = +el.cssProp("--l"),
-						duration = "4n",
-						velocity = 1;
-					sequence[lane][beat] = { duration, velocity };
-				});
-				return sequence;
-			case "loop-clip":
-				console.log( event.el.hasClass("on") );
-				break;
-			case "toggle-velocity-editor":
-				value = event.el.hasClass("toggled");
-				event.el.toggleClass("toggled", value);
-				Self.els.el.toggleClass("show-velocity-editor", !value);
-				break;
 			case "render-clip":
 				//  remove existing notes
 				Self.els.pianoRoll.find("ul, ol").remove();
 				Self.els.noteBody.find("b").remove();
 				Self.els.noteFoot.find("b").remove();
-				if (!event.xClip) {
-					// TODO: empty rack-bottom
-					return;
-				}
 
-				value = event.xClip.parentNode.selectSingleNode(`./Pads`);
+				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="clip-2-1"]`);
+				value = xClip.parentNode.selectSingleNode(`./Pads`);
 				Self.els.el
 					.toggleClass("clip-pads", !value)
 					.css({
-						"--oY": event.xClip.getAttribute("oY") +"px",
-						"--oX": event.xClip.getAttribute("oX") +"px",
-						"--keyH": event.xClip.getAttribute("keyH") +"px",
-						"--noteW": event.xClip.getAttribute("noteW") +"px",
-						"--bars": event.xClip.getAttribute("bars"),
+						"--oY": xClip.getAttribute("oY") +"px",
+						"--oX": xClip.getAttribute("oX") +"px",
+						"--keyH": xClip.getAttribute("keyH") +"px",
+						"--noteW": xClip.getAttribute("noteW") +"px",
+						"--bars": xClip.getAttribute("bars"),
 						"--pads": value ? value.selectNodes("./*").length : "" ,
-						"--c": event.xClip.parentNode.getAttribute("color"),
+						"--c": xClip.parentNode.getAttribute("color"),
 					});
-				// render clip notes
-				// window.render({
-				// 	template: "clip-pads",
-				// 	match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
-				// 	append: Self.els.pianoRoll,
-				// });
-				// render clip notes
+
+				// render notes
 				window.render({
+					data: event.file.data,
 					template: "midi-notes",
-					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
+					match: `//Project//Clip[@id="clip-2-1"]`,
 					append: Self.els.noteBody,
 				});
-				// note volumes
+				// render note velocity
 				window.render({
+					data: event.file.data,
 					template: "midi-note-volume",
-					match: `//file//Clip[@id="${event.xClip.getAttribute("id")}"]`,
+					match: `//Project//Clip[@id="clip-2-1"]`,
 					append: Self.els.noteFoot,
 				});
-
-				// sequence update
-				// Self.dispatch({ type: "jam-add-track", id: "track-1" });
 				break;
 		}
 	},
@@ -403,10 +324,16 @@
 			t, l, d;
 		switch (event.type) {
 			case "mousedown":
-				// refresh details
-				Self.dispatch({ type: "get-details" });
-
+				// drag details
 				let el = $(event.target),
+					rEl = Self.els.el,
+					details = {
+						oY: parseInt(rEl.cssProp("--oY"), 10),
+						oX: parseInt(rEl.cssProp("--oX"), 10),
+						keyH: parseInt(rEl.cssProp("--keyH"), 10),
+						noteW: parseInt(rEl.cssProp("--noteW"), 10),
+						bars: parseInt(rEl.cssProp("--bars"), 10),
+					},
 					clickY = event.clientY,
 					clickX = event.clientX,
 					floor_ = Math.floor,
@@ -417,8 +344,8 @@
 						Jam.track.update({ id: "track-1", sequence });
 					};
 
-				t = floor_(event.offsetY / Self.details.keyH),
-				l = floor_(event.offsetX / Self.details.noteW);
+				t = floor_(event.offsetY / details.keyH),
+				l = floor_(event.offsetX / details.noteW);
 				d = 1;
 
 				if (el.hasClass("body-frame")) {
@@ -430,7 +357,7 @@
 					// UI to live sequence
 					return onDone();
 				}
-				Self.drag = { el, d, l, onDone, clickY, clickX, floor_ };
+				Self.drag = { el, d, l, details, onDone, clickY, clickX, floor_ };
 
 				// prevent mouse from triggering mouseover
 				APP.els.content.addClass("hide-cursor");
@@ -438,7 +365,7 @@
 				Self.els.doc.on("mousemove mouseup", Self.doPencil);
 				break;
 			case "mousemove":
-				d = Drag.floor_((event.clientX - Drag.clickX) / Self.details.noteW);
+				d = Drag.floor_((event.clientX - Drag.clickX) / Drag.details.noteW);
 				l = Drag.l;
 
 				if (d < 0) {

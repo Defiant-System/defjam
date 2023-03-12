@@ -14,6 +14,7 @@
 			Self = APP.session,
 			name,
 			value,
+			trackId,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -41,26 +42,29 @@
 				break;
 			case "select-clip":
 				let rect = event.target.getBoundingClientRect(),
+					slotEl = $(event.target).parents("?.slots"),
 					slotH = parseInt(Self.els.wrapper.cssProp("--slotH"), 10),
 					row = Math.ceil((event.clientY - rect.top) / slotH);
-				if (row < 8) {
+				if (slotEl.length && row < 8) {
 					Self.els.wrapper.css({ "--selRow": row });
 				}
 				// selecte track column
 				Self.dispatch({ ...event, type: "select-track" });
 				// track column element
-				el = $(event.target).parents(".track");
+				el = slotEl.parents(".track");
+				trackId = el.data("id");
 				// signlal devices panel to render
 				APP.devices.dispatch({
 					type: "render-device",
 					file: APP.File._file,
-					trackId: el.data("id"),
+					trackId,
 				});
 				// signlal midi panel to render
 				APP.midi.dispatch({
-					type: "render-device",
+					type: "render-clip",
 					file: APP.File._file,
-					trackId: el.data("id"),
+					trackId,
+					row,
 				});
 
 				// let clipId = $(event.target).data("id"),

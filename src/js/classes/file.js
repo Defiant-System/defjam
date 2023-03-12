@@ -19,12 +19,15 @@ class File {
 			str;
 		switch (event.type) {
 			case "load-project":
+				// prepare track clips
+				
+
 				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });
 				// load file instruments
-				Jam.loadInstruments(Self._file);
+				Jam.loadProject(Self._file);
 				// TODO: auto select a track
-				
+
 				break;
 		}
 	}

@@ -103,9 +103,9 @@
 	<xsl:for-each select="./b">
 		<b>
 			<xsl:attribute name="style">
-				--t: <xsl:value-of select="@t"/>;
-				--l: <xsl:value-of select="@l"/>;
-				--d: <xsl:value-of select="@d"/>;
+				--y: <xsl:value-of select="@y"/>;
+				--x: <xsl:value-of select="@x"/>;
+				--w: <xsl:value-of select="@w"/>;
 			</xsl:attribute>
 			<!-- <xsl:value-of select="@key"/> -->
 		</b>
@@ -117,7 +117,7 @@
 	<xsl:for-each select="./b">
 		<b>
 			<xsl:attribute name="style">
-				--l: <xsl:value-of select="@l"/>;
+				--x: <xsl:value-of select="@x"/>;
 				--v: <xsl:value-of select="@v"/>;
 			</xsl:attribute>
 		</b>

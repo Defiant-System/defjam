@@ -2501,9 +2501,9 @@ content {
 								b {
 									// font-size: calc( var( --keyH ) - 2px );
 									position: absolute;
-									top: calc( calc( var( --t ) * var( --keyH ) ) + 1px ); //  + 4px
-									left: calc( var( --l ) * var( --noteW ) );
-									width: calc( calc( var( --d ) * var( --noteW ) ) - 1px );
+									top: calc( calc( var( --y ) * var( --keyH ) ) + 1px ); //  + 4px
+									left: calc( var( --x ) * var( --noteW ) );
+									width: calc( calc( var( --w ) * var( --noteW ) ) - 1px );
 									height: calc( var( --keyH ) - 2px );
 									padding: 0 5px;
 									overflow: hidden;
@@ -2617,7 +2617,7 @@ content {
 								bottom: 0;
 								width: 2px;
 								top: calc( calc( 37px - calc( var( --v ) * 37px ) ) + 13px );
-								left: calc( var( --l ) * var( --noteW ) );
+								left: calc( var( --x ) * var( --noteW ) );
 								background: #5bb;
 
 								&:hover {

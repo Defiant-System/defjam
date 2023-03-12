@@ -7,7 +7,7 @@ const Jam = {
 		// init sub objects
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
-	loadInstruments(file) {
+	loadProject(file) {
 		file.data.selectNodes(`//Tracks/Track`).map(xTrack => {
 			let id = xTrack.getAttribute("id"),
 				isDrumkit = 0,
@@ -31,6 +31,9 @@ const Jam = {
 					instrument = new Tone.PolySynth(Tone.Synth, {
 						oscillator: { partials: [0, 2, 3, 4] }
 					});
+
+					// sequence = 
+					// console.log( sequence );
 					break;
 				case "drumkit":
 					xTrack.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {

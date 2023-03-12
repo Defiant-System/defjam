@@ -19,11 +19,12 @@ class File {
 			str;
 		switch (event.type) {
 			case "load-project":
-				// prepare track clips
+				// prepare track clip notes
 				Self._file.data.selectNodes(`//Track/Clip/b[@n]`).map(xNote => {
 					let duration = +xNote.getAttribute("d"),
-						[key, octave] = xNote.getAttribute("n").split(""),
-						y = (octave * 11) + OCTAVE.indexOf(key);
+						key = xNote.getAttribute("n").slice(0,1),
+						octave = +xNote.getAttribute("n").slice(1),
+						y = ((7 - octave) * 12) + (11 - OCTAVE.indexOf(key));
 					xNote.setAttribute("y", y);
 					xNote.setAttribute("w", 2);
 				});

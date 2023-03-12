@@ -75,6 +75,14 @@ const Jam = {
 				tone = track.isDrumkit ? [key] : key;
 			track.instrument.triggerAttackRelease(tone, "1n", Tone.now(), 1);
 		},
+		triggerAttack(id, key) {
+			let track = this._list.find(el => el.id === id);
+			track.instrument.triggerAttack(key, Tone.now(), 1);
+		},
+		triggerRelease(id, key) {
+			let track = this._list.find(el => el.id === id);
+			track.instrument.triggerRelease(key, Tone.now());
+		},
 		update(data) {
 			let track = this._list.find(el => el.id === data.id);
 			for (let key in data) {

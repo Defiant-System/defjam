@@ -112,6 +112,7 @@
 	doPiano(event) {
 		let APP = defjam,
 			Self = APP.midi,
+			Drag = Self.drag,
 			keyboard,
 			keyH,
 			topIndex,
@@ -120,6 +121,7 @@
 			key,
 			top,
 			width,
+			trackId,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -148,27 +150,32 @@
 					key = keys[topIndex % keys.length] + (7 - octave).toString();
 					top = (topIndex * keyH);
 					width = key.includes("#") ? 25 : 32;
+					trackId = "track-2";
 
-					// if (key && Self.sampler) {
-					// 	// play sound
-					// 	Self.sampler.triggerAttackRelease([key], 1);
-					// }
+					Self.drag = { trackId, key };
+
+					if (key) {
+						// TODO: triggerAttack
+						Jam.track.triggerAttack(trackId, key);
+					}
 					// UI update
 					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
 				}
 
 				// bind event handlers
-				// Self.els.doc.on("mousemove mouseout mouseup", Self.doPiano);
+				Self.els.doc.on("mousemove mouseout mouseup", Self.doPiano);
 				break;
 			case "mousemove":
 				break;
 			case "mouseup":
 				/* falls through */
 			case "mouseout":
+				// TODO: Jam.track.triggerRelease
+				Jam.track.triggerRelease(Drag.trackId, Drag.key);
 				// release key
 				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				// unbind event handlers
-				// Self.els.doc.off("mousemove mouseout mouseup", Self.doPiano);
+				Self.els.doc.off("mousemove mouseout mouseup", Self.doPiano);
 				break;
 		}
 	},

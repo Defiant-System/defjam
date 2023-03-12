@@ -9,6 +9,7 @@
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
 			pianoRoll: window.find(".row-body .col-left .body-frame"),
+			noteHead: window.find(".row-head .col-right .body-frame"),
 			noteBody: window.find(".row-body .col-right .body-frame"),
 			noteFoot: window.find(".row-foot .col-right .body-frame"),
 		};
@@ -40,8 +41,8 @@
 				limit = {
 					minY: 0,
 					minX: 0,
-					maxY: el.find(".row-body .col-left .box-body").prop("offsetHeight") - el.find(".row-body .col-left .body-frame").prop("offsetHeight"),
-					maxX: Math.min(el.find(".row-head .col-right .box-body").prop("offsetWidth") - el.find(".row-head .col-right .body-frame").prop("offsetWidth"), 0),
+					maxY: Self.els.noteBody.parent().prop("offsetHeight") - Self.els.noteBody.prop("offsetHeight"),
+					maxX: Math.min(Self.els.noteBody.parent().prop("offsetWidth") - Self.els.noteBody.prop("offsetWidth"), 0),
 				};
 				// default values
 				value = {

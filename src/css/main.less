@@ -1716,22 +1716,22 @@ content {
 							margin-right: 2px;
 							text-shadow: 0 1px 0 rgba(0,0,0,.2);
 							counter-increment: track-counter;
+							--bg: @boxBg;
 
 							&:last-child {
 								margin-right: 0;
 							}
 
 							&.selected {
-								// background: fadeout(lighten(@boxBg, 13%), 85%);
-								background: @text;
+								--bg: lighten(@boxBg, 1.5%);
 							}
 
 							> div {
-								background: @boxBg;
+								background: var( --bg );
 								margin-bottom: 1px;
 
 								&.status {
-									background: @boxBg;
+									background: var( --bg );
 									position: relative;
 									z-index: 2;
 									height: 21px;
@@ -1785,14 +1785,14 @@ content {
 								overflow: hidden;
 								background: transparent;
 								background-image: linear-gradient(180deg,
-										@boxBg calc( var( --slotH ) * 0 ), @boxBg calc( var( --slotH ) * 1 ), transparent calc( var( --slotH ) * 1 ), transparent calc( calc( var( --slotH ) * 1 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 1 ), @boxBg calc( var( --slotH ) * 2 ), transparent calc( var( --slotH ) * 2 ), transparent calc( calc( var( --slotH ) * 2 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 2 ), @boxBg calc( var( --slotH ) * 3 ), transparent calc( var( --slotH ) * 3 ), transparent calc( calc( var( --slotH ) * 3 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 3 ), @boxBg calc( var( --slotH ) * 4 ), transparent calc( var( --slotH ) * 4 ), transparent calc( calc( var( --slotH ) * 4 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 4 ), @boxBg calc( var( --slotH ) * 5 ), transparent calc( var( --slotH ) * 5 ), transparent calc( calc( var( --slotH ) * 5 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 5 ), @boxBg calc( var( --slotH ) * 6 ), transparent calc( var( --slotH ) * 6 ), transparent calc( calc( var( --slotH ) * 6 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 6 ), @boxBg calc( var( --slotH ) * 7 ), transparent calc( var( --slotH ) * 7 ), transparent calc( calc( var( --slotH ) * 7 ) + 1px ),
-										@boxBg calc( var( --slotH ) * 7 )
+										var( --bg ) calc( var( --slotH ) * 0 ), var( --bg ) calc( var( --slotH ) * 1 ), transparent calc( var( --slotH ) * 1 ), transparent calc( calc( var( --slotH ) * 1 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 1 ), var( --bg ) calc( var( --slotH ) * 2 ), transparent calc( var( --slotH ) * 2 ), transparent calc( calc( var( --slotH ) * 2 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 2 ), var( --bg ) calc( var( --slotH ) * 3 ), transparent calc( var( --slotH ) * 3 ), transparent calc( calc( var( --slotH ) * 3 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 3 ), var( --bg ) calc( var( --slotH ) * 4 ), transparent calc( var( --slotH ) * 4 ), transparent calc( calc( var( --slotH ) * 4 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 4 ), var( --bg ) calc( var( --slotH ) * 5 ), transparent calc( var( --slotH ) * 5 ), transparent calc( calc( var( --slotH ) * 5 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 5 ), var( --bg ) calc( var( --slotH ) * 6 ), transparent calc( var( --slotH ) * 6 ), transparent calc( calc( var( --slotH ) * 6 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 6 ), var( --bg ) calc( var( --slotH ) * 7 ), transparent calc( var( --slotH ) * 7 ), transparent calc( calc( var( --slotH ) * 7 ) + 1px ),
+										var( --bg ) calc( var( --slotH ) * 7 )
 									);
 								line-height: var( --slotH );
 								// --c: #77c; // default clip color

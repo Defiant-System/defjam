@@ -42,7 +42,8 @@
 				break;
 			case "select-clip":
 				let rect = event.target.getBoundingClientRect(),
-					slotEl = $(event.target).parents("?.slots"),
+					tEl = $(event.target),
+					slotEl = tEl.parents("?.slots"),
 					slotH = parseInt(Self.els.wrapper.cssProp("--slotH"), 10),
 					row = Math.ceil((event.clientY - rect.top) / slotH);
 				if (slotEl.length && row < 8) {
@@ -63,8 +64,8 @@
 				APP.midi.dispatch({
 					type: "render-clip",
 					file: APP.File._file,
+					clipId: tEl.data("id"),
 					trackId,
-					row,
 				});
 
 				// let clipId = $(event.target).data("id"),

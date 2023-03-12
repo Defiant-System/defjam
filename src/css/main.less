@@ -1935,8 +1935,24 @@ content {
 		}
 
 		&.show-devices .devices-body,
-		&.show-midi .midi-body {
-			display: flex;
+		&.show-midi {
+			.midi-body {
+				display: flex;
+
+				&.empty {
+					> div {
+						display: none;
+
+						&.box-body {
+							display: block;
+						}
+					}
+				}
+
+				> .box-body {
+					display: none;
+				}
+			}
 		}
 
 		&.hide {

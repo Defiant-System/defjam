@@ -63,8 +63,11 @@
 				Self.els.pianoRoll.find("ul, ol").remove();
 				Self.els.noteBody.find("b").remove();
 				Self.els.noteFoot.find("b").remove();
+				// toggle parent class
+				Self.els.el.parent().toggleClass("empty", event.clipId);
+				if (!event.clipId) return;
 
-				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="clip-2-1"]`);
+				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="${event.clipId}"]`);
 				value = xClip.parentNode.selectSingleNode(`./Pads`);
 				Self.els.el
 					.toggleClass("clip-pads", !value)
@@ -77,19 +80,25 @@
 						"--pads": value ? value.selectNodes("./*").length : "" ,
 						"--c": xClip.parentNode.getAttribute("color"),
 					});
-
+				// render clip notes
+				window.render({
+					data: event.file.data,
+					template: "clip-pads",
+					match: `//Project//Clip[@id="${event.clipId}"]`,
+					append: Self.els.pianoRoll,
+				});
 				// render notes
 				window.render({
 					data: event.file.data,
 					template: "midi-notes",
-					match: `//Project//Clip[@id="clip-2-1"]`,
+					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.noteBody,
 				});
 				// render note velocity
 				window.render({
 					data: event.file.data,
 					template: "midi-note-volume",
-					match: `//Project//Clip[@id="clip-2-1"]`,
+					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.noteFoot,
 				});
 				break;

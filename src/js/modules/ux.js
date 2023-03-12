@@ -42,6 +42,7 @@ const UX = {
 					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10);
 					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-work-panel"]`);
 				} else {
+					if (defjam.els.content.hasClass("show-devices")) return;
 					el = el.nextAll(".panel-bottom:first");
 					clickY = event.clientY + parseInt(el.cssProp("--pH"), 10);
 					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-rack-panel"]`);

@@ -36,6 +36,43 @@ content {
 	padding: @margin + 1px;
 	color: darken(@text, 7%);
 	text-shadow: 0 1px 0 rgba(0,0,0,.35);
+	--pH: 221px; // panel bottom
+
+	&.show-midi {
+		--pH: 420px;
+		
+		.panel-bottom {
+			.midi-body {
+				display: flex;
+
+				&.empty {
+					> div {
+						display: none;
+
+						&.box-body {
+							display: block;
+						}
+					}
+				}
+
+				> .box-body {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&.show-devices {
+		.resize.vertical {
+			cursor: default;
+		}
+
+		.panel-bottom {
+			.devices-body {
+				display: flex;
+			}
+		}
+	}
 
 	&.cover {
 		content: "";
@@ -1921,42 +1958,11 @@ content {
 	}
 
 	.panel-bottom {
-		--pH: 221px;
 		height: var( --pH );
 		display: flex;
 		transition: height 150ms ease,
 					margin 150ms ease,
 					opacity 150ms ease 100ms;
-
-		&.show-midi {
-			--pH: 420px;
-		}
-
-		&.show-devices {
-			.devices-body {
-				display: flex;
-			}
-		}
-
-		&.show-midi {
-			.midi-body {
-				display: flex;
-
-				&.empty {
-					> div {
-						display: none;
-
-						&.box-body {
-							display: block;
-						}
-					}
-				}
-
-				> .box-body {
-					display: none;
-				}
-			}
-		}
 
 		&.hide {
 			height: 0;

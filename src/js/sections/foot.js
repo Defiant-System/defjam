@@ -35,13 +35,12 @@
 				Self.els.rowFoot.prevAll(".resize:first").toggleClass("hidden", value);
 				break;
 			case "show-devices-rack":
-			case "show-drumkit-rack":
 			case "show-midi-rack":
 				event.el.parent().find(".box.active").removeClass("active");
 				event.el.addClass("active");
 
 				[name, value] = event.type.split("-");
-				Self.els.rack
+				APP.els.content
 					.removeClass("show-devices show-drumkit show-midi")
 					.addClass(`show-${value}`);
 				break;

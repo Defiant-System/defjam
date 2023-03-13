@@ -98,10 +98,10 @@ const Jam = {
 		}
 	},
 	start() {
-		let Toolbar = defjam.toolbar;
-		if (this._stopped && !Toolbar.els.btnPlay.hasClass("tool-active_")) {
+		let APP = defjam;
+		if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
 			// make sure play button is pressed
-			return Toolbar.dispatch({ type: "play" });
+			return APP.toolbar.dispatch({ type: "play" });
 		}
 		// change "flag"
 		this._stopped = false;
@@ -120,6 +120,8 @@ const Jam = {
 				}, [...Array(beats)].map((e, i) => i)).start(0);
 			}
 		});
+
+		APP.midi.els.playHead.addClass("on");
 		
 		Tone.Transport.start();
 		this.update();
@@ -133,7 +135,8 @@ const Jam = {
 	update() {
 		if (this._stopped) return;
 		// do calculations
-		let bars = Tone.Transport.position.split(".")[0].split(":"),
+		let APP = defjam,
+			bars = Tone.Transport.position.split(".")[0].split(":"),
 			seconds = Math.floor(Tone.Transport.seconds),
 			sec = (seconds % 60).toString().padStart(2, "0"),
 			min = Math.floor(seconds / 60).toString().padStart(2, "0"),
@@ -145,7 +148,10 @@ const Jam = {
 
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying) {
-				console.log( oTrack.sequence.progress );
+				// setPlayhead
+				let left = 512 * oTrack.sequence.progress;
+				// console.log(  );
+				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
 			}
 		});
 

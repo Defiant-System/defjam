@@ -2271,6 +2271,20 @@ content {
 						width: calc( var( --noteW ) * calc( var( --bars ) / 2 ) * 16 );
 					}
 
+					.play-head {
+						background: @base;
+						position: absolute;
+						top: 52px;
+						left: 0;
+						width: 1px;
+						z-index: 2;
+						// transform: translateX( 107px );
+
+						&.on {
+							height: calc( var( --pH ) - 60px );
+						}
+					}
+
 					.edit-cursor {
 						display: none;
 						position: absolute;

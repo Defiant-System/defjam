@@ -141,6 +141,15 @@ const Jam = {
 			time = `${hr} ${min} ${sec}`;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
+
+
+		this.track._list.map(oTrack => {
+			if (oTrack.isPlaying) {
+				console.log( oTrack.sequence.progress );
+			}
+		});
+
+
 		// render display
 		this.display.render({ bars, time });
 		// render whats need to be rendered

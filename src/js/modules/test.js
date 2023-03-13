@@ -17,8 +17,8 @@ let Test = {
 
 		// defjam.session.dispatch({ type: "render-file" });
 
-		setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
+		setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
 
 
 		// setTimeout(this.jam, 100);

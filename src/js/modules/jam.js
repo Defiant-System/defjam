@@ -31,9 +31,6 @@ const Jam = {
 					instrument = new Tone.PolySynth(Tone.Synth, {
 						oscillator: { partials: [0, 2, 3, 4] }
 					});
-
-					// sequence = 
-					// console.log( sequence );
 					break;
 				case "drumkit":
 					xTrack.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
@@ -69,6 +66,11 @@ const Jam = {
 			this._list.push({ id, ctx, instrument, sequence, channel, meter, isDrumkit });
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
+		},
+		playClip(id, clipId) {
+			let track = this._list.find(el => el.id === id),
+				sequence = [];
+			console.log( sequence );
 		},
 		play(id, key) {
 			let track = this._list.find(el => el.id === id),

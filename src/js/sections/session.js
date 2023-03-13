@@ -98,6 +98,10 @@
 					trackId,
 				});
 
+				if (tEl.prop("nodeName") === "B" && event.offsetX < slotH) {
+					Jam.track.playClip(trackId, tEl.data("id"));
+				}
+
 				// let clipId = $(event.target).data("id"),
 				// 	xClip = APP.File._file.data.selectSingleNode(`//Tracks//Clip[@id="${clipId}"]`);
 				// // render clip contents in midi note editor

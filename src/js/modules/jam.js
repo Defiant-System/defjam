@@ -109,6 +109,7 @@ const Jam = {
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying) {
 				let beats = +oTrack.xSequence.getAttribute("bars") * 16;
+				oTrack.clipWidth = beats * +oTrack.xSequence.getAttribute("noteW");
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
 					oTrack.xSequence.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
 						let note = xNote.getAttribute("n"),
@@ -120,16 +121,19 @@ const Jam = {
 				}, [...Array(beats)].map((e, i) => i)).start(0);
 			}
 		});
-
+		// show play-head
 		APP.midi.els.playHead.addClass("on");
-		
+		// start Tone transport
 		Tone.Transport.start();
 		this.update();
 	},
 	stop() {
+		let APP = defjam;
 		// change "flag"
 		this._stopped = true;
-		// this._loop.stop();
+		// hide play-head
+		APP.midi.els.playHead.removeClass("on");
+		// stop Tone transport
 		Tone.Transport.stop();
 	},
 	update() {
@@ -149,7 +153,7 @@ const Jam = {
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying) {
 				// setPlayhead
-				let left = 512 * oTrack.sequence.progress;
+				let left = oTrack.clipWidth * oTrack.sequence.progress;
 				// console.log(  );
 				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
 			}

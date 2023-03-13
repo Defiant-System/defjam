@@ -162,6 +162,13 @@
 				</Settings>
 			</Device>
 
+			<Clip name="Clip 1" row="0" oY="-720" oX="0" keyH="18" noteW="18" bars="1" id="clip-3-1">
+				<b n="A3" b="0" d="4" v="1"/>
+				<b n="G3" b="4" d="4" v="1"/>
+				<b n="F3" b="8" d="4" v="1"/>
+				<b n="G3" b="12" d="4" v="1"/>
+			</Clip>
+
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
 			<Buttons activator="on" solo="off" record="off"/>

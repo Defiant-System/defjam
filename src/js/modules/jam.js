@@ -8,8 +8,9 @@ const Jam = {
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
 	loadProject(file) {
-		file.data.selectNodes(`//Tracks/Track`).map(xTrack => {
-			let id = xTrack.getAttribute("id"),
+		// loop tracks
+		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
+			let id = xNode.getAttribute("id"),
 				isDrumkit = 0,
 				sequence = [],
 				instrument,
@@ -17,9 +18,9 @@ const Jam = {
 					urls: {},
 					baseUrl: BASE_URL,
 				};
-			switch (xTrack.getAttribute("type")) {
+			switch (xNode.getAttribute("type")) {
 				case "sampler":
-					let xPath = xTrack.selectSingleNode(`./Device/Set[@xPath]`).getAttribute("xPath");
+					let xPath = xNode.selectSingleNode(`./Device/Set[@xPath]`).getAttribute("xPath");
 					window.bluePrint.selectNodes(xPath).map(xSample => {
 						let i = +xSample.getAttribute("i"),
 							n = +xSample.getAttribute("n");
@@ -33,7 +34,7 @@ const Jam = {
 					});
 					break;
 				case "drumkit":
-					xTrack.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
+					xNode.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
 						let key = xPad.getAttribute("key"),
 							sample = xPad.getAttribute("sample");
 						data.urls[key] = `${sample}.ogg`;
@@ -43,17 +44,17 @@ const Jam = {
 					break;
 			}
 			// add track to jam
-			this.track.add(id, instrument, sequence, isDrumkit);
+			this.track.add({ id, xNode, instrument, sequence, isDrumkit });
 		});
 	},
 	track: {
 		init() {
 			this._list = [];
 		},
-		add(id, instrument, sequence, isDrumkit=0) {
+		add(opt) {
 			let meter = new Tone.Meter({ channels: 1 }),
 				channel = new Tone.Channel().connect(meter).toDestination(),
-				cvs = window.find(`.track[data-id="${id}"] .volume canvas`),
+				cvs = window.find(`.track[data-id="${opt.id}"] .volume canvas`),
 				ctx = cvs[0].getContext("2d"),
 				color = cvs.css("background-color");
 			// canvas defaults
@@ -61,16 +62,19 @@ const Jam = {
 			// make canvas ready
 			cvs.addClass("ready");
 			// connect to channel
-			instrument.connect(channel);
+			opt.instrument.connect(channel);
 			// add to list
-			this._list.push({ id, ctx, instrument, sequence, channel, meter, isDrumkit });
+			this._list.push({ ...opt, ctx, channel, meter, isPlaying: false });
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
 		},
 		playClip(id, clipId) {
 			let track = this._list.find(el => el.id === id),
-				sequence = [];
-			console.log( sequence );
+				xSequence = track.xNode.selectSingleNode(`./Clip[@id="${clipId}"]`);
+			track.xSequence = xSequence;
+			track.isPlaying = true;
+			// start playing
+			Jam.start();
 		},
 		play(id, key) {
 			let track = this._list.find(el => el.id === id),
@@ -94,30 +98,36 @@ const Jam = {
 		}
 	},
 	start() {
+		let Toolbar = defjam.toolbar;
+		if (this._stopped && !Toolbar.els.btnPlay.hasClass("tool-active_")) {
+			// make sure play button is pressed
+			return Toolbar.dispatch({ type: "play" });
+		}
 		// change "flag"
 		this._stopped = false;
-		// prepare sequence grid
-		this._loop = new Tone.Sequence((time, beat) => {
-			this.track._list.map(track => {
-				if (track.isDrumkit) {
-					track.sequence.map((lane, index) => {
-						if (lane[beat]) {
-							track.instrument.triggerAttackRelease([`C${index}`], "4n", time, 1);
-						}
-					});
-				} else if (track.sequence[beat]) {
-					track.instrument.triggerAttackRelease(track.sequence[beat], "4n", time, 1)
-				}
-			});
-		}, [...Array(16)].map((e,i) => i)).start(0);
 
+		this.track._list.map(oTrack => {
+			if (oTrack.isPlaying) {
+				let beats = +oTrack.xSequence.getAttribute("bars") * 16;
+				oTrack.sequence = new Tone.Sequence((time, beat) => {
+					oTrack.xSequence.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
+						let note = xNote.getAttribute("n"),
+							dur = xNote.getAttribute("d") +"n",
+							vel = +xNote.getAttribute("v");
+						if (oTrack.isDrumkit) note = [note];
+						oTrack.instrument.triggerAttackRelease(note, dur, time, vel)
+					});
+				}, [...Array(beats)].map((e, i) => i)).start(0);
+			}
+		});
+		
 		Tone.Transport.start();
 		this.update();
 	},
 	stop() {
 		// change "flag"
 		this._stopped = true;
-		this._loop.stop();
+		// this._loop.stop();
 		Tone.Transport.stop();
 	},
 	update() {

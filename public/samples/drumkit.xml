@@ -17,46 +17,46 @@
 					<Knob name="Hi Gain" value="0.21" suffix=""/>
 				</Settings>
 				<Pads>
-					<Pad kI="14" key="c2"/>
-					<Pad kI="13" key="c#2"/>
-					<Pad kI="12" key="d2"/>
-					<Pad kI="11" key="d#2" sample="3659" name="Ride"/>
+					<Pad kI="14" key="C4"/>
+					<Pad kI="13" key="C#4"/>
+					<Pad kI="12" key="D4"/>
+					<Pad kI="11" key="D#4" sample="3659" name="Ride"/>
 
-					<Pad kI="24" key="g#1" sample="3507" name="Clave"/>
-					<Pad kI="23" key="a1"/>
-					<Pad kI="22" key="a#1" sample="3564" name="Hihat Open"/>
-					<Pad kI="21" key="b1"/>
+					<Pad kI="24" key="G#3" sample="3507" name="Clave"/>
+					<Pad kI="23" key="A3"/>
+					<Pad kI="22" key="A#3" sample="3564" name="Hihat Open"/>
+					<Pad kI="21" key="B3"/>
 
-					<Pad kI="34" key="e1"/>
-					<Pad kI="33" key="f1"/>
-					<Pad kI="32" key="f#1" sample="3639" name="Hihat Closed"/>
-					<Pad kI="31" key="g1"/>
+					<Pad kI="34" key="E3"/>
+					<Pad kI="33" key="F3"/>
+					<Pad kI="32" key="F#3" sample="3639" name="Hihat Closed"/>
+					<Pad kI="31" key="G3"/>
 
-					<Pad kI="44" key="c1" sample="3609" name="Kick"/>
-					<Pad kI="43" key="c#1" sample="3603" name="Rim"/>
-					<Pad kI="42" key="d1" sample="3612" name="Snare"/>
-					<Pad kI="41" key="d#1" sample="3561" name="Clap"/>
+					<Pad kI="44" key="C3" sample="3609" name="Kick"/>
+					<Pad kI="43" key="C#3" sample="3603" name="Rim"/>
+					<Pad kI="42" key="D3" sample="3612" name="Snare"/>
+					<Pad kI="41" key="D#3" sample="3561" name="Clap"/>
 				</Pads>
 			</Device>
 			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
-				<b n="g#1" b="2" d="1" v="1"/>
+				<b n="G#3" b="2" d="1" v="1"/>
 
-				<b n="f#1" b="0" d="1" v="1"/>
-				<b n="f#1" b="1" d="1" v="1"/>
-				<b n="f#1" b="4" d="1" v="1"/>
-				<b n="f#1" b="6" d="1" v="1"/>
-				<b n="f#1" b="8" d="1" v="1"/>
-				<b n="f#1" b="10" d="1" v="1"/>
-				<b n="f#1" b="12" d="1" v="1"/>
-				<b n="f#1" b="14" d="1" v="1"/>
+				<b n="F#3" b="0" d="1" v="1"/>
+				<b n="F#3" b="1" d="1" v="1"/>
+				<b n="F#3" b="4" d="1" v="1"/>
+				<b n="F#3" b="6" d="1" v="1"/>
+				<b n="F#3" b="8" d="1" v="1"/>
+				<b n="F#3" b="10" d="1" v="1"/>
+				<b n="F#3" b="12" d="1" v="1"/>
+				<b n="F#3" b="14" d="1" v="1"/>
 
-				<b n="d1" b="4" d="1" v="1"/>
-				<b n="d1" b="12" d="1" v="1"/>
+				<b n="D3" b="4" d="1" v="1"/>
+				<b n="D3" b="12" d="1" v="1"/>
 
-				<b n="c1" b="0" d="1" v="1"/>
-				<b n="c1" b="7" d="1" v="1"/>
-				<b n="c1" b="10" d="1" v="1"/>
-				<b n="c1" b="15" d="1" v="1"/>
+				<b n="C3" b="0" d="1" v="1"/>
+				<b n="C3" b="7" d="1" v="1"/>
+				<b n="C3" b="10" d="1" v="1"/>
+				<b n="C3" b="15" d="1" v="1"/>
 			</Clip>
 
 			<Sends label="A" value="0"/>

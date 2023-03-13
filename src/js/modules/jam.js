@@ -12,7 +12,7 @@ const Jam = {
 		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
 			let id = xNode.getAttribute("id"),
 				isDrumkit = 0,
-				sequence = [],
+				sequence,
 				instrument,
 				data = {
 					urls: {},
@@ -129,6 +129,14 @@ const Jam = {
 	},
 	stop() {
 		let APP = defjam;
+		// stop all tracks
+		this.track._list.map(oTrack => {
+			if (oTrack.sequence) {
+				oTrack.sequence.stop();
+				delete oTrack.sequence;
+			}
+			oTrack.isPlaying = false;
+		});
 		// change "flag"
 		this._stopped = true;
 		// hide play-head

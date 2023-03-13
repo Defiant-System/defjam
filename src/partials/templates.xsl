@@ -75,14 +75,14 @@
 			<div>
 				<div class="pan-knob" data-value="0"><div></div></div>
 				<xsl:if test="@id != 'master'">
-					<div class="track-btn activator">
+					<div class="track-btn activator" data-click="track-activator">
 						<xsl:if test="@io-label">
 							<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
 						</xsl:if>
 					</div>
-					<div class="track-btn solo">S</div>
+					<div class="track-btn solo" data-click="track-solo">S</div>
 					<xsl:if test="not(@io-label)">
-						<div class="track-btn record">
+						<div class="track-btn record" data-click="track-record">
 							<xsl:if test="./Buttons[@record = 'on']"><xsl:attribute name="class">track-btn record active</xsl:attribute></xsl:if>
 							&#9679;
 						</div>

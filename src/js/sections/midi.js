@@ -168,12 +168,12 @@
 			case "mousemove":
 				break;
 			case "mouseup":
-				/* falls through */
-			case "mouseout":
 				if (Drag.key) {
 					// triggerRelease
 					Jam.track.triggerRelease(Drag.trackId, Drag.key);
 				}
+				/* falls through */
+			case "mouseout":
 				// release key
 				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				// unbind event handlers

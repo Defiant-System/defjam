@@ -7,6 +7,7 @@
 		this.els = {
 			el: window.find(".sess-layout"),
 			wrapper: window.find(".session-wrapper"),
+			wTracks: window.find(".tracks-wrapper"),
 		}
 	},
 	dispatch(event) {
@@ -33,6 +34,35 @@
 					match: `//Project`,
 					target: Self.els.el.find(`.io-master .tracks`),
 				});
+				break;
+			case "track-activator":
+				value = event.el.hasClass("off");
+				// toggle button
+				event.el.toggleClass("off", value);
+				// make track selected
+				Self.dispatch({ ...event, type: "select-track" });
+				break;
+			case "track-solo":
+				value = event.el.hasClass("active");
+				trackId = event.el.parents(".track").data("id");
+				// silenced track UI
+				Self.els.wTracks.find(`.track:not([data-id="${trackId}"])`).toggleClass("silenced", value);
+				Self.els.wTracks.find(`.track .track-btn.activator`).toggleClass("off", value);
+				// toggle button
+				event.el.toggleClass("active", value);
+				// make track selected
+				Self.dispatch({ ...event, type: "select-track" });
+				break;
+			case "track-record":
+				value = event.el.hasClass("active");
+				if (!value) {
+					// turn off previous active recording channel
+					Self.els.wTracks.find(`.track .track-btn.record.active`).removeClass("active");
+				}
+				// toggle button
+				event.el.toggleClass("active", value);
+				// make track selected
+				Self.dispatch({ ...event, type: "select-track" });
 				break;
 			case "select-track":
 				el = $(event.target).parents(".track");

@@ -5,6 +5,8 @@ let Test = {
 		window.find(`.foot-midi`).trigger("click");
 		// window.find(`.foot-devices`).trigger("click");
 
+		window.find(`.velocity-toggler`).trigger("click");
+
 		// window.find(`.channel:nth(3)`).trigger("click");
 		// window.find(`.toolbar-tool_[data-click="pencil"]`).trigger("click");
 
@@ -26,7 +28,7 @@ let Test = {
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 3000);
+		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 16e3);
 	},
 	jam() {
 		let instrument,

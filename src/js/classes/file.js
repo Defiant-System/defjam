@@ -5,9 +5,6 @@ class File {
 		// save reference to original FS file
 		this._file = fsFile || new karaqu.File({ kind: "xml" });
 
-		let xTempo = this._file.data.selectSingleNode(`//Head/Tempo`);
-		this._tempo = xTempo ? +xTempo.getAttribute("value") : 120;
-
 		this.dispatch({ type: "load-project" });
 	}
 

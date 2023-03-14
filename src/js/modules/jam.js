@@ -8,6 +8,10 @@ const Jam = {
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
 	loadProject(file) {
+		let node = file.data.selectSingleNode(`//Head/Tempo`),
+			value = node.getAttribute("value") || 120;
+		// song tempo / BPM
+		Tone.Transport.bpm.value = +value;
 		// loop tracks
 		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
 			let id = xNode.getAttribute("id"),
@@ -126,7 +130,7 @@ const Jam = {
 							dur = xNote.getAttribute("d") +"n",
 							vel = +xNote.getAttribute("v");
 						if (oTrack.isDrumkit) note = [note];
-						oTrack.instrument.triggerAttackRelease(note, dur, time, vel)
+						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
 				}, [...Array(beats)].map((e, i) => i)).start(0);
 			}
@@ -135,6 +139,7 @@ const Jam = {
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		Tone.Transport.start();
+		// Tone.Transport.start(0, "18:0:0");
 		this.update();
 	},
 	stop() {
@@ -163,7 +168,8 @@ const Jam = {
 			sec = (seconds % 60).toString().padStart(2, "0"),
 			min = Math.floor(seconds / 60).toString().padStart(2, "0"),
 			hr = Math.floor(seconds / 3600).toString().padStart(2, "0"),
-			time = `${hr} ${min} ${sec}`;
+			time = `${hr} ${min} ${sec}`,
+			tempo = Tone.Transport.bpm.value;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
 
@@ -178,7 +184,7 @@ const Jam = {
 		});
 
 		// render display
-		this.display.render({ bars, time });
+		this.display.render({ bars, time, tempo });
 		// render whats need to be rendered
 		this.render();
 		// raf

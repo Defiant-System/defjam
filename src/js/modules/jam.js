@@ -68,9 +68,19 @@ const Jam = {
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
 		},
+		stop(id) {
+			let track = this._list.find(el => el.id === id);
+			if (track.sequence) {
+				track.sequence.stop();
+				delete track.sequence;
+			}
+			track.isPlaying = false;
+		},
 		playClip(id, clipId) {
 			let track = this._list.find(el => el.id === id),
 				xSequence = track.xNode.selectSingleNode(`./Clip[@id="${clipId}"]`);
+			// exit if already playing
+			if (track.isPlaying) return;
 			track.xSequence = xSequence;
 			track.isPlaying = true;
 			// start playing

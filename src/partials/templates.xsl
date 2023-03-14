@@ -55,7 +55,7 @@
 		</div>
 		<div class="status">
 			<xsl:if test="not(@io-label)">
-				<i class="btn-stop"></i>
+				<i class="btn-stop" data-click="track-stop"></i>
 			</xsl:if>
 			<xsl:if test="not(@io-label) and @id != 'master'">
 				<i class="pie-playing on1" style="--duration: 2s;"></i>

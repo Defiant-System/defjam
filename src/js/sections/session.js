@@ -97,15 +97,44 @@
 					clipId: tEl.data("id"),
 					trackId,
 				});
-
-				if (tEl.prop("nodeName") === "B" && event.offsetX < slotH) {
-					Jam.track.playClip(trackId, tEl.data("id"));
+				if (event.offsetX < slotH) {
+					// play if icons is clicked
+					if (tEl.prop("nodeName") === "B") {
+						if (tEl.hasClass("playing")) {
+							// update UI
+							tEl.removeClass("playing");
+							// stop already playing track
+							return Jam.track.stop(el.data("id"));
+						}
+						slotEl.find("b.playing").removeClass("playing");
+						tEl.addClass("playing");
+						// start play clip
+						Jam.track.playClip(trackId, tEl.data("id"));
+					} else if (el.data("id") === "master") {
+						Self.els.wTracks.find(`.track`).map(cEl => {
+							let track = $(cEl);
+							// stop already playing clips
+							Jam.track.stop(track.data("id"));
+							// loop all tracks, find clips on row & play them
+							track.find(`b`).map(b => {
+								let clip = $(b);
+								if (+clip.cssProp("--r") === row-1) {
+									// start play clip
+									Jam.track.playClip(track.data("id"), clip.data("id"));
+								}
+							});
+						});
+					} else {
+						console.log("record new clip")
+					}
 				}
-
-				// let clipId = $(event.target).data("id"),
-				// 	xClip = APP.File._file.data.selectSingleNode(`//Tracks//Clip[@id="${clipId}"]`);
-				// // render clip contents in midi note editor
-				// APP.midi.dispatch({ type: "render-clip", xClip });
+				break;
+			case "track-stop":
+				el = event.el.parents(".track");
+				// ui update
+				el.find("b.playing").removeClass("playing");
+				// stop already playing track
+				Jam.track.stop(el.data("id"));
 				break;
 		}
 	}

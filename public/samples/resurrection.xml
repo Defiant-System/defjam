@@ -1,0 +1,107 @@
+<Project>
+	<Head>
+		<Tempo value="140"/>
+		<Position bar="0.0.0" time="00:00.00"/>
+	</Head>
+	<Tracks>
+		<Track name="Acoustic Grand Piano" color="#48c" id="track-2" type="sampler">
+			<Device name="Acoustic Grand Piano">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+			</Device>
+			<Clip name="Clip 1" row="1" oY="-300" oX="0" keyH="8" noteW="12" bars="4" id="clip-1-2">
+				<b n="D4" b="16" d="4" v="1"/>
+
+				<b n="E4" b="21" d="1" v="1"/>
+				<b n="F4" b="22" d="1" v="1"/>
+				<b n="E4" b="23" d="1" v="1"/>
+				<b n="D4" b="24" d="2" v="1"/>
+
+				<b n="E4" b="29" d="1" v="1"/>
+				<b n="F4" b="30" d="1" v="1"/>
+				<b n="E4" b="31" d="1" v="1"/>
+				<b n="D4" b="32" d="1" v="1"/>
+
+				<b n="E4" b="33" d="1" v="1"/>
+				<b n="F4" b="34" d="1" v="1"/>
+				<b n="E4" b="35" d="1" v="1"/>
+				<b n="D4" b="36" d="1" v="1"/>
+
+				<b n="E4" b="37" d="1" v="1"/>
+				<b n="F4" b="38" d="1" v="1"/>
+				<b n="E4" b="39" d="1" v="1"/>
+				<b n="D4" b="40" d="1" v="1"/>
+
+				<b n="E4" b="41" d="1" v="1"/>
+				<b n="F4" b="42" d="1" v="1"/>
+				<b n="E4" b="43" d="1" v="1"/>
+				<b n="D4" b="44" d="2" v="1"/>
+
+				<b n="A3" b="46" d="2" v="1"/>
+
+				<b n="C4" b="48" d="2" v="1"/>
+
+
+				<b n="D2" b="0" d="2" v="1"/>
+				<b n="A2" b="2" d="2" v="1"/>
+				<b n="D3" b="4" d="2" v="1"/>
+				<b n="A2" b="6" d="2" v="1"/>
+
+				<b n="D2" b="8" d="2" v="1"/>
+				<b n="A2" b="10" d="2" v="1"/>
+				<b n="D3" b="12" d="2" v="1"/>
+				<b n="A2" b="14" d="2" v="1"/>
+
+				<b n="D2" b="16" d="2" v="1"/>
+				<b n="A2" b="18" d="2" v="1"/>
+				<b n="D3" b="20" d="2" v="1"/>
+				<b n="A2" b="22" d="2" v="1"/>
+
+				<b n="D2" b="24" d="2" v="1"/>
+				<b n="A2" b="26" d="2" v="1"/>
+				<b n="D3" b="28" d="2" v="1"/>
+				<b n="A2" b="30" d="2" v="1"/>
+
+				<b n="D2" b="32" d="2" v="1"/>
+				<b n="A2" b="34" d="2" v="1"/>
+				<b n="D3" b="36" d="2" v="1"/>
+				<b n="A2" b="38" d="2" v="1"/>
+
+				<b n="D2" b="40" d="2" v="1"/>
+				<b n="A2" b="42" d="2" v="1"/>
+				<b n="D3" b="44" d="2" v="1"/>
+				<b n="A2" b="46" d="2" v="1"/>
+
+				<b n="A1" b="48" d="2" v="1"/>
+				<b n="E2" b="50" d="2" v="1"/>
+				<b n="A2" b="52" d="2" v="1"/>
+				<b n="E2" b="54" d="2" v="1"/>
+
+				<b n="A1" b="56" d="2" v="1"/>
+				<b n="E2" b="58" d="2" v="1"/>
+				<b n="A2" b="60" d="2" v="1"/>
+				<b n="E2" b="62" d="2" v="1"/>
+			</Clip>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="on"/>
+			<Volume value="90"/>
+		</Track>
+		
+	</Tracks>
+	<IoMaster>
+		<Track name="Reverb" io-label="A" id="sends-1">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Delay" io-label="B" id="sends-2">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Master" id="master" color="#a73">
+			<Volume value="90"/>
+		</Track>
+	</IoMaster>
+</Project>

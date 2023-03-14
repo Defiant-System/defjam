@@ -84,7 +84,7 @@ const Jam = {
 			track.xSequence = xSequence;
 			track.isPlaying = true;
 			// start playing
-			Jam.start();
+			if (Jam._stopped) Jam.start();
 		},
 		play(id, key) {
 			let track = this._list.find(el => el.id === id),
@@ -169,7 +169,7 @@ const Jam = {
 
 		// loop tracks
 		this.track._list.map(oTrack => {
-			if (oTrack.isPlaying) {
+			if (oTrack.isPlaying && oTrack.sequence) {
 				// setPlayhead
 				let left = oTrack.clipWidth * oTrack.sequence.progress;
 				// console.log(  );

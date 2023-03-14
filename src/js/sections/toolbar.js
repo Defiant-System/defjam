@@ -43,6 +43,12 @@
 				else Jam.start();
 
 				return !value;
+			case "stop":
+				if (Self.els.btnPlay.hasClass("tool-active_")) {
+					Self.els.btnPlay.removeClass("tool-active_");
+				}
+				APP.session.dispatch({ type: "stop-all" });
+				break;
 			case "show-display":
 				Self.els.display
 					.removeClass("show-time show-bar-beat")

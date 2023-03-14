@@ -38,7 +38,7 @@
 					<Pad kI="41" key="D#3" sample="3561" name="Clap"/>
 				</Pads>
 			</Device>
-			<Clip name="Clip 1" row="0" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
+			<Clip name="Clip 1" row="2" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
 				<b n="G#3" b="2" d="1" v="1"/>
 
 				<b n="F#3" b="0" d="1" v="1"/>
@@ -65,9 +65,10 @@
 			<Volume value="90"/>
 		</Track>
 		
-		<Track name="PolySynth" color="#77c" id="track-2" type="synth">
-			<Device name="PolySynth">
-				<Settings>
+		<Track name="Pizzicato Strings" color="#77c" id="track-2" type="sampler">
+			<Device name="Pizzicato Strings">
+				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
+				<!-- <Settings>
 					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
 					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
@@ -76,7 +77,7 @@
 					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
-				</Settings>
+				</Settings> -->
 			</Device>
 			<Clip name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18" bars="1" id="clip-2-1">
 				<b n="A4" b="0" d="4" v="1"/>
@@ -114,31 +115,6 @@
 				<b n="A4" b="52" d="2" v="1"/>
 				<b n="G4" b="54" d="2" v="1"/>
 				<b n="F4" b="56" d="8" v="1"/>
-
-				<b n="C4" b="0" d="8" v="1"/>
-				<b n="A3" b="0" d="8" v="1"/>
-				<b n="F3" b="0" d="8" v="1"/>
-				<b n="C4" b="8" d="8" v="1"/>
-				<b n="A3" b="8" d="8" v="1"/>
-				<b n="F3" b="8" d="8" v="1"/>
-				<b n="G3" b="16" d="8" v="1"/>
-				<b n="E3" b="16" d="8" v="1"/>
-				<b n="C3" b="16" d="8" v="1"/>
-				<b n="C4" b="24" d="8" v="1"/>
-				<b n="A3" b="24" d="8" v="1"/>
-				<b n="F3" b="24" d="8" v="1"/>
-				<b n="C4" b="32" d="8" v="1"/>
-				<b n="A3" b="32" d="8" v="1"/>
-				<b n="F3" b="32" d="8" v="1"/>
-				<b n="C4" b="40" d="8" v="1"/>
-				<b n="A3" b="40" d="8" v="1"/>
-				<b n="F3" b="40" d="8" v="1"/>
-				<b n="G3" b="48" d="8" v="1"/>
-				<b n="E3" b="48" d="8" v="1"/>
-				<b n="C3" b="48" d="8" v="1"/>
-				<b n="C4" b="56" d="8" v="1"/>
-				<b n="A3" b="56" d="8" v="1"/>
-				<b n="F3" b="56" d="8" v="1"/>
 			</Clip>
 
 			<Sends label="A" value="0"/>
@@ -147,9 +123,9 @@
 			<Volume value="90"/>
 		</Track>
 		
-		<Track name="Acoustic Grand Piano" color="#96a" id="track-3" type="sampler">
-			<Device name="Acoustic Grand Piano">
-				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+		<Track name="Celesta" color="#96a" id="track-3" type="sampler">
+			<Device name="Celesta">
+				<Set xPath=".//Instruments//Item[@name='Celesta']/s"/>
 				<Settings>
 					<Knob name="Bright" value="23" min="1" max="100" suffix=""/>
 					<Knob name="Hardness" value="3" min="0" max="7" suffix=""/>
@@ -162,11 +138,31 @@
 				</Settings>
 			</Device>
 
-			<Clip name="Clip 1" row="0" oY="-720" oX="0" keyH="18" noteW="18" bars="1" id="clip-3-1">
-				<b n="A3" b="0" d="4" v="1"/>
-				<b n="G3" b="4" d="4" v="1"/>
-				<b n="F3" b="8" d="4" v="1"/>
-				<b n="G3" b="12" d="4" v="1"/>
+			<Clip name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15" bars="4" id="clip-3-1">
+				<b n="C3" b="0" d="8" v="1"/>
+				<b n="A2" b="0" d="8" v="1"/>
+				<b n="F2" b="0" d="8" v="1"/>
+				<b n="C3" b="8" d="8" v="1"/>
+				<b n="A2" b="8" d="8" v="1"/>
+				<b n="F2" b="8" d="8" v="1"/>
+				<b n="G2" b="16" d="8" v="1"/>
+				<b n="E2" b="16" d="8" v="1"/>
+				<b n="C2" b="16" d="8" v="1"/>
+				<b n="C3" b="24" d="8" v="1"/>
+				<b n="A2" b="24" d="8" v="1"/>
+				<b n="F2" b="24" d="8" v="1"/>
+				<b n="C3" b="32" d="8" v="1"/>
+				<b n="A2" b="32" d="8" v="1"/>
+				<b n="F2" b="32" d="8" v="1"/>
+				<b n="C3" b="40" d="8" v="1"/>
+				<b n="A2" b="40" d="8" v="1"/>
+				<b n="F2" b="40" d="8" v="1"/>
+				<b n="G2" b="48" d="8" v="1"/>
+				<b n="E2" b="48" d="8" v="1"/>
+				<b n="C2" b="48" d="8" v="1"/>
+				<b n="C3" b="56" d="8" v="1"/>
+				<b n="A2" b="56" d="8" v="1"/>
+				<b n="F2" b="56" d="8" v="1"/>
 			</Clip>
 
 			<Sends label="A" value="0"/>

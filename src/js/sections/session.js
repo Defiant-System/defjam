@@ -119,6 +119,8 @@
 							track.find(`b`).map(b => {
 								let clip = $(b);
 								if (+clip.cssProp("--r") === row-1) {
+									// ui update
+									clip.addClass("playing");
 									// start play clip
 									Jam.track.playClip(track.data("id"), clip.data("id"));
 								}
@@ -135,6 +137,15 @@
 				el.find("b.playing").removeClass("playing");
 				// stop already playing track
 				Jam.track.stop(el.data("id"));
+				break;
+			case "stop-all":
+				Self.els.wTracks.find(`.track`).map(cEl => {
+					let track = $(cEl);
+					// stop already playing clips
+					Jam.track.stop(track.data("id"));
+					// ui update
+					track.find(`b.playing`).removeClass("playing");
+				});
 				break;
 		}
 	}

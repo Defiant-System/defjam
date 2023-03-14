@@ -75,7 +75,7 @@
 					tEl = $(event.target),
 					slotEl = tEl.parents("?.slots"),
 					slotH = parseInt(Self.els.wrapper.cssProp("--slotH"), 10),
-					row = Math.ceil((event.clientY - rect.top) / slotH);
+					row = tEl.hasClass("slots") ? Math.ceil((event.clientY - rect.top) / slotH) : +tEl.cssProp("--r") + 1;
 				if (slotEl.length && row < 8) {
 					Self.els.wrapper.css({ "--selRow": row });
 				}

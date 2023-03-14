@@ -157,7 +157,7 @@ const Jam = {
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
 
-
+		// loop tracks
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying) {
 				// setPlayhead
@@ -167,7 +167,6 @@ const Jam = {
 			}
 		});
 
-
 		// render display
 		this.display.render({ bars, time });
 		// render whats need to be rendered
@@ -176,11 +175,11 @@ const Jam = {
 		requestAnimationFrame(this.update.bind(this));
 	},
 	render() {
-		this.track._list.map(track => {
-			track.ctx.clearRect(0, 0, 6, 111);
-			let p1 = Math.log(track.meter.getValue() + 51) / Math.log(63);
+		this.track._list.map(oTrack => {
+			oTrack.ctx.clearRect(0, 0, 6, 111);
+			let p1 = Math.log(oTrack.meter.getValue() + 51) / Math.log(63);
 			if (isNaN(p1)) p1 = 0;
-			track.ctx.fillRect(0, 0, 6, Math.round((1 - p1) * 111));
+			oTrack.ctx.fillRect(0, 0, 6, Math.round((1 - p1) * 111));
 		});
 	}
 };

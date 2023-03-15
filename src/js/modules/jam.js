@@ -82,10 +82,10 @@ const Jam = {
 		},
 		playClip(id, clipId) {
 			let track = this._list.find(el => el.id === id),
-				xSequence = track.xNode.selectSingleNode(`./Clip[@id="${clipId}"]`);
+				xClip = track.xNode.selectSingleNode(`./Clip[@id="${clipId}"]`);
 			// exit if already playing
 			if (track.isPlaying) return;
-			track.xSequence = xSequence;
+			track.xClip = xClip;
 			track.isPlaying = true;
 			// start playing
 			if (Jam._stopped) Jam.start();
@@ -122,10 +122,14 @@ const Jam = {
 
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying) {
-				let beats = +oTrack.xSequence.getAttribute("bars") * 16;
-				oTrack.clipWidth = beats * +oTrack.xSequence.getAttribute("noteW");
+				let beats = +oTrack.xClip.getAttribute("bars") * 16;
+				oTrack.clip = {
+					oX: +oTrack.xClip.getAttribute("oX"),
+					oY: +oTrack.xClip.getAttribute("oY"),
+					width: beats * +oTrack.xClip.getAttribute("noteW"),
+				};
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
-					oTrack.xSequence.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
+					oTrack.xClip.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
 						let note = xNote.getAttribute("n"),
 							dur = xNote.getAttribute("d") +"n",
 							vel = +xNote.getAttribute("v"),
@@ -133,7 +137,7 @@ const Jam = {
 						if (oTrack.isDrumkit) note = [note];
 						if (halfBeat) {
 							// time = "8t";
-							time += .03125
+							time += 0.03125
 						}
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
@@ -144,7 +148,7 @@ const Jam = {
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start(0, "16:0:0");
+		Tone.Transport.start("+1", "16:0:0");
 		this.update();
 	},
 	stop() {
@@ -182,7 +186,7 @@ const Jam = {
 		this.track._list.map(oTrack => {
 			if (oTrack.isPlaying && oTrack.sequence) {
 				// setPlayhead
-				let left = oTrack.clipWidth * oTrack.sequence.progress;
+				let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
 				// console.log(  );
 				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
 			}

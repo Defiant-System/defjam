@@ -107,6 +107,15 @@
 					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.noteFoot,
 				});
+				// render bar count numbers
+				let str = ["<ul>"],
+					barLength = +xClip.getAttribute("bars");
+				[...Array(barLength)].map((b, i) => {
+					let bI = (i * 2) + 1;
+					str.push(`<li>${bI}</li>`);
+				});
+				str.push("</ul>");
+				Self.els.noteHead.html(str.join(""));
 				break;
 		}
 	},

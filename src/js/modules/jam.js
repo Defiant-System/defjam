@@ -136,8 +136,9 @@ const Jam = {
 							halfBeat = +xNote.getAttribute("hb");
 						if (oTrack.isDrumkit) note = [note];
 						if (halfBeat) {
-							// time = "8t";
-							time += 0.03125
+							// time = "1t";
+							// time += 0.03125;
+							time += 0.0625;
 						}
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
@@ -148,7 +149,7 @@ const Jam = {
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("+1", "16:0:0");
+		Tone.Transport.start("+1", "19:2:0");
 		this.update();
 	},
 	stop() {

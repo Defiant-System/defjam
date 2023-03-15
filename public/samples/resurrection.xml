@@ -1,6 +1,6 @@
 <Project>
 	<Head>
-		<Tempo value="140"/>
+		<Tempo value="120"/>
 		<Position bar="0.0.0" time="00:00.00"/>
 	</Head>
 	<Tracks>
@@ -8,7 +8,7 @@
 			<Device name="Acoustic Grand Piano">
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
-			<Clip name="Clip 1" row="1" oY="-395" oX="-1500" keyH="10" noteW="15" bars="14" id="clip-1-2">
+			<Clip name="Clip 1" row="1" oY="-395" oX="-1800" keyH="10" noteW="15" bars="14" id="clip-1-2">
 				<b n="D4" b="16" d="4" v="1"/>
 
 				<b n="E4" b="21" d="1" v="1"/>
@@ -106,7 +106,7 @@
 
 				<b n="C4" b="152" d="2" v="1"/>
 
-
+				<!-- 
 				<b n="D4" b="160" d="2" v="1"/>
 
 				<b n="E4" b="165" d="1" v="1"/>
@@ -135,17 +135,17 @@
 				<b n="D4" b="188" d="2" v="1"/>
 
 				<b n="A3" b="190" d="2" v="1"/>
-				<b n="C4" b="192" d="2" v="1"/>
+				<b n="C4" b="192" d="2" v="1"/> -->
 
 
 
 
 				<!-- 3rd Hand -->
-				<b n="G3" b="162" d="1" v="1"/>
+				<b n="G3" b="161" d="1" v="1"/>
+				<b n="A3" b="161" d="1" v="1" hb=".5"/>
 				<b n="A3" b="163" d="1" v="1"/>
+				<b n="A3" b="164" d="1" v="1" hb=".5"/>
 				<b n="A3" b="165" d="1" v="1"/>
-				<b n="A3" b="166" d="1" v="1"/>
-				<b n="A3" b="166" d="1" v="1" hb=".5"/>
 
 
 
@@ -243,7 +243,7 @@
 				<b n="D2" b="142" d="2" v="1"/>
 
 
-				<b n="A#1" b="144" d="2" v="1"/>
+				<!-- <b n="A#1" b="144" d="2" v="1"/>
 				<b n="F2" b="146" d="2" v="1"/>
 				<b n="A#2" b="148" d="2" v="1"/>
 				<b n="F2" b="150" d="2" v="1"/>
@@ -271,7 +271,7 @@
 				<b n="D2" b="184" d="2" v="1"/>
 				<b n="A2" b="186" d="2" v="1"/>
 				<b n="D3" b="188" d="2" v="1"/>
-				<b n="A2" b="190" d="2" v="1"/>
+				<b n="A2" b="190" d="2" v="1"/> -->
 
 			</Clip>
 

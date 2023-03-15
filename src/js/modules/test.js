@@ -28,7 +28,7 @@ let Test = {
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
-		setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 10e3);
+		setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 7e3);
 	},
 	jam() {
 		let instrument,

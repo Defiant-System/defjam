@@ -48,6 +48,8 @@
 					Self.els.btnPlay.removeClass("tool-active_");
 				}
 				APP.session.dispatch({ type: "stop-all" });
+
+				Jam.stop();
 				break;
 			case "show-display":
 				Self.els.display

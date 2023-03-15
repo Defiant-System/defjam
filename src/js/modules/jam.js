@@ -113,10 +113,10 @@ const Jam = {
 	},
 	start() {
 		let APP = defjam;
-		if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
-			// make sure play button is pressed
-			return APP.toolbar.dispatch({ type: "play" });
-		}
+		// if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
+		// 	// make sure play button is pressed
+		// 	return APP.toolbar.dispatch({ type: "play" });
+		// }
 		// change "flag"
 		this._stopped = false;
 
@@ -133,12 +133,10 @@ const Jam = {
 						let note = xNote.getAttribute("n"),
 							dur = xNote.getAttribute("d") +"n",
 							vel = +xNote.getAttribute("v"),
-							halfBeat = +xNote.getAttribute("hb");
+							halfBeat = xNote.getAttribute("hb");
 						if (oTrack.isDrumkit) note = [note];
 						if (halfBeat) {
-							// time = "1t";
-							// time += 0.03125;
-							time += 0.125;
+							time = halfBeat;
 						}
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
@@ -148,8 +146,8 @@ const Jam = {
 		// show play-head
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
-		// Tone.Transport.start();
-		Tone.Transport.start("+1", "15:2:0");
+		Tone.Transport.start();
+		// Tone.Transport.start("+1", "17:0:0");
 		this.update();
 	},
 	stop() {

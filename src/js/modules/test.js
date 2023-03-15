@@ -19,7 +19,7 @@ let Test = {
 
 		// defjam.session.dispatch({ type: "render-file" });
 
-		setTimeout(() => window.find(`.slots b[data-id="clip-1-2"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.slots b[data-id="clip-1-2"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
 
@@ -28,7 +28,7 @@ let Test = {
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 7e3);
+		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 4e3);
 	},
 	jam() {
 		let instrument,

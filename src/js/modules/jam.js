@@ -149,7 +149,7 @@ const Jam = {
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("+1", "19:2:0");
+		Tone.Transport.start("+1", "15:2:0");
 		this.update();
 	},
 	stop() {

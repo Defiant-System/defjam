@@ -138,7 +138,7 @@ const Jam = {
 						if (halfBeat) {
 							// time = "1t";
 							// time += 0.03125;
-							time += 0.0625;
+							time += 0.125;
 						}
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});

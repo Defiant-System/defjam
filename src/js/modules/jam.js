@@ -128,8 +128,13 @@ const Jam = {
 					oTrack.xSequence.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
 						let note = xNote.getAttribute("n"),
 							dur = xNote.getAttribute("d") +"n",
-							vel = +xNote.getAttribute("v");
+							vel = +xNote.getAttribute("v"),
+							halfBeat = +xNote.getAttribute("hb");
 						if (oTrack.isDrumkit) note = [note];
+						if (halfBeat) {
+							// time = "8t";
+							time += .03125
+						}
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
 				}, [...Array(beats)].map((e, i) => i)).start(0);
@@ -138,8 +143,8 @@ const Jam = {
 		// show play-head
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
-		Tone.Transport.start();
-		// Tone.Transport.start(0, "18:0:0");
+		// Tone.Transport.start();
+		Tone.Transport.start(0, "16:0:0");
 		this.update();
 	},
 	stop() {

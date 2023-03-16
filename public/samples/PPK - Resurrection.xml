@@ -4,6 +4,7 @@
 		<Position bar="0.0.0" time="00:00.00"/>
 	</Head>
 	<Tracks view="arrangement">
+		
 		<Track name="Pizzicato Strings" color="#48c" id="track-2" type="sampler" class="selected">
 			<Device name="Pizzicato Strings">
 				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
@@ -35,7 +36,7 @@
 			<Volume value="90"/>
 		</Track>
 
-		<Track name="Steel Drum" color="#77c" id="track-2" type="sampler">
+		<Track name="Steel Drum" color="#77c" id="track-3" type="sampler">
 			<Device name="Steel Drum">
 				<Set xPath=".//Instruments//Item[@name='Steel Drum']/s"/>
 			</Device>
@@ -49,6 +50,7 @@
 			<Buttons activator="on" solo="off" record="on"/>
 			<Volume value="90"/>
 		</Track>
+
 	</Tracks>
 	<IoMaster>
 		<Track name="Reverb" io-label="A" id="sends-1">

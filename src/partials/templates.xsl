@@ -23,6 +23,7 @@
 <xsl:template name="track-lanes">
 	<xsl:for-each select="./Tracks/Track">
 		<div class="lane" style="--c: #77c;">
+			<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="style">
 				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
 			</xsl:attribute>
@@ -46,6 +47,7 @@
 <xsl:template name="track-mixers">
 	<xsl:for-each select="./Tracks/Track">
 		<div class="lane">
+			<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="style">
 				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
 			</xsl:attribute>
@@ -73,7 +75,9 @@
 
 <xsl:template name="io-track-lanes">
 	<xsl:for-each select="./IoMaster/Track">
-		<div class="lane collapsed"></div>
+		<div class="lane collapsed">
+			<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
+		</div>
 	</xsl:for-each>
 </xsl:template>
 
@@ -81,6 +85,7 @@
 <xsl:template name="io-track-mixers">
 	<xsl:for-each select="./IoMaster/Track">
 		<div class="lane collapsed">
+			<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 			<xsl:attribute name="style">
 				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
 			</xsl:attribute>
@@ -93,13 +98,15 @@
 			</div>
 			<div class="mix-body"></div>
 			<div class="mix-foot">
-				<div class="track-btn activator" data-click="track-activator">
-					<xsl:if test="@io-label">
-						<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
-					</xsl:if>
-				</div>
-				<div class="track-btn solo" data-click="track-solo">S</div>
-				<div class="track-btn record" data-click="track-record">&#9679;</div>
+				<xsl:if test="@id != 'master'">
+					<div class="track-btn activator" data-click="track-activator">
+						<xsl:if test="@io-label">
+							<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
+						</xsl:if>
+					</div>
+					<div class="track-btn solo" data-click="track-solo">S</div>
+					<div class="track-btn record" data-click="track-record">&#9679;</div>
+				</xsl:if>
 			</div>
 		</div>
 	</xsl:for-each>

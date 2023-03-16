@@ -6,6 +6,7 @@
 		// fast references
 		this.els = {
 			el: window.find(".arr-layout"),
+			sel: window.find(".arr-layout .row-track .selection"),
 			lanes: window.find(".arr-layout .row-track .col-clips .box-body"),
 			mixers: window.find(".arr-layout .row-track .col-mixers .box-body"),
 			ioLanes: window.find(".arr-layout .row-outputs .col-clips .box-body"),
@@ -73,7 +74,18 @@
 			case "select-clip":
 				// select lane row
 				Self.dispatch({ ...event, type: "select-lane" });
-				// console.log( event );
+
+				el = $(event.target);
+				lEl = el.parents(".lane");
+				if (el.prop("nodeName") === "B") {
+					let top = lEl.prop("offsetTop"),
+						left = el.prop("offsetLeft"),
+						width = el.prop("offsetWidth"),
+						height = el.prop("offsetHeight");
+					Self.els.sel.css({ top, left, width, height });
+					// change midi note editor color
+					APP.midi.els.el.css({ "--c": el.cssProp("--c") });
+				}
 				break;
 		}
 	}

@@ -36,6 +36,7 @@ content {
 	padding: @margin + 1px;
 	color: darken(@text, 7%);
 	text-shadow: 0 1px 0 rgba(0,0,0,.35);
+	--c: lighten(saturate(@boxBg, 17%), 13%); // default track color
 	--pH: 420px; // panel bottom
 
 	&.show-midi {
@@ -1223,7 +1224,6 @@ content {
 		.panel-right {
 			flex: 1;
 			display: flex;
-			--c: lighten(saturate(@boxBg, 17%), 13%);
 
 			&.show-session {
 				.session-wrapper { display: inherit; }
@@ -1315,13 +1315,7 @@ content {
 							.lane {
 								display: flex;
 								flex-direction: row;
-								// background-image: linear-gradient(90deg,
-								// 	transparent 0px, transparent 73px,
-								// 	@face 73px, @face 74px,
-								// 	transparent 74px, transparent 132px,
-								// 	@face 132px, @face 133px,
-								// 	transparent 133px
-								// );
+								transition: height 100ms ease-in-out;
 
 								> div:not(:first-child) {
 									margin-left: 1px;
@@ -1341,6 +1335,7 @@ content {
 										height: 13px;
 										border-radius: 50%;
 										transform: rotate(90deg);
+										transition: transform 100ms linear;
 										background: rgba(0,0,0,.075);
 										background-position: 0 0;
 										background-size: 13px 13px;
@@ -1378,13 +1373,14 @@ content {
 							height: var( --chanH );
 							position: relative;
 							border-bottom: 2px solid @griddark;
+							transition: height 100ms ease-in-out;
 							--clip-bg: url(); // empty clip-bg
 
 							&.collapsed {
 								--chanH: var( --colH );
 
 								.mix-head {
-									&:before {
+									.lane-toggler {
 										transform: rotate(0deg);
 									}
 								}
@@ -1623,15 +1619,10 @@ content {
 					}
 
 					.row-outputs {
-						height: calc( calc( var( --colH ) * 3 ) + 1px );
 						display: flex;
 
 						.col-clips .box-body  {
 							border-radius: 0 0 0 3px;
-							// background-image: repeating-linear-gradient(0deg,
-							// 		@griddark calc( var( --colH ) - 1px ), @griddark var( --colH ),
-							// 		transparent var( --colH ), transparent calc( var( --colH ) * 2 )
-							// 	),
 							background-image: repeating-linear-gradient(90deg,
 									transparent 0px, transparent calc( var( --barW ) - 1px ),
 									@gridlines calc( var( --barW ) - 1px ), @gridlines var( --barW )
@@ -1640,21 +1631,24 @@ content {
 									@gridgroup 0px, @gridgroup calc( var( --barW ) * 8 ),
 									transparent calc( var( --barW ) * 8 ), transparent calc( var( --barW ) * 16 )
 								);
+
+							div.lane {
+								&:last-child {
+									border-bottom: 0;
+									height: calc( var( --chanH ) - 2px );
+								}
+							}
 						}
 
 						.col-mixers .box-body {
 							border-radius: 0 0 3px 0;
-							// background-image: repeating-linear-gradient(0deg,
-							// 		@griddark calc( var( --colH ) - 1px ), @griddark var( --colH ),
-							// 		transparent var( --colH ), transparent calc( var( --colH ) * 2 )
-							// 	),
-							// 	linear-gradient(90deg,
-							// 		transparent 0px, transparent 73px,
-							// 		@face 73px, @face 74px,
-							// 		transparent 74px, transparent 132px,
-							// 		@face 132px, @face 133px,
-							// 		transparent 133px
-							// 	);
+
+							div.lane {
+								&:last-child {
+									border-bottom: 0;
+									height: calc( var( --chanH ) - 2px );
+								}
+							}
 						}
 					}
 				}

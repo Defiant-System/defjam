@@ -24,7 +24,7 @@
 	<xsl:for-each select="./Tracks/Track">
 		<div class="lane" style="--c: #77c;">
 			<xsl:attribute name="style">
-				--c: <xsl:value-of select="@color"/>
+				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
 			</xsl:attribute>
 			<xsl:if test="@class">
 				<xsl:attribute name="class">lane <xsl:value-of select="@class"/></xsl:attribute>
@@ -47,13 +47,13 @@
 	<xsl:for-each select="./Tracks/Track">
 		<div class="lane">
 			<xsl:attribute name="style">
-				--c: <xsl:value-of select="@color"/>
+				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
 			</xsl:attribute>
 			<xsl:if test="@class">
 				<xsl:attribute name="class">lane <xsl:value-of select="@class"/></xsl:attribute>
 			</xsl:if>
 			<div class="mix-head">
-				<span class="lane-toggler"></span>
+				<span class="lane-toggler" data-click="toggle-lane"></span>
 				<div class="title"><xsl:value-of select="@name"/></div>
 			</div>
 			<div class="mix-body"></div>
@@ -63,9 +63,29 @@
 </xsl:template>
 
 
-<xsl:template name="file-io">
+<xsl:template name="io-track-lanes">
 	<xsl:for-each select="./IoMaster/Track">
-		<xsl:call-template name="session-track" />
+		<div class="lane collapsed"></div>
+	</xsl:for-each>
+</xsl:template>
+
+
+<xsl:template name="io-track-mixers">
+	<xsl:for-each select="./IoMaster/Track">
+		<div class="lane collapsed">
+			<xsl:attribute name="style">
+				<xsl:if test="@color">--c: <xsl:value-of select="@color"/></xsl:if>
+			</xsl:attribute>
+			<xsl:if test="@class">
+				<xsl:attribute name="class">lane <xsl:value-of select="@class"/></xsl:attribute>
+			</xsl:if>
+			<div class="mix-head">
+				<span class="lane-toggler" data-click="toggle-lane"></span>
+				<div class="title"><xsl:value-of select="@name"/></div>
+			</div>
+			<div class="mix-body"></div>
+			<div class="mix-foot"></div>
+		</div>
 	</xsl:for-each>
 </xsl:template>
 
@@ -77,15 +97,22 @@
 </xsl:template>
 
 
+<xsl:template name="file-io">
+	<xsl:for-each select="./IoMaster/Track">
+		<xsl:call-template name="session-track" />
+	</xsl:for-each>
+</xsl:template>
+
+
 <xsl:template name="session-track">
 	<div class="track">
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:if test="@class">
 			<xsl:attribute name="class">track <xsl:value-of select="@class"/></xsl:attribute>
 		</xsl:if>
-		<xsl:if test="@color">
-			<xsl:attribute name="style">--c: <xsl:value-of select="@color"/>;</xsl:attribute>
-		</xsl:if>
+		<xsl:attribute name="style">
+			<xsl:if test="@color">--c: <xsl:value-of select="@color"/>;</xsl:if>
+		</xsl:attribute>
 		<div class="title"><xsl:value-of select="@name"/></div>
 		<div class="slots">
 			<xsl:for-each select="./Slot/Clip">

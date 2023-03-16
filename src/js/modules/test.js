@@ -17,6 +17,7 @@ let Test = {
 		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
 
+		setTimeout(() => window.find(`.lane[data-id="track-1"] b:nth(0)`).trigger("click"), 500);
 
 		// setTimeout(this.jam, 100);
 

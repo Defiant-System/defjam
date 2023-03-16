@@ -73,7 +73,7 @@
 				Self.els.el.parent().toggleClass("empty", event.clipId);
 				if (!event.clipId) return;
 
-				xClip = event.file.data.selectSingleNode(`//Project//Slot/Clip[@id="${event.clipId}"]`);
+				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="${event.clipId}"]`);
 				value = xClip.parentNode.selectNodes(`./Device/Pads/Pad[@sample]`).length;
 				Self.els.el
 					.toggleClass("clip-pads", value == 0)
@@ -84,27 +84,27 @@
 						"--noteW": xClip.getAttribute("noteW") +"px",
 						"--bars": xClip.getAttribute("bars"),
 						"--pads": value || "" ,
-						"--c": xClip.parentNode.getAttribute("color"),
+						"--c": xClip.parentNode.parentNode.getAttribute("color"),
 					});
 				// render clip notes
 				window.render({
 					data: event.file.data,
 					template: "clip-pads",
-					match: `//Project//Slot/Clip[@id="${event.clipId}"]`,
+					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.pianoRoll,
 				});
 				// render notes
 				window.render({
 					data: event.file.data,
 					template: "midi-notes",
-					match: `//Project//Slot/Clip[@id="${event.clipId}"]`,
+					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.noteBody,
 				});
 				// render note velocity
 				window.render({
 					data: event.file.data,
 					template: "midi-note-volume",
-					match: `//Project//Slot/Clip[@id="${event.clipId}"]`,
+					match: `//Project//Clip[@id="${event.clipId}"]`,
 					append: Self.els.noteFoot,
 				});
 				// render bar count numbers

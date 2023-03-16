@@ -83,8 +83,22 @@
 						width = el.prop("offsetWidth"),
 						height = el.prop("offsetHeight");
 					Self.els.sel.css({ top, left, width, height });
-					// change midi note editor color
-					APP.midi.els.el.css({ "--c": el.cssProp("--c") });
+
+					let clipId = el.data("id"),
+						trackId = lEl.data("id");
+					// signal devices panel to render
+					APP.devices.dispatch({
+						type: "render-device",
+						file: APP.File._file,
+						trackId,
+					});
+					// signal midi panel to render
+					APP.midi.dispatch({
+						type: "render-clip",
+						file: APP.File._file,
+						clipId,
+						trackId,
+					});
 				}
 				break;
 		}

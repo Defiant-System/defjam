@@ -82,13 +82,13 @@
 				// track column element
 				el = slotEl.parents(".track");
 				trackId = el.data("id");
-				// signlal devices panel to render
+				// signal devices panel to render
 				APP.devices.dispatch({
 					type: "render-device",
 					file: APP.File._file,
 					trackId,
 				});
-				// signlal midi panel to render
+				// signal midi panel to render
 				APP.midi.dispatch({
 					type: "render-clip",
 					file: APP.File._file,

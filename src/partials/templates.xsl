@@ -32,6 +32,7 @@
 			</xsl:if>
 			<xsl:for-each select="./Lane/Clip">
 				<b>
+					<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 					<xsl:attribute name="style">
 						--x: <xsl:value-of select="@x"/>;
 						--w: <xsl:value-of select="@w"/>;

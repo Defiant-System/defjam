@@ -22,7 +22,7 @@ class File {
 				APP.head.dispatch({ type: `show-${value}-view` });
 
 				// prepare track clip notes
-				Self._file.data.selectNodes(`//Track/Slot/Clip/b[@n]`).map(xNote => {
+				Self._file.data.selectNodes(`//Track//Clip/b[@n]`).map(xNote => {
 					let note = xNote.getAttribute("n"),
 						key = note.slice(0,-1),
 						octave = +note.slice(-1),

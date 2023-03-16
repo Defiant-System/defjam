@@ -1336,6 +1336,7 @@ content {
 											display: inline-block;
 											width: 41px;
 											border: 1px solid fadeout(@face, 5%);
+											background-image: repeating-linear-gradient(90deg, @gridlines 0, @gridlines 80%, transparent 80%, transparent 100%);
 										}
 
 										&:after {
@@ -1425,8 +1426,12 @@ content {
 
 											&:before {
 												content: counter(track-counter);
-												// content: attr(data-label); // reset track counter
 											}
+										}
+
+										&.solo,
+										&.record {
+											background: fadeout(lighten(@boxBg, 13%), 85%);
 										}
 
 										&.record {

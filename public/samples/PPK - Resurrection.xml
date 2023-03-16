@@ -4,8 +4,8 @@
 		<Position bar="0.0.0" time="00:00.00"/>
 	</Head>
 	<Tracks view="arrangement">
-		
-		<Track name="Pizzicato Strings" color="#48c" id="track-2" type="sampler" class="selected">
+
+		<Track name="Pizzicato Strings" color="#48c" id="track-1" type="sampler" class="selected">
 			<Device name="Pizzicato Strings">
 				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
 			</Device>

@@ -1333,8 +1333,7 @@ content {
 									display: flex;
 									position: relative;
 
-									&:before {
-										content: "";
+									.lane-toggler {
 										position: absolute;
 										top: 3px;
 										left: 3px;
@@ -1549,9 +1548,10 @@ content {
 						--selH: 1;
 						--selRow: 1;
 
-						// .channel:nth-child(2) {
-						// 	background: fadeout(lighten(@boxBg, 13%), 85%);
-						// }
+						// applies to both "columns" (clips & mixers)
+						.lane.selected {
+							background: fadeout(lighten(@boxBg, 13%), 85%);
+						}
 
 						.col-clips .box-body  {
 							overflow: visible;

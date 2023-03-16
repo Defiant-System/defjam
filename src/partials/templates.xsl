@@ -26,8 +26,8 @@
 			<xsl:attribute name="style">
 				--c: <xsl:value-of select="@color"/>
 			</xsl:attribute>
-			<xsl:if test="@collapsed">
-				<xsl:attribute name="class">lane collapsed</xsl:attribute>
+			<xsl:if test="@class">
+				<xsl:attribute name="class">lane <xsl:value-of select="@class"/></xsl:attribute>
 			</xsl:if>
 			<xsl:for-each select="./Lane/Clip">
 				<b>
@@ -49,10 +49,11 @@
 			<xsl:attribute name="style">
 				--c: <xsl:value-of select="@color"/>
 			</xsl:attribute>
-			<xsl:if test="@collapsed">
-				<xsl:attribute name="class">lane collapsed</xsl:attribute>
+			<xsl:if test="@class">
+				<xsl:attribute name="class">lane <xsl:value-of select="@class"/></xsl:attribute>
 			</xsl:if>
 			<div class="mix-head">
+				<span class="lane-toggler"></span>
 				<div class="title"><xsl:value-of select="@name"/></div>
 			</div>
 			<div class="mix-body"></div>

@@ -1,0 +1,41 @@
+<Project>
+	<Head>
+		<Tempo value="120"/>
+		<Position bar="0.0.0" time="00:00.00"/>
+	</Head>
+	<Tracks>
+		<Track name="Acoustic Grand Piano" color="#48c" id="track-1" type="sampler">
+			<Device name="Acoustic Grand Piano">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+			</Device>
+			<Lane>
+				<Clip name="Intro" start="1.1.1" length="1.0.0" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1">
+					<b n="D4" b="16" d="4" v="1"/>
+					<b n="E4" b="21" d="1" v="1"/>
+					<b n="F4" b="22" d="1" v="1"/>
+					<b n="E4" b="23" d="1" v="1"/>
+					<b n="D4" b="24" d="2" v="1"/>
+				</Clip>
+			</Lane>
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="on"/>
+			<Volume value="90"/>
+		</Track>
+	</Tracks>
+	<IoMaster>
+		<Track name="Reverb" io-label="A" id="sends-1">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Delay" io-label="B" id="sends-2">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Master" id="master" color="#a73">
+			<Volume value="90"/>
+		</Track>
+	</IoMaster>
+</Project>

@@ -8,6 +8,8 @@
 			content: window.find("content"),
 			panelLeft: window.find(".panel-left"),
 			sidebar: window.find(".sidebar"),
+			btnSess: window.find(`.row-work .buttons .ball-button[data-click="show-session-view"]`),
+			btnArr: window.find(`.row-work .buttons .ball-button[data-click="show-arrangement-view"]`),
 		};
 	},
 	dispatch(event) {
@@ -46,19 +48,21 @@
 							.addClass(event.type));
 				break;
 			case "show-arrangement-view":
-				event.el.parent().find(".active").removeClass("active");
-				event.el.addClass("active");
+				el = event.el || Self.els.btnArr;
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
 
-				event.el.parents(".row-work")
+				el.parents(".row-work")
 					.find(".panel-right")
 					.removeClass("show-session show-arrangement")
 					.addClass("show-arrangement");
 				break;
 			case "show-session-view":
-				event.el.parent().find(".active").removeClass("active");
-				event.el.addClass("active");
+				el = event.el || Self.els.btnSess;
+				el.parent().find(".active").removeClass("active");
+				el.addClass("active");
 
-				event.el.parents(".row-work")
+				el.parents(".row-work")
 					.find(".panel-right")
 					.removeClass("show-session show-arrangement")
 					.addClass("show-session");

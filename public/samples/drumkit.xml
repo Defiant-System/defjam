@@ -38,27 +38,28 @@
 					<Pad kI="41" key="D#3" sample="3561" name="Clap"/>
 				</Pads>
 			</Device>
-			<Clip name="Clip 1" row="2" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
-				<b n="G#3" b="2" d="1" v="1"/>
+			<Slot>
+				<Clip name="Clip 1" row="2" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
+					<b n="G#3" b="2" d="1" v="1"/>
 
-				<b n="F#3" b="0" d="1" v="1"/>
-				<b n="F#3" b="1" d="1" v="1"/>
-				<b n="F#3" b="4" d="1" v="1"/>
-				<b n="F#3" b="6" d="1" v="1"/>
-				<b n="F#3" b="8" d="1" v="1"/>
-				<b n="F#3" b="10" d="1" v="1"/>
-				<b n="F#3" b="12" d="1" v="1"/>
-				<b n="F#3" b="14" d="1" v="1"/>
+					<b n="F#3" b="0" d="1" v="1"/>
+					<b n="F#3" b="1" d="1" v="1"/>
+					<b n="F#3" b="4" d="1" v="1"/>
+					<b n="F#3" b="6" d="1" v="1"/>
+					<b n="F#3" b="8" d="1" v="1"/>
+					<b n="F#3" b="10" d="1" v="1"/>
+					<b n="F#3" b="12" d="1" v="1"/>
+					<b n="F#3" b="14" d="1" v="1"/>
 
-				<b n="D3" b="4" d="1" v="1"/>
-				<b n="D3" b="12" d="1" v="1"/>
+					<b n="D3" b="4" d="1" v="1"/>
+					<b n="D3" b="12" d="1" v="1"/>
 
-				<b n="C3" b="0" d="1" v="1"/>
-				<b n="C3" b="7" d="1" v="1"/>
-				<b n="C3" b="10" d="1" v="1"/>
-				<b n="C3" b="15" d="1" v="1"/>
-			</Clip>
-
+					<b n="C3" b="0" d="1" v="1"/>
+					<b n="C3" b="7" d="1" v="1"/>
+					<b n="C3" b="10" d="1" v="1"/>
+					<b n="C3" b="15" d="1" v="1"/>
+				</Clip>
+			</Slot>
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
 			<Buttons activator="on" solo="off" record="off"/>
@@ -79,44 +80,45 @@
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings> -->
 			</Device>
-			<Clip name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18" bars="1" id="clip-2-1">
-				<b n="A4" b="0" d="4" v="1"/>
-				<b n="G4" b="4" d="4" v="1"/>
-				<b n="F4" b="8" d="4" v="1"/>
-				<b n="G4" b="12" d="4" v="1"/>
-			</Clip>
-			<Clip name="Clip 2" row="1" oY="-550" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-2">
-				<b n="A4" b="0" d="2" v="1"/>
-				<b n="G4" b="2" d="2" v="1"/>
-				<b n="F4" b="4" d="2" v="1"/>
-				<b n="G4" b="6" d="2" v="1"/>
-				<b n="A4" b="8" d="2" v="1"/>
-				<b n="A4" b="10" d="2" v="1"/>
-				<b n="A4" b="12" d="4" v="1"/>
+			<Slot>
+				<Clip name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18" bars="1" id="clip-2-1">
+					<b n="A4" b="0" d="4" v="1"/>
+					<b n="G4" b="4" d="4" v="1"/>
+					<b n="F4" b="8" d="4" v="1"/>
+					<b n="G4" b="12" d="4" v="1"/>
+				</Clip>
+				<Clip name="Clip 2" row="1" oY="-550" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-2">
+					<b n="A4" b="0" d="2" v="1"/>
+					<b n="G4" b="2" d="2" v="1"/>
+					<b n="F4" b="4" d="2" v="1"/>
+					<b n="G4" b="6" d="2" v="1"/>
+					<b n="A4" b="8" d="2" v="1"/>
+					<b n="A4" b="10" d="2" v="1"/>
+					<b n="A4" b="12" d="4" v="1"/>
 
-				<b n="G4" b="16" d="2" v="1"/>
-				<b n="G4" b="18" d="2" v="1"/>
-				<b n="G4" b="20" d="4" v="1"/>
-				<b n="A4" b="24" d="2" v="1"/>
-				<b n="C5" b="26" d="2" v="1"/>
-				<b n="C5" b="28" d="4" v="1"/>
+					<b n="G4" b="16" d="2" v="1"/>
+					<b n="G4" b="18" d="2" v="1"/>
+					<b n="G4" b="20" d="4" v="1"/>
+					<b n="A4" b="24" d="2" v="1"/>
+					<b n="C5" b="26" d="2" v="1"/>
+					<b n="C5" b="28" d="4" v="1"/>
 
-				<b n="A4" b="32" d="2" v="1"/>
-				<b n="G4" b="34" d="2" v="1"/>
-				<b n="F4" b="36" d="2" v="1"/>
-				<b n="G4" b="38" d="2" v="1"/>
-				<b n="A4" b="40" d="2" v="1"/>
-				<b n="A4" b="42" d="2" v="1"/>
-				<b n="A4" b="44" d="2" v="1"/>
-				<b n="A4" b="46" d="2" v="1"/>
+					<b n="A4" b="32" d="2" v="1"/>
+					<b n="G4" b="34" d="2" v="1"/>
+					<b n="F4" b="36" d="2" v="1"/>
+					<b n="G4" b="38" d="2" v="1"/>
+					<b n="A4" b="40" d="2" v="1"/>
+					<b n="A4" b="42" d="2" v="1"/>
+					<b n="A4" b="44" d="2" v="1"/>
+					<b n="A4" b="46" d="2" v="1"/>
 
-				<b n="G4" b="48" d="2" v="1"/>
-				<b n="G4" b="50" d="2" v="1"/>
-				<b n="A4" b="52" d="2" v="1"/>
-				<b n="G4" b="54" d="2" v="1"/>
-				<b n="F4" b="56" d="8" v="1"/>
-			</Clip>
-
+					<b n="G4" b="48" d="2" v="1"/>
+					<b n="G4" b="50" d="2" v="1"/>
+					<b n="A4" b="52" d="2" v="1"/>
+					<b n="G4" b="54" d="2" v="1"/>
+					<b n="F4" b="56" d="8" v="1"/>
+				</Clip>
+			</Slot>
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
 			<Buttons activator="on" solo="off" record="on"/>
@@ -137,34 +139,34 @@
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
 			</Device>
-
-			<Clip name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15" bars="4" id="clip-3-1">
-				<b n="C3" b="0" d="8" v="1"/>
-				<b n="A2" b="0" d="8" v="1"/>
-				<b n="F2" b="0" d="8" v="1"/>
-				<b n="C3" b="8" d="8" v="1"/>
-				<b n="A2" b="8" d="8" v="1"/>
-				<b n="F2" b="8" d="8" v="1"/>
-				<b n="G2" b="16" d="8" v="1"/>
-				<b n="E2" b="16" d="8" v="1"/>
-				<b n="C2" b="16" d="8" v="1"/>
-				<b n="C3" b="24" d="8" v="1"/>
-				<b n="A2" b="24" d="8" v="1"/>
-				<b n="F2" b="24" d="8" v="1"/>
-				<b n="C3" b="32" d="8" v="1"/>
-				<b n="A2" b="32" d="8" v="1"/>
-				<b n="F2" b="32" d="8" v="1"/>
-				<b n="C3" b="40" d="8" v="1"/>
-				<b n="A2" b="40" d="8" v="1"/>
-				<b n="F2" b="40" d="8" v="1"/>
-				<b n="G2" b="48" d="8" v="1"/>
-				<b n="E2" b="48" d="8" v="1"/>
-				<b n="C2" b="48" d="8" v="1"/>
-				<b n="C3" b="56" d="8" v="1"/>
-				<b n="A2" b="56" d="8" v="1"/>
-				<b n="F2" b="56" d="8" v="1"/>
-			</Clip>
-
+			<Slot>
+				<Clip name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15" bars="4" id="clip-3-1">
+					<b n="C3" b="0" d="8" v="1"/>
+					<b n="A2" b="0" d="8" v="1"/>
+					<b n="F2" b="0" d="8" v="1"/>
+					<b n="C3" b="8" d="8" v="1"/>
+					<b n="A2" b="8" d="8" v="1"/>
+					<b n="F2" b="8" d="8" v="1"/>
+					<b n="G2" b="16" d="8" v="1"/>
+					<b n="E2" b="16" d="8" v="1"/>
+					<b n="C2" b="16" d="8" v="1"/>
+					<b n="C3" b="24" d="8" v="1"/>
+					<b n="A2" b="24" d="8" v="1"/>
+					<b n="F2" b="24" d="8" v="1"/>
+					<b n="C3" b="32" d="8" v="1"/>
+					<b n="A2" b="32" d="8" v="1"/>
+					<b n="F2" b="32" d="8" v="1"/>
+					<b n="C3" b="40" d="8" v="1"/>
+					<b n="A2" b="40" d="8" v="1"/>
+					<b n="F2" b="40" d="8" v="1"/>
+					<b n="G2" b="48" d="8" v="1"/>
+					<b n="E2" b="48" d="8" v="1"/>
+					<b n="C2" b="48" d="8" v="1"/>
+					<b n="C3" b="56" d="8" v="1"/>
+					<b n="A2" b="56" d="8" v="1"/>
+					<b n="F2" b="56" d="8" v="1"/>
+				</Clip>
+			</Slot>
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
 			<Buttons activator="on" solo="off" record="off"/>

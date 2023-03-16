@@ -82,7 +82,7 @@ const Jam = {
 		},
 		playClip(id, clipId) {
 			let track = this._list.find(el => el.id === id),
-				xClip = track.xNode.selectSingleNode(`./Clip[@id="${clipId}"]`);
+				xClip = track.xNode.selectSingleNode(`./Slot/Clip[@id="${clipId}"]`);
 			// exit if already playing
 			if (track.isPlaying) return;
 			track.xClip = xClip;
@@ -113,10 +113,10 @@ const Jam = {
 	},
 	start() {
 		let APP = defjam;
-		// if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
-		// 	// make sure play button is pressed
-		// 	return APP.toolbar.dispatch({ type: "play" });
-		// }
+		if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
+			// make sure play button is pressed
+			return APP.toolbar.dispatch({ type: "play" });
+		}
 		// change "flag"
 		this._stopped = false;
 

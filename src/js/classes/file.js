@@ -16,8 +16,13 @@ class File {
 			str;
 		switch (event.type) {
 			case "load-project":
+				// view: "arrangement" or "session"
+				value = Self._file.data.selectSingleNode("//Project/Tracks");
+				value = value ? value.getAttribute("view") : "session";
+				APP.head.dispatch({ type: `show-${value}-view` });
+
 				// prepare track clip notes
-				Self._file.data.selectNodes(`//Track/Clip/b[@n]`).map(xNote => {
+				Self._file.data.selectNodes(`//Track/Slot/Clip/b[@n]`).map(xNote => {
 					let note = xNote.getAttribute("n"),
 						key = note.slice(0,-1),
 						octave = +note.slice(-1),
@@ -40,6 +45,8 @@ class File {
 					xNote.setAttribute("y", y);
 					xNote.setAttribute("w", w);
 				});
+				// ui update arrangement view
+				APP.arrangement.dispatch({ type: "render-file", file: Self._file });
 				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });
 				// load file instruments

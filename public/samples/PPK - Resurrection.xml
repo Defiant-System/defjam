@@ -1,0 +1,67 @@
+<Project>
+	<Head>
+		<Tempo value="120"/>
+		<Position bar="0.0.0" time="00:00.00"/>
+	</Head>
+	<Tracks view="arrangement">
+		<Track name="Pizzicato Strings" color="#48c" id="track-2" type="sampler">
+			<Device name="Pizzicato Strings">
+				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
+			</Device>
+			<Lane>
+				<Clip name="Intro" start="1.1.1" length="1.0.0" x="0" w="8" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1">
+				</Clip>
+			</Lane>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="on"/>
+			<Volume value="90"/>
+		</Track>
+
+		<Track name="Acoustic Grand Piano" color="#96a" id="track-2" type="sampler" collapsed="lane">
+			<Device name="Acoustic Grand Piano">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+			</Device>
+			<Lane>
+				<Clip name="Verse" start="1.1.1" length="1.0.0" x="4" w="4" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1">
+				</Clip>
+			</Lane>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="on"/>
+			<Volume value="90"/>
+		</Track>
+
+		<Track name="Steel Drum" color="#77c" id="track-2" type="sampler">
+			<Device name="Steel Drum">
+				<Set xPath=".//Instruments//Item[@name='Steel Drum']/s"/>
+			</Device>
+			<Lane>
+				<Clip name="Chorus" start="1.1.1" length="1.0.0" x="8" w="12" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1">
+				</Clip>
+			</Lane>
+
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="on"/>
+			<Volume value="90"/>
+		</Track>
+	</Tracks>
+	<IoMaster>
+		<Track name="Reverb" io-label="A" id="sends-1">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Delay" io-label="B" id="sends-2">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Master" id="master" color="#a73">
+			<Volume value="90"/>
+		</Track>
+	</IoMaster>
+</Project>

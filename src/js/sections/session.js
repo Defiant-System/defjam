@@ -24,14 +24,12 @@
 				window.render({
 					data: event.file.data,
 					template: "file-tracks",
-					match: `//Project`,
 					target: Self.els.el.find(`.tracks-wrapper .tracks`),
 				});
 				// render io tracks
 				window.render({
 					data: event.file.data,
 					template: "file-io",
-					match: `//Project`,
 					target: Self.els.el.find(`.io-master .tracks`),
 				});
 				break;

@@ -20,6 +20,48 @@
 </xsl:template>
 
 
+<xsl:template name="track-lanes">
+	<xsl:for-each select="./Tracks/Track">
+		<div class="lane" style="--c: #77c;">
+			<xsl:attribute name="style">
+				--c: <xsl:value-of select="@color"/>
+			</xsl:attribute>
+			<xsl:if test="@collapsed">
+				<xsl:attribute name="class">lane collapsed</xsl:attribute>
+			</xsl:if>
+			<xsl:for-each select="./Lane/Clip">
+				<b>
+					<xsl:attribute name="style">
+						--x: <xsl:value-of select="@x"/>;
+						--w: <xsl:value-of select="@w"/>;
+					</xsl:attribute>
+					<i><xsl:value-of select="@name"/></i>
+				</b>
+			</xsl:for-each>
+		</div>
+	</xsl:for-each>
+</xsl:template>
+
+
+<xsl:template name="track-mixers">
+	<xsl:for-each select="./Tracks/Track">
+		<div class="lane">
+			<xsl:attribute name="style">
+				--c: <xsl:value-of select="@color"/>
+			</xsl:attribute>
+			<xsl:if test="@collapsed">
+				<xsl:attribute name="class">lane collapsed</xsl:attribute>
+			</xsl:if>
+			<div class="mix-head">
+				<div class="title"><xsl:value-of select="@name"/></div>
+			</div>
+			<div class="mix-body"></div>
+			<div class="mix-foot"></div>
+		</div>
+	</xsl:for-each>
+</xsl:template>
+
+
 <xsl:template name="file-io">
 	<xsl:for-each select="./IoMaster/Track">
 		<xsl:call-template name="session-track" />
@@ -45,7 +87,7 @@
 		</xsl:if>
 		<div class="title"><xsl:value-of select="@name"/></div>
 		<div class="slots">
-			<xsl:for-each select="./Clip">
+			<xsl:for-each select="./Slot/Clip">
 				<b>
 					<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 					<xsl:attribute name="style">--r: <xsl:value-of select="@row"/>;</xsl:attribute>

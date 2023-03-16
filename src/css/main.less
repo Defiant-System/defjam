@@ -36,11 +36,9 @@ content {
 	padding: @margin + 1px;
 	color: darken(@text, 7%);
 	text-shadow: 0 1px 0 rgba(0,0,0,.35);
-	--pH: 221px; // panel bottom
+	--pH: 420px; // panel bottom
 
 	&.show-midi {
-		--pH: 420px;
-		
 		.panel-bottom {
 			.midi-body {
 				display: flex;
@@ -63,6 +61,8 @@ content {
 	}
 
 	&.show-devices {
+		--pH: 221px;
+		
 		.resize.vertical {
 			cursor: default;
 		}
@@ -1312,7 +1312,7 @@ content {
 							width: 250px;
 							margin-left: 2px;
 
-							.channel {
+							.lane {
 								display: flex;
 								flex-direction: row;
 								// background-image: linear-gradient(90deg,
@@ -1375,7 +1375,7 @@ content {
 							}
 						}
 
-						.channel {
+						.lane {
 							height: var( --chanH );
 							position: relative;
 							border-bottom: 2px solid @griddark;
@@ -1415,8 +1415,8 @@ content {
 							b {
 								position: absolute;
 								top: 0;
-								left: calc( var( --l ) * var( --barW ) );
-								width: calc( calc( var( --d ) * var( --barW ) ) - 1px );
+								left: calc( var( --x ) * var( --barW ) );
+								width: calc( calc( var( --w ) * var( --barW ) ) - 1px );
 								height: calc( var( --chanH ) - 2px );
 								padding: 3px 4px 0;
 								border-radius: 2px;
@@ -1547,10 +1547,11 @@ content {
 						--selT: 0;
 						--selL: 0;
 						--selH: 1;
+						--selRow: 1;
 
-						.channel:nth-child(2) {
-							background: fadeout(lighten(@boxBg, 13%), 85%);
-						}
+						// .channel:nth-child(2) {
+						// 	background: fadeout(lighten(@boxBg, 13%), 85%);
+						// }
 
 						.col-clips .box-body  {
 							overflow: visible;
@@ -2079,7 +2080,7 @@ content {
 
 					.col-left {
 						display: flex;
-						width: 63px;
+						width: 73px;
 						margin: 0 1px 0 0;
 
 						.box-body  {
@@ -2368,7 +2369,7 @@ content {
 								position: absolute;
 								top: 0;
 								bottom: 0;
-								left: 29px;
+								left: 39px;
 								width: 31px;
 								pointer-events: none;
 								border-left: 2px solid @face;
@@ -2403,7 +2404,7 @@ content {
 								position: absolute;
 								top: 0;
 								bottom: 0;
-								left: 30px;
+								left: 40px;
 								width: 26px;
 								pointer-events: none;
 								background-image: repeating-linear-gradient(180deg,
@@ -2449,7 +2450,7 @@ content {
 								position: relative;
 								display: block;
 								z-index: 2;
-								width: 31px;
+								width: 41px;
 								pointer-events: none;
 								box-shadow: 3px 0 11px 3px rgba(0,0,0,.45);
 								// --pkT: 209px;

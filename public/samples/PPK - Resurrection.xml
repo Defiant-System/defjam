@@ -10,7 +10,7 @@
 			</Device>
 			<Lane>
 				<Clip name="Intro" start="1.1.1" length="1.0.0" x="0" w="8" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
-				<Clip name="Clip 1" start="1.1.1" length="1.0.0" x="12" w="6" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
+				<Clip name="Pre-chorus" start="1.1.1" length="1.0.0" x="12" w="6" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
 			</Lane>
 
 			<Sends label="A" value="0"/>
@@ -25,6 +25,8 @@
 			</Device>
 			<Lane>
 				<Clip name="Verse" start="1.1.1" length="1.0.0" x="4" w="12" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
+				<Clip name="Verse" start="1.1.1" length="1.0.0" x="20" w="12" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
+				<Clip name="Verse" start="1.1.1" length="1.0.0" x="36" w="4" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
 			</Lane>
 
 			<Sends label="A" value="0"/>
@@ -39,6 +41,7 @@
 			</Device>
 			<Lane>
 				<Clip name="Chorus" start="1.1.1" length="1.0.0" x="8" w="12" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
+				<Clip name="Chorus" start="1.1.1" length="1.0.0" x="24" w="8" oY="-395" oX="-2400" keyH="10" noteW="20" id="clip-1-1"/>
 			</Lane>
 
 			<Sends label="A" value="0"/>

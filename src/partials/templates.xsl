@@ -57,7 +57,15 @@
 				<div class="title"><xsl:value-of select="@name"/></div>
 			</div>
 			<div class="mix-body"></div>
-			<div class="mix-foot"></div>
+			<div class="mix-foot">
+				<div class="track-btn activator" data-click="track-activator">
+					<xsl:if test="@io-label">
+						<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
+					</xsl:if>
+				</div>
+				<div class="track-btn solo" data-click="track-solo">S</div>
+				<div class="track-btn record" data-click="track-record">&#9679;</div>
+			</div>
 		</div>
 	</xsl:for-each>
 </xsl:template>
@@ -84,7 +92,15 @@
 				<div class="title"><xsl:value-of select="@name"/></div>
 			</div>
 			<div class="mix-body"></div>
-			<div class="mix-foot"></div>
+			<div class="mix-foot">
+				<div class="track-btn activator" data-click="track-activator">
+					<xsl:if test="@io-label">
+						<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
+					</xsl:if>
+				</div>
+				<div class="track-btn solo" data-click="track-solo">S</div>
+				<div class="track-btn record" data-click="track-record">&#9679;</div>
+			</div>
 		</div>
 	</xsl:for-each>
 </xsl:template>

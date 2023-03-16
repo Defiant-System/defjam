@@ -1317,6 +1317,12 @@ content {
 								flex-direction: row;
 								transition: height 100ms ease-in-out;
 
+								&.collapsed {
+									.mix-body:before {
+										display: block;
+									}
+								}
+
 								> div:not(:first-child) {
 									margin-left: 1px;
 									border-left: 1px solid @face;
@@ -1360,11 +1366,50 @@ content {
 								}
 
 								.mix-body {
-									width: 73px;
+									position: relative;
+									width: 67px;
+
+									&:before {
+										display: none;
+										content: "";
+										position: absolute;
+										top: 2px;
+										left: 2px;
+										right: 2px;
+										bottom: 2px;
+										border: 1px solid fadeout(@face, 5%);
+									}
 								}
 
 								.mix-foot {
 									flex: 1;
+									padding: 2px;
+									font-size: 0;
+
+									.track-btn {
+										width: 23px;
+										height: 15px;
+										vertical-align: top;
+										font-size: 10px;
+										text-align: center;
+										margin: 0 3px 0 0;
+										border-radius: 0;
+										border-width: 1px;
+
+										&.activator {
+											width: 37px;
+											padding-top: 2px;
+											font-weight: font-weight;
+
+											&:before {
+												content: attr(data-label); // reset track counter
+											}
+										}
+
+										&.record {
+											font-size: 14px;
+										}
+									}
 								}
 							}
 						}

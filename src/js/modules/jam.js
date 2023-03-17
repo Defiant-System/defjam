@@ -128,30 +128,45 @@ const Jam = {
 		// change "flag"
 		this._stopped = false;
 
+		// loop tracks
 		this.track._list.map(oTrack => {
 			oTrack.xNode.selectNodes(`./Lane/Clip`).map(xClip => {
 				let bLen = +xClip.getAttribute("bars") * 16,
-					beats = [...Array(bLen)].map((e, i) => i);
+					beats = [...Array(bLen)].map((e, i) => i.toString());
+
+				oTrack.isPlaying = true;
+				oTrack.clip = {
+					oX: +xClip.getAttribute("oX"),
+					oY: +xClip.getAttribute("oY"),
+					width: bLen * +xClip.getAttribute("noteW"),
+				};
+
+				beats.map((beat, i) => {
+					let motes = xClip.selectNodes(`./b[@b="${beat}"]`);
+					if (motes.length > 1) beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
+				});
 
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
-					xClip.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
+					let [b, s] = beat.split("."),
+						xPath = `./b[@b="${b}"]`;
+					if (s && +s > 0) xPath += `[@s="${s}"]`;
+
+					xClip.selectNodes(xPath).map(xNote => {
 						let note = xNote.getAttribute("n"),
-							dur = xNote.getAttribute("d") +"n",
-							vel = +xNote.getAttribute("v"),
-							halfBeat = xNote.getAttribute("hb");
-						if (oTrack.isDrumkit) note = [note];
-						// if (halfBeat) {
-						// 	time = halfBeat;
-						// }
+							dur = +xNote.getAttribute("d"),
+							vel = +xNote.getAttribute("v");
+						// if (oTrack.isDrumkit) note = [note];
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
 				}, beats).start(0);
 			});
 		});
+		
 		// show play-head
-		this.playHead = APP.arrangement.els.playHead.addClass("on");
+		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		Tone.Transport.start();
+		// Tone.Transport.start("+1", "17:0:0");
 		// update / rendering
 		this.update();
 	},
@@ -168,9 +183,7 @@ const Jam = {
 		// change "flag"
 		this._stopped = true;
 		// hide play-head
-		APP.arrangement.els.playHead.removeClass("on");
-		// delete reference
-		delete this.playHead;
+		APP.midi.els.playHead.removeClass("on");
 		// stop Tone transport
 		Tone.Transport.stop();
 	},
@@ -187,6 +200,16 @@ const Jam = {
 			tempo = Tone.Transport.bpm.value;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
+		
+		// loop tracks
+		this.track._list.map(oTrack => {
+			if (oTrack.isPlaying && oTrack.sequence) {
+				// setPlayhead
+				let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
+				// console.log( oTrack.clip.width, oTrack.clip.oX );
+				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
+			}
+		});
 
 		// render display
 		this.display.render({ bars, time, tempo });

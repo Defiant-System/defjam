@@ -22,7 +22,7 @@ let Test = {
 		// setTimeout(this.jam, 100);
 
 
-		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
+		setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 4e3);
 	},
 	jam() {

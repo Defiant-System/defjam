@@ -112,42 +112,32 @@ const Jam = {
 		}
 	},
 	start() {
-		let APP = defjam;
-		if (this._stopped && !APP.toolbar.els.btnPlay.hasClass("tool-active_")) {
-			// make sure play button is pressed
-			return APP.toolbar.dispatch({ type: "play" });
-		}
 		// change "flag"
 		this._stopped = false;
 
 		this.track._list.map(oTrack => {
-			if (oTrack.isPlaying) {
-				let beats = +oTrack.xClip.getAttribute("bars") * 16;
-				oTrack.clip = {
-					oX: +oTrack.xClip.getAttribute("oX"),
-					oY: +oTrack.xClip.getAttribute("oY"),
-					width: beats * +oTrack.xClip.getAttribute("noteW"),
-				};
+			oTrack.xNode.selectNodes(`./Lane/Clip`).map(xClip => {
+				let bLen = +xClip.getAttribute("bars") * 16,
+					beats = [...Array(bLen)].map((e, i) => i);
+
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
-					oTrack.xClip.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
+					xClip.selectNodes(`./b[@b="${beat}"]`).map(xNote => {
 						let note = xNote.getAttribute("n"),
 							dur = xNote.getAttribute("d") +"n",
 							vel = +xNote.getAttribute("v"),
 							halfBeat = xNote.getAttribute("hb");
 						if (oTrack.isDrumkit) note = [note];
-						if (halfBeat) {
-							time = halfBeat;
-						}
+						// if (halfBeat) {
+						// 	time = halfBeat;
+						// }
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
-				}, [...Array(beats)].map((e, i) => i)).start(0);
-			}
+				}, beats).start(0);
+			});
 		});
-		// show play-head
-		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
 		Tone.Transport.start();
-		// Tone.Transport.start("+1", "17:0:0");
+		// update / rendering
 		this.update();
 	},
 	stop() {
@@ -180,16 +170,6 @@ const Jam = {
 			tempo = Tone.Transport.bpm.value;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
-
-		// loop tracks
-		this.track._list.map(oTrack => {
-			if (oTrack.isPlaying && oTrack.sequence) {
-				// setPlayhead
-				let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
-				// console.log(  );
-				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
-			}
-		});
 
 		// render display
 		this.display.render({ bars, time, tempo });

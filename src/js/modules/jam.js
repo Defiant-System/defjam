@@ -8,10 +8,22 @@ const Jam = {
 		Object.keys(this).filter(i => this[i].init).map(i => this[i].init());
 	},
 	loadProject(file) {
-		let node = file.data.selectSingleNode(`//Head/Tempo`),
+		let APP = defjam,
+			node = file.data.selectSingleNode(`//Head/Tempo`),
 			value = node.getAttribute("value") || 120;
 		// song tempo / BPM
 		Tone.Transport.bpm.value = +value;
+
+		// app UI: browser view
+		node = file.data.selectSingleNode(`//Head/Browser`);
+		value = node ? +node.getAttribute("width") : 229;
+		APP.browser.dispatch({ type: "set-width", value });
+
+		// app UI: browser view
+		node = file.data.selectSingleNode(`//Head/Details`);
+		value = node ? +node.getAttribute("height") : 420;
+		APP.browser.dispatch({ type: "set-height", value });
+
 		// loop tracks
 		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
 			let id = xNode.getAttribute("id"),

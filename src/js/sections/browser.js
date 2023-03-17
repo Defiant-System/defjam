@@ -6,6 +6,7 @@
 		// fast references
 		this.els = {
 			el: window.find(`.panel-left[data-section="browser"]`),
+			btnToggle: window.find(`.buttons .ball-button[data-click="toggle-work-panel"]`),
 			soundsBody: window.find(".sounds-body"),
 			audioChart: window.find(".audio-chart"),
 		};
@@ -26,6 +27,20 @@
 			el;
 		//console.log(event);
 		switch (event.type) {
+			case "set-width":
+				// prepare for quick UI switch
+				Self.els.el.addClass("no-anim").removeClass("hide");
+
+				if (event.value === 0) {
+					Self.els.el.addClass("hide");
+					Self.els.el.nextAll(".resize").addClass("hidden");
+					Self.els.btnToggle.addClass("toggled");
+				} else {
+					Self.els.el.css({ "--pW": event.value +"px" });
+				}
+				// restore quick UI
+				requestAnimationFrame(() => Self.els.el.removeClass("no-anim"));
+				break;
 			case "set-sample-ids":
 				value = Date.now();
 				window.bluePrint.selectNodes(`//Samples//*[not(@_id)]`)

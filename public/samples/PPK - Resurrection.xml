@@ -12,13 +12,13 @@
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Melody" start="1.1.1" length="1.0.0" bars="1" x="0" w="16" oY="-350" oX="0" keyH="10" noteW="16">
-					<b n="G3" b="2" d="1" v="1"/>
-					<b n="A3" b="3" d="1" v="1" s="8"/>
-					<b n="A3" b="5" d="1" v="1"/>
-					
-					<b n="A3" b="7" d="1" v="1"/>
-					<b n="A3" b="8" d="1" v="1"/>
+				<Clip id="clip-2-1" name="Melody" start="1.1.1" length="1.0.0" bars="2" x="0" w="16" oY="-350" oX="0" keyH="10" noteW="16">
+					<b n="G3" b="2" d=".5" v="1"/>
+					<b n="A3" b="2" d=".5" v="1" s="8"/>
+					<b n="A3" b="3" d=".5" v="1" s="8"/>
+
+					<b n="A3" b="4" d=".5" v="1" s="8"/>
+					<b n="A3" b="5" d=".5" v="1"/>
 
 				</Clip>
 			</Lane>

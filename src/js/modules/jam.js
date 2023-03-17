@@ -142,20 +142,27 @@ const Jam = {
 				};
 
 				beats.map((beat, i) => {
-					let motes = xClip.selectNodes(`./b[@b="${beat}"]`);
-					if (motes.length > 1) beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
+					let notes = xClip.selectNodes(`./b[@b="${beat}"]`);
+					if (notes.length > 1 || (notes.length && notes[0].getAttribute("s"))) {
+						beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
+					}
 				});
 
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
 					let [b, s] = beat.split("."),
 						xPath = `./b[@b="${b}"]`;
-					if (s && +s > 0) xPath += `[@s="${s}"]`;
+
+					// console.log(b, s);
+
+					if (!s || s === "0") xPath += `[not(@s)]`;
+					else if (s && +s > 0) xPath += `[@s="${s}"]`;
 
 					xClip.selectNodes(xPath).map(xNote => {
 						let note = xNote.getAttribute("n"),
 							dur = +xNote.getAttribute("d"),
 							vel = +xNote.getAttribute("v");
 						// if (oTrack.isDrumkit) note = [note];
+						// console.log(note, time);
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
 				}, beats).start(0);

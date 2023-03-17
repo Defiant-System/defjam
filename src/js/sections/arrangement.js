@@ -7,6 +7,7 @@
 		this.els = {
 			el: window.find(".arr-layout"),
 			sel: window.find(".arr-layout .row-track .selection"),
+			playHead: window.find(".arr-layout .row-track .play-head"),
 			lanes: window.find(".arr-layout .row-track .col-clips .box-body"),
 			mixers: window.find(".arr-layout .row-track .col-mixers .box-body"),
 			ioLanes: window.find(".arr-layout .row-outputs .col-clips .box-body"),

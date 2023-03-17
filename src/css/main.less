@@ -948,7 +948,7 @@ content {
 			&.no-anim {
 				transition: all 0s;
 			}
-			
+
 			.bg-scrollbar {
 				background: inherit;
 				border-radius: 5px 0 0 5px;
@@ -1630,7 +1630,23 @@ content {
 							border-radius: 0 3px 0 0;
 						}
 
-						.time-cursor {
+						.play-head {
+							background: @base;
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 1px;
+							z-index: 2;
+							// transform: translateX( 107px );
+							// bottom: -63px;
+
+							&.on {
+								bottom: -63px;
+							}
+						}
+
+						.edit-cursor {
+							display: none;
 							position: absolute;
 							top: 0;
 							// bottom: 0;
@@ -1659,7 +1675,7 @@ content {
 								content: "";
 								position: absolute;
 								left: 0;
-								top: 88px;
+								top: 67px;
 								width: 1px;
 								height: 65px; // track height
 								background: inherit;

@@ -124,6 +124,7 @@ const Jam = {
 		}
 	},
 	start() {
+		let APP = defjam;
 		// change "flag"
 		this._stopped = false;
 
@@ -147,6 +148,8 @@ const Jam = {
 				}, beats).start(0);
 			});
 		});
+		// show play-head
+		this.playHead = APP.arrangement.els.playHead.addClass("on");
 		// start Tone transport
 		Tone.Transport.start();
 		// update / rendering
@@ -165,7 +168,9 @@ const Jam = {
 		// change "flag"
 		this._stopped = true;
 		// hide play-head
-		APP.midi.els.playHead.removeClass("on");
+		APP.arrangement.els.playHead.removeClass("on");
+		// delete reference
+		delete this.playHead;
 		// stop Tone transport
 		Tone.Transport.stop();
 	},
@@ -191,6 +196,11 @@ const Jam = {
 		requestAnimationFrame(this.update.bind(this));
 	},
 	render() {
+		// setPlayhead
+		// let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
+		// console.log(  );
+		// this.playHead.css({ transform: `translateX(${left}px)` });
+
 		this.track._list.map(oTrack => {
 			oTrack.ctx.clearRect(0, 0, 6, 111);
 			let p1 = Math.log(oTrack.meter.getValue() + 51) / Math.log(63);

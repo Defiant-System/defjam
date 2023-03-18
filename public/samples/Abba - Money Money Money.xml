@@ -153,7 +153,7 @@
 
 				</Clip>
 
-				<!-- <Clip id="clip-1-2" name="Verse" start="1.1.1" length="1.0.0" bars="4" x="0" w="12" oY="-290" oX="0" keyH="10" noteW="16">
+				<Clip id="clip-1-2" name="Verse" start="1.1.1" length="1.0.0" bars="4" x="0" w="12" oY="-290" oX="0" keyH="10" noteW="16">
 					<![CDATA[ Melody ]]>
 					<b n="E4" b="0" d="1" v="1"/>
 					<b n="F4" b="1" d="1" v="1"/>
@@ -290,7 +290,7 @@
 					<b n="E3" b="60" d="4" v=".5"/>
 					<b n="A3" b="60" d="4" v=".5"/>
 
-				</Clip> -->
+				</Clip>
 
 			</Lane>
 			<Sends label="A" value="0"/>

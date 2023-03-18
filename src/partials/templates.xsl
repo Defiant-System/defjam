@@ -68,6 +68,9 @@
 				</div>
 				<div class="track-btn solo" data-click="track-solo">S</div>
 				<div class="track-btn record" data-click="track-record">&#9679;</div>
+				<div class="vol-analyser">
+					<canvas width="5" height="5"></canvas>
+				</div>
 			</div>
 		</div>
 	</xsl:for-each>
@@ -108,6 +111,9 @@
 					<div class="track-btn solo" data-click="track-solo">S</div>
 					<div class="track-btn record" data-click="track-record">&#9679;</div>
 				</xsl:if>
+				<div class="vol-analyser">
+					<canvas width="5" height="5"></canvas>
+				</div>
 			</div>
 		</div>
 	</xsl:for-each>

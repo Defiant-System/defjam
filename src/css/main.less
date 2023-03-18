@@ -1338,7 +1338,7 @@ content {
 										&:after {
 											content: "";
 											display: inline-block;
-											width: 41px;
+											width: 39px;
 											border: 1px solid fadeout(@face, 5%);
 											background-image: repeating-linear-gradient(90deg, @gridlines 0, @gridlines 80%, transparent 80%, transparent 100%);
 										}
@@ -1414,7 +1414,7 @@ content {
 									position: relative;
 
 									.track-btn {
-										width: 23px;
+										width: 21px;
 										height: 15px;
 										vertical-align: top;
 										font-size: 10px;
@@ -1440,6 +1440,36 @@ content {
 
 										&.record {
 											font-size: 14px;
+										}
+									}
+
+									.vol-analyser {
+										// background: rgba(0,0,0,.1);
+										position: absolute;
+										top: 2px;
+										bottom: 2px;
+										right: 4px;
+										width: 5px;
+
+										&:before {
+											content: "";
+											position: absolute;
+											top: 0;
+											left: 0;
+											right: 0;
+											bottom: 0;
+											pointer-events: none;
+											border-radius: 2px;
+											background: linear-gradient(0deg, #0f0 0%, #96f 75%, #f00 100%);
+										}
+
+										canvas {
+											background: lighten(@face, 3%);
+											position: absolute;
+											top: 0;
+											left: 0;
+											width: 5px;
+											height: calc( var( --chanH ) - 6px );
 										}
 									}
 								}

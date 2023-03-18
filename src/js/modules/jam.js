@@ -124,69 +124,10 @@ const Jam = {
 		}
 	},
 	start() {
-		let APP = defjam;
 		// change "flag"
 		this._stopped = false;
-
-		// loop tracks
-		this.track._list.map(oTrack => {
-			// track is "playing"
-			oTrack.isPlaying = true;
-
-			// prepare notes for iterative play
-			oTrack.xNode.selectNodes(`./Lane//b`).map(xNote => {
-				let pX = +xNote.parentNode.getAttribute("x") * 4,
-					nX = +xNote.getAttribute("b");
-				xNote.setAttribute("bX", pX + nX);
-			});
-
-			// iterate tracks lane clips
-			oTrack.xNode.selectNodes(`./Lane/Clip`).map(xClip => {
-				let bLen = +xClip.getAttribute("bars") * 16,
-					beats = [...Array(bLen)].map((e, i) => i.toString()),
-					bX = xClip.getAttribute("x") || 0;
-
-				oTrack.clip = {
-					oX: +xClip.getAttribute("oX"),
-					oY: +xClip.getAttribute("oY"),
-					width: bLen * +xClip.getAttribute("noteW"),
-				};
-
-				beats.map((beat, i) => {
-					let notes = xClip.selectNodes(`./b[@bX="${beat}"]`);
-					if (notes.length > 1 || (notes.length && notes[0].getAttribute("s"))) {
-						beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
-					}
-				});
-
-
-				oTrack.sequence = new Tone.Sequence((time, beat) => {
-					let [b, s] = beat.split("."),
-						xPath = `./b[@bX="${b}"]`;
-
-					if (!s || s === "0") xPath += `[not(@s)]`;
-					else if (s && +s > 0) xPath += `[@s="${s}"]`;
-
-					xClip.selectNodes(xPath).map(xNote => {
-						let note = xNote.getAttribute("n"),
-							dur = +xNote.getAttribute("d"),
-							vel = +xNote.getAttribute("v");
-						// if (oTrack.isDrumkit) note = [note];
-						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
-					});
-				}, beats).start(0);
-			});
-		});
 		
-		return;
-
-		// show play-head
-		APP.midi.els.playHead.addClass("on");
-		// start Tone transport
-		Tone.Transport.start();
-		// Tone.Transport.start("+1", "11:0:0");
-		// update / rendering
-		this.update();
+		
 	},
 	stop() {
 		let APP = defjam;

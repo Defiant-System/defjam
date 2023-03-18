@@ -82,7 +82,7 @@
 						"--oX": xClip.getAttribute("oX") +"px",
 						"--keyH": xClip.getAttribute("keyH") +"px",
 						"--noteW": xClip.getAttribute("noteW") +"px",
-						"--bars": xClip.getAttribute("bars"),
+						"--bars": +xClip.getAttribute("w") / 4,
 						"--pads": value || "" ,
 						"--c": xClip.parentNode.parentNode.getAttribute("color"),
 					});

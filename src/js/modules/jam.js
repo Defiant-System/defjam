@@ -130,11 +130,22 @@ const Jam = {
 
 		// loop tracks
 		this.track._list.map(oTrack => {
+			// track is "playing"
+			oTrack.isPlaying = true;
+
+			// prepare notes for iterative play
+			oTrack.xNode.selectNodes(`./Lane//b`).map(xNote => {
+				let pX = +xNote.parentNode.getAttribute("x") * 4,
+					nX = +xNote.getAttribute("b");
+				xNote.setAttribute("bX", pX + nX);
+			});
+
+			// iterate tracks lane clips
 			oTrack.xNode.selectNodes(`./Lane/Clip`).map(xClip => {
 				let bLen = +xClip.getAttribute("bars") * 16,
-					beats = [...Array(bLen)].map((e, i) => i.toString());
+					beats = [...Array(bLen)].map((e, i) => i.toString()),
+					bX = xClip.getAttribute("x") || 0;
 
-				oTrack.isPlaying = true;
 				oTrack.clip = {
 					oX: +xClip.getAttribute("oX"),
 					oY: +xClip.getAttribute("oY"),
@@ -142,17 +153,16 @@ const Jam = {
 				};
 
 				beats.map((beat, i) => {
-					let notes = xClip.selectNodes(`./b[@b="${beat}"]`);
+					let notes = xClip.selectNodes(`./b[@bX="${beat}"]`);
 					if (notes.length > 1 || (notes.length && notes[0].getAttribute("s"))) {
 						beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
 					}
 				});
 
+
 				oTrack.sequence = new Tone.Sequence((time, beat) => {
 					let [b, s] = beat.split("."),
-						xPath = `./b[@b="${b}"]`;
-
-					// console.log(b, s);
+						xPath = `./b[@bX="${b}"]`;
 
 					if (!s || s === "0") xPath += `[not(@s)]`;
 					else if (s && +s > 0) xPath += `[@s="${s}"]`;
@@ -162,7 +172,6 @@ const Jam = {
 							dur = +xNote.getAttribute("d"),
 							vel = +xNote.getAttribute("v");
 						// if (oTrack.isDrumkit) note = [note];
-						// console.log(note, time);
 						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
 					});
 				}, beats).start(0);
@@ -172,8 +181,8 @@ const Jam = {
 		// show play-head
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport
-		// Tone.Transport.start();
-		Tone.Transport.start("+1", "12:0:0");
+		Tone.Transport.start();
+		// Tone.Transport.start("+1", "11:0:0");
 		// update / rendering
 		this.update();
 	},

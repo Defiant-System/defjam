@@ -94,14 +94,14 @@
 		<style type="text/css">
 			.st0{fill:#466788;stroke:#132537;stroke-width:1;}
 		</style>
-		<polyline class="st0" points="1,1 9,7 1,12 "/>
+		<polyline class="st0" points="1,1 9,6.5 1,12 "/>
 	</svg>
 
 	<svg id="icon-loopspan-end" viewBox="0 0 13 13">
 		<style type="text/css">
 			.st0{fill:#466788;stroke:#132537;stroke-width:1;}
 		</style>
-		<polyline class="st0" points="12,12 4,6 12,1 "/>
+		<polyline class="st0" points="12,12 4,6.5 12,1 "/>
 	</svg>
 
 	<svg id="icon-arrow-right" viewBox="0 0 13 13">

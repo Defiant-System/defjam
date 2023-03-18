@@ -24,6 +24,10 @@ const Jam = {
 		value = node ? +node.getAttribute("height") : 420;
 		APP.devices.dispatch({ type: "set-height", value });
 
+		// app UI: arrangement view - project duration
+		APP.arrangement.dispatch({ type: "set-session-view", file });
+
+
 		// save reference to file
 		this._file = file;
 
@@ -127,16 +131,22 @@ const Jam = {
 		}
 	},
 	normalizeNotes() {
+		let xDur = this._file.data.selectSingleNode(`//Head/Duration`),
+			duration = xDur.getAttribute("value"),
+			[dBar, dBeat=1, d16=1] = duration.split(".").map(i => +i),
+			dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
+			beats = [...Array(dLen)].map((e, i) => i.toString());
+
 		this._file.data.selectNodes(`//Tracks/Track/Lane//b`).map(xNote => {
 			let cX = +xNote.parentNode.getAttribute("cX") * 4,
 				bX = +xNote.getAttribute("b");
 			xNote.setAttribute("bX", bX + cX);
-			if (xNote.getAttribute("n") === "G#4") {
+			// if (xNote.getAttribute("n") === "G#4") {
 				// console.log( cX, bX, xNote );
 				// console.log( xNote.parentNode );
-			}
+			// }
 		});
-		console.log( this._file.data );
+		// console.log( this._file.data );
 	},
 	start() {
 		// change "flag"

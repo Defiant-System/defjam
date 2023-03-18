@@ -2,6 +2,9 @@
 	<Head>
 		<Tempo value="120"/>
 		<Position bar="0.0.0" time="00:00.00"/>
+		<Duration value="10"/>
+		<Browser width="220"/>
+		<Details height="320"/>
 	</Head>
 	<Tracks>
 		<Track name="Acoustic Grand Piano" color="#48c" id="track-2" type="sampler">

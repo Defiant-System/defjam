@@ -2,7 +2,8 @@
 	<Head>
 		<Tempo value="120"/>
 		<Position bar="0.0.0" time="00:00.00"/>
-		<Duration width="12.2.2"/>
+		<Loop start="2" length="2"/>
+		<Duration value="13"/>
 		<Browser width="0"/>
 		<Details height="620"/>
 	</Head>

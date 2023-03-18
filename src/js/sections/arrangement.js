@@ -7,6 +7,7 @@
 		this.els = {
 			el: window.find(".arr-layout"),
 			sel: window.find(".arr-layout .row-track .selection"),
+			loopSpan: window.find(".arr-layout .row-ruler .loop-span"),
 			playHead: window.find(".arr-layout .row-track .play-head"),
 			lanes: window.find(".arr-layout .row-track .col-clips .box-body"),
 			mixers: window.find(".arr-layout .row-track .col-mixers .box-body"),
@@ -24,6 +25,15 @@
 			el;
 		//console.log(event);
 		switch (event.type) {
+			case "set-session-view":
+				let node = event.file.data.selectSingleNode(`//Head/Duration`),
+					value = node ? +node.getAttribute("value") : 13,
+					dur = value.toString(),
+					[dBar, dBeat=1, d16=1] = dur.split(".").map(i => +i),
+					dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16;
+				// set loop span width
+				Self.els.loopSpan.css({ width: `${dLen * 16}px` });
+				break;
 			case "render-file":
 				// clear "old" lanes
 				Self.els.lanes.find(".lane").remove();

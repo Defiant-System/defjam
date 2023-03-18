@@ -131,22 +131,57 @@ const Jam = {
 		}
 	},
 	normalizeNotes() {
-		let xDur = this._file.data.selectSingleNode(`//Head/Duration`),
+		let APP = defjam,
+			Self = this,
+			trackList = Self.track._list,
+			xDoc = Self._file.data,
+			xLanes = xDoc.selectSingleNode(`//Tracks/Track/Lane`),
+			xDur = xDoc.selectSingleNode(`//Head/Duration`),
 			duration = xDur.getAttribute("value"),
 			[dBar, dBeat=1, d16=1] = duration.split(".").map(i => +i),
 			dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
-			beats = [...Array(dLen)].map((e, i) => i.toString());
+			beats = [...Array(dLen*4)].map((e, i) => i.toString());
 
-		this._file.data.selectNodes(`//Tracks/Track/Lane//b`).map(xNote => {
+		xLanes.selectNodes(`.//b`).map(xNote => {
 			let cX = +xNote.parentNode.getAttribute("cX") * 4,
 				bX = +xNote.getAttribute("b");
 			xNote.setAttribute("bX", bX + cX);
-			// if (xNote.getAttribute("n") === "G#4") {
-				// console.log( cX, bX, xNote );
-				// console.log( xNote.parentNode );
-			// }
 		});
-		// console.log( this._file.data );
+
+		beats.map((beat, i) => {
+			let notes = xLanes.selectNodes(`.//b[@bX="${beat}"]`);
+			if (notes.length > 1 || (notes.length && notes[0].getAttribute("s"))) {
+				beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
+			}
+		});
+
+		Self.sequence = new Tone.Sequence((time, beat) => {
+				let [b, s] = beat.split("."),
+					xPath = `.//b[@bX="${b}"]`;
+				if (!s || s === "0") xPath += `[not(@s)]`;
+				else if (s && +s > 0) xPath += `[@s="${s}"]`;
+
+				xLanes.selectNodes(xPath).map(xNote => {
+					let xTrack = xNote.parentNode.parentNode.parentNode,
+						oTrack = trackList[xTrack.getAttribute("id")],
+						note = xNote.getAttribute("n"),
+						dur = +xNote.getAttribute("d"),
+						vel = +xNote.getAttribute("v");
+					if (oTrack.isDrumkit) note = [note];
+					oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
+				});
+			}, beats).start(0);
+
+		// show play-head
+		this.playHead = APP.arrangement.els.playHead.addClass("on");
+
+		// return console.log(beats);
+
+		// start Tone transport
+		// Tone.Transport.start();
+		Tone.Transport.start("0", "12:0:0");
+		// update / rendering
+		Self.update();
 	},
 	start() {
 		// change "flag"
@@ -185,17 +220,6 @@ const Jam = {
 			tempo = Tone.Transport.bpm.value;
 		if (bars[0].length < 2) bars[0] = " "+ bars[0];
 		bars = bars.join(" ");
-		
-		// loop tracks
-		Object.keys(this.track._list).map(id => {
-			let oTrack = this.track._list[id];
-			if (oTrack.isPlaying && oTrack.sequence) {
-				// setPlayhead
-				let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
-				// console.log( oTrack.clip.width, oTrack.clip.oX );
-				APP.midi.els.playHead.css({ transform: `translateX(${left}px)` });
-			}
-		});
 
 		// render display
 		this.display.render({ bars, time, tempo });
@@ -205,10 +229,11 @@ const Jam = {
 		requestAnimationFrame(this.update.bind(this));
 	},
 	render() {
-		// setPlayhead
-		// let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
-		// console.log(  );
-		// this.playHead.css({ transform: `translateX(${left}px)` });
+		if (this.sequence) {
+			// play head: arrangement
+			let left = 768 * this.sequence.progress;
+			this.playHead.css({ transform: `translateX(${left}px)` });
+		}
 
 		Object.keys(this.track._list).map(id => {
 			let oTrack = this.track._list[id];

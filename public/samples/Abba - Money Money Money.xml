@@ -8,7 +8,7 @@
 		<Details height="620"/>
 	</Head>
 	<Tracks view="arrangement">
-		<Track name="Acoustic Grand Piano" color="#48c" id="track-1" type="sampler">
+		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="sampler">
 			<Device name="Acoustic Grand Piano">
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
@@ -317,9 +317,28 @@
 					<b n="B3" b="27" d=".5" v="1" s="8"/>
 
 					<b n="A3" b="28" d="2" v="1"/>
+					<b n="A3" b="31" d="1" v="1"/>
+					<b n="A3" b="32" d="1" v="1"/>
+
+					<b n="B3" b="33" d="1" v="1"/>
+					<b n="B3" b="34" d="1" v="1"/>
+					<b n="A3" b="35" d="1" v="1"/>
+					<b n="A3" b="36" d="1" v="1"/>
+
+					<b n="B3" b="37" d=".5" v="1"/>
+					<b n="B3" b="37" d="1.5" v="1" s="8"/>
+
+					<b n="A3" b="39" d="1" v="1"/>
+					<b n="A3" b="40" d="1" v="1"/>
+
+					<b n="C4" b="41" d="1" v="1"/>
+					<b n="C4" b="42" d="1.5" v="1"/>
+
+					<b n="B3" b="43" d=".5" v="1" s="8"/>
+					<b n="B3" b="44" d="2" v="1"/>
 
 
-					<![CDATA[ Chords ]]>
+					<!-- <![CDATA[ Chords ]]>
 					<b n="A1" b="0" d="3" v=".5"/>
 					<b n="D3" b="0" d="3" v=".5"/>
 					<b n="E3" b="0" d="3" v=".5"/>
@@ -363,7 +382,7 @@
 					<b n="F1" b="27" d="5" v=".5"/>
 					<b n="C3" b="27" d="5" v=".5"/>
 					<b n="F3" b="27" d="5" v=".5"/>
-					<b n="A3" b="27" d="5" v=".5"/>
+					<b n="A3" b="27" d="5" v=".5"/> -->
 
 				</Clip>
 

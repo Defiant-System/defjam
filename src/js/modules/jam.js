@@ -24,6 +24,9 @@ const Jam = {
 		value = node ? +node.getAttribute("height") : 420;
 		APP.devices.dispatch({ type: "set-height", value });
 
+		// save reference to file
+		this._file = file;
+
 		// loop tracks
 		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
 			let id = xNode.getAttribute("id"),
@@ -62,9 +65,6 @@ const Jam = {
 			// add track to jam
 			this.track.add({ id, xNode, instrument, sequence, isDrumkit });
 		});
-	},
-	normalizeNotes() {
-
 	},
 	track: {
 		init() {
@@ -125,6 +125,13 @@ const Jam = {
 				track[key] = data[key];
 			}
 		}
+	},
+	normalizeNotes() {
+		this._file.data.selectNodes(`//Tracks/Track/Lane//b`).map(xNote => {
+			// let bX = 
+			// xNote.setAttribute("bX", bX);
+		});
+		console.log( this._file.data );
 	},
 	start() {
 		// change "flag"

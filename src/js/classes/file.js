@@ -21,6 +21,16 @@ class File {
 				value = value ? value.getAttribute("view") : "session";
 				APP.head.dispatch({ type: `show-${value}-view` });
 
+				// translate lane clip details
+				Self._file.data.selectNodes(`//Track//Clip`).map(xClip => {
+					let start = +xClip.getAttribute("start"),
+						length = +xClip.getAttribute("length"),
+						x = (start - 1) * 4,
+						w = length * 4;
+					xClip.setAttribute("x", x);
+					xClip.setAttribute("w", w);
+				});
+
 				// prepare track clip notes
 				Self._file.data.selectNodes(`//Track//Clip/b[@n]`).map(xNote => {
 					let note = xNote.getAttribute("n"),

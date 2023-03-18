@@ -2,18 +2,18 @@
 	<Head>
 		<Tempo value="120"/>
 		<Position bar="0.0.0" time="00:00.00"/>
-		<Duration value="10"/>
+		<Duration value="18"/>
 		<Browser width="220"/>
 		<Details height="320"/>
 	</Head>
 	<Tracks view="arrangement">
 
-		<Track name="Pizzicato Strings" color="#48c" id="track-1" type="sampler" class="selected">
+		<Track id="track-1" name="Pizzicato Strings" color="#48c" type="sampler" class="selected">
 			<Device name="Pizzicato Strings">
 				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-1-1" name="Chords" start="1.1.1" length="1.0.0" bars="14" x="0" w="56" oY="-490" oX="0" keyH="10" noteW="20">
+				<Clip id="clip-1-1" name="Chords" start="1" length="9" oY="-490" oX="0" keyH="10" noteW="20">
 					<b n="D2" b="0" d="2" v="1"/>
 					<b n="A2" b="2" d="2" v="1"/>
 					<b n="D3" b="4" d="2" v="1"/>
@@ -145,12 +145,12 @@
 			<Volume value="90"/>
 		</Track>
 
-		<Track name="Acoustic Grand Piano" color="#96a" id="track-2" type="sampler" class="collapsed1">
+		<Track id="track-2" name="Acoustic Grand Piano" color="#96a" type="sampler" class="collapsed1">
 			<Device name="Acoustic Grand Piano">
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Melody" start="1.1.1" length="1.0.0" bars="14" x="0" w="56" oY="-350" oX="0" keyH="10" noteW="20">
+				<Clip id="clip-2-1" name="Melody" start="1" length="9" oY="-350" oX="0" keyH="10" noteW="20">
 					<b n="D4" b="16" d="4" v="1"/>
 
 					<b n="E4" b="21" d="1" v="1"/>
@@ -287,12 +287,12 @@
 			<Volume value="90"/>
 		</Track>
 
-		<!-- <Track name="Steel Drum" color="#77c" id="track-3" type="sampler">
+		<Track id="track-3" name="Steel Drum" color="#77c" type="sampler">
 			<Device name="Steel Drum">
 				<Set xPath=".//Instruments//Item[@name='Steel Drum']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-3-1" name="Lead" start="1.1.1" length="1.0.0" x="24" w="12" oY="-640" oX="0" keyH="14" noteW="26">
+				<Clip id="clip-3-1" name="Lead" start="8" length="2" oY="-640" oX="0" keyH="14" noteW="26">
 					<b n="G3" b="2" d=".5" v="1"/>
 					<b n="A3" b="2" d=".5" v="1" s="8"/>
 					<b n="A3" b="3" d=".5" v="1" s="8"/>
@@ -306,7 +306,7 @@
 			<Sends label="B" value="0"/>
 			<Buttons activator="on" solo="off" record="on"/>
 			<Volume value="90"/>
-		</Track> -->
+		</Track>
 
 	</Tracks>
 	<IoMaster>

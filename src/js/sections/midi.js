@@ -59,11 +59,6 @@
 				el.css(value);
 				break;
 			// custom events
-			case "set-height":
-				// TODO
-				console.log("if device rack is displayed");
-				console.log(event);
-				break;
 			case "toggle-velocity-editor":
 				value = event.el.hasClass("toggled");
 				event.el.toggleClass("toggled", value);

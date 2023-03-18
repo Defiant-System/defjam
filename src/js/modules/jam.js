@@ -19,10 +19,10 @@ const Jam = {
 		value = node ? +node.getAttribute("width") : 229;
 		APP.browser.dispatch({ type: "set-width", value });
 
-		// app UI: browser view
+		// app UI: details view
 		node = file.data.selectSingleNode(`//Head/Details`);
 		value = node ? +node.getAttribute("height") : 420;
-		APP.browser.dispatch({ type: "set-height", value });
+		APP.devices.dispatch({ type: "set-height", value });
 
 		// loop tracks
 		file.data.selectNodes(`//Tracks/Track`).map(xNode => {
@@ -178,6 +178,8 @@ const Jam = {
 			});
 		});
 		
+		return;
+
 		// show play-head
 		APP.midi.els.playHead.addClass("on");
 		// start Tone transport

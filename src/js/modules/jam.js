@@ -63,9 +63,12 @@ const Jam = {
 			this.track.add({ id, xNode, instrument, sequence, isDrumkit });
 		});
 	},
+	normalizeNotes() {
+
+	},
 	track: {
 		init() {
-			this._list = [];
+			this._list = {};
 		},
 		add(opt) {
 			let meter = new Tone.Meter({ channels: 1 }),
@@ -79,13 +82,13 @@ const Jam = {
 			cvs.addClass("ready");
 			// connect to channel
 			opt.instrument.connect(channel);
-			// add to list
-			this._list.push({ ...opt, ctx, channel, meter, isPlaying: false });
+			// save reference to list
+			this._list[opt.id] = { ...opt, ctx, channel, meter, isPlaying: false };
 			// reset volume eq
 			if (Jam._stopped) Jam.render();
 		},
 		stop(id) {
-			let track = this._list.find(el => el.id === id);
+			let track = this._list[id];
 			if (track.sequence) {
 				track.sequence.stop();
 				delete track.sequence;
@@ -93,7 +96,7 @@ const Jam = {
 			track.isPlaying = false;
 		},
 		playClip(id, clipId) {
-			let track = this._list.find(el => el.id === id),
+			let track = this._list[id],
 				xClip = track.xNode.selectSingleNode(`./Slot/Clip[@id="${clipId}"]`);
 			// exit if already playing
 			if (track.isPlaying) return;
@@ -103,20 +106,20 @@ const Jam = {
 			if (Jam._stopped) Jam.start();
 		},
 		play(id, key) {
-			let track = this._list.find(el => el.id === id),
+			let track = this._list[id],
 				tone = track.isDrumkit ? [key] : key;
 			track.instrument.triggerAttackRelease(tone, "1n", Tone.now(), 1);
 		},
 		triggerAttack(id, key) {
-			let track = this._list.find(el => el.id === id);
+			let track = this._list[id];
 			track.instrument.triggerAttack(key, Tone.now(), 1);
 		},
 		triggerRelease(id, key) {
-			let track = this._list.find(el => el.id === id);
+			let track = this._list[id];
 			track.instrument.triggerRelease(key, Tone.now());
 		},
 		update(data) {
-			let track = this._list.find(el => el.id === data.id);
+			let track = this._list[data.id];
 			for (let key in data) {
 				if (key === "id") continue;
 				track[key] = data[key];
@@ -126,13 +129,14 @@ const Jam = {
 	start() {
 		// change "flag"
 		this._stopped = false;
-		
-		
+
+		this.normalizeNotes();
 	},
 	stop() {
 		let APP = defjam;
 		// stop all tracks
-		this.track._list.map(oTrack => {
+		Object.keys(this.track._list).map(id => {
+			let oTrack = this.track._list[id];
 			if (oTrack.sequence) {
 				oTrack.sequence.stop();
 				delete oTrack.sequence;
@@ -161,7 +165,8 @@ const Jam = {
 		bars = bars.join(" ");
 		
 		// loop tracks
-		this.track._list.map(oTrack => {
+		Object.keys(this.track._list).map(id => {
+			let oTrack = this.track._list[id];
 			if (oTrack.isPlaying && oTrack.sequence) {
 				// setPlayhead
 				let left = oTrack.clip.width * oTrack.sequence.progress + oTrack.clip.oX;
@@ -183,7 +188,8 @@ const Jam = {
 		// console.log(  );
 		// this.playHead.css({ transform: `translateX(${left}px)` });
 
-		this.track._list.map(oTrack => {
+		Object.keys(this.track._list).map(id => {
+			let oTrack = this.track._list[id];
 			oTrack.ctx.clearRect(0, 0, 6, 111);
 			let p1 = Math.log(oTrack.meter.getValue() + 51) / Math.log(63);
 			if (isNaN(p1)) p1 = 0;

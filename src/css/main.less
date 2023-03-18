@@ -1287,10 +1287,12 @@ content {
 			.arrangement-wrapper {
 				flex: 1;
 				display: flex;
+				margin-bottom: 13px;
 				border-bottom-right-radius: 0;
 				--barW: 16px;
 				--chanH: 67px;
 				--colH: 21px;
+				--colMix: 250px;
 
 				.arr-layout {
 					flex: 1;
@@ -1314,8 +1316,8 @@ content {
 								&:before {
 									content: "";
 									background-image: repeating-linear-gradient(90deg,
-											transparent 0px, transparent calc( calc( var( --barW ) * 8 ) - 1px ),
-											@boxBg calc( calc( var( --barW ) * 8 ) - 1px ), @boxBg calc( var( --barW ) * 8 )
+											@boxBg 0px, @boxBg 1px,
+											transparent 1px, transparent calc( var( --barW ) * 8 )
 										);
 									position: absolute;
 									left: 0;
@@ -1352,7 +1354,7 @@ content {
 						}
 
 						.col-mixers {
-							width: 250px;
+							width: var( --colMix );
 							margin-left: 2px;
 
 							.lane {
@@ -1778,7 +1780,8 @@ content {
 						display: flex;
 
 						.col-clips .box-body  {
-							border-radius: 0 0 0 3px;
+							// border-radius: 0 0 0 3px;
+							border-radius: 0;
 							background-image: repeating-linear-gradient(90deg,
 									transparent 0px, transparent calc( var( --barW ) - 1px ),
 									@gridlines calc( var( --barW ) - 1px ), @gridlines var( --barW )
@@ -1813,6 +1816,70 @@ content {
 									}
 								}
 
+							}
+						}
+					}
+
+					.row-time {
+						position: relative;
+						height: 0;
+
+						&:before {
+							content: "";
+							background: @face;
+							position: absolute;
+							top: 0;
+							left: -4px;
+							height: 17px;
+							right: var( --colMix );
+							border-radius: 0 0 5px 5px;
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							top: 4px;
+							right: calc( var( --colMix ) - 5px );
+							width: 5px;
+							height: 5px;
+							background: url(~/icons/negative-corner.png) 50% 50%/contain no-repeat;
+							transform: rotate(180deg);
+						}
+
+						.ruler-body {
+							position: absolute;
+							top: -3px;
+							left: 0;
+							width: calc( 100% - var( --colMix ) - 4px );
+							padding-top: 7px;
+							overflow: hidden;
+
+							&:before {
+								content: "";
+								background-image: repeating-linear-gradient(90deg,
+										@boxBg 0px, @boxBg 1px,
+										transparent 1px, transparent calc( var( --barW ) * 8 )
+									);
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								height: 7px;
+							}
+
+							ul {
+								list-style: none;
+								white-space: nowrap;
+								font-size: 0;
+								text-shadow: 0 0 0;
+								color: lighten(@boxBg, 5%);
+
+								li {
+									display: inline-block;
+									width: calc( var( --barW ) * 8 );
+									font-size: 10px;
+									padding-left: 3px;
+								}
 							}
 						}
 					}

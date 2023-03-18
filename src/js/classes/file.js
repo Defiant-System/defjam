@@ -23,10 +23,10 @@ class File {
 
 				// translate lane clip details
 				Self._file.data.selectNodes(`//Track//Clip`).map(xClip => {
-					let start = +xClip.getAttribute("start"),
-						length = +xClip.getAttribute("length"),
-						x = (start - 1) * 4,
-						w = length * 4;
+					let [sBar, sBeat=1, s16=1] = xClip.getAttribute("start").split(".").map(i => +i),
+						[lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
+						x = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),
+						w = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
 					xClip.setAttribute("x", x);
 					xClip.setAttribute("w", w);
 				});

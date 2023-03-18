@@ -131,7 +131,7 @@ const Jam = {
 			// let bX = 
 			// xNote.setAttribute("bX", bX);
 		});
-		console.log( this._file.data );
+		// console.log( this._file.data );
 	},
 	start() {
 		// change "flag"

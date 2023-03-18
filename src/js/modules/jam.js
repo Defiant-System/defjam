@@ -135,21 +135,21 @@ const Jam = {
 			Self = this,
 			trackList = Self.track._list,
 			xDoc = Self._file.data,
-			xLanes = xDoc.selectSingleNode(`//Tracks/Track/Lane`),
+			xpTrack = xDoc.selectSingleNode(`//Tracks`),
 			xDur = xDoc.selectSingleNode(`//Head/Duration`),
 			duration = xDur.getAttribute("value"),
 			[dBar, dBeat=1, d16=1] = duration.split(".").map(i => +i),
 			dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
 			beats = [...Array(dLen*4)].map((e, i) => i.toString());
 
-		xLanes.selectNodes(`.//b`).map(xNote => {
+		xpTrack.selectNodes(`.//Track/Lane//b`).map(xNote => {
 			let cX = +xNote.parentNode.getAttribute("cX") * 4,
 				bX = +xNote.getAttribute("b");
 			xNote.setAttribute("bX", bX + cX);
 		});
 
 		beats.map((beat, i) => {
-			let notes = xLanes.selectNodes(`.//b[@bX="${beat}"]`);
+			let notes = xpTrack.selectNodes(`.//Track/Lane//b[@bX="${beat}"]`);
 			if (notes.length > 1 || (notes.length && notes[0].getAttribute("s"))) {
 				beats[i] = [...Array(16)].map((sE, sI) => `${beat}.${sI}`);
 			}
@@ -157,11 +157,11 @@ const Jam = {
 
 		Self.sequence = new Tone.Sequence((time, beat) => {
 				let [b, s] = beat.split("."),
-					xPath = `.//b[@bX="${b}"]`;
+					xPath = `.//Track/Lane//b[@bX="${b}"]`;
 				if (!s || s === "0") xPath += `[not(@s)]`;
 				else if (s && +s > 0) xPath += `[@s="${s}"]`;
 
-				xLanes.selectNodes(xPath).map(xNote => {
+				xpTrack.selectNodes(xPath).map(xNote => {
 					let xTrack = xNote.parentNode.parentNode.parentNode,
 						oTrack = trackList[xTrack.getAttribute("id")],
 						note = xNote.getAttribute("n"),
@@ -179,7 +179,7 @@ const Jam = {
 
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("0", "12:0:0");
+		Tone.Transport.start("0", "11:0:0");
 		// update / rendering
 		Self.update();
 	},

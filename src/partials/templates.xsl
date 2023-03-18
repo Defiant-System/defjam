@@ -34,8 +34,8 @@
 				<b>
 					<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 					<xsl:attribute name="style">
-						--x: <xsl:value-of select="@x"/>;
-						--w: <xsl:value-of select="@w"/>;
+						--cX: <xsl:value-of select="@cX"/>;
+						--cW: <xsl:value-of select="@cW"/>;
 					</xsl:attribute>
 					<i><xsl:value-of select="@name"/></i>
 				</b>

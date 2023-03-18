@@ -21,14 +21,14 @@ class File {
 				value = value ? value.getAttribute("view") : "session";
 				APP.head.dispatch({ type: `show-${value}-view` });
 
-				// translate lane clip details
+				// translate lane clip details for arrangement view
 				Self._file.data.selectNodes(`//Track//Clip`).map(xClip => {
 					let [sBar, sBeat=1, s16=1] = xClip.getAttribute("start").split(".").map(i => +i),
 						[lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
-						x = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),
-						w = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
-					xClip.setAttribute("x", x);
-					xClip.setAttribute("w", w);
+						cX = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),
+						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
+					xClip.setAttribute("cX", cX);
+					xClip.setAttribute("cW", cW);
 				});
 
 				// prepare track clip notes

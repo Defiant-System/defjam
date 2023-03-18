@@ -128,10 +128,15 @@ const Jam = {
 	},
 	normalizeNotes() {
 		this._file.data.selectNodes(`//Tracks/Track/Lane//b`).map(xNote => {
-			// let bX = 
-			// xNote.setAttribute("bX", bX);
+			let cX = +xNote.parentNode.getAttribute("cX") * 4,
+				bX = +xNote.getAttribute("b");
+			xNote.setAttribute("bX", bX + cX);
+			if (xNote.getAttribute("n") === "G#4") {
+				// console.log( cX, bX, xNote );
+				// console.log( xNote.parentNode );
+			}
 		});
-		// console.log( this._file.data );
+		console.log( this._file.data );
 	},
 	start() {
 		// change "flag"

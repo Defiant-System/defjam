@@ -232,6 +232,7 @@
 			<xsl:attribute name="style">
 				--x: <xsl:value-of select="@b"/>;
 				--v: <xsl:value-of select="@v"/>;
+				<xsl:if test="@sX">transform: translateX(<xsl:value-of select="@sX"/>px);</xsl:if>
 			</xsl:attribute>
 		</b>
 	</xsl:for-each>

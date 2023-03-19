@@ -175,12 +175,12 @@ const Jam = {
 		// show play-head
 		this.playHead = APP.arrangement.els.playHead.addClass("on");
 
-		return;
+		// return;
 		// return console.log(beats);
 
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("0", "13:0:0");
+		Tone.Transport.start("0", "20:1:1");
 		// update / rendering
 		Self.update();
 	},
@@ -232,7 +232,7 @@ const Jam = {
 	render() {
 		if (this.sequence) {
 			// play head: arrangement
-			let left = 768 * this.sequence.progress;
+			let left = 1024 * this.sequence.progress;
 			this.playHead.css({ transform: `translateX(${left}px)` });
 		}
 

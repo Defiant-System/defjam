@@ -165,7 +165,7 @@ const Jam = {
 					let xTrack = xNote.parentNode.parentNode.parentNode,
 						oTrack = trackList[xTrack.getAttribute("id")],
 						note = xNote.getAttribute("n"),
-						dur = +xNote.getAttribute("d"),
+						dur = +xNote.getAttribute("d") +"n",
 						vel = +xNote.getAttribute("v");
 					if (oTrack.isDrumkit) note = [note];
 					oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
@@ -175,11 +175,12 @@ const Jam = {
 		// show play-head
 		this.playHead = APP.arrangement.els.playHead.addClass("on");
 
+		return;
 		// return console.log(beats);
 
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("0", "11:0:0");
+		Tone.Transport.start("0", "13:0:0");
 		// update / rendering
 		Self.update();
 	},

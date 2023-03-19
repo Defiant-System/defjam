@@ -62,12 +62,18 @@
 			<div class="mix-body"></div>
 			<div class="mix-foot">
 				<div class="track-btn activator" data-click="track-activator">
+					<xsl:if test="./Buttons[@activator = 'off']"><xsl:attribute name="class">track-btn activator off</xsl:attribute></xsl:if>
 					<xsl:if test="@io-label">
 						<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
 					</xsl:if>
 				</div>
-				<div class="track-btn solo" data-click="track-solo">S</div>
-				<div class="track-btn record" data-click="track-record">&#9679;</div>
+				<div class="track-btn solo" data-click="track-solo">
+					<xsl:if test="./Buttons[@solo = 'on']"><xsl:attribute name="class">track-btn solo active</xsl:attribute></xsl:if>
+					S</div>
+				<div class="track-btn record" data-click="track-record">
+					<xsl:if test="./Buttons[@record = 'on']"><xsl:attribute name="class">track-btn record active</xsl:attribute></xsl:if>
+					&#9679;
+				</div>
 				<div class="vol-analyser">
 					<canvas width="5" height="5"></canvas>
 				</div>
@@ -104,12 +110,17 @@
 			<div class="mix-foot">
 				<xsl:if test="@id != 'master'">
 					<div class="track-btn activator" data-click="track-activator">
+						<xsl:if test="./Buttons[@activator = 'off']"><xsl:attribute name="class">track-btn activator off</xsl:attribute></xsl:if>
 						<xsl:if test="@io-label">
 							<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
 						</xsl:if>
 					</div>
-					<div class="track-btn solo" data-click="track-solo">S</div>
-					<div class="track-btn record" data-click="track-record">&#9679;</div>
+					<div class="track-btn solo" data-click="track-solo">
+						<xsl:if test="./Buttons[@solo = 'on']"><xsl:attribute name="class">track-btn solo active</xsl:attribute></xsl:if>
+						S</div>
+					<div class="track-btn record" data-click="track-record">
+						<xsl:if test="./Buttons[@record = 'on']"><xsl:attribute name="class">track-btn record active</xsl:attribute></xsl:if>
+						&#9679;</div>
 				</xsl:if>
 				<div class="vol-analyser">
 					<canvas width="5" height="5"></canvas>
@@ -176,6 +187,7 @@
 				<div class="pan-knob" data-value="0"><div></div></div>
 				<xsl:if test="@id != 'master'">
 					<div class="track-btn activator" data-click="track-activator">
+						<xsl:if test="./Buttons[@activator = 'off']"><xsl:attribute name="class">track-btn activator off</xsl:attribute></xsl:if>
 						<xsl:if test="@io-label">
 							<xsl:attribute name="data-label"><xsl:value-of select="@io-label"/></xsl:attribute>
 						</xsl:if>

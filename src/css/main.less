@@ -1471,15 +1471,28 @@ content {
 											&:before {
 												content: counter(track-counter);
 											}
+
+											&.off {
+												background: lighten(@boxBg, 7%);
+											}
 										}
 
-										&.solo,
+										&.solo {
+											background: fadeout(lighten(@boxBg, 13%), 85%);
+
+											&.active {
+												background: #66f;
+											}
+										}
+
 										&.record {
 											background: fadeout(lighten(@boxBg, 13%), 85%);
-										}
-
-										&.record {
 											font-size: 14px;
+
+											&.active {
+												background: #d66;
+												color: @base;
+											}
 										}
 									}
 

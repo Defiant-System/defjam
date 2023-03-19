@@ -179,8 +179,8 @@ const Jam = {
 		// return console.log(beats);
 
 		// start Tone transport
-		// Tone.Transport.start();
-		Tone.Transport.start("0", "28:1:1");
+		Tone.Transport.start();
+		// Tone.Transport.start("0", "28:1:1");
 		// update / rendering
 		Self.update();
 	},
@@ -212,7 +212,7 @@ const Jam = {
 		if (this._stopped) return;
 		// do calculations
 		let APP = defjam,
-			bars = Tone.Transport.position.split(".")[0].split(":"),
+			bars = Tone.Transport.position.split(".")[0].split(":").map(i => (+i+1).toString()),
 			seconds = Math.floor(Tone.Transport.seconds),
 			sec = (seconds % 60).toString().padStart(2, "0"),
 			min = Math.floor(seconds / 60).toString().padStart(2, "0"),

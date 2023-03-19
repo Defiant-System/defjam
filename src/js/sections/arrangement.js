@@ -30,9 +30,10 @@
 					value = node ? +node.getAttribute("value") : 13,
 					dur = value.toString(),
 					[dBar, dBeat=1, d16=1] = dur.split(".").map(i => +i),
-					dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16;
+					dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
+					barW = parseInt(Self.els.el.cssProp("--barW"), 10);
 				// set loop span width
-				Self.els.loopSpan.css({ width: `${dLen * 12}px` });
+				Self.els.loopSpan.css({ width: `${dLen * barW}px` });
 				break;
 			case "render-file":
 				// clear "old" lanes

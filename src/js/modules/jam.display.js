@@ -26,7 +26,7 @@
 	},
 	render(data={}) {
 		let time = data.time || `00 00 00`,
-			bars = data.bars || ` 0 0 0`,
+			bars = data.bars || ` 1 1 1`,
 			tempo = data.tempo || `120`;
 		// clear canvas
 		this.ctx.clearRect(0, 0, this.width, this.height);

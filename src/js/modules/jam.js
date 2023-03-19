@@ -180,7 +180,7 @@ const Jam = {
 
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("0", "20:1:1");
+		Tone.Transport.start("0", "28:1:1");
 		// update / rendering
 		Self.update();
 	},
@@ -232,7 +232,7 @@ const Jam = {
 	render() {
 		if (this.sequence) {
 			// play head: arrangement
-			let left = 1024 * this.sequence.progress;
+			let left = 960 * this.sequence.progress;
 			this.playHead.css({ transform: `translateX(${left}px)` });
 		}
 

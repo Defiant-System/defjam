@@ -218,7 +218,7 @@
 				--y: <xsl:value-of select="@y"/>;
 				--x: <xsl:value-of select="@b"/>;
 				--w: <xsl:value-of select="@w"/>;
-				<xsl:if test="@s">transform: translateX(<xsl:value-of select="@s"/>px);</xsl:if>
+				<xsl:if test="@sX">transform: translateX(<xsl:value-of select="@sX"/>px);</xsl:if>
 			</xsl:attribute>
 			<!-- <xsl:value-of select="@n"/> -->
 		</b>

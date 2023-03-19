@@ -52,6 +52,11 @@ class File {
 						// change y value
 						y = padMap.findIndex(p => p.key === note);
 					}
+					if (xNote.getAttribute("s")) {
+						let noteW = 12,
+							sX = (+xNote.getAttribute("s") / 16) * noteW;
+						if (sX > 0) xNote.setAttribute("sX", sX);
+					}
 					xNote.setAttribute("y", y);
 					xNote.setAttribute("w", w);
 				});

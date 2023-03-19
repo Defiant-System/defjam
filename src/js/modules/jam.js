@@ -131,9 +131,7 @@ const Jam = {
 		}
 	},
 	normalizeNotes() {
-		let APP = defjam,
-			Self = this,
-			trackList = Self.track._list,
+		let Self = this,
 			xDoc = Self._file.data,
 			xpTrack = xDoc.selectSingleNode(`//Tracks`),
 			xDur = xDoc.selectSingleNode(`//Head/Duration`),
@@ -155,22 +153,34 @@ const Jam = {
 			}
 		});
 
-		Self.sequence = new Tone.Sequence((time, beat) => {
-				let [b, s] = beat.split("."),
-					xPath = `.//Track/Lane//b[@bX="${b}"]`;
-				if (!s || s === "0") xPath += `[not(@s)]`;
-				else if (s && +s > 0) xPath += `[@s="${s}"]`;
+		return { xpTrack, beats };
+	},
+	start() {
+		let APP = defjam,
+			trackList = this.track._list,
+			{ xpTrack, beats } = this.normalizeNotes();
 
-				xpTrack.selectNodes(xPath).map(xNote => {
-					let xTrack = xNote.parentNode.parentNode.parentNode,
-						oTrack = trackList[xTrack.getAttribute("id")],
-						note = xNote.getAttribute("n"),
-						dur = +xNote.getAttribute("d") +"n",
-						vel = +xNote.getAttribute("v");
-					if (oTrack.isDrumkit) note = [note];
-					oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
-				});
-			}, beats).start(0);
+		// change "flag"
+		this._stopped = false;
+
+		if (!this.sequence) {
+			this.sequence = new Tone.Sequence((time, beat) => {
+					let [b, s] = beat.split("."),
+						xPath = `.//Track/Lane//b[@bX="${b}"]`;
+					if (!s || s === "0") xPath += `[not(@s)]`;
+					else if (s && +s > 0) xPath += `[@s="${s}"]`;
+
+					xpTrack.selectNodes(xPath).map(xNote => {
+						let xTrack = xNote.parentNode.parentNode.parentNode,
+							oTrack = trackList[xTrack.getAttribute("id")],
+							note = xNote.getAttribute("n"),
+							dur = +xNote.getAttribute("d") +"n",
+							vel = +xNote.getAttribute("v");
+						if (oTrack.isDrumkit) note = [note];
+						oTrack.instrument.triggerAttackRelease(note, dur, time, vel);
+					});
+				}, beats).start(0);
+		}
 
 		// show play-head
 		this.playHead = APP.arrangement.els.playHead.addClass("on");
@@ -182,23 +192,13 @@ const Jam = {
 		Tone.Transport.start();
 		// Tone.Transport.start("0", "28:1:1");
 		// update / rendering
-		Self.update();
-	},
-	start() {
-		// change "flag"
-		this._stopped = false;
-
-		this.normalizeNotes();
+		this.update();
 	},
 	stop() {
 		let APP = defjam;
 		// stop all tracks
 		Object.keys(this.track._list).map(id => {
 			let oTrack = this.track._list[id];
-			if (oTrack.sequence) {
-				oTrack.sequence.stop();
-				delete oTrack.sequence;
-			}
 			oTrack.isPlaying = false;
 		});
 		// change "flag"

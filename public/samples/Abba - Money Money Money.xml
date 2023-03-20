@@ -5,8 +5,7 @@
 		<Loop start="2" length="2"/>
 		<Duration value="21"/>
 		<Browser width="0"/>
-		<Details height="0"/>
-		<!-- <Details height="620" view="midi"/> -->
+		<Details height="620" view="midi"/>
 	</Head>
 	<Tracks view="arrangement">
 		<!-- Melody -->
@@ -261,7 +260,7 @@
 					<b n="A3" b="55" d="4.5" v="1"/>
 				</Clip>
 
-				<Clip id="clip-1-5" name="Chorus Lead-Out" start="16.3.3" length="4" oY="-500" oX="0" keyH="14" noteW="12">
+				<Clip id="clip-1-5" name="Chorus Lead-Out" start="16.3.3" length="8" oY="-500" oX="0" keyH="14" noteW="12">
 					<b n="A3" b="6" d="1" v="1"/>
 					<b n="F4" b="7" d="6" v="1"/>
 					<b n="G4" b="13" d=".5" v="1"/>

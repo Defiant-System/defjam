@@ -6,7 +6,6 @@
 		// fast references
 		this.els = {
 			el: window.find(".arr-layout"),
-			sel: window.find(".arr-layout .row-track .selection"),
 			lengthSpan: window.find(".arr-layout .row-ruler .length-span"),
 			loopSpan: window.find(".arr-layout .row-ruler .loop-span"),
 			lanes: window.find(".arr-layout .row-track .col-clips .box-body"),
@@ -87,15 +86,11 @@
 				// select lane row
 				Self.dispatch({ ...event, type: "select-lane" });
 
-				el = $(event.target);
+				Self.els.lanes.find("b.selected").removeClass("selected");
+				el = $(event.target).addClass("selected");
+				
 				lEl = el.parents(".lane");
 				if (el.prop("nodeName") === "B") {
-					let top = lEl.prop("offsetTop"),
-						left = el.prop("offsetLeft"),
-						width = el.prop("offsetWidth"),
-						height = el.prop("offsetHeight");
-					Self.els.sel.css({ top, left, width, height });
-
 					let clipId = el.data("id"),
 						trackId = lEl.data("id");
 					// signal devices panel to render

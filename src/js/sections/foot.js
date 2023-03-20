@@ -39,6 +39,9 @@
 				event.el.parent().find(".box.active").removeClass("active");
 				event.el.addClass("active");
 
+				// start view animations, if any
+				Jam.anim.dispatch({ type: `${event.type.split("-")[1]}-turn-on` });
+
 				[name, value] = event.type.split("-");
 				APP.els.content
 					.removeClass("show-devices show-drumkit show-midi")

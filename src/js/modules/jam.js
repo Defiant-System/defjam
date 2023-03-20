@@ -125,8 +125,7 @@ const Jam = {
 		}
 
 		// start animations
-		this.anim.dispatch({ type: "midi-turn-on" });
-		this.anim.dispatch({ type: "arrangement-turn-on" });
+		this.anim.dispatch({ type: "playing" });
 
 		// return;
 		// return console.log(beats);
@@ -146,8 +145,7 @@ const Jam = {
 		// change "flag"
 		this._stopped = true;
 		// stop animations
-		this.anim.dispatch({ type: "midi-turn-off" });
-		this.anim.dispatch({ type: "arrangement-turn-off" });
+		this.anim.dispatch({ type: "stopped" });
 		// stop Tone transport
 		Tone.Transport.stop();
 	},

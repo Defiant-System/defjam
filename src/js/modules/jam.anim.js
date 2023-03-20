@@ -4,6 +4,8 @@
 {
 	init() {
 		// fast references
+		this.parts = ["devices", "midi", "session", "arrangement"];
+		this.devices.els = {};
 		this.session.els = {};
 		
 		this.midi.els.playHead = window.find(".midi-note-editor .play-head");
@@ -18,28 +20,53 @@
 	},
 	dispatch(event) {
 		let Self = Jam.anim,
-			el;
+			value;
+		// console.log(event);
 		switch (event.type) {
 			case "update":
-				["midi", "session", "arrangement"].map(name => {
+				Self.parts.map(name => {
 					let obj = Self[name];
 					if (obj.isOn) obj.update(event);
 				});
 				break;
+			case "playing":
+			case "stopped":
+				Self.parts.map(name => Self.dispatch({ type: `${name}-${event.type}` }));
+				break;
 
+			case "devices-playing":
+			case "devices-stopped":
+				break;
+			case "devices-turn-on":
+				// auto stop session view animations
+				Self.dispatch({ type: "midi-turn-off" });
+				// defaults
+				Self.devices.isOn = true;
+				break;
+			case "devices-turn-off":
+				// turn off flag
+				delete Self.devices.isOn;
+				break;
+
+			// show play-head
+			case "midi-playing": Self.midi.els.playHead.addClass("on"); break;
+			// hide play-head
+			case "midi-stopped": Self.midi.els.playHead.removeClass("on"); break;
 			case "midi-turn-on":
+				// auto stop session view animations
+				Self.dispatch({ type: "devices-turn-off" });
 				// defaults
 				Self.midi.isOn = true;
 				Self.midi.width = parseInt(Self.midi.els.lengthSpan.css("width"), 10);
-				// show play-head
-				Self.midi.els.playHead.addClass("on");
 				break;
 			case "midi-turn-off":
-				Self.midi.isOn = false;
-				// hide play-head
-				Self.midi.els.playHead.removeClass("on");
+				// turn off flag
+				delete Self.midi.isOn;
 				break;
 
+			case "session-playing":
+			case "session-stopped":
+				break;
 			case "session-turn-on":
 				// auto stop session view animations
 				Self.dispatch({ type: "arrangement-turn-off" });
@@ -47,23 +74,33 @@
 				Self.session.isOn = true;
 				break;
 			case "session-turn-off":
-				Self.session.isOn = false;
+				// turn off flag
+				delete Self.session.isOn;
 				break;
 
+			// show play-head
+			case "arrangement-playing": Self.arrangement.els.playHead.addClass("on"); break;
+			// hide play-head
+			case "arrangement-stopped": Self.arrangement.els.playHead.removeClass("on"); break;
 			case "arrangement-turn-on":
 				// auto stop session view animations
 				Self.dispatch({ type: "session-turn-off" });
 				// defaults
 				Self.arrangement.isOn = true;
 				Self.arrangement.width = parseInt(Self.arrangement.els.lengthSpan.css("width"), 10);
-				// show play-head
-				Self.arrangement.els.playHead.addClass("on");
+				
 				break;
 			case "arrangement-turn-off":
-				Self.arrangement.isOn = false;
-				// hide play-head
-				Self.arrangement.els.playHead.removeClass("on");
+				// turn off flag
+				delete Self.arrangement.isOn;
 				break;
+		}
+	},
+	devices: {
+		els: {},
+		isOn: false,
+		update(event) {
+			// view animations
 		}
 	},
 	midi: {

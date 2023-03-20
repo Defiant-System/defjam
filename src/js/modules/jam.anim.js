@@ -65,6 +65,8 @@
 				break;
 
 			case "session-playing":
+				Self.session.tracks = Object.keys(Jam.track._list).map(id => Jam.track._list[id]);
+				break;
 			case "session-stopped":
 				break;
 			case "session-turn-on":
@@ -79,7 +81,10 @@
 				break;
 
 			// show play-head
-			case "arrangement-playing": Self.arrangement.els.playHead.addClass("on"); break;
+			case "arrangement-playing":
+				Self.arrangement.els.playHead.addClass("on");
+				Self.arrangement.tracks = Object.keys(Jam.track._list).map(id => Jam.track._list[id]);
+				break;
 			// hide play-head
 			case "arrangement-stopped": Self.arrangement.els.playHead.removeClass("on"); break;
 			case "arrangement-turn-on":
@@ -117,15 +122,14 @@
 		isOn: false,
 		update(event) {
 			// view animations
-			/*
-			Object.keys(this.track._list).map(id => {
-				let oTrack = this.track._list[id];
-				oTrack.ctx.clearRect(0, 0, 6, 111);
-				let p1 = Math.log(oTrack.meter.getValue() + 51) / Math.log(63);
+			this.tracks.map(track => {
+				let w = track.chan.w,
+					h = track.chan.h,
+					p1 = Math.log(track.meter.getValue() + 51) / Math.log(63);
+				track.chan.ctx.clearRect(0, 0, w, h);
 				if (isNaN(p1)) p1 = 0;
-				oTrack.ctx.fillRect(0, 0, 6, Math.round((1 - p1) * 111));
+				track.chan.ctx.fillRect(0, 0, w, Math.round((1 - p1) * h));
 			});
-			*/
 		}
 	},
 	arrangement: {
@@ -135,6 +139,15 @@
 			// view animations
 			let left = this.width * event.progress;
 			this.els.playHead.css({ transform: `translateX(${left}px)` });
+
+			this.tracks.map(track => {
+				let w = track.lane.w,
+					h = track.lane.h,
+					p1 = Math.log(track.meter.getValue() + 51) / Math.log(63);
+				track.lane.ctx.clearRect(0, 0, w, h);
+				if (isNaN(p1)) p1 = 0;
+				track.lane.ctx.fillRect(0, 0, w, Math.round((1 - p1) * h));
+			});
 		}
 	}
 }

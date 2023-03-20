@@ -1302,7 +1302,6 @@ content {
 
 						.col-clips {
 							position: relative;
-							overflow: hidden;
 							flex: 1;
 
 							.ruler-body {
@@ -1518,12 +1517,16 @@ content {
 										}
 
 										canvas {
-											background: lighten(@face, 3%);
 											position: absolute;
 											top: 0;
 											left: 0;
 											width: 5px;
 											height: calc( var( --chanH ) - 6px );
+
+											&:not(.ready) {
+												background: lighten(@face, 3%);
+												// background: @base;
+											}
 										}
 									}
 								}
@@ -1607,7 +1610,6 @@ content {
 										box-shadow: inset 0 0 0 2px @selected;
 										mix-blend-mode: overlay;
 										opacity: .25;
-										z-index: 3;
 									}
 								}
 
@@ -1723,9 +1725,9 @@ content {
 						flex: 1;
 						display: flex;
 						margin-bottom: 2px;
-						--selT: 0;
-						--selL: 0;
-						--selH: 1;
+						// --selT: 0;
+						// --selL: 0;
+						// --selH: 1;
 						--selRow: 1;
 
 						// applies to both "columns" (clips & mixers)
@@ -1734,7 +1736,7 @@ content {
 						}
 
 						.col-clips .box-body  {
-							overflow: visible;
+							overflow: hidden;
 							border-radius: 0 0 0 0;
 						}
 

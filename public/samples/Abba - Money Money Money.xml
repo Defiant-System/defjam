@@ -260,7 +260,7 @@
 					<b n="A3" b="55" d="4.5" v="1"/>
 				</Clip>
 
-				<Clip id="clip-1-5" name="Chorus Lead-Out" start="16.3.3" length="8" oY="-500" oX="0" keyH="14" noteW="12">
+				<Clip id="clip-1-5" name="Chorus Lead-Out" start="16.3.3" length="4" oY="-500" oX="0" keyH="14" noteW="12">
 					<b n="A3" b="6" d="1" v="1"/>
 					<b n="F4" b="7" d="6" v="1"/>
 					<b n="G4" b="13" d=".5" v="1"/>
@@ -305,7 +305,7 @@
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Intro" start="1" length="3" oY="-780" oX="0" keyH="14" noteW="16">
+				<Clip id="clip-2-1" name="Intro" start="1" length="3" oY="-650" oX="0" keyH="14" noteW="16">
 					<b n="A1" b="0" d="4" v=".5"/>
 					<b n="C2" b="0" d="4" v=".5"/>
 					<b n="E2" b="0" d="4" v=".5"/>

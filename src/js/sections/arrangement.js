@@ -88,7 +88,6 @@
 
 				Self.els.lanes.find("b.selected").removeClass("selected");
 				el = $(event.target).addClass("selected");
-				
 				lEl = el.parents(".lane");
 				if (el.prop("nodeName") === "B") {
 					let clipId = el.data("id"),

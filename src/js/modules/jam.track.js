@@ -20,7 +20,7 @@
 		// save reference to list
 		this._list[opt.id] = { ...opt, ctx, channel, meter, isPlaying: false };
 		// reset volume eq
-		if (Jam._stopped) Jam.render();
+		// if (Jam._stopped) Jam.render();
 	},
 	stop(id) {
 		let track = this._list[id];

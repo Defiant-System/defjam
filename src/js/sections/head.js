@@ -52,6 +52,9 @@
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
 
+				// start view animations, if any
+				Jam.anim.dispatch({ type: "arrangement-turn-on" });
+
 				el.parents(".row-work")
 					.find(".panel-right")
 					.removeClass("show-session show-arrangement")
@@ -61,6 +64,9 @@
 				el = event.el || Self.els.btnSess;
 				el.parent().find(".active").removeClass("active");
 				el.addClass("active");
+
+				// start view animations, if any
+				Jam.anim.dispatch({ type: "session-turn-on" });
 
 				el.parents(".row-work")
 					.find(".panel-right")

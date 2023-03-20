@@ -125,7 +125,8 @@ const Jam = {
 		}
 
 		// start animations
-		this.anim.dispatch({ type: "turn-on", name: "arrangement" });
+		this.anim.dispatch({ type: "midi-turn-on" });
+		this.anim.dispatch({ type: "arrangement-turn-on" });
 
 		// return;
 		// return console.log(beats);
@@ -137,7 +138,6 @@ const Jam = {
 		this.update();
 	},
 	stop() {
-		let APP = defjam;
 		// stop all tracks
 		Object.keys(this.track._list).map(id => {
 			let oTrack = this.track._list[id];
@@ -146,15 +146,15 @@ const Jam = {
 		// change "flag"
 		this._stopped = true;
 		// stop animations
-		this.anim.dispatch({ type: "turn-off", name: "arrangement" });
+		this.anim.dispatch({ type: "midi-turn-off" });
+		this.anim.dispatch({ type: "arrangement-turn-off" });
 		// stop Tone transport
 		Tone.Transport.stop();
 	},
 	update() {
 		if (this._stopped) return;
 		// do calculations
-		let APP = defjam,
-			bars = Tone.Transport.position.split(".")[0].split(":").map(i => (+i+1).toString()),
+		let bars = Tone.Transport.position.split(".")[0].split(":").map(i => (+i+1).toString()),
 			seconds = Math.floor(Tone.Transport.seconds),
 			sec = (seconds % 60).toString().padStart(2, "0"),
 			min = Math.floor(seconds / 60).toString().padStart(2, "0"),
@@ -166,26 +166,14 @@ const Jam = {
 
 		// render display
 		this.display.render({ bars, time, tempo });
-		// render whats need to be rendered
-		this.render();
-		// raf
-		requestAnimationFrame(this.update.bind(this));
-	},
-	render() {
+		// update animations
 		if (this.sequence) {
-			// update animations
 			this.anim.dispatch({
 				type: "update",
 				progress: this.sequence.progress,
 			});
 		}
-
-		Object.keys(this.track._list).map(id => {
-			let oTrack = this.track._list[id];
-			oTrack.ctx.clearRect(0, 0, 6, 111);
-			let p1 = Math.log(oTrack.meter.getValue() + 51) / Math.log(63);
-			if (isNaN(p1)) p1 = 0;
-			oTrack.ctx.fillRect(0, 0, 6, Math.round((1 - p1) * 111));
-		});
+		// raf
+		requestAnimationFrame(this.update.bind(this));
 	}
 };

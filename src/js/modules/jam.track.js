@@ -15,6 +15,7 @@
 		lane.ctx = lane.cvs[0].getContext("2d");
 		lane.w = 5;
 		lane.h = 61;
+		lane.cvs.prop({ width: lane.w, height: lane.h });
 		lane.ctx.fillStyle = lane.cvs.css("background-color");
 		lane.ctx.fillRect(0, 0, lane.w, lane.h);
 		lane.cvs.addClass("ready");
@@ -23,6 +24,7 @@
 		chan.ctx = chan.cvs[0].getContext("2d");
 		chan.w = 6;
 		chan.h = 111;
+		chan.cvs.prop({ width: chan.w, height: chan.h });
 		chan.ctx.fillStyle = chan.cvs.css("background-color");
 		chan.ctx.fillRect(0, 0, chan.w, chan.h);
 		chan.cvs.addClass("ready");

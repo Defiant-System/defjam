@@ -125,10 +125,9 @@
 			this.tracks.map(track => {
 				let w = track.chan.w,
 					h = track.chan.h,
-					p1 = Math.log(track.meter.getValue() + 51) / Math.log(63);
-				track.chan.ctx.clearRect(0, 0, w, h);
-				if (isNaN(p1)) p1 = 0;
-				track.chan.ctx.fillRect(0, 0, w, Math.round((1 - p1) * h));
+					t = Math.round((1 - Tone.dbToGain(track.meter.getValue())) * h);
+				track.chan.ctx.fillRect(0, 0, w, h);
+				track.chan.ctx.clearRect(0, t, w, h);
 			});
 		}
 	},
@@ -143,10 +142,9 @@
 			this.tracks.map(track => {
 				let w = track.lane.w,
 					h = track.lane.h,
-					p1 = Math.log(track.meter.getValue() + 51) / Math.log(63);
-				track.lane.ctx.clearRect(0, 0, w, h);
-				if (isNaN(p1)) p1 = 0;
-				track.lane.ctx.fillRect(0, 0, w, Math.round((1 - p1) * h));
+					t = Math.round((1 - Tone.dbToGain(track.meter.getValue())) * h);
+				track.lane.ctx.fillRect(0, 0, w, h);
+				track.lane.ctx.clearRect(0, t, w, h);
 			});
 		}
 	}

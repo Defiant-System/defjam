@@ -21,7 +21,7 @@ class File {
 				value = value ? value.getAttribute("view") : "session";
 				APP.head.dispatch({ type: `show-${value}-view` });
 				// view: "midi" or "device"
-				value = Self._file.data.selectSingleNode("//Head/Details");
+				value = Self._file.data.selectSingleNode("//Head/Details[@view]");
 				value = value ? value.getAttribute("view") : "devices";
 				APP.foot.dispatch({ type: `show-${value}-rack` });
 

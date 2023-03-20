@@ -5,7 +5,8 @@
 		<Loop start="2" length="2"/>
 		<Duration value="21"/>
 		<Browser width="0"/>
-		<Details height="620" view="midi"/>
+		<Details height="0"/>
+		<!-- <Details height="620" view="midi"/> -->
 	</Head>
 	<Tracks view="arrangement">
 		<!-- Melody -->

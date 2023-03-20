@@ -23,8 +23,7 @@ const Jam = {
 
 		// app UI: details view
 		node = file.data.selectSingleNode(`//Head/Details`);
-		value = node ? +node.getAttribute("height") : 420;
-		APP.devices.dispatch({ type: "set-height", value });
+		APP.foot.dispatch({ type: "set-height", node });
 
 		// app UI: arrangement view - project duration
 		APP.arrangement.dispatch({ type: "set-session-view", file });

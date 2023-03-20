@@ -8,7 +8,6 @@
 			doc: $(document),
 			el: window.find(".midi-note-editor"),
 			lasso: window.find(".midi-note-editor .lasso"),
-			playHead: window.find(".midi-note-editor .play-head"),
 			pianoRoll: window.find(".row-body .col-left .body-frame"),
 			noteHead: window.find(".row-head .col-right .body-frame"),
 			noteBody: window.find(".row-body .col-right .body-frame"),

@@ -17,73 +17,10 @@ let Test = {
 		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
 
-		setTimeout(() => window.find(`.lane:nth(1) b:nth(4)`).trigger("click"), 500);
-
-		// setTimeout(this.jam, 100);
+		setTimeout(() => window.find(`.lane:nth(1) b:nth(0)`).trigger("click"), 500);
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 4e3);
-	},
-	jam() {
-		let instrument,
-			sequence;
-
-		// drumkit
-		instrument = new Tone.Sampler({
-			urls: {
-				"C0": "3609.ogg", // kick
-				"C1": "3612.ogg", // snare
-				"C2": "3639.ogg", // hihat
-				"C3": "3507.ogg", // clave
-			},
-			baseUrl: "/cdn/audio/samples/",
-		});
-		sequence = [
-			[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], // kick
-			[0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0], // snare
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], // hihat
-			[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], // clave
-		];
-		Jam.track.add("track-1", instrument, sequence, 1);
-
-
-		/* polySynth 
-		instrument = new Tone.PolySynth(Tone.Synth, {
-				oscillator: { partials: [0, 2, 3, 4] }
-			});
-		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
-		Jam.track.add("track-2", instrument, sequence);
-		*/
-
-		
-		// simulating sequence update
-		// defjam.midi.dispatch({ type: "drumkit-to-sequence" });
-
-
-		/* amSynth
-		instrument = new Tone.AMSynth({
-				harmonicity: 2.5,
-				volume: 15,
-				oscillator: {
-					type: "fatsawtooth"
-				},
-				envelope: {
-					attack: 0.1,
-					decay: 0.2,
-					sustain: 0.2,
-					release: 0.3
-				},
-				modulation: {
-					type: "square"
-				},
-				modulationEnvelope: {
-					attack: 0.5,
-					decay: 0.01
-				}
-			});
-		sequence = ["b3",0,0,0,0,"c4",0,0,"d4",0,0,0,0,"C4",0,0];
-		Jam.track.add("2", instrument, sequence);
-		*/
 	}
 };

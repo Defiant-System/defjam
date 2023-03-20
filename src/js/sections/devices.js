@@ -28,7 +28,7 @@
 					Self.els.pEl.prevAll(".resize").addClass("hidden");
 					Self.els.btnToggle.addClass("toggled");
 				} else {
-					Self.els.pEl.css({ "--pH": event.value +"px" });
+					Self.els.pEl.css({ "--pH": `${event.value}px` });
 				}
 				// restore quick UI
 				requestAnimationFrame(() => APP.els.content.removeClass("no-anim"));

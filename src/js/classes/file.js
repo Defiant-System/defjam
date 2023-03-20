@@ -20,6 +20,10 @@ class File {
 				value = Self._file.data.selectSingleNode("//Project/Tracks");
 				value = value ? value.getAttribute("view") : "session";
 				APP.head.dispatch({ type: `show-${value}-view` });
+				// view: "midi" or "device"
+				value = Self._file.data.selectSingleNode("//Head/Details");
+				value = value ? value.getAttribute("view") : "devices";
+				APP.foot.dispatch({ type: `show-${value}-rack` });
 
 				// translate lane clip details for arrangement view
 				Self._file.data.selectNodes(`//Track//Clip`).map(xClip => {

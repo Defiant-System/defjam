@@ -36,16 +36,24 @@
 				break;
 			case "show-devices-rack":
 			case "show-midi-rack":
-				event.el.parent().find(".box.active").removeClass("active");
-				event.el.addClass("active");
+				name = event.type.split("-")[1];
+				Self.els.rowFoot.find(".box.active").removeClass("active");
+				Self.els.rowFoot.find(`.box.foot-${name}`).addClass("active");
+
+				if (name === "devices") {
+					value = APP.devices.els.pEl.cssProp("--pH");
+					APP.devices.els.pEl.css({ "--pH": "" }).data({ value });
+				} else {
+					value = parseInt(APP.devices.els.pEl.data("value") || "320px", 10);
+					APP.devices.els.pEl.css({ "--pH": `${value}px` });
+				}
 
 				// start view animations, if any
-				Jam.anim.dispatch({ type: `${event.type.split("-")[1]}-turn-on` });
+				Jam.anim.dispatch({ type: `${name}-turn-on` });
 
-				[name, value] = event.type.split("-");
 				APP.els.content
 					.removeClass("show-devices show-drumkit show-midi")
-					.addClass(`show-${value}`);
+					.addClass(`show-${name}`);
 				break;
 		}
 	}

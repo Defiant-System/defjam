@@ -49,7 +49,7 @@ class File {
 						octave = +note.slice(-1),
 						y = ((7 - octave) * 12) + (11 - OCTAVE.indexOf(key)),
 						w = +xNote.getAttribute("d"),
-						xTrack = xNote.parentNode.parentNode;
+						xTrack = xNote.parentNode.parentNode.parentNode;
 					if (xTrack.getAttribute("type") == "drumkit") {
 						let padMap = xTrack.selectNodes(`.//Pads/Pad[@sample]`).map(xPad =>
 							({

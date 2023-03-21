@@ -1,8 +1,8 @@
 
 const Jam = {
-	display: @import "./jam.display.js",
-	track: @import "./jam.track.js",
-	anim: @import "./jam.anim.js",
+	display: @import "./jam-display.js",
+	track: @import "./jam-track.js",
+	anim: @import "./jam-anim.js",
 	init() {
 		// defaults
 		this._stopped = true;
@@ -27,7 +27,6 @@ const Jam = {
 
 		// app UI: arrangement view - project duration
 		APP.arrangement.dispatch({ type: "set-session-view", file });
-
 
 		// save reference to file
 		this._file = file;

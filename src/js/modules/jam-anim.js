@@ -49,9 +49,13 @@
 				break;
 
 			// show play-head
-			case "midi-playing": Self.midi.els.playHead.addClass("on"); break;
+			case "midi-playing":
+				Self.midi.els.playHead.addClass("on");
+				break;
 			// hide play-head
-			case "midi-stopped": Self.midi.els.playHead.removeClass("on"); break;
+			case "midi-stopped":
+				Self.midi.els.playHead.removeClass("on");
+				break;
 			case "midi-turn-on":
 				// auto stop session view animations
 				Self.dispatch({ type: "devices-turn-off" });
@@ -68,6 +72,11 @@
 				Self.session.tracks = Object.keys(Jam.track._list).map(id => Jam.track._list[id]);
 				break;
 			case "session-stopped":
+				// reset analyser "height"
+				Object.keys(Jam.track._list).map(id => {
+					let track = Jam.track._list[id];
+					track.chan.ctx.fillRect(0, 0, track.chan.w, track.chan.h);
+				});
 				break;
 			case "session-turn-on":
 				// auto stop session view animations
@@ -86,7 +95,14 @@
 				Self.arrangement.tracks = Object.keys(Jam.track._list).map(id => Jam.track._list[id]);
 				break;
 			// hide play-head
-			case "arrangement-stopped": Self.arrangement.els.playHead.removeClass("on"); break;
+			case "arrangement-stopped":
+				Self.arrangement.els.playHead.removeClass("on");
+				// reset analyser "height"
+				Object.keys(Jam.track._list).map(id => {
+					let track = Jam.track._list[id];
+					track.lane.ctx.fillRect(0, 0, track.lane.w, track.lane.h);
+				});
+				break;
 			case "arrangement-turn-on":
 				// auto stop session view animations
 				Self.dispatch({ type: "session-turn-off" });

@@ -353,9 +353,9 @@
 
 <xsl:template name="clip-pads">
 	<xsl:choose>
-		<xsl:when test="../Device/Pads">
+		<xsl:when test="ancestor::Track[@type = 'drumkit']">
 		<ol>
-			<xsl:for-each select="../Device/Pads/Pad">
+			<xsl:for-each select="ancestor::Track/Device/Pads/Pad">
 				<xsl:sort order="ascending" select="@kI"/>
 				<xsl:if test="@sample">
 					<li>

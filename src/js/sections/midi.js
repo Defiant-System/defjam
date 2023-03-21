@@ -38,12 +38,19 @@
 			// native events
 			case "wheel":
 				el = Self.els.el;
+				value = {
+					h1: Self.els.noteBody.parent().prop("offsetHeight"),
+					w1: Self.els.noteBody.parent().prop("offsetWidth"),
+					h2: Self.els.noteBody.prop("offsetHeight"),
+					w2: Self.els.noteBody.prop("offsetWidth"),
+				};
 				limit = {
 					minY: 0,
 					minX: 0,
-					maxY: Self.els.noteBody.parent().prop("offsetHeight") - Self.els.noteBody.prop("offsetHeight"),
-					maxX: Math.min(Self.els.noteBody.parent().prop("offsetWidth") - Self.els.noteBody.prop("offsetWidth"), 0),
+					maxY: value.h1 - value.h2,
+					maxX: Math.min(value.w1 - value.w2, 0),
 				};
+				if (value.h1 > value.h2) return;
 				// default values
 				value = {
 					"--oY": parseInt(el.cssProp("--oY"), 10),
@@ -73,7 +80,7 @@
 				if (!event.clipId) return;
 
 				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="${event.clipId}"]`);
-				value = xClip.parentNode.selectNodes(`./Device/Pads/Pad[@sample]`).length;
+				value = xClip.parentNode.parentNode.selectNodes(`./Device/Pads/Pad[@sample]`).length;
 				Self.els.el
 					.toggleClass("clip-pads", value == 0)
 					.css({

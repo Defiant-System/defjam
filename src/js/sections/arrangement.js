@@ -66,11 +66,16 @@
 			case "toggle-lane":
 				// select lane row
 				Self.dispatch({ ...event, type: "select-lane" });
-				
+
 				lEl = event.el.parents(".lane");
 				value = lEl.hasClass("collapsed");
 				name = lEl.parents(".row-track").length ? "row-track" : "row-outputs";
 				Self.els.el.find(`.${name} .box-body .lane:nth-child(${lEl.index()+1})`).toggleClass("collapsed", value);
+				
+				// notify track object
+				el = lEl.find(".vol-analyser canvas");
+				value = parseInt(el.css("height"), 10);
+				Jam.track.updateAnalyserHeight({ id: lEl.data("id"), height: value });
 				break;
 			case "select-lane":
 				el = $(event.target);

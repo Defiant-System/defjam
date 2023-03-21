@@ -374,7 +374,7 @@
 					onDone = () => {
 						// sequence update
 						let sequence = Self.dispatch({ type: "ui-to-sequence" });
-						Jam.track.update({ id: "track-1", sequence });
+						// Jam.track.update({ id: "track-1", sequence });
 					};
 
 				t = floor_(event.offsetY / details.keyH),

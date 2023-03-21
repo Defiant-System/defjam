@@ -10,8 +10,8 @@
 		<Menu name="Source Code"/>
 	</Menu>
 
-	<Menu for="show-color-menu">
-		<Menu name="Rename"/>
+	<Menu for="track-title-menu">
+		<Menu name="Rename Track"/>
 		<Menu type="divider"/>
 		<Menu type="colors" caption="Track Color:" break="9">
 			<Color arg="#48c" active="1"/>
@@ -45,7 +45,7 @@
 			<Color arg="#7b7b7b"/>
 		</Menu>
 		<Menu type="divider"/>
-		<Menu name="Delete" click="remove-sheet"/>
+		<Menu name="Delete Track"/>
 	</Menu>
 
 	<Menu for="display-menu">

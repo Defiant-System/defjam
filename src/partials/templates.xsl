@@ -57,7 +57,7 @@
 			</xsl:if>
 			<div class="mix-head">
 				<span class="lane-toggler" data-click="toggle-lane"></span>
-				<div class="title"><xsl:value-of select="@name"/></div>
+				<div class="title" data-context="track-title-menu"><xsl:value-of select="@name"/></div>
 			</div>
 			<div class="mix-body"></div>
 			<div class="mix-foot">
@@ -154,7 +154,7 @@
 		<xsl:attribute name="style">
 			<xsl:if test="@color">--c: <xsl:value-of select="@color"/>;</xsl:if>
 		</xsl:attribute>
-		<div class="title"><xsl:value-of select="@name"/></div>
+		<div class="title" data-context="track-title-menu"><xsl:value-of select="@name"/></div>
 		<div class="slots">
 			<xsl:for-each select="./Slot/Clip">
 				<b>

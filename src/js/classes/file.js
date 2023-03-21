@@ -25,8 +25,14 @@ class File {
 				value = value ? value.getAttribute("view") : "devices";
 				APP.foot.dispatch({ type: `show-${value}-rack` });
 
+				// translate lane clip details for session view
+				Self._file.data.selectNodes(`//Track/Slot/Clip`).map(xClip => {
+					let cW = 16;
+					xClip.setAttribute("cW", cW);
+				});
+
 				// translate lane clip details for arrangement view
-				Self._file.data.selectNodes(`//Track//Clip`).map(xClip => {
+				Self._file.data.selectNodes(`//Track/Lane/Clip`).map(xClip => {
 					let [sBar, sBeat=1, s16=1] = xClip.getAttribute("start").split(".").map(i => +i),
 						[lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
 						cX = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),

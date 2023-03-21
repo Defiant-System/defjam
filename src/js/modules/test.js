@@ -13,13 +13,11 @@ let Test = {
 		// setTimeout(() => window.find(`.chWrapper .leaf:nth(0)`).trigger("click"), 200);
 		
 		// setTimeout(() => window.find(`.ball-button[data-click="show-arrangement-view"]`).trigger("click"), 400);
-		setTimeout(() => window.find(`.ball-button[data-click="show-session-view"]`).trigger("click"), 400);
+		// setTimeout(() => window.find(`.ball-button[data-click="show-session-view"]`).trigger("click"), 400);
 
-		// setTimeout(() => window.find(`.slots b[data-id="clip-1-2"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.slots b[data-id="clip-2-1"]`).trigger("click"), 500);
+		setTimeout(() => window.find(`.slots:nth(0) b:nth(0)`).trigger("click"), 500);
 
-		setTimeout(() => window.find(`.lane:nth(1) b:nth(0)`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.lane:nth(1) b:nth(0)`).trigger("click"), 500);
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);

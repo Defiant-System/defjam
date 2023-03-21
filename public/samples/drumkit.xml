@@ -4,9 +4,9 @@
 		<Position bar="0.0.0" time="00:00.00"/>
 		<Duration value="10"/>
 		<Browser width="220"/>
-		<Details height="320"/>
+		<Details height="420" view="midi"/>
 	</Head>
-	<Tracks>
+	<Tracks view="session">
 		<Track name="Drums" color="#48c" class="selected" id="track-1" type="drumkit">
 			<Device name="Drumkit">
 				<Settings>
@@ -42,7 +42,7 @@
 				</Pads>
 			</Device>
 			<Slot>
-				<Clip name="Clip 1" row="2" oY="0" oX="0" keyH="22" noteW="32" bars="1" id="clip-1-0">
+				<Clip id="clip-1-0" name="Clip 1" row="2" oY="-600" oX="0" keyH="14" noteW="16">
 					<b n="G#3" b="2" d="1" v="1"/>
 
 					<b n="F#3" b="0" d="1" v="1"/>
@@ -84,13 +84,13 @@
 				</Settings> -->
 			</Device>
 			<Slot>
-				<Clip name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18" bars="1" id="clip-2-1">
+				<Clip id="clip-2-1" name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18">
 					<b n="A4" b="0" d="4" v="1"/>
 					<b n="G4" b="4" d="4" v="1"/>
 					<b n="F4" b="8" d="4" v="1"/>
 					<b n="G4" b="12" d="4" v="1"/>
 				</Clip>
-				<Clip name="Clip 2" row="1" oY="-550" oX="0" keyH="16" noteW="12" bars="4" id="clip-2-2">
+				<Clip id="clip-2-2" name="Clip 2" row="1" oY="-550" oX="0" keyH="16" noteW="12">
 					<b n="A4" b="0" d="2" v="1"/>
 					<b n="G4" b="2" d="2" v="1"/>
 					<b n="F4" b="4" d="2" v="1"/>
@@ -143,7 +143,7 @@
 				</Settings>
 			</Device>
 			<Slot>
-				<Clip name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15" bars="4" id="clip-3-1">
+				<Clip id="clip-3-1" name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15">
 					<b n="C3" b="0" d="8" v="1"/>
 					<b n="A2" b="0" d="8" v="1"/>
 					<b n="F2" b="0" d="8" v="1"/>
@@ -175,7 +175,6 @@
 			<Buttons activator="on" solo="off" record="off"/>
 			<Volume value="90"/>
 		</Track>
-		
 	</Tracks>
 	<IoMaster>
 		<Track name="Reverb" io-label="A" id="sends-1">

@@ -95,7 +95,7 @@
 					clipId: tEl.data("id"),
 					trackId,
 				});
-				if (event.offsetX < slotH) {
+				if (event.offsetX > 0 && event.offsetX < slotH) {
 					// play if icons is clicked
 					if (tEl.prop("nodeName") === "B") {
 						if (tEl.hasClass("playing")) {

@@ -13,20 +13,20 @@
 		// arrangement view lane volume analyser canvas
 		lane.cvs = window.find(`.lane[data-id="${opt.id}"] .vol-analyser canvas`);
 		lane.ctx = lane.cvs[0].getContext("2d");
-		lane.h = +lane.cvs.prop("offsetHeight");
-		lane.w = +lane.cvs.prop("offsetWidth");
-		lane.cvs.prop({ width: lane.w, height: lane.h });
+		lane.cvsH = +lane.cvs.prop("offsetHeight");
+		lane.cvsW = +lane.cvs.prop("offsetWidth");
+		lane.cvs.prop({ width: lane.cvsW, height: lane.cvsH });
 		lane.ctx.fillStyle = lane.cvs.css("background-color");
-		lane.ctx.fillRect(0, 0, lane.w, lane.h);
+		lane.ctx.fillRect(0, 0, lane.cvsW, lane.cvsH);
 		lane.cvs.addClass("ready");
 		// session view volume canvas
 		chan.cvs = window.find(`.track[data-id="${opt.id}"] .volume canvas`);
 		chan.ctx = chan.cvs[0].getContext("2d");
-		chan.h = +chan.cvs.prop("offsetHeight");
-		chan.w = +chan.cvs.prop("offsetWidth");
-		chan.cvs.prop({ width: chan.w, height: chan.h });
+		chan.cvsH = +chan.cvs.prop("offsetHeight");
+		chan.cvsW = +chan.cvs.prop("offsetWidth");
+		chan.cvs.prop({ width: chan.cvsW, height: chan.cvsH });
 		chan.ctx.fillStyle = chan.cvs.css("background-color");
-		chan.ctx.fillRect(0, 0, chan.w, chan.h);
+		chan.ctx.fillRect(0, 0, chan.cvsW, chan.cvsH);
 		chan.cvs.addClass("ready");
 
 		// connect to channel
@@ -69,10 +69,13 @@
 		let track = this._list[data.id],
 			type = data.type || "lane",
 			color = track[type].ctx.fillStyle || "#2d5276",
+			width = +track[type].cvs[0].offsetWidth,
 			height = +track[type].cvs[0].offsetHeight;
-		track[type].h = height;
-		track[type].cvs.prop({ height });
+		track[type].cvsW = width;
+		track[type].cvsH = height;
+		track[type].cvs.prop({ width, height });
 		track[type].ctx.fillStyle = color;
+		track[type].ctx.fillRect(0, 0, width, height);
 	},
 	update(data) {
 		let track = this._list[data.id];

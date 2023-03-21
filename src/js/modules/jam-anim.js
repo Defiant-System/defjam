@@ -74,7 +74,7 @@
 			case "session-stopped":
 				// reset analyser "height"
 				Object.keys(Jam.track._list).map(id =>
-					Jam.track._list[id].chan.ctx.fillRect(0, 0, 1e2, 1e2));
+					Jam.track._list[id].chan.ctx.fillRect(0, 0, 1e3, 1e3));
 				break;
 			case "session-turn-on":
 				// auto stop session view animations
@@ -97,7 +97,7 @@
 				Self.arrangement.els.playHead.removeClass("on");
 				// reset analyser "height"
 				Object.keys(Jam.track._list).map(id =>
-					Jam.track._list[id].lane.ctx.fillRect(0, 0, 1e2, 1e2));
+					Jam.track._list[id].lane.ctx.fillRect(0, 0, 1e3, 1e3));
 				break;
 			case "arrangement-turn-on":
 				// auto stop session view animations
@@ -134,8 +134,8 @@
 		update(event) {
 			// view animations
 			this.tracks.map(track => {
-				let w = track.chan.w,
-					h = track.chan.h,
+				let w = track.chan.cvsW,
+					h = track.chan.cvsH,
 					t = Math.round((1 - Tone.dbToGain(track.meter.getValue())) * h);
 				track.chan.ctx.fillRect(0, 0, w, h);
 				track.chan.ctx.clearRect(0, t, w, h);
@@ -151,8 +151,8 @@
 			this.els.playHead.css({ transform: `translateX(${left}px)` });
 
 			this.tracks.map(track => {
-				let w = track.lane.w,
-					h = track.lane.h,
+				let w = track.lane.cvsW,
+					h = track.lane.cvsH,
 					t = Math.round((1 - Tone.dbToGain(track.meter.getValue())) * h);
 				track.lane.ctx.fillRect(0, 0, w, h);
 				track.lane.ctx.clearRect(0, t, w, h);

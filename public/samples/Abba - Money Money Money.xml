@@ -5,11 +5,11 @@
 		<Loop start="2" length="2"/>
 		<Duration value="21"/>
 		<Browser width="0"/>
-		<Details height="620" view="midi"/>
+		<Details height="520" view="midi"/>
 	</Head>
 	<Tracks view="arrangement">
 		<!-- Melody -->
-		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="sampler" class="collapsed">
+		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="sampler" class="collapsed1">
 			<Device name="Acoustic Grand Piano">
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>

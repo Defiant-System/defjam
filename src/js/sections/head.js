@@ -59,6 +59,9 @@
 					.find(".panel-right")
 					.removeClass("show-session show-arrangement")
 					.addClass("show-arrangement");
+
+				// make sure all analyser canvases are correct height
+				Object.keys(Jam.track._list).map(id => Jam.track.updateAnalyserHeight({ id, type: "lane" }));
 				break;
 			case "show-session-view":
 				el = event.el || Self.els.btnSess;
@@ -72,6 +75,9 @@
 					.find(".panel-right")
 					.removeClass("show-session show-arrangement")
 					.addClass("show-session");
+
+				// make sure all analyser canvases are correct height
+				Object.keys(Jam.track._list).map(id => Jam.track.updateAnalyserHeight({ id, type: "chan" }));
 				break;
 		}
 	}

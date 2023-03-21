@@ -14,7 +14,7 @@
 		lane.cvs = window.find(`.lane[data-id="${opt.id}"] .vol-analyser canvas`);
 		lane.ctx = lane.cvs[0].getContext("2d");
 		lane.h = +lane.cvs.prop("offsetHeight");
-		lane.w = 5;
+		lane.w = +lane.cvs.prop("offsetWidth");
 		lane.cvs.prop({ width: lane.w, height: lane.h });
 		lane.ctx.fillStyle = lane.cvs.css("background-color");
 		lane.ctx.fillRect(0, 0, lane.w, lane.h);
@@ -23,7 +23,7 @@
 		chan.cvs = window.find(`.track[data-id="${opt.id}"] .volume canvas`);
 		chan.ctx = chan.cvs[0].getContext("2d");
 		chan.h = +chan.cvs.prop("offsetHeight");
-		chan.w = 6;
+		chan.w = +chan.cvs.prop("offsetWidth");
 		chan.cvs.prop({ width: chan.w, height: chan.h });
 		chan.ctx.fillStyle = chan.cvs.css("background-color");
 		chan.ctx.fillRect(0, 0, chan.w, chan.h);
@@ -67,10 +67,12 @@
 	},
 	updateAnalyserHeight(data) {
 		let track = this._list[data.id],
-			color = track.lane.ctx.fillStyle;
-		track.lane.h = data.height;
-		track.lane.cvs.prop({ height: data.height });
-		track.lane.ctx.fillStyle = color;
+			type = data.type || "lane",
+			color = track[type].ctx.fillStyle || "#2d5276",
+			height = +track[type].cvs[0].offsetHeight;
+		track[type].h = height;
+		track[type].cvs.prop({ height });
+		track[type].ctx.fillStyle = color;
 	},
 	update(data) {
 		let track = this._list[data.id];

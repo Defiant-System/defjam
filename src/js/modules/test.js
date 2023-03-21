@@ -1,7 +1,6 @@
 
 let Test = {
 	init() {
-		// window.find(`.ball-button[data-click="show-arrangement-view"]`).trigger("click");
 		// window.find(`.foot-midi`).trigger("click");
 		// window.find(`.foot-devices`).trigger("click");
 
@@ -12,6 +11,9 @@ let Test = {
 
 		// window.find(`.panel-left .drums-body .leaf:nth(0) .icon-folder`).trigger("click");
 		// setTimeout(() => window.find(`.chWrapper .leaf:nth(0)`).trigger("click"), 200);
+		
+		// setTimeout(() => window.find(`.ball-button[data-click="show-arrangement-view"]`).trigger("click"), 400);
+		setTimeout(() => window.find(`.ball-button[data-click="show-session-view"]`).trigger("click"), 400);
 
 		// setTimeout(() => window.find(`.slots b[data-id="clip-1-2"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.slots b[data-id="clip-1-0"]`).trigger("click"), 500);

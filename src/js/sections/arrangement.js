@@ -74,8 +74,7 @@
 				
 				// notify track object
 				el = lEl.find(".vol-analyser canvas");
-				value = parseInt(el.css("height"), 10);
-				Jam.track.updateAnalyserHeight({ id: lEl.data("id"), height: value });
+				Jam.track.updateAnalyserHeight({ id: lEl.data("id"), type: "lane" });
 				break;
 			case "select-lane":
 				el = $(event.target);

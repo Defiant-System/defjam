@@ -42,7 +42,7 @@
 				</Pads>
 			</Device>
 			<Slot>
-				<Clip id="clip-1-0" name="Clip 1" row="2" oY="-600" oX="0" keyH="14" noteW="16">
+				<Clip id="clip-1-0" name="Clip 1" length="1" row="2" oY="-600" oX="0" keyH="20" noteW="60">
 					<b n="G#3" b="2" d="1" v="1"/>
 
 					<b n="F#3" b="0" d="1" v="1"/>
@@ -84,13 +84,13 @@
 				</Settings> -->
 			</Device>
 			<Slot>
-				<Clip id="clip-2-1" name="Clip 1" row="0" oY="-550" oX="0" keyH="18" noteW="18">
+				<Clip id="clip-2-1" name="Clip 1" length="4" row="0" oY="-550" oX="0" keyH="18" noteW="18">
 					<b n="A4" b="0" d="4" v="1"/>
 					<b n="G4" b="4" d="4" v="1"/>
 					<b n="F4" b="8" d="4" v="1"/>
 					<b n="G4" b="12" d="4" v="1"/>
 				</Clip>
-				<Clip id="clip-2-2" name="Clip 2" row="1" oY="-550" oX="0" keyH="16" noteW="12">
+				<Clip id="clip-2-2" name="Clip 2" length="4" row="1" oY="-550" oX="0" keyH="16" noteW="12">
 					<b n="A4" b="0" d="2" v="1"/>
 					<b n="G4" b="2" d="2" v="1"/>
 					<b n="F4" b="4" d="2" v="1"/>
@@ -143,7 +143,7 @@
 				</Settings>
 			</Device>
 			<Slot>
-				<Clip id="clip-3-1" name="Clip 1" row="1" oY="-1040" oX="0" keyH="18" noteW="15">
+				<Clip id="clip-3-1" name="Clip 1" length="4" row="1" oY="-1040" oX="0" keyH="18" noteW="15">
 					<b n="C3" b="0" d="8" v="1"/>
 					<b n="A2" b="0" d="8" v="1"/>
 					<b n="F2" b="0" d="8" v="1"/>

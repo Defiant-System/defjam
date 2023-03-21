@@ -27,7 +27,8 @@ class File {
 
 				// translate lane clip details for session view
 				Self._file.data.selectNodes(`//Track/Slot/Clip`).map(xClip => {
-					let cW = 16;
+					let [lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
+						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
 					xClip.setAttribute("cW", cW);
 				});
 

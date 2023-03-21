@@ -14,35 +14,35 @@
 		<Menu name="Rename"/>
 		<Menu type="divider"/>
 		<Menu type="colors" caption="Track Color:" break="9">
-			<Color arg="#77c" active="1"/>
+			<Color arg="#48c" active="1"/>
+			<Color arg="#77c"/>
+			<Color arg="#96a"/>
 			<Color arg="#69b"/>
-			<Color arg="#c77"/>
-			<Color arg="#4a4"/>
+			<Color arg="#b66"/>
+			<Color arg="#494"/>
 			<Color arg="#09f"/>
-			<Color arg="#f90"/>
 			<Color arg="#c70"/>
 			<Color arg="#0bc"/>
+
 			<Color arg="#19a"/>
+			<Color arg="#d66"/>
+			<Color arg="#a75135"/>
+			<Color arg="#815f52"/>
+			<Color arg="#ae9a23"/>
+			<Color arg="#569e38"/>
+			<Color arg="#1c9b8e"/>
+			<Color arg="#377392"/>
+			<Color arg="#4367b6"/>
 
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
-			<Color arg="#ddd"/>
+			<Color arg="#715bbe"/>
+			<Color arg="#b45dbe"/>
+			<Color arg="#c17ea1"/>
+			<Color arg="#ed9368"/>
+			<Color arg="#e3569f"/>
+			<Color arg="#98724e"/>
+			<Color arg="#5c5c5c"/>
+			<Color arg="#a9a9a9"/>
+			<Color arg="#7b7b7b"/>
 		</Menu>
 		<Menu type="divider"/>
 		<Menu name="Delete" click="remove-sheet"/>

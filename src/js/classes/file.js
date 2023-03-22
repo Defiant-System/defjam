@@ -40,6 +40,11 @@ class File {
 						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
 					xClip.setAttribute("cX", cX);
 					xClip.setAttribute("cW", cW);
+					
+					if (xClip.getAttribute("id") === "clip-2-2") {
+						// create image from xml notes
+						Audio.clipToImage(xClip);
+					}
 				});
 
 				// prepare track clip notes

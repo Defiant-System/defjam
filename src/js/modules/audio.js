@@ -6,6 +6,35 @@ const Audio = {
 		this.cvs.width = 202;
 		this.cvs.height = 31;
 	},
+	clipToImage(xClip) {
+		let xId = xClip.getAttribute("id");
+
+		this.cvs.width = 191;
+		this.cvs.height = 47;
+		
+		this.ctx.fillStyle = "#fff";
+		// this.ctx.fillRect(10, 10, 5, 2);
+		// this.ctx.fillRect(17, 13, 3, 2);
+		// this.ctx.fillRect(17, 15, 3, 2);
+		// this.ctx.fillRect(17, 18, 3, 2);
+
+		xClip.selectNodes(`./b`).map(xNote => {
+			let x = 10,
+				y = 10,
+				w = 3,
+				h = 2;
+			// console.log( xNote );
+			this.ctx.fillRect(x, y, w, h);
+		});
+
+		return;
+
+		this.ctx.canvas.toBlob(async blob => {
+			let url = `~/clips/${xId}.png`,
+				path = await window.cache.set({ url, blob });
+			window.find(`.lane b[data-id="${xId}"]`).css({ "--clip-bg": `url(${path})` })
+		});
+	},
 	async visualizeFile(options) {
 		let arrayBuffer = await window.fetch(options.url),
 			audioContext = new AudioContext(),

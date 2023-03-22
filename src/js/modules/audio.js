@@ -13,21 +13,28 @@ const Audio = {
 		this.cvs.height = 47;
 		
 		this.ctx.fillStyle = "#fff";
-		// this.ctx.fillRect(10, 10, 5, 2);
-		// this.ctx.fillRect(17, 13, 3, 2);
-		// this.ctx.fillRect(17, 15, 3, 2);
-		// this.ctx.fillRect(17, 18, 3, 2);
+		this.ctx.fillRect(0, 3, 5, 2);
+		this.ctx.fillRect(6, 3, 5, 2);
+
+		this.ctx.fillRect(0, 9, 5, 2);
+		this.ctx.fillRect(6, 9, 5, 2);
+
+		this.ctx.fillRect(0, 15, 5, 2);
+		this.ctx.fillRect(6, 15, 5, 2);
+
+		this.ctx.fillRect(0, 24, 5, 2);
+		this.ctx.fillRect(6, 24, 5, 2);
 
 		xClip.selectNodes(`./b`).map(xNote => {
-			let x = 10,
-				y = 10,
+			let x = 0,
+				y = 3,
 				w = 3,
 				h = 2;
 			// console.log( xNote );
-			this.ctx.fillRect(x, y, w, h);
+			// this.ctx.fillRect(x, y, w, h);
 		});
 
-		return;
+		// return;
 
 		this.ctx.canvas.toBlob(async blob => {
 			let url = `~/clips/${xId}.png`,

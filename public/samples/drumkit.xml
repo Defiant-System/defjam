@@ -4,7 +4,7 @@
 		<Position bar="0.0.0" time="00:00.00"/>
 		<Duration value="10"/>
 		<Browser width="220"/>
-		<Details height="320" view="midi"/>
+		<Details height="460" view="midi"/>
 	</Head>
 	<Tracks view="session">
 		<Track name="Drums" color="#48c" class="selected" id="track-1" type="drumkit">

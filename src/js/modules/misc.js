@@ -33,6 +33,7 @@ const VKEYS = {
 const KEYS = {
 	_down: {},
 	_keys: {},
+	_vkeys: Object.keys(VKEYS),
 	init() {
 		let base = { "C": 24, "D": 26, "E": 28, "F": 29, "G": 31, "A": 33, "B": 35 };
 		for (let octave=-2; octave<=8; octave++) {

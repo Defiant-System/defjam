@@ -28,6 +28,8 @@
 		let APP = defjam,
 			Self = APP.midi,
 			Drag = Self.drag,
+			trackId,
+			char,
 			xClip,
 			limit,
 			name,
@@ -63,6 +65,40 @@
 				value["--oX"] = value["--oX"] +"px";
 				// UI apply
 				el.css(value);
+				break;
+			// system events
+			case "window.keystroke":
+				// play piano with keyboard
+				char = event.char.toUpperCase();
+				el = APP.session.els.wrapper.find(".track .track-btn.record.active");
+				if (!VKEYS[char] || !el.length) return;
+				trackId = el.parents(".track").data("id");
+
+				if (!KEYS._down[char]) {
+					Jam.track.triggerAttack(trackId, VKEYS[char]);
+				}
+				KEYS._down[char] = { trackId };
+
+				if (Self.els.el.is(":visible")) {
+					// visual piano key down
+					let el = Self.els.pianoRoll.find("ul"),
+						keyH = parseInt(Self.els.el.cssProp("--keyH"), 10),
+						// 59 is the position of "C3" on the virtual keyboard
+						top = (59 - KEYS._vkeys.indexOf(char.toUpperCase())) * keyH,
+						width = VKEYS[char].includes("#") ? 25 : 32;
+					Self.els.el.css({ "--pkT": `${top}px`, "--pkW": `${width}px` });
+				}
+				break;
+			case "window.keyup":
+				char = event.char.toUpperCase();
+				if (!VKEYS[char]) return;
+				if (KEYS._down[char]) {
+					Jam.track.triggerRelease(KEYS._down[char].trackId, VKEYS[char]);
+				}
+				delete KEYS._down[char];
+
+				// visual piano key up
+				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				break;
 			// custom events
 			case "toggle-velocity-editor":
@@ -141,18 +177,6 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "window.keystroke":
-				// keyboard = {
-				// 	a: "C3",
-				// 	s: "D3",
-				// 	d: "E3",
-				// };
-				// // play sound
-				// key = keyboard[event.char];
-				// if (key && Self.sampler) {
-				// 	Self.sampler.triggerAttackRelease([key], 1, Tone.now(), .75);
-				// }
-				break;
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
@@ -179,7 +203,7 @@
 				}
 
 				// bind event handlers
-				Self.els.doc.on("mousemove mouseout mouseup", Self.doPiano);
+				// Self.els.doc.on("mousemove mouseout mouseup", Self.doPiano);
 				break;
 			case "mousemove":
 				break;
@@ -193,7 +217,7 @@
 				// release key
 				Self.els.el.css({ "--pkT": "", "--pkW": "", });
 				// unbind event handlers
-				Self.els.doc.off("mousemove mouseout mouseup", Self.doPiano);
+				// Self.els.doc.off("mousemove mouseout mouseup", Self.doPiano);
 				break;
 		}
 	},

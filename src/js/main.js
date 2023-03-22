@@ -30,8 +30,6 @@ const defjam = {
 	dispatch(event) {
 		let Self = defjam,
 			file,
-			char,
-			trackId,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -43,25 +41,11 @@ const defjam = {
 						Self.toolbar.dispatch({ type: "toggle-play" });
 						break;
 					default:
-						char = event.char.toUpperCase();
-						el = Self.session.els.wrapper.find(".track .track-btn.record.active");
-						if (!VKEYS[char] || !el.length) return;
-						trackId = el.parents(".track").data("id");
-
-						if (!KEYS._down[char]) {
-							Jam.track.triggerAttack(trackId, VKEYS[char]);
-						}
-						KEYS._down[char] = { trackId };
+						return Self.midi.dispatch(event);
 				}
 				break;
 			case "window.keyup":
-				char = event.char.toUpperCase();
-				if (!VKEYS[char]) return;
-				if (KEYS._down[char]) {
-					Jam.track.triggerRelease(KEYS._down[char].trackId, VKEYS[char]);
-				}
-				delete KEYS._down[char];
-				break;
+				return Self.midi.dispatch(event);
 			case "window.close":
 				Jam.stop();
 				break;

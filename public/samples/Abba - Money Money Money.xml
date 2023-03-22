@@ -14,7 +14,7 @@
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-1-1" name="Intro" start="1" length="3" oY="-400" oX="0" keyH="14" noteW="16">
+				<Clip id="clip-1-1" name="Intro" start="1" length="3" oY="-440" oX="0" keyH="14" noteW="16">
 					<b n="E4" b="0" d="1" v="1"/>
 					<b n="E4" b="1" d="1" v="1"/>
 					<b n="E4" b="2" d="1" v="1"/>

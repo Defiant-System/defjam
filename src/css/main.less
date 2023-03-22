@@ -1309,7 +1309,7 @@ content {
 								position: absolute;
 								left: 0;
 								right: 0;
-								top: -11px;
+								top: 26px;
 								height: 11px;
 								overflow: hidden;
 
@@ -1644,31 +1644,44 @@ content {
 							}
 						}
 
-
-					.row-overview {
-						height: 19px;
-						margin: 1px 0;
-						overflow: visible;
-						background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
-
-						.hotspot {
-							position: absolute;
-							top: -2px;
-							left: 0px;
-							width: 653px;
-							bottom: -2px;
-							border: 2px solid @base;
-							// border-width: 2px 3px;
-						}
+					.empty-space {
+						// border-radius: 0 3px 0 0;
 					}
 
 					.row-ruler {
-						height: 25px;
+						position: relative;
+						height: 63px;
 						display: flex;
-						margin-top: 17px;
 						margin-bottom: 2px;
 
-						.col-clips .box-body  { border-radius: 3px 3px 0 0; }
+						.col-clips {
+							padding-top:37px;
+
+							.row-overview {
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								height: 19px;
+								margin: 1px 0;
+								overflow: visible;
+								background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
+
+								.hotspot {
+									position: absolute;
+									top: -2px;
+									left: 0px;
+									width: 653px;
+									bottom: -2px;
+									border: 2px solid @base;
+									// border-width: 2px 3px;
+								}
+							}
+
+							.box-body:not(.row-overview)  {
+								border-radius: 3px 3px 0 0;
+							}
+						}
 
 						.length-span {
 							// background: red;

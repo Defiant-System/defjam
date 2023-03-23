@@ -1793,8 +1793,18 @@ content {
 						}
 
 						.col-clips .box-body  {
-							overflow: hidden;
+							overflow: visible;
 							border-radius: 0 0 0 0;
+
+							.lane-wrapper {
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								bottom: 0;
+								overflow: hidden;
+								background: red;
+							}
 						}
 
 						.col-mixers .box-body {

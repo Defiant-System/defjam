@@ -8,7 +8,7 @@
 			el: window.find(".arr-layout"),
 			lengthSpan: window.find(".arr-layout .row-ruler .length-span"),
 			loopSpan: window.find(".arr-layout .row-ruler .loop-span"),
-			lanes: window.find(".arr-layout .row-track .col-clips .box-body"),
+			lanes: window.find(".arr-layout .row-track .col-clips .lane-wrapper"),
 			mixers: window.find(".arr-layout .row-track .col-mixers .box-body"),
 			ioLanes: window.find(".arr-layout .row-outputs .col-clips .box-body"),
 			ioMixers: window.find(".arr-layout .row-outputs .col-mixers .box-body"),

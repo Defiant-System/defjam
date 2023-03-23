@@ -1289,16 +1289,16 @@ content {
 				display: flex;
 				margin-bottom: 13px;
 				border-bottom-right-radius: 0;
-				--barW: 12px;
-				--chanH: 67px;
-				--colH: 21px;
-				--colMix: 250px;
 
 				.arr-layout {
 					flex: 1;
 					display: flex;
 					flex-direction: column;
 					counter-reset: track-counter;
+					--barW: 12px;
+					--chanH: 67px;
+					--colH: 21px;
+					--colMix: 250px;
 
 						.col-clips {
 							position: relative;
@@ -1583,16 +1583,17 @@ content {
 									content: "";
 									position: absolute;
 									top: 17px;
-									left: 0;
-									right: 0;
+									left: 1px;
+									right: 1px;
 									bottom: 0;
 									background-color: rgba(0,0,0,.125);
 									background-image: var( --clip-bg ), repeating-linear-gradient(90deg,
 												rgba(0,0,0,.05) calc( var( --barW ) - 1px ), rgba(0,0,0,.05) var( --barW ),
 												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
 											);
-									background-repeat-y: no-repeat;
-									background-repeat-x: repeat;
+									// background-repeat-y: no-repeat;
+									// background-repeat-x: repeat;
+									background-repeat: no-repeat;
 									border-top: 1px solid rgba(0,0,0,.1);
 									border-radius: 0 0 2px 2px;
 								}

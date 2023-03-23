@@ -6,32 +6,31 @@ const Audio = {
 		this.cvs.width = 202;
 		this.cvs.height = 31;
 	},
-	clipToImage(xClip) {
-		let xId = xClip.getAttribute("id");
+	clipToImage(xId) {
+		let APP = defjam,
+			xFile = APP.File._file.data,
+			xClip = xFile.selectSingleNode(`//Lane/Clip[@id="${xId}"]`),
+			xLen = +xClip.getAttribute("length"),
+			barW = parseInt(APP.arrangement.els.el.cssProp("--barW"), 10),
+			barS = barW * xLen * 4,
+			clen = barS - 2,
+			cW = barS,
+			cH = 47;
 
-		this.cvs.width = 191;
-		this.cvs.height = 47;
-		
+		this.cvs.width = cW;
+		this.cvs.height = cH;
 		this.ctx.fillStyle = "#fff";
-		this.ctx.fillRect(0, 3, 5, 2);
-		this.ctx.fillRect(6, 3, 5, 2);
 
-		this.ctx.fillRect(0, 9, 5, 2);
-		this.ctx.fillRect(6, 9, 5, 2);
-
-		this.ctx.fillRect(0, 15, 5, 2);
-		this.ctx.fillRect(6, 15, 5, 2);
-
-		this.ctx.fillRect(0, 24, 5, 2);
-		this.ctx.fillRect(6, 24, 5, 2);
+console.log( barW, barS, xLen );
 
 		xClip.selectNodes(`./b`).map(xNote => {
-			let x = 0,
-				y = 3,
-				w = 3,
+			let x = (+xNote.getAttribute("b") / 64) * barS,
+				w = +xNote.getAttribute("w"),
+				y = +xNote.getAttribute("y") - 43,
 				h = 2;
-			// console.log( xNote );
-			// this.ctx.fillRect(x, y, w, h);
+			// if (x < 1) console.log( xNote );
+			// console.log( xNote.getAttribute("y"), y );
+			this.ctx.fillRect(x, y, w, h);
 		});
 
 		// return;

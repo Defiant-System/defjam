@@ -9,20 +9,21 @@ const Audio = {
 	clipToImage(xDoc, xClipId) {
 		let APP = defjam,
 			xClip = xDoc.selectSingleNode(`//Lane/Clip[@id="${xClipId}"]`),
-			xLen = +xClip.getAttribute("length"),
+			xLen = DUR.toBeats(xClip.getAttribute("length")),
 			barW = parseInt(APP.arrangement.els.el.cssProp("--barW"), 10),
-			cW = barW * xLen * 4,
+			cW = barW * xLen,
 			cH = 47,
+			oY = xClipId.startsWith("clip-2") ? 43 : 21,
 			frag = (1 / 64) * cW;
 
 		this.cvs.width = cW;
 		this.cvs.height = cH;
-		this.ctx.fillStyle = "#ffffffbb";
+		this.ctx.fillStyle = "#ffffff";
 
 		xClip.selectNodes(`./b`).map(xNote => {
 			let x = +xNote.getAttribute("b") * frag,
 				w = +xNote.getAttribute("w") * (frag - .25),
-				y = +xNote.getAttribute("y") - 43,
+				y = +xNote.getAttribute("y") - oY,
 				h = 2;
 			// if (x < 1) console.log( xNote );
 			// console.log( xNote.getAttribute("y"), y );

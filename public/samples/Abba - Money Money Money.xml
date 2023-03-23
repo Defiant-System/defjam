@@ -367,7 +367,7 @@
 					<b n="A2" b="44" d="4" v=".5"/>
 				</Clip>
 
-				<Clip id="clip-2-2" name="Verse" start="4" length="4" oY="-690" oX="0" keyH="14" noteW="16">
+				<Clip id="clip-2-2" name="Verse" start="4" length="4" oY="-705" oX="0" keyH="14" noteW="16">
 					<b n="A1" b="0" d="4" v=".5"/>
 					<b n="C3" b="0" d="4" v=".5"/>
 					<b n="E3" b="0" d="4" v=".5"/>

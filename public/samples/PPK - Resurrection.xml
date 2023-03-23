@@ -13,7 +13,7 @@
 				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-1-1" name="Chords" start="1" length="11" oY="-490" oX="0" keyH="10" noteW="20">
+				<Clip id="clip-1-1" name="Chords" start="1" length="15" oY="-490" oX="0" keyH="10" noteW="20">
 					<b n="D2" b="0" d="2" v="1"/>
 					<b n="A2" b="2" d="2" v="1"/>
 					<b n="D3" b="4" d="2" v="1"/>
@@ -150,7 +150,7 @@
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Melody" start="1" length="11" oY="-350" oX="0" keyH="10" noteW="20">
+				<Clip id="clip-2-1" name="Melody" start="1" length="15" oY="-350" oX="0" keyH="10" noteW="20">
 					<b n="D4" b="16" d="4" v="1"/>
 
 					<b n="E4" b="21" d="1" v="1"/>
@@ -292,7 +292,7 @@
 				<Set xPath=".//Instruments//Item[@name='Steel Drum']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-3-1" name="Lead" start="10" length="2" oY="-640" oX="0" keyH="14" noteW="26">
+				<Clip id="clip-3-1" name="Lead" start="14" length="2" oY="-640" oX="0" keyH="14" noteW="26">
 					<b n="G3" b="2" d=".5" v="1"/>
 					<b n="A3" b="2" d=".5" v="1" s="8"/>
 					<b n="A3" b="3" d=".5" v="1" s="8"/>

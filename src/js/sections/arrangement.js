@@ -26,11 +26,11 @@
 		switch (event.type) {
 			case "set-session-view":
 				let node = event.file.data.selectSingleNode(`//Head/Duration`),
-					val = node ? +node.getAttribute("value") : 13,
-					dur = val.toString(),
-					[dBar, dBeat=1, d16=1] = dur.split(".").map(i => +i),
+					val = node.getAttribute("value"),
+					[dBar, dBeat=1, d16=1] = val.split(".").map(i => +i),
 					dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
 					barW = parseInt(Self.els.el.cssProp("--barW"), 10);
+				console.log( dLen, barW, dLen * barW );
 				// set loop span width
 				Self.els.lengthSpan.css({ width: `${dLen * barW}px` });
 				break;

@@ -91,6 +91,7 @@
 			case "arrangement-playing":
 				Self.arrangement.els.playHead.addClass("on");
 				Self.arrangement.tracks = Object.keys(Jam.track._list).map(id => Jam.track._list[id]);
+				Self.arrangement.width = parseInt(Self.arrangement.els.lengthSpan.css("width"), 10);
 				break;
 			// hide play-head
 			case "arrangement-stopped":
@@ -104,7 +105,6 @@
 				Self.dispatch({ type: "session-turn-off" });
 				// defaults
 				Self.arrangement.isOn = true;
-				Self.arrangement.width = parseInt(Self.arrangement.els.lengthSpan.css("width"), 10);
 				break;
 			case "arrangement-turn-off":
 				// turn off flag

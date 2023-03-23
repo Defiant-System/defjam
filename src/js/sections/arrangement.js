@@ -109,9 +109,6 @@
 						clipId,
 						trackId,
 					});
-
-					// TEMP: create image from xml notes
-					Audio.clipToImage(clipId);
 				}
 				break;
 		}

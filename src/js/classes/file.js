@@ -11,29 +11,30 @@ class File {
 	dispatch(event) {
 		let APP = defjam,
 			Self = this,
+			xDoc = Self._file.data,
 			name,
 			value,
 			str;
 		switch (event.type) {
 			case "load-project":
 				// view: "arrangement" or "session"
-				value = Self._file.data.selectSingleNode("//Project/Tracks");
+				value = xDoc.selectSingleNode("//Project/Tracks");
 				value = value ? value.getAttribute("view") : "session";
 				APP.head.dispatch({ type: `show-${value}-view` });
 				// view: "midi" or "device"
-				value = Self._file.data.selectSingleNode("//Head/Details[@view]");
+				value = xDoc.selectSingleNode("//Head/Details[@view]");
 				value = value ? value.getAttribute("view") : "devices";
 				APP.foot.dispatch({ type: `show-${value}-rack` });
 
 				// translate lane clip details for session view
-				Self._file.data.selectNodes(`//Track/Slot/Clip`).map(xClip => {
+				xDoc.selectNodes(`//Track/Slot/Clip`).map(xClip => {
 					let [lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
 						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
 					xClip.setAttribute("cW", cW);
 				});
 
 				// translate lane clip details for arrangement view
-				Self._file.data.selectNodes(`//Track/Lane/Clip`).map(xClip => {
+				xDoc.selectNodes(`//Track/Lane/Clip`).map(xClip => {
 					let [sBar, sBeat=1, s16=1] = xClip.getAttribute("start").split(".").map(i => +i),
 						[lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
 						cX = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),
@@ -43,7 +44,7 @@ class File {
 				});
 
 				// prepare track clip notes
-				Self._file.data.selectNodes(`//Track//Clip/b[@n]`).map(xNote => {
+				xDoc.selectNodes(`//Track//Clip/b[@n]`).map(xNote => {
 					let note = xNote.getAttribute("n"),
 						key = note.slice(0,-1),
 						octave = +note.slice(-1),
@@ -75,6 +76,9 @@ class File {
 				APP.arrangement.dispatch({ type: "render-file", file: Self._file });
 				// ui update session view
 				APP.session.dispatch({ type: "render-file", file: Self._file });
+				// create image from xml notes
+				xDoc.selectNodes(`//Track/Lane/Clip`).map(xClip =>
+					Audio.clipToImage(xDoc, xClip.getAttribute("id")));
 				// load file instruments
 				Jam.loadProject(Self._file);
 				break;

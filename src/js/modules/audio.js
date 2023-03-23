@@ -6,26 +6,22 @@ const Audio = {
 		this.cvs.width = 202;
 		this.cvs.height = 31;
 	},
-	clipToImage(xId) {
+	clipToImage(xDoc, xClipId) {
 		let APP = defjam,
-			xFile = APP.File._file.data,
-			xClip = xFile.selectSingleNode(`//Lane/Clip[@id="${xId}"]`),
+			xClip = xDoc.selectSingleNode(`//Lane/Clip[@id="${xClipId}"]`),
 			xLen = +xClip.getAttribute("length"),
 			barW = parseInt(APP.arrangement.els.el.cssProp("--barW"), 10),
-			barS = barW * xLen * 4,
-			clen = barS - 2,
-			cW = barS,
-			cH = 47;
+			cW = barW * xLen * 4,
+			cH = 47,
+			frag = (1 / 64) * cW;
 
 		this.cvs.width = cW;
 		this.cvs.height = cH;
-		this.ctx.fillStyle = "#fff";
-
-console.log( barW, barS, xLen );
+		this.ctx.fillStyle = "#ffffffbb";
 
 		xClip.selectNodes(`./b`).map(xNote => {
-			let x = (+xNote.getAttribute("b") / 64) * barS,
-				w = +xNote.getAttribute("w"),
+			let x = +xNote.getAttribute("b") * frag,
+				w = +xNote.getAttribute("w") * (frag - .25),
 				y = +xNote.getAttribute("y") - 43,
 				h = 2;
 			// if (x < 1) console.log( xNote );
@@ -36,9 +32,9 @@ console.log( barW, barS, xLen );
 		// return;
 
 		this.ctx.canvas.toBlob(async blob => {
-			let url = `~/clips/${xId}.png`,
+			let url = `~/clips/${xClipId}.png`,
 				path = await window.cache.set({ url, blob });
-			window.find(`.lane b[data-id="${xId}"]`).css({ "--clip-bg": `url(${path})` })
+			window.find(`.lane b[data-id="${xClipId}"]`).css({ "--clip-bg": `url(${path})` });
 		});
 	},
 	async visualizeFile(options) {

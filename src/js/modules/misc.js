@@ -13,8 +13,13 @@ const DUR = {
 		"1n": 16,
 	},
 	toBeats(val=1) {
-		let [dBar, dBeat=0, d16=0] = val.toString().split(".").map(i => +i);
-		return (dBar * 4) + dBeat + (d16 / 4) * 16;
+		if (val == +val) {
+			let [dBar, dBeat=0, d16=0] = val.toString().split(".").map(i => +i);
+			return (dBar * 4) + dBeat + (d16 / 4) * 16;
+		} else {
+			let [dBar, dBeat=1, d16=1] = val.toString().split(".").map(i => +i);
+			return (dBar * 4) + (dBeat-1) + ((d16-1) / 4);
+		}
 	}
 };
 

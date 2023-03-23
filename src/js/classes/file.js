@@ -28,17 +28,14 @@ class File {
 
 				// translate lane clip details for session view
 				xDoc.selectNodes(`//Track/Slot/Clip`).map(xClip => {
-					let [lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
-						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
+					let cW = DUR.toBeats(xClip.getAttribute("length"));
 					xClip.setAttribute("cW", cW);
 				});
 
 				// translate lane clip details for arrangement view
 				xDoc.selectNodes(`//Track/Lane/Clip`).map(xClip => {
-					let [sBar, sBeat=1, s16=1] = xClip.getAttribute("start").split(".").map(i => +i),
-						[lBar, lBeat=1, l16=1] = xClip.getAttribute("length").split(".").map(i => +i),
-						cX = ((sBar - 1) * 4) + (sBeat - 1) + ((s16 - 1) / 4),
-						cW = (lBar * 4) + (lBeat - 1) + ((l16 - 1) / 4);
+					let cX = DUR.toBeats(xClip.getAttribute("start"))-4,
+						cW = DUR.toBeats(xClip.getAttribute("length"));
 					xClip.setAttribute("cX", cX);
 					xClip.setAttribute("cW", cW);
 				});

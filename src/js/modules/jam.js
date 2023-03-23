@@ -75,9 +75,8 @@ const Jam = {
 			xDoc = Self._file.data,
 			xpTrack = xDoc.selectSingleNode(`//Tracks`),
 			xDur = xDoc.selectSingleNode(`//Head/Duration`),
-			duration = xDur.getAttribute("value"),
-			[dBar, dBeat=1, d16=1] = duration.split(".").map(i => +i),
-			dLen = ((dBar - 1) * 4) + (dBeat - 1) + ((d16 - 1) / 4) * 16,
+			val = xDur.getAttribute("value"),
+			dLen = DUR.toBeats(val) - 4,
 			beats = [...Array(dLen*4)].map((e, i) => i.toString());
 
 		xpTrack.selectNodes(`.//Track/Lane//b`).map(xNote => {

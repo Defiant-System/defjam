@@ -12,12 +12,11 @@ const Audio = {
 			xLen = DUR.toBeats(xClip.getAttribute("length")),
 			barW = parseInt(APP.arrangement.els.el.cssProp("--barW"), 10),
 			cW = barW * xLen,
-			cH = 47,
 			oY = xClipId.startsWith("clip-2") ? 43 : 21,
-			frag = (1 / 64) * cW;
+			frag = (1 / (xLen * 4)) * cW;
 
 		this.cvs.width = cW;
-		this.cvs.height = cH;
+		this.cvs.height = 47; // allways 47px high
 		this.ctx.fillStyle = "#ffffff";
 
 		xClip.selectNodes(`./b`).map(xNote => {
@@ -35,7 +34,7 @@ const Audio = {
 		this.ctx.canvas.toBlob(async blob => {
 			let url = `~/clips/${xClipId}.png`,
 				path = await window.cache.set({ url, blob });
-			window.find(`.lane b[data-id="${xClipId}"]`).css({ "--clip-bg": `url(${path})` });
+			APP.arrangement.els.el.find(`.lane b[data-id="${xClipId}"]`).css({ "--clip-bg": `url(${path})` });
 		});
 	},
 	async visualizeFile(options) {

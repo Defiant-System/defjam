@@ -1669,6 +1669,48 @@ content {
 								overflow: visible;
 								background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
 
+								> div:not(.hotspot) {
+										background: #397;
+									position: absolute;
+									left: 0;
+									right: 0;
+									height: 3px;
+
+									&:first-child {
+										border-radius: 3px 3px 0 0;
+									}
+
+									&:nth-last-child(2) {
+										border-radius: 0 0 3px 3px;
+									}
+
+
+									&:nth-child(1) {
+										background: #397;
+										top: 0;
+									}
+
+									&:nth-child(2) {
+										background: #77c;
+										top: 4px;
+									}
+
+									&:nth-child(3) {
+										background: transparent;
+										top: 8px;
+									}
+
+									&:nth-child(4) {
+										background: transparent;
+										top: 12px;
+									}
+
+									&:nth-child(5) {
+										background: transparent;
+										top: 16px;
+									}
+								}
+
 								.hotspot {
 									position: absolute;
 									top: -2px;

@@ -6,6 +6,7 @@
 		// fast references
 		this.els = {
 			el: window.find(".arr-layout"),
+			minimap: window.find(".arr-layout .row-minimap"),
 			lengthSpan: window.find(".arr-layout .row-ruler .length-span"),
 			loopSpan: window.find(".arr-layout .row-ruler .loop-span"),
 			lanes: window.find(".arr-layout .row-track .col-clips .lane-wrapper"),
@@ -47,7 +48,6 @@
 					template: "track-mixers",
 					target: Self.els.mixers,
 				});
-
 				// render i/o track lanes
 				window.render({
 					data: event.file.data,
@@ -59,6 +59,37 @@
 					data: event.file.data,
 					template: "io-track-mixers",
 					target: Self.els.ioMixers,
+				});
+				// render mini-map
+				Self.dispatch({ ...event, type: "lane-to-minimap" });
+				break;
+			case "lane-to-minimap":
+				// lane ui to background-image
+				lEl = Self.els.minimap.find(`> div:not(.hotspot)`);
+				// available width
+				let jW = Self.els.lengthSpan.prop("offsetWidth"), // jam width
+					aW = Self.els.minimap.prop("offsetWidth"), // available width
+					bW = parseInt(Self.els.el.cssProp("--barW"), 10);
+				// only handle first 5 lanes
+				event.file.data.selectNodes(`//Track/Lane`).filter((e,i) => i<5).map((xLane, index) => {
+					let laneEl = lEl.get(index),
+						laneColor = xLane.parentNode.getAttribute("color"),
+						gradient = [],
+						ccX = 0,
+						tX = 0;
+					xLane.selectNodes(`./Clip`).map(xClip => {
+						let cX = +xClip.getAttribute("cX"),
+							cW = +xClip.getAttribute("cW"),
+							tS = parseInt(((cW * bW) / jW) * 100, 10),
+							color = ccX === cX ? laneColor : "transparent";
+						
+						// console.log( ccX, cX, cW );
+						gradient.push(`${color} ${tX}%, ${color} ${tX+tS}%`);
+						tX += tS;
+						ccX = cX + cW;
+					});
+					gradient.push(`transparent ${tX}%, transparent 100%`);
+					laneEl.css({ "background-image": `linear-gradient(90deg, ${gradient.join(",")})` });
 				});
 				break;
 			case "toggle-lane":

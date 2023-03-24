@@ -1659,7 +1659,7 @@ content {
 						.col-clips {
 							padding-top:37px;
 
-							.row-overview {
+							.row-minimap {
 								position: absolute;
 								top: 0;
 								left: 0;
@@ -1670,7 +1670,7 @@ content {
 								background-image: repeating-linear-gradient(180deg, @gridlines 3px, @gridlines 4px, transparent 4px, transparent 7px);
 
 								> div:not(.hotspot) {
-										background: #397;
+									background: transparent;
 									position: absolute;
 									left: 0;
 									right: 0;
@@ -1684,34 +1684,22 @@ content {
 										border-radius: 0 0 3px 3px;
 									}
 
+									&:nth-child(1) { top: 0; }
+									&:nth-child(2) { top: 4px; }
+									&:nth-child(3) { top: 8px; }
+									&:nth-child(4) { top: 12px; }
+									&:nth-child(5) { top: 16px; }
 
 									&:nth-child(1) {
-										background: #397;
-										top: 0;
+										// background-image: linear-gradient(90deg, #397 0%, #397 90%, transparent 90%, transparent 100%);
 									}
-
 									&:nth-child(2) {
-										background: #77c;
-										top: 4px;
-									}
-
-									&:nth-child(3) {
-										background: transparent;
-										top: 8px;
-									}
-
-									&:nth-child(4) {
-										background: transparent;
-										top: 12px;
-									}
-
-									&:nth-child(5) {
-										background: transparent;
-										top: 16px;
+										// background-image: linear-gradient(90deg, #77c 0%, #77c 90%, transparent 90%, transparent 100%);
 									}
 								}
 
 								.hotspot {
+									display: none;
 									position: absolute;
 									top: -2px;
 									left: 0px;
@@ -1722,7 +1710,7 @@ content {
 								}
 							}
 
-							.box-body:not(.row-overview)  {
+							.box-body:not(.row-minimap)  {
 								border-radius: 3px 3px 0 0;
 							}
 						}
@@ -1803,7 +1791,6 @@ content {
 								right: 0;
 								bottom: 0;
 								overflow: hidden;
-								background: red;
 							}
 						}
 

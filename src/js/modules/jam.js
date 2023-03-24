@@ -128,8 +128,8 @@ const Jam = {
 		// return console.log(beats);
 
 		// start Tone transport
-		Tone.Transport.start();
-		// Tone.Transport.start("0", "28:1:1");
+		// Tone.Transport.start();
+		Tone.Transport.start("0", "3:1:1");
 		// update / rendering
 		this.update();
 	},

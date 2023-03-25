@@ -96,14 +96,15 @@ const defjam = {
 				.catch(err => reject(err));
 		});
 	},
+	head: @import "./sections/head.js",
 	toolbar: @import "./sections/toolbar.js",
 	browser: @import "./sections/browser.js",
-	head: @import "./sections/head.js",
 	session: @import "./sections/session.js",
 	arrangement: @import "./sections/arrangement.js",
-	midi: @import "./sections/midi.js",
 	devices: @import "./sections/devices.js",
+	midi: @import "./sections/midi.js",
 	foot: @import "./sections/foot.js",
+	status: @import "./sections/status.js",
 };
 
 window.exports = defjam;

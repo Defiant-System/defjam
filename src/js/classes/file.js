@@ -17,6 +17,8 @@ class File {
 			str;
 		switch (event.type) {
 			case "load-project":
+				// show filename in the status bar
+				APP.status.dispatch({ type: "display-filename", file: this });
 				// view: "arrangement" or "session"
 				value = xDoc.selectSingleNode("//Project/Tracks");
 				value = value ? value.getAttribute("view") : "session";

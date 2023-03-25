@@ -129,7 +129,7 @@ const Jam = {
 
 		// start Tone transport
 		// Tone.Transport.start();
-		Tone.Transport.start("0", "3:1:1");
+		Tone.Transport.start("0", "4:1:1");
 		// update / rendering
 		this.update();
 	},

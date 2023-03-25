@@ -21,6 +21,7 @@
 			Self = APP.arrangement,
 			name,
 			value,
+			laneId,
 			lEl,
 			el;
 		//console.log(event);
@@ -139,6 +140,32 @@
 						trackId,
 					});
 				}
+				break;
+			case "track-activator":
+				// select lane row
+				Self.dispatch({ ...event, type: "select-lane" });
+				// toggle button
+				value = event.el.hasClass("off");
+				event.el.toggleClass("off", value);
+
+				break;
+			case "track-solo":
+				// select lane row
+				Self.dispatch({ ...event, type: "select-lane" });
+				value = event.el.hasClass("active");
+				laneId = event.el.parents(".lane").data("id");
+				// silenced track UI
+				lEl = Self.els.el.find(`.row-track .lane:not([data-id="${laneId}"])`);
+				lEl.toggleClass("silenced", value);
+				lEl.find(`.track-btn.activator`).toggleClass("off", value);
+				// toggle button
+				event.el.toggleClass("active", value);
+				break;
+			case "track-record":
+				// select lane row
+				Self.dispatch({ ...event, type: "select-lane" });
+				
+				console.log(event);
 				break;
 		}
 	}

@@ -1,7 +1,7 @@
 
 let Test = {
 	init() {
-		return;
+		// return;
 		
 		// window.find(`.foot-midi`).trigger("click");
 		// window.find(`.foot-devices`).trigger("click");
@@ -18,11 +18,11 @@ let Test = {
 		// setTimeout(() => window.find(`.ball-button[data-click="show-session-view"]`).trigger("click"), 400);
 
 		// setTimeout(() => window.find(`.slots:nth(0) b:nth(0)`).trigger("click"), 500);
-		setTimeout(() => window.find(`.lane:nth(1) b:nth(0)`).trigger("click"), 500);
+		setTimeout(() => window.find(`.lane:nth(0) b:nth(1)`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.lane:nth(1) b:nth(4)`).trigger("click"), 500);
 
 
-		setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 12e3);
 	}
 };

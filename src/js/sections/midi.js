@@ -164,7 +164,7 @@
 	doPiano(event) {
 		let APP = defjam,
 			Self = APP.midi,
-			Drag = Self.drag,
+			Drag = Self.drag || {},
 			keyboard,
 			keyH,
 			topIndex,

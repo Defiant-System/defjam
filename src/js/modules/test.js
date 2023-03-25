@@ -1,6 +1,8 @@
 
 let Test = {
 	init() {
+		return;
+		
 		// window.find(`.foot-midi`).trigger("click");
 		// window.find(`.foot-devices`).trigger("click");
 

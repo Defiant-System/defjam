@@ -68,28 +68,37 @@
 				// lane ui to background-image
 				lEl = Self.els.minimap.find(`> div:not(.hotspot)`);
 				// available width
-				let jW = Self.els.lengthSpan.prop("offsetWidth"), // jam width
-					aW = Self.els.minimap.prop("offsetWidth"), // available width
-					bW = parseInt(Self.els.el.cssProp("--barW"), 10);
+				let bW = parseInt(Self.els.el.cssProp("--barW"), 10),
+					jW = Self.els.lengthSpan.prop("offsetWidth"), // jam width
+					fW = jW / bW;
 				// only handle first 5 lanes
 				event.file.data.selectNodes(`//Track/Lane`).filter((e,i) => i<5).map((xLane, index) => {
 					let laneEl = lEl.get(index),
-						laneColor = xLane.parentNode.getAttribute("color"),
+						color = xLane.parentNode.getAttribute("color"),
 						gradient = [],
-						ccX = 0,
+						tmp = [],
 						tX = 0;
 					xLane.selectNodes(`./Clip`).map(xClip => {
-						let cX = +xClip.getAttribute("cX"),
-							cW = +xClip.getAttribute("cW"),
-							tS = parseInt(((cW * bW) / jW) * 100, 10),
-							color = ccX === cX ? laneColor : "transparent";
-						
-						// console.log( ccX, cX, cW );
-						gradient.push(`${color} ${tX}%, ${color} ${tX+tS}%`);
-						tX += tS;
-						ccX = cX + cW;
+						let x1 = +xClip.getAttribute("cX"),
+							x2 = x1 + +xClip.getAttribute("cW");
+						if (tX !== x1) {
+							// in case first clip is not starting from zero
+							gradient.push({ x1: tX, x2: x1, color: "transparent" });
+						}
+						gradient.push({ x1, x2, color });
+						tX = x2;
 					});
-					gradient.push(`transparent ${tX}%, transparent 100%`);
+					// in case clips doesn't cover full length
+					if (tX !== fW) {
+						gradient.push({ x1: tX, x2: fW, color: "transparent" });
+					}
+					// translate blocks to background linear gradient
+					gradient = gradient.map(b => {
+						let left = Math.round(b.x1 / fW * 100),
+							right = Math.round(b.x2 / fW * 100);
+						return `${b.color} ${left}%, ${b.color} ${right}%`;
+					});
+					// apply gradient
 					laneEl.css({ "background-image": `linear-gradient(90deg, ${gradient.join(",")})` });
 				});
 				break;

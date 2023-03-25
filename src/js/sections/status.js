@@ -18,7 +18,7 @@
 		switch (event.type) {
 			case "display-filename":
 				// show file name
-				value = event.file._file.base;
+				value = event.file._file.name;
 				Self.els.el.html(value);
 				break;
 		}

@@ -52,10 +52,25 @@ const Jam = {
 					instrument = new Tone.Sampler(data);
 					break;
 				case "synth":
-					instrument = new Tone.PolySynth(Tone.Synth, {
-						oscillator: { partials: [4, 2, 3, 4] },
-						detune: 100,
-					});
+					// instrument = new Tone.PolySynth(Tone.Synth, {
+					// 	oscillator: { partials: [4, 2, 3, 4] },
+					// 	detune: 100,
+					// });
+					instrument = new Tone.Synth({
+									oscillator: {
+										type: "amtriangle",
+										harmonicity: 0.5,
+										modulationType: "sine"
+									},
+									envelope: {
+										attackCurve: "exponential",
+										attack: 0.05,
+										decay: 0.2,
+										sustain: 0.2,
+										release: 1.5,
+									},
+									portamento: 0.05,
+								});
 					break;
 				case "drumkit":
 					xNode.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
@@ -129,8 +144,8 @@ const Jam = {
 		// return console.log(beats);
 
 		// start Tone transport
-		// Tone.Transport.start();
-		Tone.Transport.start("0", "4:1:1");
+		Tone.Transport.start();
+		// Tone.Transport.start("0", "4:1:1");
 		// update / rendering
 		this.update();
 	},

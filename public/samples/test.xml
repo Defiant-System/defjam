@@ -2,12 +2,13 @@
 	<Head>
 		<Tempo value="120"/>
 		<Position bar="0.0.0" time="00:00.00"/>
+		<Loop start="2" length="2"/>
 		<Duration value="10"/>
 		<Browser width="220"/>
-		<Details height="460" view="midi"/>
+		<Details height="460" view="devices"/>
 	</Head>
 	<Tracks view="session">
-		<Track name="Drums" color="#48c" class="selected" id="track-1" type="drumkit">
+		<Track id="track-1" name="Drums" color="#48c" type="drumkit">
 			<Device name="Drumkit">
 				<Settings>
 					<Knob name="DrBus Amount" value="23" suffix="%"/>
@@ -69,10 +70,9 @@
 			<Volume value="90"/>
 		</Track>
 		
-		<Track name="Pizzicato Strings" color="#77c" id="track-2" type="sampler">
-			<Device name="Pizzicato Strings">
-				<Set xPath=".//Instruments//Item[@name='Pizzicato Strings']/s"/>
-				<!-- <Settings>
+		<Track id="track-2" name="Synth" color="#77c" type="synth" class="selected">
+			<Device name="Synth">
+				<Settings>
 					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
 					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
@@ -81,7 +81,7 @@
 					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
-				</Settings> -->
+				</Settings>
 			</Device>
 			<Slot>
 				<Clip id="clip-2-1" name="Clip 1" length="4" row="0" oY="-550" oX="0" keyH="18" noteW="18">
@@ -128,7 +128,7 @@
 			<Volume value="90"/>
 		</Track>
 		
-		<Track name="Celesta" color="#96a" id="track-3" type="sampler">
+		<Track id="track-3" name="Celesta" color="#96a" type="sampler">
 			<Device name="Celesta">
 				<Set xPath=".//Instruments//Item[@name='Celesta']/s"/>
 				<Settings>

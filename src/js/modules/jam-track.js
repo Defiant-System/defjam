@@ -62,8 +62,10 @@
 		track.instrument.triggerAttack(key, Tone.now(), 1);
 	},
 	triggerRelease(id, key) {
-		let track = this._list[id];
-		track.instrument.triggerRelease(key, Tone.now());
+		let track = this._list[id],
+			args = [Tone.now()];
+		if (track.instrument.name !== "Synth") args.unshift(key);
+		track.instrument.triggerRelease(...args);
 	},
 	updateAnalyserHeight(data) {
 		let track = this._list[data.id],

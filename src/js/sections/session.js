@@ -32,6 +32,12 @@
 					template: "file-io",
 					target: Self.els.el.find(`.io-master .tracks`),
 				});
+
+				el = Self.els.wTracks.find(".track.selected .slots");
+				if (el.length) {
+					// select track column
+					Self.dispatch({ ...event, type: "select-clip", target: el[0] });
+				}
 				break;
 			case "track-activator":
 				value = event.el.hasClass("off");
@@ -77,7 +83,7 @@
 				if (slotEl.length && row < 8) {
 					Self.els.wrapper.css({ "--selRow": row });
 				}
-				// selecte track column
+				// select track column
 				Self.dispatch({ ...event, type: "select-track" });
 				// track column element
 				el = slotEl.parents(".track");
@@ -85,13 +91,13 @@
 				// signal devices panel to render
 				APP.devices.dispatch({
 					type: "render-device",
-					file: APP.File._file,
+					file: event.file || APP.File._file,
 					trackId,
 				});
 				// signal midi panel to render
 				APP.midi.dispatch({
 					type: "render-clip",
-					file: APP.File._file,
+					file: event.file || APP.File._file,
 					clipId: tEl.data("id"),
 					trackId,
 				});

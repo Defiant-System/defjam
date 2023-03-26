@@ -52,7 +52,6 @@ const Jam = {
 					instrument = new Tone.Sampler(data);
 					break;
 				case "synth":
-					{
 					let deviceId = "Synth",
 						oscillator = {
 							type: "amtriangle",
@@ -69,8 +68,6 @@ const Jam = {
 						portamento = 0.05;
 
 					instrument = new Tone[deviceId]({ oscillator, envelope, portamento });
-
-					}
 					break;
 				case "drumkit":
 					xNode.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {

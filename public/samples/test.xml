@@ -76,7 +76,7 @@
 					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
 					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
-					<Knob name="Pitch Decay" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Portamento" value="11" min="0" max="7" suffix=""/>
 					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
@@ -84,7 +84,6 @@
 				</Settings>
 				<Option name="Oscilator" id="oscilator" type="amtriangle" harmonicity="0.5" modulationType="sine" partialCount="2" phase="0" />
 				<Option name="Envelope" id="envelope" attack=">0.05" decay="0.2" release="1.5" sustain="0.2" attackCurve="exponential" decayCurve="linear" releaseCurve="step" />
-				<Option name="Portamento" id="portamento">0.05</Option>
 			</Device>
 			<Slot>
 				<Clip id="clip-2-1" name="Clip 1" length="4" row="0" oY="-550" oX="0" keyH="18" noteW="18">

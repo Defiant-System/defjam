@@ -263,13 +263,44 @@
 			<div class="synth-controls">
 				<xsl:call-template name="device-controls" />
 			</div>
-			<!--
-			context : BaseContext
-			modulation : OmniOscillatorSynthOptions
-			oscillator : OmniOscillatorSynthOptions
-			onsilence : onSilenceCallback
-			harmonicity : Positive
-			-->
+		</div>
+	</div>
+	<xsl:for-each select="./Device/Option">
+		<xsl:choose>
+			<xsl:when test="@id = 'oscilator'"><xsl:call-template name="rack-oscilator" /></xsl:when>
+			<xsl:when test="@id = 'envelope'"><xsl:call-template name="rack-envelope" /></xsl:when>
+		</xsl:choose>
+	</xsl:for-each>
+</xsl:template>
+
+
+<xsl:template name="rack-oscilator">
+	<div class="rack-body rack-oscilator">
+		<div class="rack-head">
+			<i class="icon-blank"></i> Oscilator
+		</div>
+		<div class="box-body">
+			<div class="display">
+				<div class="graph has-values">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</xsl:template>
+
+
+<xsl:template name="rack-envelope">
+	<div class="rack-body rack-envelope">
+		<div class="rack-head">
+			<i class="icon-blank"></i> Envelope
+		</div>
+		<div class="box-body">
+			<div class="display">
+				<div class="graph has-values">
+
+				</div>
+			</div>
 		</div>
 	</div>
 </xsl:template>

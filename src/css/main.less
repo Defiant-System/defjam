@@ -3026,7 +3026,7 @@ content {
 			display: block;
 
 			.rack-body .box-body {
-				padding-right: 9px;
+				padding-right: 7px;
 			}
 		}
 
@@ -3058,7 +3058,7 @@ content {
 			.box-body {
 				flex: 1;
 				border-radius: 0 0 3px 3px;
-				padding: 5px 0 3px 9px;
+				padding: 5px 0 3px 7px;
 				display: flex;
 
 				&.controls {
@@ -3067,7 +3067,7 @@ content {
 
 				&.fields {
 					display: block;
-					padding-right: 9px;
+					padding-right: 7px;
 				}
 
 				.graph {
@@ -3160,9 +3160,7 @@ content {
 					}
 				}
 
-				.envelope-display {
-					width: 320px;
-
+				.display {
 					.controls {
 						> div {
 							position: relative;
@@ -3199,21 +3197,33 @@ content {
 			}
 		}
 
-		
+		.rack-body.rack-oscilator {
+			// width: 420px;
 
-
-		.midi-controls {
-			width: 132px;
+			.box-body {
+				.display {
+					width: 220px;
+				}
+			}
 		}
 
-		.sample-display {
-			width: 520px;
+		.rack-body.rack-envelope {
+			// width: 520px;
+
+			.box-body {
+				.display {
+					width: 320px;
+				}
+			}
+		}
+
+		.rack-body.midi-controls {
+			width: 132px;
 		}
 
 		.drum-control {
 			ul.controls.col-4 { width: 248px; }
 		}
-
 
 		ul.controls {
 			list-style: none;

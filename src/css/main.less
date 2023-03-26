@@ -3033,6 +3033,7 @@ content {
 		.rack-body {
 			display: flex;
 			flex-direction: column;
+			position: relative;
 
 			.rack-head {
 				position: relative;
@@ -3173,34 +3174,6 @@ content {
 				.display {
 					position: relative;
 
-					i[class*="icon-"] {
-						position: relative;
-						top: 3px;
-						left: 3px;
-						background-position: 0 0;
-						background-size: 13px 13px;
-						background-repeat: no-repeat;
-						display: inline-block;
-						width: 13px;
-						height: 13px;
-
-						&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
-						&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
-						&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
-						&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
-						&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
-						&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
-						&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
-
-						&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
-						&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
-						&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
-						&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
-						&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
-						&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
-						&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
-					}
-
 					.value-row {
 						display: flex;
 						padding: 3px 0 0;
@@ -3211,27 +3184,6 @@ content {
 
 						div {
 							flex: 1;
-						}
-					}
-
-					ul.curve-options {
-						position: absolute;
-						top: 7px;
-						left: 7px;
-						z-index: 2;
-						padding: 1px 7px 2px;
-						border-radius: 3px;
-						background: @boxBg;
-						box-shadow: 0 0 3px #000;
-
-						li {
-							display: block;
-							padding: 1px 0;
-
-							i[class*="icon-"] {
-								margin-right: 3px;
-								filter: saturate(1.5) invert(1);
-							}
 						}
 					}
 
@@ -3268,6 +3220,62 @@ content {
 						}
 					}
 				}
+			}
+
+			ul.curve-options {
+				position: absolute;
+				top: 17px;
+				left: 87px;
+				z-index: 2;
+				padding: 3px 0;
+				border-radius: 3px;
+				background: @boxBg;
+				box-shadow: 0 0 3px #000;
+
+				li {
+					display: block;
+					white-space: nowrap;
+					padding: 0 7px 3px 3px;
+					margin-bottom: 1px;
+					cursor: pointer;
+
+					&:hover {
+						background: rgba(0,0,0,.1);
+					}
+
+					i[class*="icon-"] {
+						margin-right: 5px;
+						filter: saturate(1.5) invert(1) drop-shadow(0 1px 0 rgba(0,0,0,.35));
+					}
+				}
+			}
+
+			i[class*="icon-"] {
+				position: relative;
+				top: 3px;
+				left: 3px;
+				background-position: 0 0;
+				background-size: 13px 13px;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 13px;
+				height: 13px;
+
+				&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
+				&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
+				&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
+				&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
+				&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
+				&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
+				&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
+
+				&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
+				&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
+				&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
+				&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
+				&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
+				&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
+				&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
 			}
 		}
 

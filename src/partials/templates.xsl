@@ -298,7 +298,7 @@
 <xsl:template name="rack-envelope">
 	<div class="rack-body rack-envelope">
 		<div class="rack-head">
-			<i class="icon-blank"></i> Envelope
+			<i class="icon-blank"></i> Amplitude Envelope
 		</div>
 		<div class="box-body">
 			<div class="display">
@@ -314,6 +314,22 @@
 						<rect class="st2" x="142" y="42" width="4" height="4"/>
 						<rect class="st2" x="303" y="101" width="4" height="4"/>
 					</svg>
+					<div class="value-row">
+						<div>Attack: <i class="icon-curve_bounce"></i></div>
+						<div>Decay: <i class="icon-curve_decay_step"></i></div>
+						<div>Release: <i class="icon-curve_decay_bounce"></i></div>
+					</div>
+
+					<ul class="curve-options">
+						<li><i class="icon-curve_exponential"></i> Exponential</li>
+						<li><i class="icon-curve_linear"></i> Linear</li>
+						<li><i class="icon-curve_sine"></i> Sine</li>
+						<li><i class="icon-curve_cosine"></i> Cosine</li>
+						<li><i class="icon-curve_step"></i> Step</li>
+						<li><i class="icon-curve_bounce"></i> Bounce</li>
+						<li><i class="icon-curve_ripple"></i> Ripple</li>
+					</ul>
+
 				</div>
 				<div class="controls">
 					<div>
@@ -329,7 +345,7 @@
 					</div>
 
 					<div>
-						<label>Sustaain</label>
+						<label>Sustain</label>
 						<div class="knob2" data-value="17"></div>
 						<span>17 dB</span>
 					</div>

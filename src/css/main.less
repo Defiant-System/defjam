@@ -3171,6 +3171,70 @@ content {
 				}
 
 				.display {
+					position: relative;
+
+					i[class*="icon-"] {
+						position: relative;
+						top: 3px;
+						left: 3px;
+						background-position: 0 0;
+						background-size: 13px 13px;
+						background-repeat: no-repeat;
+						display: inline-block;
+						width: 13px;
+						height: 13px;
+
+						&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
+						&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
+						&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
+						&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
+						&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
+						&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
+						&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
+
+						&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
+						&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
+						&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
+						&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
+						&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
+						&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
+						&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
+					}
+
+					.value-row {
+						display: flex;
+						padding: 3px 0 0;
+						font-size: 10px;
+						text-shadow: 0 0 0;
+						text-transform: uppercase;
+						color: @face;
+
+						div {
+							flex: 1;
+						}
+					}
+
+					ul.curve-options {
+						position: absolute;
+						top: 7px;
+						left: 7px;
+						z-index: 2;
+						padding: 1px 7px 2px;
+						border-radius: 3px;
+						background: @boxBg;
+						box-shadow: 0 0 3px #000;
+
+						li {
+							display: block;
+							padding: 1px 0;
+
+							i[class*="icon-"] {
+								margin-right: 3px;
+								filter: saturate(1.5) invert(1);
+							}
+						}
+					}
+
 					.controls {
 						> div {
 							position: relative;
@@ -3182,7 +3246,7 @@ content {
 								// text-transform: none;
 								text-align: left;
 								// color: @face;
-								// text-shadow: 0 0 0;
+								text-shadow: 0 0 0;
 							}
 
 							span {

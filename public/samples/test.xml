@@ -76,7 +76,7 @@
 					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
 					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
-					<Knob name="Portamento" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Porta-mento" value="11" min="0" max="7" suffix=""/>
 					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
 					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>

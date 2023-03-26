@@ -53,7 +53,8 @@ const Jam = {
 					break;
 				case "synth":
 					instrument = new Tone.PolySynth(Tone.Synth, {
-						oscillator: { partials: [0, 2, 3, 4] }
+						oscillator: { partials: [4, 2, 3, 4] },
+						detune: 100,
 					});
 					break;
 				case "drumkit":

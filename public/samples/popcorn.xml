@@ -5,14 +5,24 @@
 		<Loop start="2" length="2"/>
 		<Duration value="21"/>
 		<Browser width="0"/>
-		<Details height="520" view="midi"/>
+		<Details height="520" view="devices"/>
 	</Head>
-	<Tracks view="arrangement">
+	<Tracks view="session">
 
 		<!-- Melody -->
-		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="sampler" class="collapsed1">
+		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="synth" class="collapsed1">
 			<Device name="Acoustic Grand Piano">
-				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+				<!-- <Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/> -->
+				<Settings>
+					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
+					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
+					<Knob name="Pitch Decay" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/>
+					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
+					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
+				</Settings>
 			</Device>
 			<Lane>
 				<Clip id="clip-1-1" name="Melody" start="2.4.3" length="8" oY="-350" oX="0" keyH="14" noteW="20">
@@ -152,7 +162,7 @@
 			</Lane>
 			<Sends label="A" value="0"/>
 			<Sends label="B" value="0"/>
-			<Buttons activator="on" solo="off" record="off"/>
+			<Buttons activator="on" solo="off" record="on"/>
 			<Volume value="90"/>
 		</Track>
 

@@ -36,6 +36,8 @@
 					Self.els.panelBottom.prevAll(".resize").addClass("hidden");
 					Self.els.btnToggle.addClass("toggled");
 					Self.els.rowFoot.find(".box.active").removeClass("active");
+				} else if (event.node.getAttribute("view") === "devices") {
+					Self.els.panelBottom.data({ value });
 				} else {
 					Self.els.panelBottom.css({ "--pH": `${value}px` });
 				}

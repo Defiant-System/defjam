@@ -24,6 +24,9 @@
 					match: `//Project//Track[@id="${event.trackId}"]`,
 					prepend: Self.els.el,
 				});
+
+				// temp
+				Self.oscilator.dispatch({ type: "init-rack", el: Self.els.el });
 				break;
 			case "mute-pad": break;
 			case "solo-pad": break;

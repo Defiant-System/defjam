@@ -3250,7 +3250,7 @@ content {
 			}
 		}
 
-		.rack-body.rack-oscilator {
+		.rack-body[data-rack="oscilator"] {
 			.box-body {
 				.display {
 					svg {
@@ -3261,7 +3261,7 @@ content {
 			}
 		}
 
-		.rack-body.rack-envelope {
+		.rack-body[data-rack="envelope"] {
 			.box-body {
 				.display {
 					svg {
@@ -3732,49 +3732,63 @@ i[class*="icon-"] {
 
 	&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
 	&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
-	&.icon-curve_decay_sine   { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
+	&.icon-curve_decay_sine   { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(180deg) scaleX(-1); }
 	&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
 	&.icon-curve_decay_step   { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
 	&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
 	&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
 }
 
-.popup-menu {
-	display: none;
-	position: absolute;
-	padding: 3px 0;
-	border-radius: 3px;
-	background: fadeout(darken(@boxBg, 3%), 19%);
-	backdrop-filter: blur(3px);
-	box-shadow: 0 0 0 1px rgba(0,0,0,.35),
-				0 1px 5px rgba(0,0,0,.5);
-	z-index: 101;
-	font-size: 12px;
-	color: darken(@text, 7%);
-	text-shadow: 0 1px 0 rgba(0,0,0,.35);
+.popups {
+	> div {
+		display: none;
+		position: absolute;
+		padding: 3px 0;
+		border-radius: 3px;
+		background: fadeout(darken(@boxBg, 3%), 19%);
+		backdrop-filter: blur(3px);
+		box-shadow: 0 0 0 1px rgba(0,0,0,.35),
+					0 1px 5px rgba(0,0,0,.5);
+		z-index: 101;
+		font-size: 12px;
+		color: darken(@text, 7%);
+		text-shadow: 0 1px 0 rgba(0,0,0,.35);
 
-	&.show {
-		display: block;
-	}
+		&.show {
+			display: block;
+		}
 
-	&.envelope-curve-options {
-		// display: block;
-		// top: 650px;
-		// left: 350px;
+		&.envelope-curve-options {
+			// display: block;
+			// top: 650px;
+			// left: 520px;
 
-		&.decay-icons {
-			li i[class*="icon-"] {
-				filter: saturate(1.5) drop-shadow(1px 0 0 rgba(0,0,0,.35));
+			&.decay-icons {
+				li i[class*="icon-"] {
+					filter: saturate(1.5) drop-shadow(1px 0 0 rgba(0,0,0,.35));
 
-				&.icon-curve_exponential { transform: rotate(90deg); }
-				&.icon-curve_linear { transform: rotate(90deg); }
-				&.icon-curve_sine { transform: rotate(90deg); }
-				&.icon-curve_cosine { transform: rotate(90deg); }
-				&.icon-curve_step { transform: rotate(90deg); }
-				&.icon-curve_bounce { transform: rotate(180deg) scaleX(-1); }
-				&.icon-curve_ripple { transform: rotate(180deg) scaleX(-1); }
+					&.icon-curve_exponential { transform: rotate(90deg); }
+					&.icon-curve_linear { transform: rotate(90deg); }
+					&.icon-curve_sine { transform: rotate(180deg) scaleX(-1); }
+					&.icon-curve_cosine { transform: rotate(90deg); }
+					&.icon-curve_step { transform: rotate(90deg); }
+					&.icon-curve_bounce { transform: rotate(180deg) scaleX(-1); }
+					&.icon-curve_ripple { transform: rotate(180deg) scaleX(-1); }
+				}
 			}
 		}
+
+		&.oscilator-shape-options {
+			// display: block;
+			// top: 650px;
+			// left: 350px;
+
+
+			li i[class*="icon-"] {
+				width: 21px;
+			}
+		}
+		
 
 		li {
 			display: block;
@@ -3800,7 +3814,6 @@ i[class*="icon-"] {
 		}
 	}
 }
-
 
 
 @keyframes playOn {

@@ -275,7 +275,7 @@
 
 
 <xsl:template name="rack-oscilator">
-	<div class="rack-body rack-oscilator">
+	<div class="rack-body" data-rack="oscilator">
 		<div class="rack-head">
 			<i class="icon-blank"></i> Oscilator
 		</div>
@@ -320,7 +320,7 @@
 
 
 <xsl:template name="rack-envelope">
-	<div class="rack-body rack-envelope">
+	<div class="rack-body" data-rack="envelope">
 		<div class="rack-head">
 			<i class="icon-blank"></i> Amplitude Envelope
 		</div>

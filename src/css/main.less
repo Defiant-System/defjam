@@ -3203,6 +3203,11 @@ content {
 							width: 13px;
 							height: 13px;
 							pointer-events: none;
+
+							&.icon-shape_square,
+							&.icon-shape_triangle,
+							&.icon-shape_sawtooth,
+							&.icon-shape_sine { width: 21px; }
 						}
 					}
 
@@ -3210,6 +3215,7 @@ content {
 						> div {
 							position: relative;
 							margin-right: 5px;
+							flex: 1;
 
 							label {
 								top: 2px;
@@ -3711,19 +3717,24 @@ i[class*="icon-"] {
 	&.icon-arrow_up    { background-image: url(~/icons/icon-arrow_up.png); }
 	&.icon-arrow_up.right { transform: rotate(90deg); }
 
+	&.icon-shape_square   { background-image: url(~/icons/icon-shape_square.png); }
+	&.icon-shape_triangle { background-image: url(~/icons/icon-shape_triangle.png); }
+	&.icon-shape_sawtooth { background-image: url(~/icons/icon-shape_sawtooth.png); }
+	&.icon-shape_sine     { background-image: url(~/icons/icon-shape_sine.png); }
+
 	&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
 	&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
-	&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
+	&.icon-curve_sine   { background-image: url(~/icons/icon-curve_sine.png); }
 	&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
-	&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
+	&.icon-curve_step   { background-image: url(~/icons/icon-curve_step.png); }
 	&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
 	&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
 
 	&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
 	&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
-	&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
+	&.icon-curve_decay_sine   { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
 	&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
-	&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
+	&.icon-curve_decay_step   { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
 	&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
 	&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
 }
@@ -3747,8 +3758,23 @@ i[class*="icon-"] {
 	}
 
 	&.envelope-curve-options {
+		// display: block;
 		// top: 650px;
 		// left: 350px;
+
+		&.decay-icons {
+			li i[class*="icon-"] {
+				filter: saturate(1.5) drop-shadow(1px 0 0 rgba(0,0,0,.35));
+
+				&.icon-curve_exponential { transform: rotate(90deg); }
+				&.icon-curve_linear { transform: rotate(90deg); }
+				&.icon-curve_sine { transform: rotate(90deg); }
+				&.icon-curve_cosine { transform: rotate(90deg); }
+				&.icon-curve_step { transform: rotate(90deg); }
+				&.icon-curve_bounce { transform: rotate(180deg) scaleX(-1); }
+				&.icon-curve_ripple { transform: rotate(180deg) scaleX(-1); }
+			}
+		}
 
 		li {
 			display: block;

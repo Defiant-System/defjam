@@ -287,7 +287,31 @@
 						<polyline class="st0" points="203,.5 209.5,.5 209.5,7 "/>
 						<polyline class="st0" points="209.5,101 209.5,107.5 203,107.5 "/>
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
+						<path class="st1" d="M3.8,60.5c6-3.1,17.9-51.1,26.1-51.1S49,58.1,60,58.1s9-2.9,15.2-2.9s14.8,13.2,18.9,23.1
+							c4.2,9.9,7.5,19.4,13.7,18.9c12.8-0.9,17.4-38.3,29.7-38.5c12.3-0.2,12.6,7.5,18.2,2.6c9.1-8,15.3-51.7,25.9-52
+							c10.6-0.2,19.4,35.9,21.5,39.9"/>
 					</svg>
+					<div class="value-row">
+						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_sine"></i></div>
+						<div data-click="show-shape-popup" data-arg="attack">Modulation: <i class="icon-shape_triangle"></i></div>
+					</div>
+				</div>
+				<div class="controls">
+					<div>
+						<label>Phase</label>
+						<div class="knob2" data-value="49"></div>
+						<span>49.3 ms</span>
+					</div>
+					<div>
+						<label>Harmonicity</label>
+						<div class="knob2" data-value="49"></div>
+						<span>49.3 ms</span>
+					</div>
+					<div>
+						<label>Partial Count</label>
+						<div class="knob2" data-value="49"></div>
+						<span>49.3 ms</span>
+					</div>
 				</div>
 			</div>
 		</div>

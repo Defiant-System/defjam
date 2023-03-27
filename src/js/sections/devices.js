@@ -35,27 +35,29 @@
 				Jam.track.play("track-1", el.data("key"));
 				break;
 			case "show-curves-popup":
+				// remember srcElement
+				Self.srcEl = $(event.target);
+				value = Self.srcEl.data("arg") === "attack" ? "" : "decay-icons";
 				rect = window.getBoundingClientRect(event.target);
-				el = window.find(`.popup-menu.envelope-curve-options`).addClass("show");
+				el = window.find(`.popup-menu.envelope-curve-options`).addClass("show "+ value);
 				el.data({ section: "devices" })
 					.css({
 						top: rect.top - +el.prop("offsetHeight"),
 						left: rect.left,
 					});
-				// remember srcElement
-				Self.srcEl = $(event.target);
 				// cover app UI
 				APP.els.content.addClass("cover");
 				break;
 			case "set-envelope-curve":
 				el = $(event.target);
-				Self.srcEl.find("> i").prop({ className: `icon-curve_${el.data("arg")}` });
+				value = Self.srcEl.data("arg") === "attack" ? "" : "decay_";
+				Self.srcEl.find("> i").prop({ className: `icon-curve_${value + el.data("arg")}` });
 				/* falls through */
 			case "hide-curves-popup":
 				// reset menu
 				window.find(`.popup-menu.envelope-curve-options`)
 					.removeAttr("data-section")
-					.removeClass("show");
+					.removeClass("show decay-icons");
 				// cover app UI
 				APP.els.content.removeClass("cover");
 				break;

@@ -26,7 +26,7 @@
 				});
 
 				// temp
-				Self.oscilator.dispatch({ type: "init-rack", el: Self.els.el });
+				Self.oscillator.dispatch({ type: "init-rack", el: Self.els.el });
 				break;
 			case "mute-pad": break;
 			case "solo-pad": break;
@@ -45,6 +45,6 @@
 				}
 		}
 	},
-	oscilator: @import "./device-oscilator.js",
+	oscillator: @import "./device-oscillator.js",
 	envelope: @import "./device-envelope.js",
 }

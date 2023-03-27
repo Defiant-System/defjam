@@ -82,7 +82,7 @@
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
-				<Option name="Oscilator" id="oscilator" type="amtriangle" harmonicity="0.5" modulationType="sine" partialCount="2" phase="0" />
+				<Option name="Oscillator" id="oscillator" type="amtriangle" harmonicity="0.5" modulationType="sine" partialCount="2" phase="0" />
 				<Option name="Envelope" id="envelope" attack=">0.05" decay="0.2" release="1.5" sustain="0.2" attackCurve="exponential" decayCurve="linear" releaseCurve="step" />
 			</Device>
 			<Slot>

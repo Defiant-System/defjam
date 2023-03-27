@@ -76,14 +76,14 @@ content {
 		}
 	}
 
-	&.cover {
+	&.cover:before {
 		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 999;
+		z-index: 99;
 		background: transparent;
 	}
 
@@ -94,7 +94,7 @@ content {
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 999;
+		z-index: 99;
 		background: transparent;
 		cursor: none;
 	}
@@ -3114,7 +3114,7 @@ content {
 
 						.st1 {
 							fill: none;
-							stroke: @boxBg;
+							stroke: lighten(@boxBg, 13%);
 							stroke-width: 1.5;
 						}
 
@@ -3185,6 +3185,16 @@ content {
 
 						div {
 							flex: 1;
+
+							&[data-click] {
+								// text-align: center;
+								padding-left: 5px;
+								cursor: pointer;
+
+								&:hover {
+									color: lighten(@face, 5%);
+								}
+							}
 						}
 
 						i[class*="icon-"] {
@@ -3192,6 +3202,7 @@ content {
 							left: 3px;
 							width: 13px;
 							height: 13px;
+							pointer-events: none;
 						}
 					}
 
@@ -3205,6 +3216,7 @@ content {
 								left: 1px;
 								// text-transform: none;
 								text-align: left;
+								color: lighten(@face, 29%);
 								// color: @face;
 								text-shadow: 0 0 0;
 							}
@@ -3213,7 +3225,8 @@ content {
 								top: auto;
 								bottom: 0;
 								left: 19px;
-								color: @face;
+								color: lighten(@face, 29%);
+								// color: @face;
 								text-align: left;
 								text-shadow: 0 0 0;
 							}
@@ -3724,14 +3737,18 @@ i[class*="icon-"] {
 	backdrop-filter: blur(3px);
 	box-shadow: 0 0 0 1px rgba(0,0,0,.35),
 				0 1px 5px rgba(0,0,0,.5);
-	z-index: 12;
+	z-index: 101;
 	font-size: 12px;
 	color: darken(@text, 7%);
 	text-shadow: 0 1px 0 rgba(0,0,0,.35);
 
-	&.curve-options {
-		top: 650px;
-		left: 350px;
+	&.show {
+		display: block;
+	}
+
+	&.envelope-curve-options {
+		// top: 650px;
+		// left: 350px;
 
 		li {
 			display: block;
@@ -3752,6 +3769,7 @@ i[class*="icon-"] {
 				height: 13px;
 				margin-right: 5px;
 				filter: saturate(1.5) drop-shadow(0 1px 0 rgba(0,0,0,.35));
+				pointer-events: none;
 			}
 		}
 	}

@@ -315,9 +315,9 @@
 						<rect class="st2" x="303" y="101" width="4" height="4"/>
 					</svg>
 					<div class="value-row">
-						<div>Attack: <i class="icon-curve_bounce"></i></div>
-						<div>Decay: <i class="icon-curve_decay_step"></i></div>
-						<div>Release: <i class="icon-curve_decay_bounce"></i></div>
+						<div data-click="show-curves-popup" data-arg="attack">Attack: <i class="icon-curve_linear"></i></div>
+						<div data-click="show-curves-popup" data-arg="decay">Decay: <i class="icon-curve_decay_linear"></i></div>
+						<div data-click="show-curves-popup" data-arg="release">Release: <i class="icon-curve_decay_linear"></i></div>
 					</div>
 				</div>
 				<div class="controls">

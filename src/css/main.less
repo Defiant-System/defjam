@@ -23,6 +23,7 @@
 
 
 background: @base;
+overflow: visible;
 
 content {
 	position: absolute;
@@ -3185,6 +3186,13 @@ content {
 						div {
 							flex: 1;
 						}
+
+						i[class*="icon-"] {
+							top: 3px;
+							left: 3px;
+							width: 13px;
+							height: 13px;
+						}
 					}
 
 					.controls {
@@ -3220,62 +3228,6 @@ content {
 						}
 					}
 				}
-			}
-
-			ul.curve-options {
-				position: absolute;
-				top: 17px;
-				left: 87px;
-				z-index: 2;
-				padding: 3px 0;
-				border-radius: 3px;
-				background: @boxBg;
-				box-shadow: 0 0 3px #000;
-
-				li {
-					display: block;
-					white-space: nowrap;
-					padding: 0 7px 3px 3px;
-					margin-bottom: 1px;
-					cursor: pointer;
-
-					&:hover {
-						background: rgba(0,0,0,.1);
-					}
-
-					i[class*="icon-"] {
-						margin-right: 5px;
-						filter: saturate(1.5) invert(1) drop-shadow(0 1px 0 rgba(0,0,0,.35));
-					}
-				}
-			}
-
-			i[class*="icon-"] {
-				position: relative;
-				top: 3px;
-				left: 3px;
-				background-position: 0 0;
-				background-size: 13px 13px;
-				background-repeat: no-repeat;
-				display: inline-block;
-				width: 13px;
-				height: 13px;
-
-				&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
-				&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
-				&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
-				&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
-				&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
-				&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
-				&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
-
-				&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
-				&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
-				&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
-				&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
-				&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
-				&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
-				&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
 			}
 		}
 
@@ -3570,6 +3522,10 @@ content {
 
 		> div {
 			margin-left: @margin;
+
+			&.buttons {
+				margin-left: 6px;
+			}
 		}
 
 		.status-bar {
@@ -3724,24 +3680,83 @@ content {
 		&[data-value="98"], &[data-value="99"], &[data-value="100"] { background-position: 0 -480px; }
 
 	}
+}
 
-	i[class*="icon-"] {
-		background: 50% 50%/contain no-repeat;
-		position: relative;
-		display: inline-block;
-		width: 17px;
-		height: 17px;
+i[class*="icon-"] {
+	position: relative;
+	background: 50% 50%/contain no-repeat;
+	display: inline-block;
+	width: 17px;
+	height: 17px;
 
-		&.icon-sounds      { background-image: url(~/icons/icon-sounds.png); }
-		&.icon-drums       { background-image: url(~/icons/icon-drums.png); }
-		&.icon-instruments { background-image: url(~/icons/icon-instruments.png); }
-		&.icon-audio_fx    { background-image: url(~/icons/icon-audio_fx.png); }
-		&.icon-arrangement { background-image: url(~/icons/icon-arrangement.png); }
-		&.icon-session     { background-image: url(~/icons/icon-session.png); }
-		&.icon-arrow_up    { background-image: url(~/icons/icon-arrow_up.png); }
-		&.icon-arrow_up.right { transform: rotate(90deg); }
+	&.icon-sounds      { background-image: url(~/icons/icon-sounds.png); }
+	&.icon-drums       { background-image: url(~/icons/icon-drums.png); }
+	&.icon-instruments { background-image: url(~/icons/icon-instruments.png); }
+	&.icon-audio_fx    { background-image: url(~/icons/icon-audio_fx.png); }
+	&.icon-arrangement { background-image: url(~/icons/icon-arrangement.png); }
+	&.icon-session     { background-image: url(~/icons/icon-session.png); }
+	&.icon-arrow_up    { background-image: url(~/icons/icon-arrow_up.png); }
+	&.icon-arrow_up.right { transform: rotate(90deg); }
+
+	&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
+	&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }
+	&.icon-curve_sine { background-image: url(~/icons/icon-curve_sine.png); }
+	&.icon-curve_cosine { background-image: url(~/icons/icon-curve_cosine.png); }
+	&.icon-curve_step { background-image: url(~/icons/icon-curve_step.png); }
+	&.icon-curve_bounce { background-image: url(~/icons/icon-curve_bounce.png); }
+	&.icon-curve_ripple { background-image: url(~/icons/icon-curve_ripple.png); }
+
+	&.icon-curve_decay_exponential { background-image: url(~/icons/icon-curve_exponential.png); transform: rotate(90deg); }
+	&.icon-curve_decay_linear { background-image: url(~/icons/icon-curve_linear.png); transform: rotate(90deg); }
+	&.icon-curve_decay_sine { background-image: url(~/icons/icon-curve_sine.png); transform: rotate(90deg); }
+	&.icon-curve_decay_cosine { background-image: url(~/icons/icon-curve_cosine.png); transform: rotate(90deg); }
+	&.icon-curve_decay_step { background-image: url(~/icons/icon-curve_step.png); transform: rotate(90deg); }
+	&.icon-curve_decay_bounce { background-image: url(~/icons/icon-curve_bounce.png); transform: rotate(180deg) scaleX(-1); }
+	&.icon-curve_decay_ripple { background-image: url(~/icons/icon-curve_ripple.png); transform: rotate(180deg) scaleX(-1); }
+}
+
+.popup-menu {
+	display: none;
+	position: absolute;
+	padding: 3px 0;
+	border-radius: 3px;
+	background: fadeout(darken(@boxBg, 3%), 19%);
+	backdrop-filter: blur(3px);
+	box-shadow: 0 0 0 1px rgba(0,0,0,.35),
+				0 1px 5px rgba(0,0,0,.5);
+	z-index: 12;
+	font-size: 12px;
+	color: darken(@text, 7%);
+	text-shadow: 0 1px 0 rgba(0,0,0,.35);
+
+	&.curve-options {
+		top: 650px;
+		left: 350px;
+
+		li {
+			display: block;
+			white-space: nowrap;
+			padding: 1px 11px 4px 7px;
+			margin-bottom: 1px;
+			cursor: pointer;
+
+			&:hover {
+				background: darken(@boxBg, 11%);
+				color: @text;
+			}
+
+			i[class*="icon-"] {
+				top: 2px;
+				left: 1px;
+				width: 13px;
+				height: 13px;
+				margin-right: 5px;
+				filter: saturate(1.5) drop-shadow(0 1px 0 rgba(0,0,0,.35));
+			}
+		}
 	}
 }
+
 
 
 @keyframes playOn {

@@ -353,16 +353,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<ul class="curve-options">
-			<li><i class="icon-curve_exponential"></i> Exponential</li>
-			<li><i class="icon-curve_linear"></i> Linear</li>
-			<li><i class="icon-curve_sine"></i> Sine</li>
-			<li><i class="icon-curve_cosine"></i> Cosine</li>
-			<li><i class="icon-curve_step"></i> Step</li>
-			<li><i class="icon-curve_bounce"></i> Bounce</li>
-			<li><i class="icon-curve_ripple"></i> Ripple</li>
-		</ul>
 	</div>
 </xsl:template>
 

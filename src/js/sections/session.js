@@ -35,8 +35,8 @@
 
 				el = Self.els.wTracks.find(".track.selected .slots");
 				if (el.length) {
-					// select track column
-					Self.dispatch({ ...event, type: "select-clip", target: el[0] });
+					// select track column (on next tick)
+					requestAnimationFrame(() => Self.dispatch({ ...event, type: "select-clip", target: el[0] }));
 				}
 				break;
 			case "track-activator":

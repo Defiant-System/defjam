@@ -3132,23 +3132,31 @@ content {
 						display: block;
 						// background: rgba(255,255,255,.1);
 
+						// bg lines
 						.st0 {
 							fill: none;
 							stroke: @svgDark;
 							stroke-width: .5;
 						}
 
+						// curve line
 						.st1 {
 							fill: none;
 							stroke: @svgLight;
 							stroke-width: 1.5;
 						}
 
+						// handles
 						.st2 {
 							fill: @svgHighlight;
 							stroke: @svgHighlight;
 							stroke-width: 2;
 							cursor: move;
+						}
+
+						// transparent boxes
+						.st3 {
+							fill: fadeout(@svgDark, 83%);
 						}
 					}
 				}

@@ -17,8 +17,9 @@ let Test = {
 		// setTimeout(() => window.find(`.ball-button[data-click="show-arrangement-view"]`).trigger("click"), 400);
 		// setTimeout(() => window.find(`.ball-button[data-click="show-session-view"]`).trigger("click"), 400);
 
+		// setTimeout(() => window.find(`.slots:nth(1)`).trigger("click"), 200);
 		// setTimeout(() => window.find(`.slots:nth(0) b:nth(0)`).trigger("click"), 500);
-		setTimeout(() => window.find(`.lane:nth(0) b:nth(1)`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.lane:nth(0) b:nth(1)`).trigger("click"), 500);
 		// setTimeout(() => window.find(`.lane:nth(1) b:nth(4)`).trigger("click"), 500);
 
 

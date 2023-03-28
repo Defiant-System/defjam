@@ -287,8 +287,14 @@
 						<polyline class="st0" points="203,.5 209.5,.5 209.5,7 "/>
 						<polyline class="st0" points="209.5,101 209.5,107.5 203,107.5 "/>
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
-						<polyline class="st1" points=""/>
-						<!-- <path class="st1" d="M3.8,60.5c6-3.1,17.9-51.1,26.1-51.1S49,58.1,60,58.1s9-2.9,15.2-2.9s14.8,13.2,18.9,23.1 c4.2,9.9,7.5,19.4,13.7,18.9c12.8-0.9,17.4-38.3,29.7-38.5c12.3-0.2,12.6,7.5,18.2,2.6c9.1-8,15.3-51.7,25.9-52 c10.6-0.2,19.4,35.9,21.5,39.9"/> -->
+						<!-- result curve -->
+						<polyline class="st1"/>
+						<!-- partials -->
+						<rect class="st3" x="2" y="46" width="39" height="60"/>
+						<rect class="st3" x="43" y="66" width="39" height="40"/>
+						<rect class="st3" x="85" y="76" width="39" height="30"/>
+						<rect class="st3" x="127" y="36" width="39" height="70"/>
+						<rect class="st3" x="169" y="86" width="39" height="20"/>
 					</svg>
 					<div class="value-row">
 						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_triangle"></i></div>
@@ -297,19 +303,19 @@
 				</div>
 				<div class="controls">
 					<div>
-						<label>Phase</label>
-						<div class="knob2" data-value="0"></div>
-						<span>49.3 ms</span>
-					</div>
-					<div>
 						<label>Harmonicity</label>
 						<div class="knob2" data-value="0"></div>
-						<span>49.3 ms</span>
+						<span>0.5</span>
+					</div>
+					<div>
+						<label>Phase</label>
+						<div class="knob2" data-value="0"></div>
+						<span>0</span>
 					</div>
 					<div>
 						<label>Partial Count</label>
 						<div class="knob2" data-value="0"></div>
-						<span>49.3 ms</span>
+						<span>0</span>
 					</div>
 				</div>
 			</div>

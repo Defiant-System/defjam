@@ -24,6 +24,8 @@
 					match: `//Project//Track[@id="${event.trackId}"]`,
 					prepend: Self.els.el,
 				});
+				// attach track identifier
+				Self.els.el.data({ track: event.trackId });
 
 				// temp
 				Self.oscillator.dispatch({ type: "init-rack", el: Self.els.el });

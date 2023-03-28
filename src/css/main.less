@@ -11,6 +11,10 @@
 @gridblack: fadeout(darken(@boxBg, 9%), 73%);
 @gridgroup: darken(@boxBg, 1.5%);
 
+@svgDark: lighten(@boxBg, 7%);
+@svgLight: #1fb5fe;
+@svgHighlight: #b92;
+
 @pianoWhite: #eee;
 @pianoBlack: #333;
 @pianoLine1: darken(@pianoBlack, 5%);
@@ -3130,19 +3134,19 @@ content {
 
 						.st0 {
 							fill: none;
-							stroke: lighten(@boxBg, 7%);
+							stroke: @svgDark;
 							stroke-width: .5;
 						}
 
 						.st1 {
 							fill: none;
-							stroke: lighten(@boxBg, 13%);
+							stroke: @svgLight;
 							stroke-width: 1.5;
 						}
 
 						.st2 {
-							fill: @highlight;
-							stroke: @highlight;
+							fill: @svgHighlight;
+							stroke: @svgHighlight;
 							stroke-width: 2;
 							cursor: move;
 						}

@@ -1,5 +1,5 @@
 
-// defjam.devices.oscillator
+// defjam.devices.omniOscillator
 
 {
 	init() {
@@ -7,7 +7,7 @@
 	},
 	dispatch(event) {
 		let APP = defjam,
-			Self = APP.devices.oscillator,
+			Self = APP.devices.omniOscillator,
 			rect,
 			name,
 			value,
@@ -19,7 +19,7 @@
 					osc = Jam.track._list[trackId].instrument.oscillator,
 					// partials = osc._oscillator._carrier.partials,
 					partials = [0.0860851900077161, 0.007236810378086416, 1, .5],
-					svgEl = event.el.find(`div[data-rack="oscillator"] svg`),
+					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`),
 					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
 					rects = [];
 
@@ -74,7 +74,7 @@
 				el = window.find(`.popups .oscillator-shape-options`).addClass("show");
 				el.data({
 						section: "devices",
-						rack: "oscillator",
+						rack: "omniOscillator",
 					})
 					.css({
 						top: rect.top - +el.prop("offsetHeight"),

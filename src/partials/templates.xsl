@@ -267,17 +267,17 @@
 	</div>
 	<xsl:for-each select="./Device/Option">
 		<xsl:choose>
-			<xsl:when test="@id = 'oscillator'"><xsl:call-template name="rack-oscillator" /></xsl:when>
+			<xsl:when test="@id = 'omniOscillator'"><xsl:call-template name="rack-omniOscillator" /></xsl:when>
 			<xsl:when test="@id = 'envelope'"><xsl:call-template name="rack-envelope" /></xsl:when>
 		</xsl:choose>
 	</xsl:for-each>
 </xsl:template>
 
 
-<xsl:template name="rack-oscillator">
-	<div class="rack-body" data-rack="oscillator">
+<xsl:template name="rack-omniOscillator">
+	<div class="rack-body" data-rack="omniOscillator">
 		<div class="rack-head">
-			<i class="icon-blank"></i> Oscillator
+			<i class="icon-blank"></i> Omni Oscillator
 		</div>
 		<div class="box-body">
 			<div class="display">

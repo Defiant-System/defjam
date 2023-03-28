@@ -28,7 +28,7 @@
 				Self.els.el.data({ track: event.trackId });
 
 				// temp
-				Self.oscillator.dispatch({ type: "init-rack", el: Self.els.el });
+				Self.omniOscillator.dispatch({ type: "init-rack", el: Self.els.el });
 				break;
 			case "mute-pad": break;
 			case "solo-pad": break;
@@ -47,6 +47,6 @@
 				}
 		}
 	},
-	oscillator: @import "./device-oscillator.js",
-	envelope: @import "./device-envelope.js",
+	omniOscillator: @import "./devices/omni-oscillator.js",
+	envelope: @import "./devices/envelope.js",
 }

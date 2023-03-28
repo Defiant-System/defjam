@@ -2087,6 +2087,35 @@ content {
 								}
 							}
 
+							// pie-playing
+							&[style*="--c: #48c"] .pie-playing { /* default */ }
+							&[style*="--c: #77c"] .pie-playing { filter: hue-rotate(90deg) saturate(50%); }
+							&[style*="--c: #96a"] .pie-playing { filter: hue-rotate(120deg) saturate(50%); }
+							&[style*="--c: #69b"] .pie-playing { filter: hue-rotate(30deg) saturate(50%); }
+							&[style*="--c: #b66"] .pie-playing { filter: hue-rotate(180deg) saturate(80%); }
+							&[style*="--c: #494"] .pie-playing { filter: hue-rotate(250deg) saturate(100%); }
+							&[style*="--c: #09f"] .pie-playing { filter: hue-rotate(0deg) saturate(100%); }
+							&[style*="--c: #c70"] .pie-playing { filter: hue-rotate(190deg) saturate(80%); }
+							&[style*="--c: #0bc"] .pie-playing { filter: hue-rotate(330deg) saturate(80%); }
+							&[style*="--c: #19a"] .pie-playing { filter: hue-rotate(330deg) saturate(60%); }
+							&[style*="--c: #d66"] .pie-playing { filter: hue-rotate(180deg) saturate(70%); }
+							&[style*="--c: #a75135"] .pie-playing { filter: hue-rotate(200deg) saturate(90%) brightness(80%); }
+							&[style*="--c: #815f52"] .pie-playing { filter: hue-rotate(200deg) saturate(70%) brightness(70%); }
+							&[style*="--c: #ae9a23"] .pie-playing { filter: hue-rotate(230deg) saturate(80%); }
+							&[style*="--c: #569e38"] .pie-playing { filter: hue-rotate(230deg) saturate(100%); }
+							&[style*="--c: #1c9b8e"] .pie-playing { filter: hue-rotate(300deg) saturate(70%); }
+							&[style*="--c: #377392"] .pie-playing { filter: hue-rotate(0deg) saturate(70%) brightness(80%); }
+							&[style*="--c: #4367b6"] .pie-playing { filter: hue-rotate(0deg) saturate(100%) brightness(70%); }
+							&[style*="--c: #715bbe"] .pie-playing { filter: hue-rotate(50deg) saturate(90%) brightness(80%); }
+							&[style*="--c: #b45dbe"] .pie-playing { filter: hue-rotate(100deg) saturate(90%) brightness(80%); }
+							&[style*="--c: #c17ea1"] .pie-playing { filter: hue-rotate(140deg) saturate(40%) brightness(110%); }
+							&[style*="--c: #ed9368"] .pie-playing { filter: hue-rotate(180deg) saturate(40%) brightness(110%); }
+							&[style*="--c: #e3569f"] .pie-playing { filter: hue-rotate(160deg) saturate(70%) brightness(100%); }
+							&[style*="--c: #98724e"] .pie-playing { filter: hue-rotate(220deg) saturate(80%) brightness(70%); }
+							&[style*="--c: #5c5c5c"] .pie-playing { filter: hue-rotate(220deg) saturate(20%) brightness(70%); }
+							&[style*="--c: #a9a9a9"] .pie-playing { filter: hue-rotate(220deg) saturate(20%) brightness(120%); }
+							&[style*="--c: #7b7b7b"] .pie-playing { filter: hue-rotate(220deg) saturate(20%) brightness(80%); }
+
 							> div {
 								background: var( --bg );
 								margin-bottom: 1px;
@@ -3660,10 +3689,6 @@ content {
 			}
 		}
 	}
-
-	// temp
-	.track:nth-child(1) .pie-playing { filter: hue-rotate(220deg) saturate(120%); }
-	.track:nth-child(2) .pie-playing { filter: hue-rotate(90deg) saturate(50%); }
 
 
 	.pie-playing {

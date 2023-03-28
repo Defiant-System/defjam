@@ -20,7 +20,7 @@
 					svgEl = event.el.find(`div[data-rack="oscillator"] svg`),
 					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
 					rects = [],
-					partials = [0.0860851900077161, 0.007236810378086416];
+					partials = [0.0860851900077161, 0.007236810378086416, 1, .5];
 
 				osc.asArray(width >> 1).then(values => {
 					let points = [],
@@ -39,11 +39,29 @@
 					svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
 				});
 
+
 				// first clear "old" partial rects
 				svgEl.find(`rect.st3`).remove();
 
-				partials.map(val => {
-					
+				partials = partials.map(Math.abs);
+
+				let bWidth = width - 4;
+				let bHeight = height * .35;
+		        let min = Math.min(...partials, 0);
+		        let max = Math.max(...partials, 1);
+		        let scale = (v, inMin, inMax, outMin, outMax) => {
+					let normV = Math.pow((v - inMin) / (inMax - inMin), 0.25);
+					return normV * (outMax - outMin) + outMin;
+				};
+
+				// iterate partials
+				partials.map((val, i) => {
+					let pL = partials.length,
+						w = (bWidth - (pL * 2)) / pL,
+						h = scale(val, min, max, 0, bHeight),
+						x = 2 + (i * (w + 2)),
+						y = height - h - 2;
+					rects.push(`<rect class="st3" x="${x}" y="${y}" width="${w}" height="${h}"/>`);
 				});
 
 				// let  = [];

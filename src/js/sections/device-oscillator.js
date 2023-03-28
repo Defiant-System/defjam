@@ -29,7 +29,7 @@
 						height = 108,
 						lineWidth = 1;
 
-					osc.asArray(210).then(values => {
+					osc.asArray(width >> 1).then(values => {
 						let max = Math.max(0.001, ...values) * 1.1,
 							min = Math.min(-0.001, ...values) * 1.1,
 							scale = (v, inMin, inMax, outMin, outMax) =>

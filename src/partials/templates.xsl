@@ -290,11 +290,11 @@
 						<!-- result curve -->
 						<polyline class="st1"/>
 						<!-- partials -->
-						<rect class="st3" x="2" y="46" width="39" height="60"/>
+						<!-- <rect class="st3" x="2" y="46" width="39" height="60"/>
 						<rect class="st3" x="43" y="66" width="39" height="40"/>
 						<rect class="st3" x="85" y="76" width="39" height="30"/>
 						<rect class="st3" x="127" y="36" width="39" height="70"/>
-						<rect class="st3" x="169" y="86" width="39" height="20"/>
+						<rect class="st3" x="169" y="86" width="39" height="20"/> -->
 					</svg>
 					<div class="value-row">
 						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_triangle"></i></div>

@@ -16,8 +16,11 @@
 		switch (event.type) {
 			case "init-rack":
 				let osc = Jam.track._list["track-2"].instrument.oscillator,
+					// partials = osc._oscillator._carrier.partials,
 					svgEl = event.el.find(`div[data-rack="oscillator"] svg`),
-					[y, x, width, height] = svgEl.attr("viewBox").split(" ");
+					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
+					rects = [],
+					partials = [0.0860851900077161, 0.007236810378086416];
 
 				osc.asArray(width >> 1).then(values => {
 					let points = [],
@@ -35,6 +38,22 @@
 					// plot cruve in SVG element
 					svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
 				});
+
+				// first clear "old" partial rects
+				svgEl.find(`rect.st3`).remove();
+
+				partials.map(val => {
+					
+				});
+
+				// let  = [];
+				// rects.push('<rect class="st3" x="2" y="46" width="39" height="60"/>');
+				// rects.push('<rect class="st3" x="43" y="66" width="39" height="40"/>');
+				// rects.push('<rect class="st3" x="85" y="76" width="39" height="30"/>');
+				// rects.push('<rect class="st3" x="127" y="36" width="39" height="70"/>');
+				// rects.push('<rect class="st3" x="169" y="86" width="39" height="20"/>');
+				
+				$.svgFromString(rects.join("")).map(rectEl => svgEl[0].appendChild(rectEl));
 				break;
 			case "show-shape-popup":
 				// remember srcElement

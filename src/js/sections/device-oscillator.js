@@ -17,10 +17,10 @@
 			case "init-rack":
 				let osc = Jam.track._list["track-2"].instrument.oscillator,
 					// partials = osc._oscillator._carrier.partials,
+					partials = [0.0860851900077161, 0.007236810378086416, 1, .5],
 					svgEl = event.el.find(`div[data-rack="oscillator"] svg`),
 					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
-					rects = [],
-					partials = [0.0860851900077161, 0.007236810378086416, 1, .5];
+					rects = [];
 
 				osc.asArray(width >> 1).then(values => {
 					let points = [],
@@ -42,35 +42,29 @@
 
 				// first clear "old" partial rects
 				svgEl.find(`rect.st3`).remove();
-
+				// make sure values are non-negative
 				partials = partials.map(Math.abs);
 
-				let bWidth = width - 4;
-				let bHeight = height * .35;
-		        let min = Math.min(...partials, 0);
-		        let max = Math.max(...partials, 1);
-		        let scale = (v, inMin, inMax, outMin, outMax) => {
-					let normV = Math.pow((v - inMin) / (inMax - inMin), 0.25);
-					return normV * (outMax - outMin) + outMin;
-				};
+				let bWidth = width - 2,
+					bHeight = height * .35,
+		        	min = Math.min(...partials, 0),
+		        	max = Math.max(...partials, 1),
+		        	scale = (v, inMin, inMax, outMin, outMax) =>
+		        		Math.pow((v - inMin) / (inMax - inMin), 0.25) * (outMax - outMin) + outMin;
 
 				// iterate partials
 				partials.map((val, i) => {
 					let pL = partials.length,
-						w = (bWidth - (pL * 2)) / pL,
-						h = scale(val, min, max, 0, bHeight),
-						x = 2 + (i * (w + 2)),
-						y = height - h - 2;
+						w = Math.round((bWidth - (pL * 2)) / pL),
+						h = Math.round(scale(val, min, max, 0, bHeight)),
+						x = Math.round(2 + (i * (w + 2))),
+						y = Math.round(height - h - 2);
+					if (i === pL-1) {
+						w += (bWidth - (x + w));
+					}
 					rects.push(`<rect class="st3" x="${x}" y="${y}" width="${w}" height="${h}"/>`);
 				});
-
-				// let  = [];
-				// rects.push('<rect class="st3" x="2" y="46" width="39" height="60"/>');
-				// rects.push('<rect class="st3" x="43" y="66" width="39" height="40"/>');
-				// rects.push('<rect class="st3" x="85" y="76" width="39" height="30"/>');
-				// rects.push('<rect class="st3" x="127" y="36" width="39" height="70"/>');
-				// rects.push('<rect class="st3" x="169" y="86" width="39" height="20"/>');
-				
+				// transform into svg rectangles and append to element
 				$.svgFromString(rects.join("")).map(rectEl => svgEl[0].appendChild(rectEl));
 				break;
 			case "show-shape-popup":

@@ -89,6 +89,51 @@
 			<Buttons activator="on" solo="off" record="off"/>
 			<Volume value="90"/>
 		</Track>
+
+		<Track id="track-3" name="Drums" color="#48c" type="drumkit">
+			<Device name="Drumkit">
+				<Settings>
+					<Knob name="DrBus Amount" value="23" suffix="%"/>
+					<Knob name="DrBus Drive" value="14" suffix=""/>
+					<Knob name="DrBus Transien" value="42" suffix=""/>
+					<Knob name="Comp Amount" value="46" suffix=""/>
+					<Knob name="Low Gain" value="0.00" suffix="dB"/>
+					<Knob name="Mid Gain" value="0.00" suffix="dB"/>
+					<Knob name="Mid Freq" value="316" suffix="Hz"/>
+					<Knob name="Hi Gain" value="0.21" suffix=""/>
+				</Settings>
+				<Pads>
+					<Pad kI="14" key="C4"/>
+					<Pad kI="13" key="C#4"/>
+					<Pad kI="12" key="D4"/>
+					<Pad kI="11" key="D#4" sample="3659" name="Ride"/>
+
+					<Pad kI="24" key="G#3" sample="3507" name="Clave"/>
+					<Pad kI="23" key="A3"/>
+					<Pad kI="22" key="A#3" sample="3564" name="Hihat Open"/>
+					<Pad kI="21" key="B3"/>
+
+					<Pad kI="34" key="E3"/>
+					<Pad kI="33" key="F3"/>
+					<Pad kI="32" key="F#3" sample="3639" name="Hihat Closed"/>
+					<Pad kI="31" key="G3"/>
+
+					<Pad kI="44" key="C3" sample="3609" name="Kick"/>
+					<Pad kI="43" key="C#3" sample="3603" name="Rim"/>
+					<Pad kI="42" key="D3" sample="3612" name="Snare"/>
+					<Pad kI="41" key="D#3" sample="3561" name="Clap"/>
+				</Pads>
+			</Device>
+			<Lane>
+				<Clip id="clip-3-1" name="Drums" start="1" length="2" oY="-690" oX="0" keyH="14" noteW="20">
+					<b n="C3" b="0" d="1" v="1"/>
+				</Clip>
+			</Lane>
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="off"/>
+			<Volume value="90"/>
+		</Track>
 	</Tracks>
 	<IoMaster>
 		<Track name="Reverb" io-label="A" id="sends-1">

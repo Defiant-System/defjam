@@ -52,23 +52,8 @@ const Jam = {
 					instrument = new Tone.Sampler(data);
 					break;
 				case "synth":
-					let deviceId = "Synth",
-						param = this.nodeToParam(xNode),
-						oscillator = {
-							type: "amtriangle",
-							harmonicity: 0.5,
-							modulationType: "sine"
-						},
-						envelope = {
-							attackCurve: "exponential",
-							attack: 0.05,
-							decay: 0.2,
-							sustain: 0.2,
-							release: 1.5,
-						},
-						portamento = 0.05;
-
-					instrument = new Tone[deviceId]({ oscillator, envelope, portamento });
+					data = this.tranlateNode(xNode);
+					instrument = new Tone[data.id](data.param);
 					break;
 				case "drumkit":
 					xNode.selectNodes(`./Device/Pads/Pad[@sample]`).map(xPad => {
@@ -84,23 +69,25 @@ const Jam = {
 			this.track.add({ id, xNode, instrument, sequence, isDrumkit });
 		});
 	},
-	nodeToParam(xTrack) {
-		let param = {};
+	tranlateNode(xTrack) {
+		let xDevice = xTrack.selectSingleNode(`./Device`),
+			xOptions = xDevice.selectNodes(`./Option`),
+			id = xDevice.getAttribute("id"),
+			param = {};
 
-		xTrack.selectNodes(`./Device/Option`).map(xOption => {
+		xOptions.map(xOption => {
 			let id = xOption.getAttribute("id"),
 				opt = {};
 			// iterate device options
 			[...xOption.attributes].map(a => {
 				if (["name", "id"].includes(a.name)) return;
-				opt[a.name] = a.value.numIfNum();
+				opt[a.name] = a.value.guessType();
 			});
 			// finally, add to param object
-			param[id] = Object.keys(opt).length ? opt : xOption.textContent.numIfNum();
+			param[id] = Object.keys(opt).length ? opt : xOption.textContent.guessType();
 		});
 
-		console.log(param);
-		return param;
+		return { id, param };
 	},
 	normalizeNotes() {
 		let Self = this,

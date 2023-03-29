@@ -307,8 +307,8 @@
 							<div class="option-group">
 								<span>0</span>
 								<span>1</span>
-								<span>2</span>
-								<span class="active">4</span>
+								<span class="active">2</span>
+								<span>4</span>
 								<span>8</span>
 							</div>
 						</div>

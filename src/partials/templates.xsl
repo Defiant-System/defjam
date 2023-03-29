@@ -293,10 +293,6 @@
 						<!-- <g class="st3" transform="translate(2,46)">
 							<rect x="0" y="0" width="102" height="60"/>
 							<rect x="0" y="0" width="102" height="60"/>
-						</g>
-						<g class="st3" transform="translate(106,46)">
-							<rect x="0" y="0" width="102" height="60"/>
-							<rect x="0" y="40" width="102" height="20"/>
 						</g> -->
 					</svg>
 					<div class="value-row">
@@ -305,20 +301,29 @@
 					</div>
 				</div>
 				<div class="controls">
-					<div>
-						<label>Harmonicity</label>
-						<div class="knob2" data-value="0"></div>
-						<span>0.5</span>
+					<div class="left">
+						<div class="field">
+							<label>Partial Count</label>
+							<div class="option-group">
+								<span>0</span>
+								<span>1</span>
+								<span>2</span>
+								<span>4</span>
+								<span>8</span>
+								<span>16</span>
+							</div>
+						</div>
+						<div class="field">
+							<label>Harmonicity</label>
+							<div class="range-input">
+								<span>1</span>
+							</div>
+						</div>
 					</div>
-					<div>
+					<div class="ctrl-knob2">
 						<label>Phase</label>
 						<div class="knob2" data-value="0"></div>
-						<span>0 deg</span>
-					</div>
-					<div>
-						<label>Partial Count</label>
-						<div class="knob2" data-value="0"></div>
-						<span>0</span>
+						<span>360 deg</span>
 					</div>
 				</div>
 			</div>
@@ -353,31 +358,31 @@
 					</div>
 				</div>
 				<div class="controls">
-					<div>
+					<div class="ctrl-knob2">
 						<label>Attack</label>
 						<div class="knob2" data-value="49"></div>
 						<span>49.3 ms</span>
 					</div>
 
-					<div>
+					<div class="ctrl-knob2">
 						<label>Decay</label>
 						<div class="knob2" data-value="35"></div>
 						<span>35.5 s</span>
 					</div>
 
-					<div>
+					<div class="ctrl-knob2">
 						<label>Sustain</label>
 						<div class="knob2" data-value="17"></div>
 						<span>17 dB</span>
 					</div>
 
-					<div>
+					<div class="ctrl-knob2">
 						<label>Release</label>
 						<div class="knob2" data-value="18"></div>
 						<span>18.3 ms</span>
 					</div>
 
-					<div>
+					<div class="ctrl-knob2">
 						<label>Volume</label>
 						<div class="knob2" data-value="67"></div>
 						<span>-8.00 dB</span>

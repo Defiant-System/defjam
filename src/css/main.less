@@ -732,6 +732,17 @@ content {
 		}
 	}
 
+	.option-group {
+		font-size: 0;
+
+		> span {
+			padding: 2px 3px;
+			border: 1px solid #234;
+			display: inline-block;
+			font-size: 10px;
+		}
+	}
+
 	selectbox {
 		width: 120px;
 		background: lighten(@boxBg, 7%);
@@ -3076,6 +3087,27 @@ content {
 							width: 210px;
 							height: 108px;
 						}
+
+						.controls {
+							.left {
+								flex: initial;
+								width: 159px;
+								display: flex;
+								flex-direction: column;
+
+								.field {
+									height: 23px;
+									
+									label {
+
+									}
+								}
+							}
+
+							.right {
+								// phase knob
+							}
+						}
 					}
 				}
 			}
@@ -3203,7 +3235,7 @@ content {
 					padding: 3px 0 0;
 					display: flex;
 
-					> div {
+					.ctrl-knob2 {
 						position: relative;
 						margin-right: 17px;
 
@@ -3284,7 +3316,7 @@ content {
 					}
 
 					.controls {
-						> div {
+						.ctrl-knob2 {
 							position: relative;
 							margin-right: 5px;
 							flex: 1;

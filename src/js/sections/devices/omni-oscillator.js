@@ -18,7 +18,6 @@
 				let trackId = event.el.data("track"),
 					osc = Jam.track._list[trackId].instrument.oscillator,
 					partials = osc._oscillator._carrier.partials,
-					// partials = [0.0860851900077161, 0.007236810378086416, 1, .5],
 					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`),
 					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
 					rects = [];

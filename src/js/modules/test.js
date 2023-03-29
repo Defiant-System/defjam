@@ -19,11 +19,11 @@ let Test = {
 
 		// setTimeout(() => window.find(`.slots:nth(1)`).trigger("click"), 200);
 		// setTimeout(() => window.find(`.slots:nth(0) b:nth(0)`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.lane:nth(0) b:nth(1)`).trigger("click"), 500);
+		// setTimeout(() => window.find(`.lane:nth(1) b:nth(0)`).trigger("click"), 300);
 		// setTimeout(() => window.find(`.lane:nth(1) b:nth(4)`).trigger("click"), 500);
 
 
 		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 500);
-		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 12e3);
+		// setTimeout(() => window.find(`.toolbar-tool_[data-click="play"]`).trigger("click"), 3e3);
 	}
 };

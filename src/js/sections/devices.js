@@ -28,7 +28,7 @@
 				Self.els.el.data({ track: event.trackId });
 
 				// temp
-				Self.omniOscillator.dispatch({ type: "init-rack", el: Self.els.el });
+				// Self.omniOscillator.dispatch({ type: "init-rack", el: Self.els.el });
 				break;
 			case "mute-pad": break;
 			case "solo-pad": break;

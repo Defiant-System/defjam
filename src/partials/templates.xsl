@@ -290,8 +290,14 @@
 						<!-- result curve -->
 						<polyline class="st1"/>
 						<!-- partial rectangles goes here -->
-						<!-- <rect class="st3" x="2" y="46" width="39" height="60"/>
-						<rect class="st3" x="169" y="86" width="39" height="20"/> -->
+						<!-- <g class="st3" transform="translate(2,46)">
+							<rect x="0" y="0" width="102" height="60"/>
+							<rect x="0" y="0" width="102" height="60"/>
+						</g>
+						<g class="st3" transform="translate(106,46)">
+							<rect x="0" y="0" width="102" height="60"/>
+							<rect x="0" y="40" width="102" height="20"/>
+						</g> -->
 					</svg>
 					<div class="value-row">
 						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_triangle"></i></div>

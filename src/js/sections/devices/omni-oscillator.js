@@ -41,12 +41,12 @@
 
 
 				// first clear "old" partial rects
-				svgEl.find(`rect.st3`).remove();
+				svgEl.find(`g.st3`).remove();
 				// make sure values are non-negative
 				partials = partials.map(Math.abs);
 
-				let bWidth = width - 2,
-					bHeight = height * .35,
+				let bW = width - 2,
+					bH = height * .35,
 		        	min = Math.min(...partials, 0),
 		        	max = Math.max(...partials, 1),
 		        	scale = (v, inMin, inMax, outMin, outMax) =>
@@ -55,14 +55,17 @@
 				// iterate partials
 				partials.map((val, i) => {
 					let pL = partials.length,
-						w = Math.round((bWidth - (pL * 2)) / pL),
-						h = Math.round(scale(val, min, max, 0, bHeight)),
+						w = Math.round((bW - (pL * 2)) / pL),
+						h = Math.round(scale(val, min, max, 0, bH)),
 						x = Math.round(2 + (i * (w + 2))),
-						y = Math.round(height - h - 2);
+						y = bH-h;
 					if (i === pL-1) {
-						w += (bWidth - (x + w));
+						w += (bW - (x + w));
 					}
-					rects.push(`<rect class="st3" x="${x}" y="${y}" width="${w}" height="${h}"/>`);
+					rects.push(`<g class="st3" transform="translate(${x},${height-bH-2})">
+									<rect x="0" y="0" width="${w}" height="${bH}"/>
+									<rect x="0" y="${y}" width="${w}" height="${h}"/>
+								</g>`);
 				});
 				// transform into svg rectangles and append to element
 				$.svgFromString(rects.join("")).map(rectEl => svgEl[0].appendChild(rectEl));

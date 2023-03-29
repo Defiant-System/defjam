@@ -3183,13 +3183,17 @@ content {
 							cursor: move;
 						}
 
-						// transparent boxes
-						.st3 {
-							fill: fadeout(@svgDark, 83%);
+						// transparent boxes (ui/ux requires 2 rect elements)
+						g.st3 {
 							cursor: ns-resize;
 
-							&:hover {
+							&:hover rect:nth-child(2) {
 								fill: fadeout(@svgDark, 67%);
+							}
+
+							rect {
+								&:nth-child(1) { fill: transparent; }
+								&:nth-child(2) { fill: fadeout(@svgDark, 83%); }
 							}
 						}
 					}

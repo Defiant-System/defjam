@@ -314,15 +314,15 @@
 						</div>
 						<div class="field">
 							<label>Harmonicity</label>
-							<div class="range-input">
-								<span>1</span>
+							<div class="range-input" data-value="35">
+								<span>35%</span>
 							</div>
 						</div>
 					</div>
 					<div class="ctrl-knob2">
 						<label>Phase</label>
-						<div class="knob2" data-value="0"></div>
-						<span>360 deg</span>
+						<div class="knob2" data-value="30"></div>
+						<span>60 deg</span>
 					</div>
 				</div>
 			</div>

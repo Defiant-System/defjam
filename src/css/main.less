@@ -5,6 +5,7 @@
 @boxBg: #466788;
 @text: #b7cbe0;
 @highlight: #b92;
+@highlight2: #1fb5fe60;
 @selected: #5ff;
 @gridlines: darken(@boxBg, 3%);
 @griddark: darken(@boxBg, 5%);
@@ -737,29 +738,67 @@ content {
 		font-size: 0;
 
 		> span {
-			background: lighten(@face, 5%);
+			background: lighten(@boxBg, 7%);
+			color: @base;
 			display: inline-block;
-			padding: 3px 4px 2px;
+			padding: 3px 0 2px;
 			font-size: 10px;
-			margin-left: 1px;
+			width: 18px;
+			text-align: center;
+			text-shadow: 0 0 0;
+			border: 1px solid fadeout(@face, 5%);
+			border-left-width: 0;
 			cursor: pointer;
 
 			&:first-child {
-				border-radius: 5px 0 0 5px;
-				padding-left: 6px;
+				border-radius: 4px 0 0 4px;
+				border-left-width: 1px;
 			}
 
 			&:last-child {
-				border-radius: 0 5px 5px 0;
-				padding-right: 6px;
+				border-radius: 0 4px 4px 0;
 			}
 
 			&.active {
 				background: @highlight;
 				color: darken(@highlight, 29%);
-				text-shadow: 0 0 0;
 				cursor: default;
 			}
+		}
+	}
+
+	.range-input {
+		position: relative;
+		display: inline-block;
+		border: 1px solid fadeout(@face, 5%);
+		background: lighten(@boxBg, 7%);
+		color: @base;
+		height: 15px;
+		min-width: 61px;
+		font-size: 10px;
+		text-shadow: 0 0 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 23%;
+			z-index: 1;
+			background: @highlight2;
+		}
+
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 2;
+			text-align: center;
+			display: inline-block;
+			padding: 2px 0 0;
 		}
 	}
 
@@ -1416,7 +1455,7 @@ content {
 											display: inline-block;
 											width: 39px;
 											border: 1px solid fadeout(@face, 5%);
-											background-image: repeating-linear-gradient(90deg, @gridlines 0, @gridlines 80%, transparent 80%, transparent 100%);
+											background-image: repeating-linear-gradient(90deg, @highlight2 0, @highlight2 80%, transparent 80%, transparent 100%);
 										}
 
 										&:after {
@@ -3143,7 +3182,7 @@ content {
 				padding-top: 3px;
 
 				label {
-					padding: 2px 0 0;
+					padding: 4px 0 0;
 					text-transform: uppercase;
 					font-size: 10px;
 				}
@@ -3291,7 +3330,7 @@ content {
 							top: -2px;
 							display: block;
 							// color: darken(@face, 3%);
-							font-size: 9px;
+							font-size: 10px;
 							text-align: center;
 							text-transform: uppercase;
 							// text-shadow: 0 0 0;
@@ -3353,9 +3392,8 @@ content {
 								left: 1px;
 								// text-transform: none;
 								text-align: left;
-								color: lighten(@face, 29%);
-								// color: @face;
-								text-shadow: 0 0 0;
+								// color: lighten(@face, 29%);
+								// text-shadow: 0 0 0;
 							}
 
 							span {

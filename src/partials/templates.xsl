@@ -267,8 +267,8 @@
 	</div>
 	<xsl:for-each select="./Device/Option">
 		<xsl:choose>
-			<xsl:when test="@id = 'omniOscillator'"><xsl:call-template name="rack-omniOscillator" /></xsl:when>
-			<xsl:when test="@id = 'envelope'"><xsl:call-template name="rack-envelope" /></xsl:when>
+			<xsl:when test="@name = 'Omni Oscillator'"><xsl:call-template name="rack-omniOscillator" /></xsl:when>
+			<xsl:when test="@name = 'Envelope'"><xsl:call-template name="rack-envelope" /></xsl:when>
 		</xsl:choose>
 	</xsl:for-each>
 </xsl:template>

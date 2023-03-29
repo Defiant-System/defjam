@@ -53,6 +53,7 @@ const Jam = {
 					break;
 				case "synth":
 					let deviceId = "Synth",
+						param = this.nodeToParam(xNode),
 						oscillator = {
 							type: "amtriangle",
 							harmonicity: 0.5,
@@ -82,6 +83,24 @@ const Jam = {
 			// add track to jam
 			this.track.add({ id, xNode, instrument, sequence, isDrumkit });
 		});
+	},
+	nodeToParam(xTrack) {
+		let param = {};
+
+		xTrack.selectNodes(`./Device/Option`).map(xOption => {
+			let id = xOption.getAttribute("id"),
+				opt = {};
+			// iterate device options
+			[...xOption.attributes].map(a => {
+				if (["name", "id"].includes(a.name)) return;
+				opt[a.name] = a.value.numIfNum();
+			});
+			// finally, add to param object
+			param[id] = Object.keys(opt).length ? opt : xOption.textContent.numIfNum();
+		});
+
+		console.log(param);
+		return param;
 	},
 	normalizeNotes() {
 		let Self = this,

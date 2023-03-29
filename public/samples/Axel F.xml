@@ -48,12 +48,12 @@
 			<Volume value="90"/>
 		</Track>
 
-		<Track name="Acoustic Grand Piano" color="#77c" id="track-1" type="sampler" class="collapsed1">
+		<Track name="Acoustic Grand Piano" color="#77c" id="track-2" type="sampler" class="collapsed1">
 			<Device name="Acoustic Grand Piano">
 				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Chorus" start="1" length="2" oY="-690" oX="0" keyH="14" noteW="20">
+				<Clip id="clip-2-1" name="Chorus" start="1" length="2" oY="-890" oX="0" keyH="14" noteW="20">
 					<b n="F1" b="0" d="1" v=".5"/>
 					<b n="F2" b="2" d="1" v=".5"/>
 					<b n="D#1" b="3" d=".5" v=".5" s="8"/>
@@ -127,6 +127,36 @@
 			<Lane>
 				<Clip id="clip-3-1" name="Drums" start="1" length="2" oY="-690" oX="0" keyH="14" noteW="20">
 					<b n="C3" b="0" d="1" v="1"/>
+					<b n="D3" b="2" d="1" v="1"/>
+					<b n="C3" b="3" d="1" v="1" s="8"/>
+					<b n="C3" b="4" d="1" v="1" s="8"/>
+					<b n="C3" b="5" d="1" v="1"/>
+					<b n="D3" b="6" d="1" v="1"/>
+					<b n="C3" b="7" d="1" v="1"/>
+
+					<b n="C3" b="8" d="1" v="1"/>
+					<b n="D3" b="10" d="1" v="1"/>
+					<b n="C3" b="11" d="1" v="1" s="8"/>
+					<b n="C3" b="12" d="1" v="1" s="8"/>
+					<b n="C3" b="13" d="1" v="1"/>
+					<b n="D3" b="14" d="1" v="1"/>
+					<b n="C3" b="15" d="1" v="1"/>
+
+					<b n="C3" b="16" d="1" v="1"/>
+					<b n="D3" b="18" d="1" v="1"/>
+					<b n="C3" b="19" d="1" v="1" s="8"/>
+					<b n="C3" b="20" d="1" v="1" s="8"/>
+					<b n="C3" b="21" d="1" v="1"/>
+					<b n="D3" b="22" d="1" v="1"/>
+					<b n="C3" b="23" d="1" v="1"/>
+
+					<b n="C3" b="24" d="1" v="1"/>
+					<b n="D3" b="26" d="1" v="1"/>
+					<b n="C3" b="27" d="1" v="1" s="8"/>
+					<b n="C3" b="28" d="1" v="1" s="8"/>
+					<b n="C3" b="29" d="1" v="1"/>
+					<b n="D3" b="30" d="1" v="1"/>
+					<b n="C3" b="31" d="1" v="1"/>
 				</Clip>
 			</Lane>
 			<Sends label="A" value="0"/>

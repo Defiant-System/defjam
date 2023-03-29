@@ -116,7 +116,7 @@
 				if (!event.clipId) return;
 
 				xClip = event.file.data.selectSingleNode(`//Project//Clip[@id="${event.clipId}"]`);
-				value = xClip.parentNode.parentNode.selectNodes(`./Device/Pads/Pad[@sample]`).length;
+				value = xClip.selectNodes(`ancestor::Track/Device/Pads/Pad[@sample]`).length;
 				Self.els.el
 					.toggleClass("clip-pads", value == 0)
 					.css({

@@ -303,14 +303,13 @@
 				<div class="controls">
 					<div class="left">
 						<div class="field">
-							<label>Partial Count</label>
+							<label>Partials</label>
 							<div class="option-group">
 								<span>0</span>
 								<span>1</span>
 								<span>2</span>
-								<span>4</span>
+								<span class="active">4</span>
 								<span>8</span>
-								<span>16</span>
 							</div>
 						</div>
 						<div class="field">

@@ -733,13 +733,33 @@ content {
 	}
 
 	.option-group {
+		display: inline-block;
 		font-size: 0;
 
 		> span {
-			padding: 2px 3px;
-			border: 1px solid #234;
+			background: lighten(@face, 5%);
 			display: inline-block;
+			padding: 3px 4px 2px;
 			font-size: 10px;
+			margin-left: 1px;
+			cursor: pointer;
+
+			&:first-child {
+				border-radius: 5px 0 0 5px;
+				padding-left: 6px;
+			}
+
+			&:last-child {
+				border-radius: 0 5px 5px 0;
+				padding-right: 6px;
+			}
+
+			&.active {
+				background: @highlight;
+				color: darken(@highlight, 29%);
+				text-shadow: 0 0 0;
+				cursor: default;
+			}
 		}
 	}
 
@@ -3092,16 +3112,9 @@ content {
 							.left {
 								flex: initial;
 								width: 159px;
+								padding-right: 11px;
 								display: flex;
 								flex-direction: column;
-
-								.field {
-									height: 23px;
-									
-									label {
-
-									}
-								}
 							}
 
 							.right {
@@ -3122,6 +3135,20 @@ content {
 					}
 				}
 			}
+
+			.field {
+				height: 23px;
+				display: flex;
+				justify-content: space-between;
+				padding-top: 3px;
+
+				label {
+					padding: 2px 0 0;
+					text-transform: uppercase;
+					font-size: 10px;
+				}
+			}
+
 
 			.rack-head {
 				position: relative;
@@ -3322,7 +3349,7 @@ content {
 							flex: 1;
 
 							label {
-								top: 2px;
+								top: 3px;
 								left: 1px;
 								// text-transform: none;
 								text-align: left;

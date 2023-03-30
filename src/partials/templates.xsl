@@ -304,7 +304,7 @@
 					<div class="left">
 						<div class="field">
 							<label>Partials</label>
-							<div class="option-group">
+							<div class="option-group" data-click="set-partials">
 								<span>0</span>
 								<span>1</span>
 								<span class="active">2</span>
@@ -314,9 +314,7 @@
 						</div>
 						<div class="field">
 							<label>Harmonicity</label>
-							<div class="range-input" data-value="35">
-								<span>35%</span>
-							</div>
+							<div class="range-input" style="--val: 71;"></div>
 						</div>
 					</div>
 					<div class="ctrl-knob2">

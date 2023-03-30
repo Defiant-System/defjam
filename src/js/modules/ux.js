@@ -7,6 +7,7 @@ const UX = {
 
 		// bind event handlers
 		this.content.on("mousedown", ".knob, .knob2, .pan-knob", this.doKnob);
+		this.content.on("mousedown", ".range-input, .pan-input", this.doRange);
 		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
 		this.content.on("mousedown", ".volume", this.doVolume);
 		this.content.on("mousedown", ".resize", this.doResize);
@@ -126,6 +127,39 @@ const UX = {
 				// unbind event handlers
 				Self.content.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doVolume);
+				break;
+		}
+	},
+	doRange(event) {
+		let Self = UX,
+			Drag = Self.drag;
+		switch (event.type) {
+			case "mousedown":
+				// prevent default behaviour
+				event.preventDefault();
+
+				let el = $(event.target);
+				Self.drag = {
+					el,
+					value: parseInt(el.cssProp("--val"), 10),
+					clientX: event.clientX,
+					min: el.hasClass("pan-input") ? -50 : 0,
+					max: el.hasClass("pan-input") ? 50 : 100,
+				};
+
+				// bind event handlers
+				Self.content.addClass("hide-cursor");
+				Self.doc.on("mousemove mouseup", Self.doRange);
+				break;
+			case "mousemove":
+				let value = ((event.clientX - Drag.clientX) * 2) + Drag.value;
+				value = Math.min(Math.max(value, Drag.min), Drag.max);
+				Drag.el.css({ "--val": value });
+				break;
+			case "mouseup":
+				// unbind event handlers
+				Self.content.removeClass("hide-cursor");
+				Self.doc.off("mousemove mouseup", Self.doRange);
 				break;
 		}
 	},

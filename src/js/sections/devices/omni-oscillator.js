@@ -80,6 +80,10 @@
 				// transform into svg rectangles and append to element
 				$.svgFromString(rects.join("")).map(rectEl => svgEl[0].appendChild(rectEl));
 				break;
+			case "set-partials":
+				event.el.find(".active").removeClass("active");
+				el = $(event.target).addClass("active");
+				break;
 			case "show-shape-popup":
 				// remember srcElement
 				Self.srcEl = $(event.target);

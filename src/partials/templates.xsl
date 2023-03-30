@@ -281,7 +281,7 @@
 		</div>
 		<div class="box-body">
 			<div class="display">
-				<div class="graph has-values">
+				<div class="graph has-values" data-mousedown="doPartialRect">
 					<svg viewBox="0 0 210 108">
 						<polyline class="st0" points=".5,7 .5,.5 7,.5 "/>
 						<polyline class="st0" points="203,.5 209.5,.5 209.5,7 "/>

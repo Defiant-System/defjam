@@ -9,18 +9,22 @@
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
 			rect,
-			name,
-			value,
+			svgEl,
+			width, height, y, x,
+			trackId, partials, rects,
+			osc,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "init-rack":
-				let trackId = event.el.data("track"),
-					osc = Jam.track._list[trackId].instrument.oscillator,
-					partials = osc._oscillator._carrier.partials,
-					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`),
-					[y, x, width, height] = svgEl.attr("viewBox").split(" "),
-					rects = [];
+				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				Self.dispatch({ ...event, type: "draw-oscilator-rectangles" });
+				break;
+			case "draw-oscilator-curve":
+				trackId = event.el.data("track");
+				osc = Jam.track._list[trackId].instrument.oscillator;
+				svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
+				[y, x, width, height] = svgEl.attr("viewBox").split(" ");
 
 				osc.asArray(width >> 1).then(values => {
 					let points = [],
@@ -37,7 +41,14 @@
 					// plot cruve in SVG element
 					svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
 				});
-
+				break;
+			case "draw-oscilator-rectangles":
+				trackId = event.el.data("track");
+				osc = Jam.track._list[trackId].instrument.oscillator;
+				svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
+				[y, x, width, height] = svgEl.attr("viewBox").split(" ");
+				partials = osc._oscillator._carrier.partials;
+				rects = [];
 
 				// first clear "old" partial rects
 				svgEl.find(`g.st3`).remove();
@@ -102,6 +113,19 @@
 					.removeClass("show");
 				// cover app UI
 				APP.els.content.removeClass("cover");
+				break;
+		}
+	},
+	doPartialRect(event) {
+		let Self = defjam.devices.omniOscillator,
+			Drag = Self.drag;
+		switch (event.type) {
+			case "mousedown":
+				console.log(event.target);
+				break;
+			case "mousemove":
+				break;
+			case "mouseup":
 				break;
 		}
 	}

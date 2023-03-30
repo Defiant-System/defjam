@@ -5,51 +5,29 @@
 	init() {
 		// fast references
 	},
-	renderValues(instrument) {
-		let ret = {};
-		let keys = Object.keys(instrument);
-		let isObject = value => typeof value === "object" && !Array.isArray(value);
-
-		keys.map(key => {
-			let value = instrument[key];
-			if (!isObject(value)) {
-				ret[key] = value;
-			}
-		});
-
-		keys.map(key => {
-			let value = instrument[key];
-			if (isObject(value) && Object.keys(value).length) {
-				ret[key] = value;
-			}
-		});
-
-		console.log( ret );
-	},
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
 			rect,
 			svgEl,
 			width, height, y, x,
-			partials, rects,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "init-rack":
 				let trackId = event.el.data("track"),
-					osc = Jam.track._list[trackId].instrument.oscillator,envelope,
+					synth = Jam.track._list[trackId].instrument,
+					values = synth.get(),
 					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
-				Self.dispatch({ ...event, trackId, osc, svgEl, type: "draw-oscilator-curve" });
-				Self.dispatch({ ...event, trackId, osc, svgEl, type: "draw-oscilator-rectangles" });
+				Self.dispatch({ ...event, trackId, synth, svgEl, type: "draw-oscilator-curve" });
+				Self.dispatch({ ...event, trackId, synth, svgEl, type: "draw-oscilator-rectangles" });
 
-
-				Self.renderValues( Jam.track._list[trackId].instrument.get() );
+				console.log( values );
 				break;
 			case "draw-oscilator-curve":
 				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
 
-				event.osc.asArray(width >> 1).then(values => {
+				event.synth.oscillator.asArray(width >> 1).then(values => {
 					let points = [],
 						max = Math.max(0.001, ...values) * 1.1,
 						min = Math.min(-0.001, ...values) * 1.1,
@@ -67,13 +45,12 @@
 				break;
 			case "draw-oscilator-rectangles":
 				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
-				partials = event.osc._oscillator._carrier.partials;
-				rects = [];
+				// make sure values are non-negative
+				let partials = event.synth.get().oscillator.partials.map(Math.abs);
+				let rects = [];
 
 				// first clear "old" partial rects
 				event.svgEl.find(`g.st3`).remove();
-				// make sure values are non-negative
-				partials = partials.map(Math.abs);
 
 				let bW = width - 2,
 					bH = height * .35,

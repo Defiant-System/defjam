@@ -137,14 +137,27 @@ const UX = {
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();
+				// prepare drag object
+				let el = $(event.target),
+					isPan = el.hasClass("pan-input"),
+					value = parseInt(el.cssProp("--val"), 10);
+				
+				if (isPan) {
+					value = el.data("val");
+					switch (true) {
+						case value.startsWith("C"): value = 0;                    break;
+						case value.startsWith("L"): value = +value.slice(1) * -1; break;
+						case value.startsWith("R"): value = +value.slice(1);      break;
+					}
+				}
 
-				let el = $(event.target);
 				Self.drag = {
 					el,
-					value: parseInt(el.cssProp("--val"), 10),
+					isPan,
+					value,
 					clientX: event.clientX,
-					min: el.hasClass("pan-input") ? -50 : 0,
-					max: el.hasClass("pan-input") ? 50 : 100,
+					min: isPan ? -50 : 0,
+					max: isPan ? 50 : 100,
 				};
 
 				// bind event handlers
@@ -152,9 +165,34 @@ const UX = {
 				Self.doc.on("mousemove mouseup", Self.doRange);
 				break;
 			case "mousemove":
-				let value = ((event.clientX - Drag.clientX) * 2) + Drag.value;
-				value = Math.min(Math.max(value, Drag.min), Drag.max);
-				Drag.el.css({ "--val": value });
+				if (Drag.isPan) {
+					let v1 = 50,
+						v2 = 50,
+						val,
+						value = event.clientX - Drag.clientX + Drag.value;
+					value = Math.min(Math.max(value, Drag.min), Drag.max);
+					// value logic
+					switch (true) {
+						case value < 0:
+							v1 = 50 + value;
+							val = "L"+ value.toString().slice(1);
+							break;
+						case value > 0:
+							v2 = 50 + value;
+							val = "R"+ value;
+							break;
+						default:
+							val = "C";
+							v1 = v2 = 50;
+							break;
+					}
+					// UI update
+					Drag.el.css({ "--v1": `${v1}%`, "--v2": `${v2}%` }).data({ val });
+				} else {
+					let value = event.clientX - Drag.clientX + Drag.value;
+					value = Math.min(Math.max(value, Drag.min), Drag.max);
+					Drag.el.css({ "--val": value });
+				}
 				break;
 			case "mouseup":
 				// unbind event handlers

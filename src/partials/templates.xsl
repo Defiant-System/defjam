@@ -303,14 +303,16 @@
 				<div class="controls">
 					<div class="left">
 						<div class="field">
-							<label>Partials</label>
+							<!-- <label>Partials</label>
 							<div class="option-group" data-click="set-partials">
 								<span>0</span>
 								<span>1</span>
 								<span class="active">2</span>
 								<span>4</span>
 								<span>8</span>
-							</div>
+							</div> -->
+							<label>Pan</label>
+							<div class="pan-input" data-val="C"></div>
 						</div>
 						<div class="field">
 							<label>Harmonicity</label>

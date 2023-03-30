@@ -767,15 +767,15 @@ content {
 		}
 	}
 
-	.range-input {
-		--val: 0;
-		position: relative;
+	.pan-input {
+		// --v1: 20%;
+		// --v2: 50%;
+		--v1: 50%;
+		--v2: 50%;
+
 		display: inline-block;
 		border: 1px solid fadeout(@face, 5%);
-		background-image: repeating-linear-gradient(90deg,
-			@highlight2 0, @highlight2 calc( var( --val ) * 1% ),
-			lighten(@boxBg, 7%) calc( var( --val ) * 1% ), lighten(@boxBg, 7%) 100%);
-		color: @base;
+		color: lighten(@base, 7%);
 		height: 15px;
 		min-width: 61px;
 		font-size: 11px;
@@ -783,6 +783,45 @@ content {
 		text-align: center;
 		padding: 2px 0 0;
 		cursor: ew-resize;
+		/*
+		background-image: repeating-linear-gradient(90deg,
+			transparent 0%, transparent 20%,
+			@highlight2 20%, @highlight2 50%,
+			transparent 50%, transparent 100%,
+		);
+		background-image: repeating-linear-gradient(90deg,
+			transparent 0%, transparent 50%,
+			@highlight2 50%, @highlight2 70%,
+			transparent 70%, transparent 100%,
+		);
+		*/
+		background-image: repeating-linear-gradient(90deg,
+			transparent 0%, transparent var( --v1 ),
+			@highlight2 var( --v1 ), @highlight2 var( --v2 ),
+			transparent var( --v2 ), transparent 100%,
+		);
+
+		&:before {
+			content: attr(data-val);
+		}
+	}
+
+	.range-input {
+		position: relative;
+		display: inline-block;
+		border: 1px solid fadeout(@face, 5%);
+		background-image: repeating-linear-gradient(90deg,
+			@highlight2 0, @highlight2 calc( var( --val ) * 1% ),
+			lighten(@boxBg, 3%) calc( var( --val ) * 1% ), lighten(@boxBg, 3%) 100%);
+		color: lighten(@base, 7%);
+		height: 15px;
+		min-width: 61px;
+		font-size: 11px;
+		text-shadow: 0 0 0;
+		text-align: center;
+		padding: 2px 0 0;
+		cursor: ew-resize;
+		--val: 0;
 
 		&:before {
 			counter-reset: variable var( --val );

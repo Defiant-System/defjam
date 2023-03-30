@@ -5,28 +5,51 @@
 	init() {
 		// fast references
 	},
+	renderValues(instrument) {
+		let ret = {};
+		let keys = Object.keys(instrument);
+		let isObject = value => typeof value === "object" && !Array.isArray(value);
+
+		keys.map(key => {
+			let value = instrument[key];
+			if (!isObject(value)) {
+				ret[key] = value;
+			}
+		});
+
+		keys.map(key => {
+			let value = instrument[key];
+			if (isObject(value) && Object.keys(value).length) {
+				ret[key] = value;
+			}
+		});
+
+		console.log( ret );
+	},
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
 			rect,
 			svgEl,
 			width, height, y, x,
-			trackId, partials, rects,
-			osc,
+			partials, rects,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "init-rack":
-				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
-				Self.dispatch({ ...event, type: "draw-oscilator-rectangles" });
+				let trackId = event.el.data("track"),
+					osc = Jam.track._list[trackId].instrument.oscillator,envelope,
+					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
+				Self.dispatch({ ...event, trackId, osc, svgEl, type: "draw-oscilator-curve" });
+				Self.dispatch({ ...event, trackId, osc, svgEl, type: "draw-oscilator-rectangles" });
+
+
+				Self.renderValues( Jam.track._list[trackId].instrument.get() );
 				break;
 			case "draw-oscilator-curve":
-				trackId = event.el.data("track");
-				osc = Jam.track._list[trackId].instrument.oscillator;
-				svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
-				[y, x, width, height] = svgEl.attr("viewBox").split(" ");
+				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
 
-				osc.asArray(width >> 1).then(values => {
+				event.osc.asArray(width >> 1).then(values => {
 					let points = [],
 						max = Math.max(0.001, ...values) * 1.1,
 						min = Math.min(-0.001, ...values) * 1.1,
@@ -39,19 +62,16 @@
 							points.push(`${x},${y}`);
 						});
 					// plot cruve in SVG element
-					svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
+					event.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
 				});
 				break;
 			case "draw-oscilator-rectangles":
-				trackId = event.el.data("track");
-				osc = Jam.track._list[trackId].instrument.oscillator;
-				svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
-				[y, x, width, height] = svgEl.attr("viewBox").split(" ");
-				partials = osc._oscillator._carrier.partials;
+				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
+				partials = event.osc._oscillator._carrier.partials;
 				rects = [];
 
 				// first clear "old" partial rects
-				svgEl.find(`g.st3`).remove();
+				event.svgEl.find(`g.st3`).remove();
 				// make sure values are non-negative
 				partials = partials.map(Math.abs);
 
@@ -78,7 +98,7 @@
 								</g>`);
 				});
 				// transform into svg rectangles and append to element
-				$.svgFromString(rects.join("")).map(rectEl => svgEl[0].appendChild(rectEl));
+				$.svgFromString(rects.join("")).map(rectEl => event.svgEl[0].appendChild(rectEl));
 				break;
 			case "set-partials":
 				event.el.find(".active").removeClass("active");

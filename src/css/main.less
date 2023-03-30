@@ -768,11 +768,8 @@ content {
 	}
 
 	.pan-input {
-		// --v1: 20%;
-		// --v2: 50%;
 		--v1: 50%;
 		--v2: 50%;
-
 		display: inline-block;
 		border: 1px solid fadeout(@face, 5%);
 		color: lighten(@base, 7%);
@@ -783,18 +780,6 @@ content {
 		text-align: center;
 		padding: 2px 0 0;
 		cursor: ew-resize;
-		/*
-		background-image: repeating-linear-gradient(90deg,
-			transparent 0%, transparent 20%,
-			@highlight2 20%, @highlight2 50%,
-			transparent 50%, transparent 100%,
-		);
-		background-image: repeating-linear-gradient(90deg,
-			transparent 0%, transparent 50%,
-			@highlight2 50%, @highlight2 70%,
-			transparent 70%, transparent 100%,
-		);
-		*/
 		background-image: repeating-linear-gradient(90deg,
 			transparent 0%, transparent var( --v1 ),
 			@highlight2 var( --v1 ), @highlight2 var( --v2 ),

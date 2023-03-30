@@ -85,6 +85,8 @@
 				<Option name="Omni Oscillator" id="oscillator" type="amcustom" harmonicity="0.5" modulationType="sine" partialCount="2" partials="[0.24,0.75]" phase="0" />
 				<Option name="Envelope" id="envelope" attack="0.05" decay="0.2" release="1.5" sustain="0.2" attackCurve="exponential" decayCurve="exponential" releaseCurve="exponential" />
 				<Option id="portamento">0.05</Option>
+				<Option id="volume">5</Option>
+				<Option id="detune">110</Option>
 			</Device>
 			<Slot>
 				<Clip id="clip-2-1" name="Clip 1" length="4" row="0" oY="-550" oX="0" keyH="18" noteW="18">

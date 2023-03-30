@@ -8,7 +8,7 @@
 		<Details height="520" view="midi"/>
 	</Head>
 	<Tracks view="arrangement">
-		<Track name="Acoustic Grand Piano" color="#397" id="track-1" type="synth" class="selected">
+		<Track name="Synth" color="#397" id="track-1" type="synth" class="selected">
 			<Device name="Synth" id="Synth">
 				<Settings>
 					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>

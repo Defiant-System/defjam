@@ -1,0 +1,259 @@
+<Project>
+	<Head>
+		<Tempo value="120"/>
+		<Position bar="0.0.0" time="00:00.00"/>
+		<Loop start="2" length="2"/>
+		<Duration value="6"/>
+		<Browser width="0"/>
+		<Details height="520" view="midi"/>
+	</Head>
+	<Tracks view="arrangement">
+		<Track name="Acoustic Guitar (nylon)" color="#397" id="track-1" type="sampler" class="selected">
+			<Device name="Acoustic Guitar (nylon)">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Guitar (nylon)']/s"/>
+			</Device>
+			<Lane>
+				<Clip id="clip-1-1" name="Chorus" start="1" length="5" oY="-880" oX="0" keyH="14" noteW="24">
+					<b n="A0" b="0" d="1" v=".5"/>
+					<b n="A1" b="0" d="1" v=".5"/>
+					<b n="A0" b="1" d="1" v=".5"/>
+					<b n="A1" b="1" d="1" v=".5"/>
+					<b n="A0" b="2" d="1" v=".5"/>
+					<b n="A1" b="2" d="1" v=".5"/>
+					<b n="A0" b="3" d="1" v=".5"/>
+					<b n="A1" b="3" d="1" v=".5"/>
+
+					<b n="A0" b="4" d="1" v=".5"/>
+					<b n="A1" b="4" d="1" v=".5"/>
+					<b n="A0" b="5" d="1" v=".5"/>
+					<b n="A1" b="5" d="1" v=".5"/>
+					<b n="A0" b="6" d="1" v=".5"/>
+					<b n="A1" b="6" d="1" v=".5"/>
+					<b n="A0" b="7" d="1" v=".5"/>
+					<b n="A1" b="7" d="1" v=".5"/>
+
+					<b n="A0" b="8" d="1" v=".5"/>
+					<b n="A1" b="8" d="1" v=".5"/>
+					<b n="A0" b="9" d="1" v=".5"/>
+					<b n="A1" b="9" d="1" v=".5"/>
+					<b n="A0" b="10" d="1" v=".5"/>
+					<b n="A1" b="10" d="1" v=".5"/>
+					<b n="A0" b="11" d="1" v=".5"/>
+					<b n="A1" b="11" d="1" v=".5"/>
+
+					<b n="A0" b="12" d="1" v=".5"/>
+					<b n="A1" b="12" d="1" v=".5"/>
+					<b n="A0" b="13" d="1" v=".5"/>
+					<b n="A1" b="13" d="1" v=".5"/>
+					<b n="A0" b="14" d="1" v=".5"/>
+					<b n="A1" b="14" d="1" v=".5"/>
+					<b n="A0" b="15" d="1" v=".5"/>
+					<b n="A1" b="15" d="1" v=".5"/>
+
+					<b n="A0" b="16" d="1" v=".5"/>
+					<b n="A1" b="16" d="1" v=".5"/>
+					<b n="A0" b="17" d="1" v=".5"/>
+					<b n="A1" b="17" d="1" v=".5"/>
+					<b n="A0" b="18" d="1" v=".5"/>
+					<b n="A1" b="18" d="1" v=".5"/>
+					<b n="A0" b="19" d="1" v=".5"/>
+					<b n="A1" b="19" d="1" v=".5"/>
+
+					<b n="A0" b="20" d="1" v=".5"/>
+					<b n="A1" b="20" d="1" v=".5"/>
+					<b n="A0" b="21" d="1" v=".5"/>
+					<b n="A1" b="21" d="1" v=".5"/>
+					<b n="A0" b="22" d="1" v=".5"/>
+					<b n="A1" b="22" d="1" v=".5"/>
+					<b n="A0" b="23" d="1" v=".5"/>
+					<b n="A1" b="23" d="1" v=".5"/>
+
+					<b n="A0" b="24" d="1" v=".5"/>
+					<b n="A1" b="24" d="1" v=".5"/>
+					<b n="A0" b="25" d="1" v=".5"/>
+					<b n="A1" b="25" d="1" v=".5"/>
+					<b n="A0" b="26" d="1" v=".5"/>
+					<b n="A1" b="26" d="1" v=".5"/>
+					<b n="A0" b="27" d="1" v=".5"/>
+					<b n="A1" b="27" d="1" v=".5"/>
+
+					<b n="A0" b="28" d="1" v=".5"/>
+					<b n="A1" b="28" d="1" v=".5"/>
+					<b n="A0" b="29" d="1" v=".5"/>
+					<b n="A1" b="29" d="1" v=".5"/>
+					<b n="A0" b="30" d="1" v=".5"/>
+					<b n="A1" b="30" d="1" v=".5"/>
+					<b n="A0" b="31" d="1" v=".5"/>
+					<b n="A1" b="31" d="1" v=".5"/>
+
+					<b n="A0" b="32" d="1" v=".5"/>
+					<b n="A1" b="32" d="1" v=".5"/>
+					<b n="A0" b="33" d="1" v=".5"/>
+					<b n="A1" b="33" d="1" v=".5"/>
+					<b n="A0" b="34" d="1" v=".5"/>
+					<b n="A1" b="34" d="1" v=".5"/>
+					<b n="A0" b="35" d="1" v=".5"/>
+					<b n="A1" b="35" d="1" v=".5"/>
+
+					<b n="A0" b="36" d="1" v=".5"/>
+					<b n="A1" b="36" d="1" v=".5"/>
+					<b n="A0" b="37" d="1" v=".5"/>
+					<b n="A1" b="37" d="1" v=".5"/>
+					<b n="A0" b="38" d="1" v=".5"/>
+					<b n="A1" b="38" d="1" v=".5"/>
+					<b n="A0" b="39" d="1" v=".5"/>
+					<b n="A1" b="39" d="1" v=".5"/>
+
+					<b n="A0" b="40" d="1" v=".5"/>
+					<b n="A1" b="40" d="1" v=".5"/>
+					<b n="A0" b="41" d="1" v=".5"/>
+					<b n="A1" b="41" d="1" v=".5"/>
+					<b n="A0" b="42" d="1" v=".5"/>
+					<b n="A1" b="42" d="1" v=".5"/>
+					<b n="A0" b="43" d="1" v=".5"/>
+					<b n="A1" b="43" d="1" v=".5"/>
+
+					<b n="A0" b="44" d="1" v=".5"/>
+					<b n="A1" b="44" d="1" v=".5"/>
+					<b n="A0" b="45" d="1" v=".5"/>
+					<b n="A1" b="45" d="1" v=".5"/>
+					<b n="A0" b="46" d="1" v=".5"/>
+					<b n="A1" b="46" d="1" v=".5"/>
+					<b n="A0" b="47" d="1" v=".5"/>
+					<b n="A1" b="47" d="1" v=".5"/>
+
+
+					<b n="F0" b="48" d="1" v=".5"/>
+					<b n="F1" b="48" d="1" v=".5"/>
+					<b n="F0" b="49" d="1" v=".5"/>
+					<b n="F1" b="49" d="1" v=".5"/>
+					<b n="F0" b="50" d="1" v=".5"/>
+					<b n="F1" b="50" d="1" v=".5"/>
+					<b n="F0" b="51" d="1" v=".5"/>
+					<b n="F1" b="51" d="1" v=".5"/>
+
+					<b n="F0" b="52" d="1" v=".5"/>
+					<b n="F1" b="52" d="1" v=".5"/>
+					<b n="F0" b="53" d="1" v=".5"/>
+					<b n="F1" b="53" d="1" v=".5"/>
+					<b n="F0" b="54" d="1" v=".5"/>
+					<b n="F1" b="54" d="1" v=".5"/>
+					<b n="F0" b="55" d="1" v=".5"/>
+					<b n="F1" b="55" d="1" v=".5"/>
+
+					<b n="F0" b="56" d="1" v=".5"/>
+					<b n="F1" b="56" d="1" v=".5"/>
+					<b n="F0" b="57" d="1" v=".5"/>
+					<b n="F1" b="57" d="1" v=".5"/>
+					<b n="F0" b="58" d="1" v=".5"/>
+					<b n="F1" b="58" d="1" v=".5"/>
+					<b n="F0" b="59" d="1" v=".5"/>
+					<b n="F1" b="59" d="1" v=".5"/>
+
+					<b n="F0" b="60" d="1" v=".5"/>
+					<b n="F1" b="60" d="1" v=".5"/>
+					<b n="F0" b="61" d="1" v=".5"/>
+					<b n="F1" b="61" d="1" v=".5"/>
+					<b n="F0" b="62" d="1" v=".5"/>
+					<b n="F1" b="62" d="1" v=".5"/>
+					<b n="F0" b="63" d="1" v=".5"/>
+					<b n="F1" b="63" d="1" v=".5"/>
+
+					<b n="F0" b="64" d="1" v=".5"/>
+					<b n="F1" b="64" d="1" v=".5"/>
+					<b n="F0" b="65" d="1" v=".5"/>
+					<b n="F1" b="65" d="1" v=".5"/>
+					<b n="F0" b="66" d="1" v=".5"/>
+					<b n="F1" b="66" d="1" v=".5"/>
+					<b n="F0" b="67" d="1" v=".5"/>
+					<b n="F1" b="67" d="1" v=".5"/>
+
+					<b n="F0" b="68" d="1" v=".5"/>
+					<b n="F1" b="68" d="1" v=".5"/>
+					<b n="F0" b="69" d="1" v=".5"/>
+					<b n="F1" b="69" d="1" v=".5"/>
+					<b n="F0" b="70" d="1" v=".5"/>
+					<b n="F1" b="70" d="1" v=".5"/>
+					<b n="F0" b="71" d="1" v=".5"/>
+					<b n="F1" b="71" d="1" v=".5"/>
+
+					<b n="F0" b="72" d="1" v=".5"/>
+					<b n="F1" b="72" d="1" v=".5"/>
+					<b n="F0" b="73" d="1" v=".5"/>
+					<b n="F1" b="73" d="1" v=".5"/>
+					<b n="F0" b="74" d="1" v=".5"/>
+					<b n="F1" b="74" d="1" v=".5"/>
+					<b n="F0" b="75" d="1" v=".5"/>
+					<b n="F1" b="75" d="1" v=".5"/>
+
+					<b n="F0" b="76" d="1" v=".5"/>
+					<b n="F1" b="76" d="1" v=".5"/>
+					<b n="F0" b="77" d="1" v=".5"/>
+					<b n="F1" b="77" d="1" v=".5"/>
+					<b n="F0" b="78" d="1" v=".5"/>
+					<b n="F1" b="78" d="1" v=".5"/>
+					<b n="F0" b="79" d="1" v=".5"/>
+					<b n="F1" b="79" d="1" v=".5"/>
+ 				</Clip>
+			</Lane>
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="off"/>
+			<Volume value="90"/>
+		</Track>
+
+		<Track name="Acoustic Grand Piano" color="#77c" id="track-2" type="sampler" class="collapsed1">
+			<Device name="Acoustic Grand Piano">
+				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+			</Device>
+			<Lane>
+				<Clip id="clip-2-1" name="Chorus" start="1" length="5" oY="-400" oX="0" keyH="14" noteW="24">
+					<b n="E4" b="15" d="1" v="1"/>
+					<b n="A4" b="16" d="1" v="1"/>
+					<b n="A4" b="18" d="1" v="1"/>
+					<b n="E4" b="19" d="1" v="1"/>
+					<b n="A4" b="20" d="1" v="1"/>
+					<b n="E4" b="21" d="1" v="1"/>
+					
+					<b n="A4" b="23" d="1" v="1"/>
+					<b n="C5" b="24" d="1" v="1"/>
+					<b n="B4" b="26" d="1" v="1"/>
+					<b n="A4" b="27" d="1" v="1"/>
+
+
+					<b n="C4" b="47" d="1" v="1"/>
+					<b n="F4" b="48" d="1" v="1"/>
+					<b n="F4" b="50" d="1" v="1"/>
+					<b n="C4" b="51" d="1" v="1"/>
+					<b n="F4" b="52" d="1" v="1"/>
+					<b n="C4" b="53" d="1" v="1"/>
+					
+					<b n="F4" b="55" d="1" v="1"/>
+					<b n="A4" b="56" d="1" v="1"/>
+					<b n="G4" b="58" d="1" v="1"/>
+					<b n="F4" b="59" d="1" v="1"/>
+				</Clip>
+			</Lane>
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Buttons activator="on" solo="off" record="off"/>
+			<Volume value="90"/>
+		</Track>
+
+	</Tracks>
+	<IoMaster>
+		<Track name="Reverb" io-label="A" id="sends-1">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Delay" io-label="B" id="sends-2">
+			<Sends label="A" value="0"/>
+			<Sends label="B" value="0"/>
+			<Volume value="90"/>
+		</Track>
+		<Track name="Master" id="master" color="#a73">
+			<Volume value="90"/>
+		</Track>
+	</IoMaster>
+</Project>

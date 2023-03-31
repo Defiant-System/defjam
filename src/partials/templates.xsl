@@ -296,8 +296,18 @@
 						</g> -->
 					</svg>
 					<div class="value-row">
-						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_triangle"></i></div>
-						<div data-click="show-shape-popup" data-arg="attack">Modulation: <i class="icon-shape_custom"></i></div>
+						<div data-click="show-shape-popup" data-arg="type">
+							Type:
+							<span class="am-fm-switch" data-click="set-am-fm-type">
+								<b>AM</b>
+								<b>FM</b>
+							</span>
+							<i class="icon-shape_sine"></i>
+						</div>
+						<div data-click="show-shape-popup" data-arg="modulationType">
+							Modulation:
+							<i class="icon-shape_sine"></i>
+						</div>
 					</div>
 				</div>
 				<div class="controls">

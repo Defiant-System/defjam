@@ -205,6 +205,7 @@ const UX = {
 		let Self = UX,
 			Drag = Self.drag,
 			value,
+			val,
 			el;
 		switch (event.type) {
 			case "change":
@@ -215,9 +216,9 @@ const UX = {
 					suffix = el.data("suffix") || "",
 					min = +el.data("min"),
 					max = +el.data("max"),
-					step = +el.data("step"),
-					val = Math.round(((value / 100) * (max - min)) / step) * step;
+					step = +el.data("step");
 				// update sibling span value
+				val = Math.round(((value / 100) * (max - min)) / step) * step;
 				el.parent().find("span").html(`${prefix} ${val} ${suffix}`);
 				break;
 			case "mousedown":
@@ -230,6 +231,12 @@ const UX = {
 				Self.drag = {
 					el,
 					value,
+					sEl: el.parent().find("span"),
+					prefix: el.data("prefix") || "",
+					suffix: el.data("suffix") || "",
+					vMin: +el.data("min"),
+					vMax: +el.data("max"),
+					step: +el.data("step"),
 					clientY: event.clientY,
 					clientX: event.clientX,
 					min: el.hasClass("pan-knob") ? -50 : 0,
@@ -240,11 +247,13 @@ const UX = {
 				Self.doc.on("mousemove mouseup", Self.doKnob);
 				break;
 			case "mousemove":
-				value = ((Drag.clientY - event.clientY) * 2) + Drag.value;
+				value = (Drag.clientY - event.clientY) + Drag.value;
 				value = Math.min(Math.max(value, Drag.min), Drag.max);
 				value -= value % 2;
 				Drag.el.data({ value });
-
+				// update span element
+				val = Math.round(((value / 100) * (Drag.vMax - Drag.vMin)) / Drag.step) * Drag.step;
+				Drag.sEl.html(`${Drag.prefix} ${val} ${Drag.suffix}`);
 				// temp
 				// Jam.channel1.set({ pan: value / 50 });
 				break;

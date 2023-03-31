@@ -24,13 +24,23 @@
 
 				// set partial count (option-group)
 				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
-
+				// harmonicity value (range-input)
 				value = Math.round((values.oscillator.harmonicity / 2) * 100);
 				event.el.find(`.range-input`).css({ "--val": value });
+				// phave value (knob)
+				value = parseInt((values.oscillator.phase / 360) * 100, 10);
+				event.el.find(`.ctrl-knob2 .knob2`).data({ value }).trigger("change");
 				
-				event.el.find(`.ctrl-knob2 .knob2`).data({ value: 76 }).trigger("change");
-				
-				// console.log(values);
+				value = values.oscillator.type.slice(0, 2).toUpperCase();
+				event.el.find(`.am-fm-switch b:contains("${value}")`).trigger("click");
+
+				value = "icon-shape_"+ values.oscillator.type.slice(2);
+				event.el.find(`.value-row div[data-arg="type"] i`).prop({ className: value });
+
+				value = "icon-shape_"+ values.oscillator.modulationType;
+				event.el.find(`.value-row div[data-arg="modulationType"] i`).prop({ className: value });
+
+				console.log(values);
 
 				break;
 			case "draw-oscilator-curve":
@@ -96,6 +106,10 @@
 				break;
 			case "set-phase":
 				break;
+			case "set-am-fm-type":
+				event.el.find(".active").removeClass("active");
+				$(event.target).addClass("active");
+				break;
 			case "show-shape-popup":
 				// remember srcElement
 				Self.srcEl = $(event.target);
@@ -137,7 +151,10 @@
 			Drag = Self.drag;
 		switch (event.type) {
 			case "mousedown":
-				console.log(event.target);
+				let el = $(event.target);
+				if (el.prop("nodeName") !== "rect") return;
+
+				console.log(el);
 				break;
 			case "mousemove":
 				break;

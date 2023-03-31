@@ -105,6 +105,8 @@
 			case "set-harmonicity":
 				// set phase value of synth: min: 0, max: 2
 				Self.instrument.oscillator.harmonicity.value = (event.value / 100) * 10;
+				// update curve
+				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
 				break;
 			case "set-phase":
 				// set phase value of synth

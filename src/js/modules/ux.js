@@ -199,8 +199,13 @@ const UX = {
 					let value = event.clientX - Drag.clientX + Drag.value;
 					value = Math.min(Math.max(value, Drag.min), Drag.max);
 					Drag.el.css({ "--val": value });
-					// call event handler
-					Drag.eFunc({ type: Drag.eType, value });
+					// prevents "too many" calls
+					if (Drag.v !== value) {
+						// call event handler
+						Drag.eFunc({ type: Drag.eType, value });
+						// save value
+						Drag.v = value;
+					}
 				}
 				break;
 			case "mouseup":
@@ -272,8 +277,13 @@ const UX = {
 				// update span element
 				val = Math.round(((value / 100) * (Drag.vMax - Drag.vMin)) / Drag.step) * Drag.step;
 				Drag.sEl.html(`${Drag.prefix} ${val} ${Drag.suffix}`);
-				// call event handler
-				Drag.eFunc({ type: Drag.eType, value: val });
+				// prevents "too many" calls
+				if (Drag.v !== val) {
+					// call event handler
+					Drag.eFunc({ type: Drag.eType, value: val });
+					// save value
+					Drag.v = val;
+				}
 				break;
 			case "mouseup":
 				// unbind event handlers

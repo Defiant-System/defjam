@@ -3159,7 +3159,7 @@ content {
 				.box-body {
 					.display {
 						svg {
-							width: 210px;
+							width: 274px;
 							height: 108px;
 						}
 
@@ -3172,8 +3172,14 @@ content {
 								flex-direction: column;
 							}
 
-							.ctrl-knob2 {
-								left: 2px;
+							.right {
+								flex: 1;
+
+								.ctrl-knob2 {
+									flex: initial;
+									display: inline-block;
+									margin: 0;
+								}
 							}
 						}
 					}
@@ -3389,7 +3395,7 @@ content {
 
 							&[data-arg="modulationType"] {
 								flex: initial;
-								width: 93px;
+								width: 99px;
 							}
 
 						}
@@ -3398,7 +3404,7 @@ content {
 							display: inline-block;
 							vertical-align: bottom;
 							font-size: 0;
-							margin: 0 2px 0 3px;
+							margin: 0 2px 0 5px;
 
 							b {
 								font-size: 7px;
@@ -3420,6 +3426,7 @@ content {
 							left: 3px;
 							width: 13px;
 							height: 13px;
+							margin-left: 3px;
 							pointer-events: none;
 
 							&.icon-shape_square,

@@ -282,10 +282,10 @@
 		<div class="box-body">
 			<div class="display">
 				<div class="graph has-values" data-mousedown="doPartialRect">
-					<svg viewBox="0 0 210 108">
+					<svg viewBox="0 0 274 108">
 						<polyline class="st0" points=".5,7 .5,.5 7,.5 "/>
-						<polyline class="st0" points="203,.5 209.5,.5 209.5,7 "/>
-						<polyline class="st0" points="209.5,101 209.5,107.5 203,107.5 "/>
+						<polyline class="st0" points="267,.5 273.5,.5 273.5,7 "/>
+						<polyline class="st0" points="273.5,101 273.5,107.5 267,107.5 "/>
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
 						<!-- result curve -->
 						<polyline class="st1"/>
@@ -328,10 +328,17 @@
 							<!-- <div class="pan-input" data-val="C"></div> -->
 						</div>
 					</div>
-					<div class="ctrl-knob2">
-						<label>Phase</label>
-						<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg" data-change="set-phase"></div>
-						<span>0 deg</span>
+					<div class="right">
+						<div class="ctrl-knob2">
+							<label>Phase</label>
+							<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg" data-change="set-phase"></div>
+							<span>0 deg</span>
+						</div>
+						<div class="ctrl-knob2">
+							<label>Mod.Index</label>
+							<div class="knob2" data-value="0" data-min="0" data-max="10" data-step="1" data-change="set-modulation-index"></div>
+							<span>0</span>
+						</div>
 					</div>
 				</div>
 			</div>

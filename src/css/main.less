@@ -796,7 +796,7 @@ content {
 		display: inline-block;
 		border: 1px solid fadeout(@face, 5%);
 		background-image: repeating-linear-gradient(90deg,
-			@highlight2 0, @highlight2 calc( var( --val ) * 1% ),
+			lighten(@highlight2, 3%) 0, lighten(@highlight2, 3%) calc( var( --val ) * 1% ),
 			lighten(@boxBg, 3%) calc( var( --val ) * 1% ), lighten(@boxBg, 3%) 100%);
 		color: lighten(@base, 7%);
 		height: 15px;

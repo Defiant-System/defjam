@@ -320,7 +320,7 @@
 					</div>
 					<div class="ctrl-knob2">
 						<label>Phase</label>
-						<div class="knob2" data-value="0" data-min="0" data-max="11" data-step="1" data-suffix="deg"></div>
+						<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg"></div>
 						<span>0 deg</span>
 					</div>
 				</div>

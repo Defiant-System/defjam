@@ -216,7 +216,7 @@ const UX = {
 					min = +el.data("min"),
 					max = +el.data("max"),
 					step = +el.data("step"),
-					val = (value / 100) * (max - min);
+					val = Math.round(((value / 100) * (max - min)) / step) * step;
 				// update sibling span value
 				el.parent().find("span").html(`${prefix} ${val} ${suffix}`);
 				break;

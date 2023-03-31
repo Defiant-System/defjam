@@ -28,7 +28,7 @@
 				value = Math.round((values.oscillator.harmonicity / 2) * 100);
 				event.el.find(`.range-input`).css({ "--val": value });
 				
-				event.el.find(`.ctrl-knob2 .knob2`).data({ value: 50 }).trigger("change");
+				event.el.find(`.ctrl-knob2 .knob2`).data({ value: 76 }).trigger("change");
 				
 				// console.log(values);
 

@@ -324,13 +324,13 @@
 						</div>
 						<div class="field">
 							<label>Harmonicity</label>
-							<div class="range-input" style="--val: 0;"></div>
+							<div class="range-input" style="--val: 0;" data-change="set-harmonicity"></div>
 							<!-- <div class="pan-input" data-val="C"></div> -->
 						</div>
 					</div>
 					<div class="ctrl-knob2">
 						<label>Phase</label>
-						<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg"></div>
+						<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg" data-change="set-phase"></div>
 						<span>0 deg</span>
 					</div>
 				</div>

@@ -9,18 +9,20 @@
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
 			rect,
-			svgEl,
 			width, height, y, x,
 			name, value,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "init-rack":
-				let synth = Jam.track._list[event.trackId].instrument,
-					values = synth.get(),
-					svgEl = event.el.find(`svg`);
-				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-curve" });
-				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-rectangles" });
+				// reference track & instrument
+				Self.trackId = event.trackId;
+				Self.instrument = Jam.track._list[Self.trackId].instrument;
+				Self.svgEl = event.el.find("svg");
+
+				let values = Self.instrument.get();
+				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				Self.dispatch({ ...event, type: "draw-oscilator-rectangles" });
 
 				// set partial count (option-group)
 				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
@@ -44,9 +46,9 @@
 
 				break;
 			case "draw-oscilator-curve":
-				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
+				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
-				event.synth.oscillator.asArray(width >> 1).then(values => {
+				Self.instrument.oscillator.asArray(width >> 1).then(values => {
 					let points = [],
 						max = Math.max(0.001, ...values) * 1.1,
 						min = Math.min(-0.001, ...values) * 1.1,
@@ -59,17 +61,17 @@
 							points.push(`${x},${y}`);
 						});
 					// plot cruve in SVG element
-					event.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
+					Self.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
 				});
 				break;
 			case "draw-oscilator-rectangles":
-				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
+				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 				// make sure values are non-negative
-				let partials = event.synth.get().oscillator.partials.map(Math.abs);
+				let partials = Self.instrument.get().oscillator.partials.map(Math.abs);
 				let rects = [];
 
 				// first clear "old" partial rects
-				event.svgEl.find(`g.st3`).remove();
+				Self.svgEl.find(`g.st3`).remove();
 
 				let bW = width - 2,
 					bH = height * .35,
@@ -94,17 +96,21 @@
 								</g>`);
 				});
 				// transform into svg rectangles and append to element
-				$.svgFromString(rects.join("")).map(rectEl => event.svgEl[0].appendChild(rectEl));
+				$.svgFromString(rects.join("")).map(rectEl => Self.svgEl[0].appendChild(rectEl));
 				break;
 			case "set-partials":
 				event.el.find(".active").removeClass("active");
 				el = $(event.target).addClass("active");
 				break;
 			case "set-harmonicity":
-				// min: 0, max: 2
-				
+				// set phase value of synth: min: 0, max: 2
+				Self.instrument.oscillator.harmonicity.value = (event.value / 100) * 10;
 				break;
 			case "set-phase":
+				// set phase value of synth
+				Self.instrument.oscillator.phase = event.value;
+				// update curve
+				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
 				break;
 			case "set-am-fm-type":
 				event.el.find(".active").removeClass("active");

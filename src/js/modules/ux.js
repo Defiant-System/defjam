@@ -140,7 +140,12 @@ const UX = {
 				// prepare drag object
 				let el = $(event.target),
 					isPan = el.hasClass("pan-input"),
-					value = parseInt(el.cssProp("--val"), 10);
+					value = parseInt(el.cssProp("--val"), 10),
+					// for event handler
+					rack = el.parents(`[data-rack]`),
+					section = rack.parents(`[data-section]`),
+					eType = el.data("change"),
+					eFunc = defjam[section.data("section")][rack.data("rack")].dispatch;
 				
 				if (isPan) {
 					value = el.data("val");
@@ -155,6 +160,8 @@ const UX = {
 					el,
 					isPan,
 					value,
+					eType,
+					eFunc,
 					clientX: event.clientX,
 					min: isPan ? -50 : 0,
 					max: isPan ? 50 : 100,
@@ -192,6 +199,8 @@ const UX = {
 					let value = event.clientX - Drag.clientX + Drag.value;
 					value = Math.min(Math.max(value, Drag.min), Drag.max);
 					Drag.el.css({ "--val": value });
+					// call event handler
+					Drag.eFunc({ type: Drag.eType, value });
 				}
 				break;
 			case "mouseup":
@@ -225,12 +234,21 @@ const UX = {
 				// prevent default behaviour
 				event.preventDefault();
 
+				// variables
 				el = $(event.target);
 				value = +el.data("value");
 
+				let rack = el.parents(`[data-rack]`),
+					section = rack.parents(`[data-section]`),
+					eType = el.data("change"),
+					eFunc = defjam[section.data("section")][rack.data("rack")].dispatch;
+
+				// prepare drag object
 				Self.drag = {
 					el,
 					value,
+					eType,
+					eFunc,
 					sEl: el.parent().find("span"),
 					prefix: el.data("prefix") || "",
 					suffix: el.data("suffix") || "",
@@ -254,8 +272,8 @@ const UX = {
 				// update span element
 				val = Math.round(((value / 100) * (Drag.vMax - Drag.vMin)) / Drag.step) * Drag.step;
 				Drag.sEl.html(`${Drag.prefix} ${val} ${Drag.suffix}`);
-				// temp
-				// Jam.channel1.set({ pan: value / 50 });
+				// call event handler
+				Drag.eFunc({ type: Drag.eType, value: val });
 				break;
 			case "mouseup":
 				// unbind event handlers

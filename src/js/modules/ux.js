@@ -6,7 +6,7 @@ const UX = {
 		this.content = window.find("content");
 
 		// bind event handlers
-		this.content.on("mousedown change", ".knob, .knob2, .pan-knob", this.doKnob);
+		this.content.on("mousedown change", ".knob, .knob2, .pan-knob, .pan2", this.doKnob);
 		this.content.on("mousedown", ".range-input, .pan-input", this.doRange);
 		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
 		this.content.on("mousedown", ".volume", this.doVolume);
@@ -243,7 +243,8 @@ const UX = {
 				el = $(event.target);
 				value = +el.data("value");
 
-				let rack = el.parents(`[data-rack]`),
+				let isPan = el.hasClass("pan-knob") || el.hasClass("pan2"),
+					rack = el.parents(`[data-rack]`),
 					section = rack.parents(`[data-section]`),
 					eType = el.data("change"),
 					eFunc = defjam[section.data("section")][rack.data("rack")].dispatch;
@@ -262,8 +263,8 @@ const UX = {
 					step: +el.data("step"),
 					clientY: event.clientY,
 					clientX: event.clientX,
-					min: el.hasClass("pan-knob") ? -50 : 0,
-					max: el.hasClass("pan-knob") ? 50 : 100,
+					min: isPan ? -50 : 0,
+					max: isPan ? 50 : 100,
 				};
 				// bind event handlers
 				Self.content.addClass("hide-cursor");

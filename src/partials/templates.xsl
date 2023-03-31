@@ -330,14 +330,14 @@
 					</div>
 					<div class="right">
 						<div class="ctrl-knob2">
+							<label>Mod.Index</label>
+							<div class="pan2" data-value="0" data-min="-10" data-max="10" data-step="1" data-change="set-modulation-index"></div>
+							<span>0</span>
+						</div>
+						<div class="ctrl-knob2">
 							<label>Phase</label>
 							<div class="knob2" data-value="0" data-min="0" data-max="360" data-step="1" data-suffix="deg" data-change="set-phase"></div>
 							<span>0 deg</span>
-						</div>
-						<div class="ctrl-knob2">
-							<label>Mod.Index</label>
-							<div class="knob2" data-value="0" data-min="0" data-max="10" data-step="1" data-change="set-modulation-index"></div>
-							<span>0</span>
 						</div>
 					</div>
 				</div>

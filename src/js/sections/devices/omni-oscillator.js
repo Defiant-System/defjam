@@ -108,6 +108,11 @@
 				// update curve
 				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
 				break;
+			case "set-modulation-index":
+				Self.instrument.oscillator.modulationIndex.value = event.value;
+				// update curve
+				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				break;
 			case "set-phase":
 				// set phase value of synth
 				Self.instrument.oscillator.phase = event.value;

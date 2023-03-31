@@ -247,7 +247,9 @@ const UX = {
 					rack = el.parents(`[data-rack]`),
 					section = rack.parents(`[data-section]`),
 					eType = el.data("change"),
-					eFunc = defjam[section.data("section")][rack.data("rack")].dispatch;
+					eFunc = section.length && rack.length
+							? defjam[section.data("section")][rack.data("rack")].dispatch
+							: e => {};
 
 				// prepare drag object
 				Self.drag = {

@@ -11,6 +11,7 @@
 			rect,
 			svgEl,
 			width, height, y, x,
+			name, value,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -21,7 +22,16 @@
 				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-curve" });
 				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-rectangles" });
 
-				console.log( values );
+				// set partial count (option-group)
+				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
+
+				value = Math.round((values.oscillator.harmonicity / 2) * 100);
+				event.el.find(`.range-input`).css({ "--val": value });
+				
+				event.el.find(`.ctrl-knob2 .knob2`).data({ value: 50 }).trigger("change");
+				
+				// console.log(values);
+
 				break;
 			case "draw-oscilator-curve":
 				[y, x, width, height] = event.svgEl.attr("viewBox").split(" ");
@@ -79,6 +89,12 @@
 			case "set-partials":
 				event.el.find(".active").removeClass("active");
 				el = $(event.target).addClass("active");
+				break;
+			case "set-harmonicity":
+				// min: 0, max: 2
+				
+				break;
+			case "set-phase":
 				break;
 			case "show-shape-popup":
 				// remember srcElement

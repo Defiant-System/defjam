@@ -3281,6 +3281,12 @@ content {
 							stroke-width: .5;
 						}
 
+						.st01 {
+							fill: none;
+							stroke: darken(@svgDark, 19%);
+							stroke-width: .5;
+						}
+
 						// curve line
 						.st1 {
 							fill: none;
@@ -3392,7 +3398,8 @@ content {
 							&.icon-shape_square,
 							&.icon-shape_triangle,
 							&.icon-shape_sawtooth,
-							&.icon-shape_sine { width: 21px; }
+							&.icon-shape_sine,
+							&.icon-shape_custom { width: 21px; }
 						}
 					}
 
@@ -3879,6 +3886,7 @@ i[class*="icon-"] {
 	&.icon-shape_triangle { background-image: url(~/icons/icon-shape_triangle.png); }
 	&.icon-shape_sawtooth { background-image: url(~/icons/icon-shape_sawtooth.png); }
 	&.icon-shape_sine     { background-image: url(~/icons/icon-shape_sine.png); }
+	&.icon-shape_custom   { background-image: url(~/icons/icon-shape_custom.png); }
 
 	&.icon-curve_exponential { background-image: url(~/icons/icon-curve_exponential.png); }
 	&.icon-curve_linear { background-image: url(~/icons/icon-curve_linear.png); }

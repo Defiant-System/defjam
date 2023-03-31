@@ -6,7 +6,7 @@ const UX = {
 		this.content = window.find("content");
 
 		// bind event handlers
-		this.content.on("mousedown", ".knob, .knob2, .pan-knob", this.doKnob);
+		this.content.on("mousedown change", ".knob, .knob2, .pan-knob", this.doKnob);
 		this.content.on("mousedown", ".range-input, .pan-input", this.doRange);
 		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
 		this.content.on("mousedown", ".volume", this.doVolume);
@@ -207,6 +207,19 @@ const UX = {
 			value,
 			el;
 		switch (event.type) {
+			case "change":
+				el = $(event.target);
+				value = +el.data("value");
+				// calculations
+				let prefix = el.data("prefix") || "",
+					suffix = el.data("suffix") || "",
+					min = +el.data("min"),
+					max = +el.data("max"),
+					step = +el.data("step"),
+					val = (value / 100) * (max - min);
+				// update sibling span value
+				el.parent().find("span").html(`${prefix} ${val} ${suffix}`);
+				break;
 			case "mousedown":
 				// prevent default behaviour
 				event.preventDefault();

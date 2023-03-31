@@ -297,7 +297,7 @@
 					</svg>
 					<div class="value-row">
 						<div data-click="show-shape-popup" data-arg="release">Type: <i class="icon-shape_triangle"></i></div>
-						<div data-click="show-shape-popup" data-arg="attack">Modulation: <i class="icon-shape_sine"></i></div>
+						<div data-click="show-shape-popup" data-arg="attack">Modulation: <i class="icon-shape_custom"></i></div>
 					</div>
 				</div>
 				<div class="controls">
@@ -305,23 +305,23 @@
 						<div class="field">
 							<label>Partials</label>
 							<div class="option-group" data-click="set-partials">
-								<span>0</span>
+								<span class="active">0</span>
 								<span>1</span>
-								<span class="active">2</span>
+								<span>2</span>
 								<span>4</span>
 								<span>5</span>
 							</div>
 						</div>
 						<div class="field">
 							<label>Harmonicity</label>
-							<div class="range-input" style="--val: 71;"></div>
+							<div class="range-input" style="--val: 0;"></div>
 							<!-- <div class="pan-input" data-val="C"></div> -->
 						</div>
 					</div>
 					<div class="ctrl-knob2">
 						<label>Phase</label>
-						<div class="knob2" data-value="30"></div>
-						<span>60 deg</span>
+						<div class="knob2" data-value="0" data-min="0" data-max="11" data-step="1" data-suffix="deg"></div>
+						<span>0 deg</span>
 					</div>
 				</div>
 			</div>
@@ -343,6 +343,8 @@
 						<polyline class="st0" points="303,.5 309.5,.5 309.5,7 "/>
 						<polyline class="st0" points="309.5,101 309.5,107.5 303,107.5 "/>
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
+						<line class="st01" x1="103.5" y1="0.5" x2="103.5" y2="107.5"/>
+						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
 
 						<path class="st1" d="M4,104L60,4l32,40h96c30,15,79,40,117,60"/>
 						<rect class="st2" x="58" y="3" width="4" height="4"/>

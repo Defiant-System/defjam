@@ -407,7 +407,7 @@
 
 
 <xsl:template name="rack-drumkit">
-	<div class="rack-body">
+	<div class="rack-body" data-rack="drumkit">
 		<div class="rack-head">
 			<i class="icon-blank"></i> <xsl:value-of select="./Device/@name"/>
 		</div>

@@ -15,12 +15,11 @@
 		// console.log(event);
 		switch (event.type) {
 			case "init-rack":
-				let trackId = event.el.data("track"),
-					synth = Jam.track._list[trackId].instrument,
+				let synth = Jam.track._list[event.trackId].instrument,
 					values = synth.get(),
-					svgEl = event.el.find(`div[data-rack="omniOscillator"] svg`);
-				Self.dispatch({ ...event, trackId, synth, svgEl, type: "draw-oscilator-curve" });
-				Self.dispatch({ ...event, trackId, synth, svgEl, type: "draw-oscilator-rectangles" });
+					svgEl = event.el.find(`svg`);
+				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-curve" });
+				Self.dispatch({ ...event, synth, svgEl, type: "draw-oscilator-rectangles" });
 
 				console.log( values );
 				break;

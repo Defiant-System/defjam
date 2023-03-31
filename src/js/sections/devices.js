@@ -41,14 +41,14 @@
 				// attach track identifier
 				Self.els.el.data({ track: event.trackId });
 
-				// temp
-				Self.omniOscillator.dispatch({ type: "init-rack", el: Self.els.el });
-				break;
-			case "mute-pad": break;
-			case "solo-pad": break;
-			case "play-pad":
-				el = event.el.parents("li:first");
-				Jam.track.play("track-1", el.data("key"));
+				Self.els.el.find(`.rack-body[data-rack]`).map(rEl => {
+					let el = $(rEl),
+						name = el.data("rack"),
+						trackId = event.trackId;
+					if (Self[name]) {
+						Self[name].dispatch({ type: "init-rack", trackId, el });
+					}
+				});
 				break;
 			default:
 				el = event.el || (event.origin ? event.origin.el : null);
@@ -61,6 +61,7 @@
 				}
 		}
 	},
-	omniOscillator: @import "./devices/omni-oscillator.js",
+	drumkit: @import "./devices/drumkit.js",
 	envelope: @import "./devices/envelope.js",
+	omniOscillator: @import "./devices/omni-oscillator.js",
 }

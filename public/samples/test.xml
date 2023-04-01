@@ -82,7 +82,7 @@
 					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
-				<Option name="Omni Oscillator" id="oscillator" type="fmcustom" harmonicity="0.5" modulationType="sine" modulationIndex="2" partialCount="2" partials="[0.24,0.75]" phase="3" />
+				<Option name="Omni Oscillator" id="oscillator" type="fmcustom" harmonicity="0.5" modulationType="sine" modulationIndex="2" partialCount="3" partials="[0.24,0,0.75]" phase="30" />
 				<Option name="Envelope" id="envelope" attack="0.05" decay="0.2" release="1.5" sustain="0.2" attackCurve="exponential" decayCurve="exponential" releaseCurve="exponential" />
 				<Option id="portamento">0.05</Option>
 				<Option id="volume">0</Option>

@@ -21,8 +21,8 @@
 				Self.svgEl = event.el.find("svg");
 
 				let values = Self.instrument.get();
-				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
-				Self.dispatch({ ...event, type: "draw-oscilator-rectangles" });
+				Self.dispatch({ type: "draw-oscilator-curve" });
+				Self.dispatch({ type: "draw-oscilator-rectangles" });
 
 				// set partial count (option-group)
 				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
@@ -104,7 +104,7 @@
 					if (i === pL-1) {
 						w += (bW - (x + w));
 					}
-					rect.push(`<g class="st3" transform="translate(${x},${height-bH-2})">
+					rect.push(`<g class="st3" transform="translate(${x},${height-bH-2})" index="${i}">
 									<rect x="0" y="0" width="${w}" height="${bH}"/>
 									<rect x="0" y="${y}" width="${w}" height="${h}"/>
 								</g>`);
@@ -115,24 +115,34 @@
 			case "set-partials":
 				event.el.find(".active").removeClass("active");
 				el = $(event.target).addClass("active");
+
+				value = +el.html();
+				list = Self.instrument.oscillator.partials;
+				if (list.length < value) {
+					Self.instrument.oscillator.partials = list.concat([...Array(value - list.length)].map(e => 1));
+				} else {
+					Self.instrument.oscillator.partials = list.slice(0, value);
+				}
+
+				Self.dispatch({ type: "draw-oscilator-rectangles" });
 				break;
 			case "set-harmonicity":
 				// set phase value of synth: min: 0, max: 2
 				Self.instrument.oscillator.harmonicity.value = (event.value / 100) * 10;
 				// update curve
-				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				Self.dispatch({ type: "draw-oscilator-curve" });
 				break;
 			case "set-modulation-index":
 				// set modulationIndex value of synth
 				Self.instrument.oscillator.modulationIndex.value = event.value;
 				// update curve
-				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				Self.dispatch({ type: "draw-oscilator-curve" });
 				break;
 			case "set-phase":
 				// set phase value of synth
 				Self.instrument.oscillator.phase = event.value;
 				// update curve
-				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+				Self.dispatch({ type: "draw-oscilator-curve" });
 				break;
 			case "set-am-fm-type":
 				event.el.find(".active").removeClass("active");
@@ -168,7 +178,7 @@
 					case "modulationType":
 						Self.instrument.oscillator.modulationType = el.data("arg");
 						// update curve
-						Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+						Self.dispatch({ type: "draw-oscilator-curve" });
 						break;
 					case "type":
 						// handle am/fm (?)
@@ -200,7 +210,9 @@
 				// make sure to select visible "rect" element
 				el = $(event.target.parentNode).find("rect:nth(1)");
 
-				let clickY = event.clientY,
+				let oscillator = Self.instrument.oscillator,
+					index = +el.parent().attr("index"),
+					clickY = event.clientY,
 					offset = {
 						y: +el.attr("y"),
 						h: +el.attr("height"),
@@ -212,7 +224,7 @@
 					max_ = Math.max,
 					min_ = Math.min;
 				// drag object
-				Self.drag = { el, clickY, offset, limit, max_, min_ };
+				Self.drag = { el, oscillator, index, clickY, offset, limit, max_, min_ };
 
 				// bind event handlers
 				UX.content.addClass("hide-cursor no-anim");
@@ -223,6 +235,13 @@
 					y = Drag.max_(Drag.min_(Drag.offset.y + dY, Drag.limit.maxY), Drag.limit.minY),
 					height = Drag.max_(Drag.min_(Drag.offset.h - dY, Drag.limit.maxY), Drag.limit.minY);
 				Drag.el.attr({ y, height });
+
+				Drag.oscillator.partials[Drag.index] = height / Drag.limit.maxY;
+
+				console.log( Self.instrument.oscillator.partials );
+
+				// update curve
+				// Self.dispatch({ type: "draw-oscilator-curve" });
 				break;
 			case "mouseup":
 				// unbind event handlers

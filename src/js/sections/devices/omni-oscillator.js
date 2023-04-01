@@ -52,6 +52,10 @@
 
 				break;
 			case "draw-oscilator-curve":
+				// optimisation
+				if (Self._drawing) return;
+				Self._drawing = true;
+				// values
 				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
 				Self.instrument.oscillator.asArray(width >> 1).then(values => {
@@ -69,9 +73,12 @@
 						});
 					// plot cruve in SVG element
 					Self.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
+					// change flag
+					Self._drawing = false;
 				});
 				break;
 			case "draw-oscilator-rectangles":
+				// values
 				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 				// make sure values are non-negative
 				let partials = Self.instrument.get().oscillator.partials.map(Math.abs);
@@ -200,9 +207,9 @@
 				UX.doc.on("mousemove mouseup", Self.doPartialRect);
 				break;
 			case "mousemove":
-				let dY = Drag.max_(Drag.min_(event.clientY - Drag.clickY, Drag.limit.maxY), Drag.limit.minY),
-					y = Drag.offset.y + dY,
-					height = Drag.offset.h - dY;
+				let dY = event.clientY - Drag.clickY,
+					y = Drag.max_(Drag.min_(Drag.offset.y + dY, Drag.limit.maxY), Drag.limit.minY),
+					height = Drag.max_(Drag.min_(Drag.offset.h - dY, Drag.limit.maxY), Drag.limit.minY);
 				Drag.el.attr({ y, height });
 				break;
 			case "mouseup":

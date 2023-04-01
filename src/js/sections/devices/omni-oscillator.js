@@ -8,9 +8,9 @@
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
-			list, rect,
 			width, height, y, x,
 			name, value,
+			list, rect,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -20,9 +20,11 @@
 				Self.instrument = Jam.track._list[Self.trackId].instrument;
 				Self.svgEl = event.el.find("svg");
 
-				let values = Self.instrument.get();
 				Self.dispatch({ type: "draw-oscilator-curve" });
 				Self.dispatch({ type: "draw-oscilator-rectangles" });
+
+				// values for UI
+				let values = Self.instrument.get();
 
 				// set partial count (option-group)
 				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
@@ -48,8 +50,7 @@
 				value = "icon-shape_"+ values.oscillator.modulationType;
 				event.el.find(`.value-row div[data-arg="modulationType"] i`).prop({ className: value });
 
-				console.log(values);
-
+				// console.log(values);
 				break;
 			case "draw-oscilator-curve":
 				// optimisation

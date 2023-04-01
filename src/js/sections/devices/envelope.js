@@ -8,12 +8,48 @@
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.envelope,
-			rect,
+			width, height, y, x,
 			name,
 			value,
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "init-rack":
+				// reference track & instrument
+				Self.trackId = event.trackId;
+				Self.instrument = Jam.track._list[Self.trackId].instrument;
+				Self.svgEl = event.el.find("svg");
+
+				Self.dispatch({ type: "draw-envelope-curve" });
+
+				// values for UI
+				let values = Self.instrument.get();
+				console.log(values);
+
+				break;
+			case "draw-envelope-curve":
+				// values
+				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
+
+				Self.instrument.envelope.asArray(width >> 1).then(values => {
+					let points = [`3,${height-2}`],
+						max = Math.max(0.001, ...values) * 1.1,
+						min = Math.min(-0.001, ...values) * 1.1,
+						scale = (v, inMin, inMax, outMin, outMax) =>
+							Math.round(((v - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin);
+						// translate values
+						values.map((v, i) => {
+							let x = scale(i, 0, values.length, 3, width),
+								y = scale(v, max, min, 0, height-3),
+								p = `${x},${y}`;
+							if (points[points.length-1] !== p) points.push(p);
+						});
+					// plot cruve in SVG element
+					Self.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
+					// change flag
+					Self._drawing = false;
+				});
+				break;
 			case "show-curves-popup":
 				// remember srcElement
 				Self.srcEl = $(event.target);

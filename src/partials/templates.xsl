@@ -287,7 +287,7 @@
 						<polyline class="st0" points="267,.5 273.5,.5 273.5,7 "/>
 						<polyline class="st0" points="273.5,101 273.5,107.5 267,107.5 "/>
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
-						<!-- result curve -->
+						<!-- oscillator curve -->
 						<polyline class="st1"/>
 						<!-- partial rectangles goes here -->
 						<!-- <g class="st3" transform="translate(2,46)">
@@ -363,11 +363,13 @@
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
 						<line class="st01" x1="103.5" y1="0.5" x2="103.5" y2="107.5"/>
 						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
+						<!-- envelope curve -->
+						<polyline class="st1"/>
 
-						<path class="st1" d="M4,104L60,4l32,40h96c30,15,79,40,117,60"/>
-						<rect class="st2" x="58" y="3" width="4" height="4"/>
+						<!-- <path class="st1" d="M4,104L60,4l32,40h96c30,15,79,40,117,60"/> -->
+						<!-- <rect class="st2" x="58" y="3" width="4" height="4"/>
 						<rect class="st2" x="142" y="42" width="4" height="4"/>
-						<rect class="st2" x="303" y="101" width="4" height="4"/>
+						<rect class="st2" x="303" y="101" width="4" height="4"/> -->
 					</svg>
 					<div class="value-row">
 						<div data-click="show-curves-popup" data-arg="attack">Attack: <i class="icon-curve_linear"></i></div>
@@ -378,32 +380,32 @@
 				<div class="controls">
 					<div class="ctrl-knob2">
 						<label>Attack</label>
-						<div class="knob2" data-value="49"></div>
-						<span>49.3 ms</span>
+						<div class="knob2" data-value="10" data-suffix="ms"></div>
+						<span>100 ms</span>
 					</div>
 
 					<div class="ctrl-knob2">
 						<label>Decay</label>
-						<div class="knob2" data-value="35"></div>
+						<div class="knob2" data-value="0" data-suffix="ms"></div>
 						<span>35.5 s</span>
 					</div>
 
 					<div class="ctrl-knob2">
 						<label>Sustain</label>
-						<div class="knob2" data-value="17"></div>
-						<span>17 dB</span>
+						<div class="knob2" data-value="20" data-suffix="%"></div>
+						<span>20 %</span>
 					</div>
 
 					<div class="ctrl-knob2">
 						<label>Release</label>
-						<div class="knob2" data-value="18"></div>
-						<span>18.3 ms</span>
+						<div class="knob2" data-value="25" data-suffix="ms"></div>
+						<span>250 ms</span>
 					</div>
 
 					<div class="ctrl-knob2">
 						<label>Volume</label>
-						<div class="knob2" data-value="67"></div>
-						<span>-8.00 dB</span>
+						<div class="knob2" data-value="0" data-min="-12" data-max="6" data-step="1" data-suffix="dB"></div>
+						<span>0 dB</span>
 					</div>
 				</div>
 			</div>

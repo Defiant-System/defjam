@@ -26,10 +26,16 @@
 
 				// set partial count (option-group)
 				event.el.find(`.option-group span:contains("${values.oscillator.partialCount}")`).trigger("click");
+				
 				// harmonicity value (range-input)
 				value = Math.round((values.oscillator.harmonicity / 2) * 100);
 				event.el.find(`.range-input`).css({ "--val": value });
-				// phave value (knob)
+
+				// modulationIndex value (pan knob)
+				value = parseInt((((values.oscillator.modulationIndex + 10) / 20) * 100) - 50, 10);
+				event.el.find(`.ctrl-knob2 .pan2`).data({ value }).trigger("change");
+
+				// phase value (knob)
 				value = parseInt((values.oscillator.phase / 360) * 100, 10);
 				event.el.find(`.ctrl-knob2 .knob2`).data({ value }).trigger("change");
 				
@@ -56,9 +62,10 @@
 							Math.round(((v - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin);
 						// translate values
 						values.map((v, i) => {
-							let x = scale(i, 0, values.length, 0, width);
-							let y = scale(v, max, min, 0, height);
-							points.push(`${x},${y}`);
+							let x = scale(i, 0, values.length, 0, width),
+								y = scale(v, max, min, 0, height),
+								p = `${x},${y}`;
+							if (points[points.length-1] !== p) points.push(p);
 						});
 					// plot cruve in SVG element
 					Self.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
@@ -74,7 +81,7 @@
 				Self.svgEl.find(`g.st3`).remove();
 
 				let bW = width - 2,
-					bH = height * .35,
+					bH = Math.round(height * .35),
 		        	min = Math.min(...partials, 0),
 		        	max = Math.max(...partials, 1),
 		        	scale = (v, inMin, inMax, outMin, outMax) =>
@@ -168,11 +175,33 @@
 				let el = $(event.target);
 				if (el.prop("nodeName") !== "rect") return;
 
+				// prevent default behaviour
+				event.preventDefault();
+
+				// make sure to select visible "rect" element
+				el = $(event.target.parentNode).find("rect:nth(1)");
+
+				let clickY = event.clientY,
+					offsetY = 3,
+					offsetH = 35;
+
 				console.log(el);
+
+				Self.drag = { el, clickY };
+
+				// bind event handlers
+				UX.content.addClass("hide-cursor no-anim");
+				UX.doc.on("mousemove mouseup", Self.doPartialRect);
 				break;
 			case "mousemove":
+				let y = 10,
+					height = 24;
+				Drag.el.attr({ y, height });
 				break;
 			case "mouseup":
+				// unbind event handlers
+				UX.content.removeClass("hide-cursor");
+				UX.doc.off("mousemove mouseup", Self.doPartialRect);
 				break;
 		}
 	}

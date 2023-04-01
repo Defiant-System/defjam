@@ -8,7 +8,7 @@
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,
-			rect,
+			list, rect,
 			width, height, y, x,
 			name, value,
 			el;
@@ -81,22 +81,22 @@
 				// values
 				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 				// make sure values are non-negative
-				let partials = Self.instrument.get().oscillator.partials.map(Math.abs);
-				let rects = [];
+				list = Self.instrument.get().oscillator.partials.map(Math.abs);
+				rect = [];
 
 				// first clear "old" partial rects
 				Self.svgEl.find(`g.st3`).remove();
 
 				let bW = width - 2,
 					bH = Math.round(height * .35),
-		        	min = Math.min(...partials, 0),
-		        	max = Math.max(...partials, 1),
+		        	min = Math.min(...list, 0),
+		        	max = Math.max(...list, 1),
 		        	scale = (v, inMin, inMax, outMin, outMax) =>
 		        		Math.pow((v - inMin) / (inMax - inMin), 0.25) * (outMax - outMin) + outMin;
 
 				// iterate partials
-				partials.map((val, i) => {
-					let pL = partials.length,
+				list.map((val, i) => {
+					let pL = list.length,
 						w = Math.round((bW - (pL * 2)) / pL),
 						h = Math.round(scale(val, min, max, 0, bH)),
 						x = Math.round(2 + (i * (w + 2))),
@@ -104,13 +104,13 @@
 					if (i === pL-1) {
 						w += (bW - (x + w));
 					}
-					rects.push(`<g class="st3" transform="translate(${x},${height-bH-2})">
+					rect.push(`<g class="st3" transform="translate(${x},${height-bH-2})">
 									<rect x="0" y="0" width="${w}" height="${bH}"/>
 									<rect x="0" y="${y}" width="${w}" height="${h}"/>
 								</g>`);
 				});
 				// transform into svg rectangles and append to element
-				$.svgFromString(rects.join("")).map(rectEl => Self.svgEl[0].appendChild(rectEl));
+				$.svgFromString(rect.join("")).map(rectEl => Self.svgEl[0].appendChild(rectEl));
 				break;
 			case "set-partials":
 				event.el.find(".active").removeClass("active");
@@ -163,6 +163,18 @@
 			case "set-oscillator-shape":
 				el = $(event.target);
 				Self.srcEl.find("> i").prop({ className: `icon-shape_${el.data("arg")}` });
+
+				switch (Self.srcEl.data("arg")) {
+					case "modulationType":
+						Self.instrument.oscillator.modulationType = el.data("arg");
+						// update curve
+						Self.dispatch({ ...event, type: "draw-oscilator-curve" });
+						break;
+					case "type":
+						// handle am/fm (?)
+						break;
+				}
+
 				/* falls through */
 			case "hide-shapes-popup":
 				// reset menu

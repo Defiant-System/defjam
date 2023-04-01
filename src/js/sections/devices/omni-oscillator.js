@@ -109,6 +109,7 @@
 				Self.dispatch({ ...event, type: "draw-oscilator-curve" });
 				break;
 			case "set-modulation-index":
+				// set modulationIndex value of synth
 				Self.instrument.oscillator.modulationIndex.value = event.value;
 				// update curve
 				Self.dispatch({ ...event, type: "draw-oscilator-curve" });

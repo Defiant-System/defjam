@@ -211,6 +211,7 @@
 				el = $(event.target.parentNode).find("rect:nth(1)");
 
 				let oscillator = Self.instrument.oscillator,
+					partials = oscillator.partials,
 					index = +el.parent().attr("index"),
 					clickY = event.clientY,
 					offset = {
@@ -224,7 +225,7 @@
 					max_ = Math.max,
 					min_ = Math.min;
 				// drag object
-				Self.drag = { el, oscillator, index, clickY, offset, limit, max_, min_ };
+				Self.drag = { el, oscillator, partials, index, clickY, offset, limit, max_, min_ };
 
 				// bind event handlers
 				UX.content.addClass("hide-cursor no-anim");
@@ -235,13 +236,11 @@
 					y = Drag.max_(Drag.min_(Drag.offset.y + dY, Drag.limit.maxY), Drag.limit.minY),
 					height = Drag.max_(Drag.min_(Drag.offset.h - dY, Drag.limit.maxY), Drag.limit.minY);
 				Drag.el.attr({ y, height });
-
-				Drag.oscillator.partials[Drag.index] = height / Drag.limit.maxY;
-
-				console.log( Self.instrument.oscillator.partials );
-
+				// update partials array
+				Drag.partials[Drag.index] = height / Drag.limit.maxY;
+				Drag.oscillator.partials = Drag.partials;
 				// update curve
-				// Self.dispatch({ type: "draw-oscilator-curve" });
+				Self.dispatch({ type: "draw-oscilator-curve" });
 				break;
 			case "mouseup":
 				// unbind event handlers

@@ -182,20 +182,27 @@
 				el = $(event.target.parentNode).find("rect:nth(1)");
 
 				let clickY = event.clientY,
-					offsetY = 3,
-					offsetH = 35;
-
-				console.log(el);
-
-				Self.drag = { el, clickY };
+					offset = {
+						y: +el.attr("y"),
+						h: +el.attr("height"),
+					},
+					limit = {
+						minY: 0,
+						maxY: +el.attr("y") + +el.attr("height"),
+					},
+					max_ = Math.max,
+					min_ = Math.min;
+				// drag object
+				Self.drag = { el, clickY, offset, limit, max_, min_ };
 
 				// bind event handlers
 				UX.content.addClass("hide-cursor no-anim");
 				UX.doc.on("mousemove mouseup", Self.doPartialRect);
 				break;
 			case "mousemove":
-				let y = 10,
-					height = 24;
+				let dY = Drag.max_(Drag.min_(event.clientY - Drag.clickY, Drag.limit.maxY), Drag.limit.minY),
+					y = Drag.offset.y + dY,
+					height = Drag.offset.h - dY;
 				Drag.el.attr({ y, height });
 				break;
 			case "mouseup":

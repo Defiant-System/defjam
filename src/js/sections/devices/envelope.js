@@ -28,6 +28,9 @@
 
 				break;
 			case "draw-envelope-curve":
+				// optimisation
+				if (Self._drawing) return;
+				Self._drawing = true;
 				// values
 				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
@@ -40,7 +43,7 @@
 						// translate values
 						values.map((v, i) => {
 							let x = scale(i, 0, values.length, 3, width),
-								y = scale(v, max, min, 0, height-3),
+								y = scale(v, max, min, -5, height-3),
 								p = `${x},${y}`;
 							if (points[points.length-1] !== p) points.push(p);
 						});

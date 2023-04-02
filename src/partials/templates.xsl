@@ -365,11 +365,10 @@
 						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
 						<!-- envelope curve -->
 						<polyline class="st1"/>
-
-						<!-- <path class="st1" d="M4,104L60,4l32,40h96c30,15,79,40,117,60"/> -->
-						<!-- <rect class="st2" x="58" y="3" width="4" height="4"/>
-						<rect class="st2" x="142" y="42" width="4" height="4"/>
-						<rect class="st2" x="303" y="101" width="4" height="4"/> -->
+						<!-- curve handles -->
+						<rect class="st2" x="50" y="3" width="4" height="4"/>
+						<rect class="st2" x="140" y="43" width="4" height="4"/>
+						<rect class="st2" x="303" y="101" width="4" height="4"/>
 					</svg>
 					<div class="value-row">
 						<div data-click="show-curves-popup" data-arg="attack">Attack: <i class="icon-curve_linear"></i></div>

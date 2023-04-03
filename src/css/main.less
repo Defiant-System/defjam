@@ -1725,6 +1725,11 @@ content {
 
 									i:before {
 										display: block;
+										height: 3px;
+										background-image: repeating-linear-gradient(90deg,
+												rgba(0,0,0,.125) calc( var( --barW ) - 1px ), rgba(0,0,0,.125) var( --barW ),
+												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
+											);
 									}
 								}
 							}
@@ -1753,13 +1758,9 @@ content {
 									right: 0;
 									bottom: 0;
 									background-color: rgba(0,0,0,.125);
-									background-image: var( --clip-bg ), repeating-linear-gradient(90deg,
-												rgba(0,0,0,.05) calc( var( --barW ) - 1px ), rgba(0,0,0,.05) var( --barW ),
-												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
-											);
-									// background-repeat-y: no-repeat;
-									// background-repeat-x: repeat;
-									background-repeat: no-repeat;
+									background-image: var( --clip-bg );
+									background-repeat: repeat-x;
+									// background-repeat: no-repeat;
 									border-top: 1px solid rgba(0,0,0,.1);
 									border-radius: 0 0 2px 2px;
 									mix-blend-mode: soft-light;
@@ -1791,14 +1792,13 @@ content {
 									&:before,
 									&:after {
 										content: "";
-										display: none;
 										position: absolute;
 										top: 0;
 										left: 0;
 										right: 0;
 										height: 3px;
 										background-image: repeating-linear-gradient(90deg,
-												rgba(0,0,0,.125) calc( var( --barW ) - 1px ), rgba(0,0,0,.125) var( --barW ),
+												rgba(0,0,0,.05) calc( var( --barW ) - 1px ), rgba(0,0,0,.05) var( --barW ),
 												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
 											);
 									}
@@ -1807,6 +1807,10 @@ content {
 										display: block;
 										top: auto;
 										bottom: 0;
+										background-image: repeating-linear-gradient(90deg,
+												rgba(0,0,0,.125) calc( var( --barW ) - 1px ), rgba(0,0,0,.125) var( --barW ),
+												transparent var( --barW ), transparent calc( calc( var( --barW ) * 2 ) - 1px )
+											);
 									}
 								}
 							}

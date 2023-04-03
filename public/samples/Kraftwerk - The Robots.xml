@@ -32,53 +32,26 @@
 			<Volume value="90"/>
 		</Track>
 
-		<Track id="track-2" name="Synth" color="#397" type="sampler" class="selected">
-			<Device name="Acoustic Grand Piano">
-				<Set xPath=".//Instruments//Item[@name='Acoustic Grand Piano']/s"/>
+		<Track id="track-2" name="Synth" color="#397" type="synth" class="selected">
+			<Device name="Synth" id="Synth">
+				<Settings>
+					<Knob name="Detune" value="23" min="1" max="100" suffix=""/>
+					<Knob name="Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Release" value="13" min="0" max="7" suffix=""/>
+					<Knob name="Porta-mento" value="11" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Attack" value="3" min="0" max="7" suffix=""/>
+					<Knob name="Modulation Release" value="23" min="0" max="7" suffix=""/> 
+					<Knob name="Glide" value="31" min="0" max="5" suffix=""/>
+					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
+				</Settings>
+				<Option name="Omni Oscillator" id="oscillator" type="fmsquare" harmonicity="0.5" modulationType="triangle" modulationIndex="0" partialCount="0" partials="[0]" phase="0" />
+				<Option name="Envelope" id="envelope" attack="0.1" decay="0.01" release="0.01" sustain="0.01" attackCurve="linear" decayCurve="linear" releaseCurve="linear" />
+				<Option id="portamento">0.05</Option>
+				<Option id="volume">0</Option>
+				<Option id="detune">0</Option>
 			</Device>
 			<Lane>
-				<Clip id="clip-2-1" name="Chorus" start="1" length="1" oY="-880" oX="0" keyH="14" noteW="24">
-					<b n="C2" b="0" d=".25" v="1"/>
-					<b n="C2" b="0" d=".5" v="1" s="8"/>
-
-					<b n="A#1" b="1" d=".25" v="1"/>
-					<b n="A#1" b="1" d=".5" v="1" s="8"/>
-
-					<b n="C2" b="2" d=".25" v="1"/>
-					<b n="C2" b="2" d=".5" v="1" s="8"/>
-
-					<b n="A#1" b="3" d=".25" v="1"/>
-					<b n="A#1" b="3" d=".5" v="1" s="8"/>
-
-					<b n="C2" b="4" d=".25" v="1"/>
-					<b n="C2" b="4" d=".5" v="1" s="8"/>
-
-					<b n="D#2" b="6" d=".25" v="1"/>
-					<b n="D#2" b="6" d=".5" v="1" s="8"/>
-
-
-					<b n="C2" b="8" d=".25" v="1"/>
-					<b n="C2" b="8" d=".5" v="1" s="8"/>
-
-					<b n="A#1" b="9" d=".25" v="1"/>
-					<b n="A#1" b="9" d=".5" v="1" s="8"/>
-
-					<b n="C2" b="10" d=".25" v="1"/>
-					<b n="C2" b="10" d=".5" v="1" s="8"/>
-
-					<b n="A#1" b="11" d=".25" v="1"/>
-					<b n="A#1" b="11" d=".5" v="1" s="8"/>
-
-					<b n="C2" b="12" d=".25" v="1"/>
-					<b n="C2" b="12" d=".5" v="1" s="8"/>
-					<b n="C2" b="13" d=".25" v="1"/>
-					<b n="C2" b="13" d=".5" v="1" s="8"/>
-
-					<b n="C1" b="14" d=".25" v="1"/>
-					<b n="C1" b="14" d=".5" v="1" s="8"/>
- 				</Clip>
-
-				<Clip id="clip-2-1" name="Chorus" start="2" length="1" oY="-880" oX="0" keyH="14" noteW="24">
+				<Clip id="clip-2-1" name="Chorus" start="1" length="2" repeat="1" oY="-880" oX="0" keyH="14" noteW="24">
 					<b n="C2" b="0" d=".25" v="1"/>
 					<b n="C2" b="0" d=".5" v="1" s="8"/>
 

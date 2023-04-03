@@ -10,7 +10,8 @@ const Audio = {
 		let APP = defjam,
 			xClip = xDoc.selectSingleNode(`//Lane/Clip[@id="${xClipId}"]`),
 			xNotes = xClip.selectNodes(`./b`),
-			xLen = DUR.toBeats(xClip.getAttribute("length")),
+			bgLen = xClip.getAttribute("repeat") || xClip.getAttribute("length"),
+			xLen = DUR.toBeats(bgLen),
 			barW = parseInt(APP.arrangement.els.el.cssProp("--barW"), 10),
 			yAvg = xNotes.map(x => +x.getAttribute("y")).reduce((a, b) => a + b, 0) / xNotes.length,
 			cW = barW * xLen,
@@ -35,9 +36,10 @@ const Audio = {
 		// return;
 
 		this.ctx.canvas.toBlob(async blob => {
-			let url = `~/clips/${xClipId}.png`,
+			let url = `clips/${xClipId}.png`,
 				path = await window.cache.set({ url, blob });
-			APP.arrangement.els.el.find(`.lane b[data-id="${xClipId}"]`).css({ "--clip-bg": `url(${path})` });
+			APP.arrangement.els.el.find(`.lane b[data-id="${xClipId}"]`)
+				.css({ "--clip-bg": `url(${path})` });
 		});
 	},
 	async visualizeFile(options) {

@@ -83,7 +83,7 @@
 					<Knob name="Volume" value="27" min="0" max="100" suffix="dB"/>
 				</Settings>
 				<Option name="Omni Oscillator" id="oscillator" type="fmsquare" harmonicity="0.5" modulationType="triangle" modulationIndex="0" partialCount="0" partials="[0]" phase="0" />
-				<Option name="Envelope" id="envelope" attack="0.5" decay="0.9" release="1.5" sustain="0.6" attackCurve="exponential" decayCurve="exponential" releaseCurve="exponential" />
+				<Option name="Envelope" id="envelope" attack="0.1" decay="0.01" release="0.01" sustain="0.01" attackCurve="linear" decayCurve="linear" releaseCurve="linear" />
 				<Option id="portamento">0.05</Option>
 				<Option id="volume">0</Option>
 				<Option id="detune">110</Option>

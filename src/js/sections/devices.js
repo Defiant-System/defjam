@@ -23,6 +23,8 @@
 				if (el.length) {
 					let rack = el.parents("[data-rack]").data("rack"),
 						func = el.data("mousedown");
+					// prevent default behaviour
+					event.preventDefault();
 					// console.log( rack, func );
 					return Self[rack][func](event);
 				}

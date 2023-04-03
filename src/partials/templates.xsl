@@ -356,7 +356,7 @@
 		<div class="box-body">
 			<div class="display">
 				<div class="graph has-values">
-					<svg viewBox="0 0 310 108">
+					<svg viewBox="0 0 310 108" data-mousedown="doEnvelope">
 						<polyline class="st0" points=".5,7 .5,.5 7,.5 "/>
 						<polyline class="st0" points="303,.5 309.5,.5 309.5,7 "/>
 						<polyline class="st0" points="309.5,101 309.5,107.5 303,107.5 "/>
@@ -364,11 +364,12 @@
 						<line class="st01" x1="103.5" y1="0.5" x2="103.5" y2="107.5"/>
 						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
 						<!-- envelope curve -->
-						<polyline class="st1"/>
+						<!-- <path class="st1" d="M2.5,105C2.5,73,15.6,5,52,5c0,22.7,8.7,40,51.3,40s82.6,0,96.8,0c0,38.9,22,58,105,58"/> -->
+						<path class="st1" d="M2.5,105L52,5l51.3,40c42.6,0,82.6,0,96.8,0l105,58"/>
 						<!-- curve handles -->
-						<rect class="st2" x="50" y="3" width="4" height="4"/>
-						<rect class="st2" x="140" y="43" width="4" height="4"/>
-						<rect class="st2" x="303" y="101" width="4" height="4"/>
+						<rect class="st2" data-id="attack" x="50" y="3" width="4" height="4"/>
+						<rect class="st2" data-id="sustain" x="140" y="43" width="4" height="4"/>
+						<rect class="st2" data-id="release" x="303" y="101" width="4" height="4"/>
 					</svg>
 					<div class="value-row">
 						<div data-click="show-curves-popup" data-arg="attack">Attack: <i class="icon-curve_linear"></i></div>

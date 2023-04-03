@@ -8,7 +8,7 @@
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.envelope,
-			width, height, y, x,
+			rect, width, height, y, x,
 			name,
 			value,
 			el;
@@ -28,30 +28,10 @@
 
 				break;
 			case "draw-envelope-curve":
-				// optimisation
-				if (Self._drawing) return;
-				Self._drawing = true;
 				// values
 				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
-				Self.instrument.envelope.asArray(width >> 1).then(values => {
-					let points = [`3,${height-2}`],
-						max = Math.max(0.001, ...values) * 1.1,
-						min = Math.min(-0.001, ...values) * 1.1,
-						scale = (v, inMin, inMax, outMin, outMax) =>
-							Math.round(((v - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin);
-						// translate values
-						values.map((v, i) => {
-							let x = scale(i, 0, values.length, 3, width),
-								y = scale(v, max, min, -5, height-3),
-								p = `${x},${y}`;
-							if (points[points.length-1] !== p) points.push(p);
-						});
-					// plot cruve in SVG element
-					Self.svgEl.find(`polyline.st1`).attr({ points: points.join(" ") });
-					// change flag
-					Self._drawing = false;
-				});
+				
 				break;
 			case "show-curves-popup":
 				// remember srcElement
@@ -88,6 +68,55 @@
 					.removeClass("show decay-icons");
 				// cover app UI
 				APP.els.content.removeClass("cover");
+				break;
+		}
+	},
+	doEnvelope(event) {
+		let Self = defjam.devices.envelope,
+			Drag = Self.drag;
+		switch (event.type) {
+			case "mousedown":
+				let el = $(event.target);
+				if (el.prop("nodeName") !== "rect") return;
+
+				let id = el.data("id"),
+					click = {
+						x: event.clientX - +el.attr("x"),
+						y: event.clientY - +el.attr("y"),
+					},
+					limit = {},
+					min_ = Math.min,
+					max_ = Math.max;
+
+				switch (id) {
+					case "attack": limit = { minX: 3, maxX: 97, minY: 3, maxY: 3 }; break;
+					case "sustain": limit = { minX: 106, maxX: 200, minY: 3, maxY: 101 }; break;
+					case "release": limit = { minX: 209, maxX: 303, minY: 101, maxY: 101 }; break;
+				}
+
+				// prepare drag object
+				Self.drag = { el, id, click, limit, min_, max_ };
+
+				// bind event handlers
+				UX.content.addClass("hide-cursor no-anim");
+				UX.doc.on("mousemove mouseup", Self.doEnvelope);
+				break;
+			case "mousemove":
+				let data = {
+					x: Drag.min_(Drag.max_(event.clientX - Drag.click.x, Drag.limit.minX), Drag.limit.maxX),
+					y: Drag.min_(Drag.max_(event.clientY - Drag.click.y, Drag.limit.minY), Drag.limit.maxY),
+				};
+				// switch (Drag.id) {
+				// 	case "attack": break;
+				// 	case "sustain": break;
+				// 	case "release": break;
+				// }
+				Drag.el.attr(data);
+				break;
+			case "mouseup":
+				// unbind event handlers
+				UX.content.removeClass("hide-cursor");
+				UX.doc.off("mousemove mouseup", Self.doEnvelope);
 				break;
 		}
 	}

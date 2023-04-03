@@ -84,7 +84,6 @@
 					points = shape[0].pathSegList._list,
 					fnScale = Svg.scale.path,
 					matrix = Svg.scale.matrix,
-					matrixDot = Svg.matrixDot,
 					bbox = shape[0].getBBox(),
 					click = {
 						x: event.clientX - +el.attr("x"),
@@ -94,6 +93,11 @@
 					min_ = Math.min,
 					max_ = Math.max;
 
+				let dArr = Svg.translate.path(points, { x: 20, y: 20 });
+				shape.attr({ d: dArr.join("") });
+
+				points = shape[0].pathSegList._list;
+
 				switch (id) {
 					case "attack": limit = { minX: 3, maxX: 97, minY: 3, maxY: 3 }; break;
 					case "sustain": limit = { minX: 106, maxX: 200, minY: 3, maxY: 101 }; break;
@@ -101,30 +105,37 @@
 				}
 
 				// prepare drag object
-				Self.drag = { el, id, shape, bbox, points, matrix, fnScale, matrixDot, click, limit, min_, max_ };
+				Drag = Self.drag = { el, id, shape, bbox, points, matrix, fnScale, click, limit, min_, max_ };
 
 				// bind event handlers
 				UX.content.addClass("hide-cursor");
 				UX.doc.on("mousemove mouseup", Self.doEnvelope);
 				break;
 			case "mousemove":
-				let scale = { x: 1, y: 1 },
-					data = {
+				let data = {
 						x: Drag.min_(Drag.max_(event.clientX - Drag.click.x, Drag.limit.minX), Drag.limit.maxX),
 						y: Drag.min_(Drag.max_(event.clientY - Drag.click.y, Drag.limit.minY), Drag.limit.maxY),
 					};
-
+				// handle coordinates
 				Drag.el.attr(data);
+
+				data = {
+					...data,
+					...Drag.bbox,
+					scale: { x: 1, y: 1 },
+					matrix: Drag.matrix,
+					points: Drag.points,
+				}
 
 				switch (Drag.id) {
 					case "attack":
-						scale.x = (data.x - Drag.limit.minX) / (Drag.limit.maxX - Drag.limit.minX) * 2;
+						data.scale.x = (data.x - Drag.limit.minX) / (Drag.limit.maxX - Drag.limit.minX) * 2;
 						break;
 					case "sustain": break;
 					case "release": break;
 				}
-
-				Drag.fnScale(Drag.shape, { ...Drag.bbox, scale, matrix: Drag.matrix, points: Drag.points });
+				// shape transformation
+				Drag.fnScale(Drag.shape, data);
 				break;
 			case "mouseup":
 				// unbind event handlers

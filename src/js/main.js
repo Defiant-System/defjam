@@ -1,5 +1,8 @@
 
+@import "./ext/pathseg.js"
+
 @import "./modules/ux.js";
+@import "./modules/svg.js";
 @import "./modules/jam.js";
 @import "./modules/misc.js";
 @import "./modules/audio.js";

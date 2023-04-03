@@ -364,8 +364,8 @@
 						<line class="st01" x1="103.5" y1="0.5" x2="103.5" y2="107.5"/>
 						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
 						<!-- envelope curve -->
-						<!-- <path class="st1" d="M2.5,105C2.5,73,15.6,5,52,5c0,22.7,8.7,40,51.3,40s82.6,0,96.8,0c0,38.9,22,58,105,58"/> -->
-						<path class="st1" d="M2.5,106L52,5l51.3,40c42.6,0,82.6,0,96.8,0l107,60"/>
+						<!-- <path class="st1" d="M2.5,106L52,5l51.3,40c42.6,0,82.6,0,96.8,0l107,60"/> -->
+						<path class="st1" data-curve="attack" d="M2.5,106L52,5"/>
 						<!-- curve handles -->
 						<rect class="st2" data-id="attack" x="50" y="3" width="4" height="4"/>
 						<rect class="st2" data-id="sustain" x="140" y="43" width="4" height="4"/>

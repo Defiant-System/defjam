@@ -80,6 +80,12 @@
 				if (el.prop("nodeName") !== "rect") return;
 
 				let id = el.data("id"),
+					shape = el.parent().find(`*[data-curve="attack"]`),
+					points = shape[0].pathSegList._list,
+					fnScale = Svg.scale.path,
+					matrix = Svg.scale.matrix,
+					matrixDot = Svg.matrixDot,
+					bbox = shape[0].getBBox(),
 					click = {
 						x: event.clientX - +el.attr("x"),
 						y: event.clientY - +el.attr("y"),
@@ -95,23 +101,30 @@
 				}
 
 				// prepare drag object
-				Self.drag = { el, id, click, limit, min_, max_ };
+				Self.drag = { el, id, shape, bbox, points, matrix, fnScale, matrixDot, click, limit, min_, max_ };
 
 				// bind event handlers
 				UX.content.addClass("hide-cursor");
 				UX.doc.on("mousemove mouseup", Self.doEnvelope);
 				break;
 			case "mousemove":
-				let data = {
-					x: Drag.min_(Drag.max_(event.clientX - Drag.click.x, Drag.limit.minX), Drag.limit.maxX),
-					y: Drag.min_(Drag.max_(event.clientY - Drag.click.y, Drag.limit.minY), Drag.limit.maxY),
-				};
-				// switch (Drag.id) {
-				// 	case "attack": break;
-				// 	case "sustain": break;
-				// 	case "release": break;
-				// }
+				let scale = { x: 1, y: 1 },
+					data = {
+						x: Drag.min_(Drag.max_(event.clientX - Drag.click.x, Drag.limit.minX), Drag.limit.maxX),
+						y: Drag.min_(Drag.max_(event.clientY - Drag.click.y, Drag.limit.minY), Drag.limit.maxY),
+					};
+
 				Drag.el.attr(data);
+
+				switch (Drag.id) {
+					case "attack":
+						scale.x = (data.x - Drag.limit.minX) / (Drag.limit.maxX - Drag.limit.minX) * 2;
+						break;
+					case "sustain": break;
+					case "release": break;
+				}
+
+				Drag.fnScale(Drag.shape, { ...Drag.bbox, scale, matrix: Drag.matrix, points: Drag.points });
 				break;
 			case "mouseup":
 				// unbind event handlers

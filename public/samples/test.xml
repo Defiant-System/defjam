@@ -1,6 +1,6 @@
 <Project>
 	<Head>
-		<Tempo value="120"/>
+		<Tempo value="114"/>
 		<Position bar="0.0.0" time="00:00.00"/>
 		<Loop start="2" length="2"/>
 		<Duration value="10"/>

@@ -98,7 +98,7 @@
 				Self.drag = { el, id, click, limit, min_, max_ };
 
 				// bind event handlers
-				UX.content.addClass("hide-cursor no-anim");
+				UX.content.addClass("hide-cursor");
 				UX.doc.on("mousemove mouseup", Self.doEnvelope);
 				break;
 			case "mousemove":

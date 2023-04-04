@@ -3269,9 +3269,25 @@ content {
 			&[data-rack="envelope"] {
 				.box-body {
 					.display {
-						svg {
-							width: 310px;
-							height: 108px;
+						.graph {
+							position: relative;
+
+							svg {
+								position: relative;
+								width: 310px;
+								height: 108px;
+								z-index: 2;
+
+								&.envelope-curve {
+									position: absolute;
+									top: 5px;
+									left: 6px;
+									width: 306px;
+									height: 104px;
+									background: red;
+									z-index: 1;
+								}
+							}
 						}
 
 						.controls {

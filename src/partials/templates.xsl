@@ -356,6 +356,11 @@
 		<div class="box-body">
 			<div class="display">
 				<div class="graph has-values">
+					<svg viewBox="0 0 306 104" class="envelope-curve">
+						<!-- envelope curve -->
+						<!-- <path class="st1" d="M2.5,106L52,5l51.3,40c42.6,0,82.6,0,96.8,0l107,60"/> -->
+						<path class="st1" data-curve="attack" d="M2.5,106 L52,5"/>
+					</svg>
 					<svg viewBox="0 0 310 108" data-mousedown="doEnvelope">
 						<polyline class="st0" points=".5,7 .5,.5 7,.5 "/>
 						<polyline class="st0" points="303,.5 309.5,.5 309.5,7 "/>
@@ -363,9 +368,6 @@
 						<polyline class="st0" points=".5,101 .5,107.5 7,107.5 "/>
 						<line class="st01" x1="103.5" y1="0.5" x2="103.5" y2="107.5"/>
 						<line class="st01" x1="206.5" y1="0.5" x2="206.5" y2="107.5"/>
-						<!-- envelope curve -->
-						<!-- <path class="st1" d="M2.5,106L52,5l51.3,40c42.6,0,82.6,0,96.8,0l107,60"/> -->
-						<path class="st1" data-curve="attack" d="M2.5,106L52,5"/>
 						<!-- curve handles -->
 						<rect class="st2" data-id="attack" x="50" y="3" width="4" height="4"/>
 						<rect class="st2" data-id="sustain" x="140" y="43" width="4" height="4"/>

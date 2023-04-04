@@ -2,9 +2,6 @@
 // defjam.devices.drumkit
 
 {
-	init() {
-		// fast references
-	},
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.drumkit,

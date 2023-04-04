@@ -2,8 +2,35 @@
 // defjam.devices.envelope
 
 {
-	init() {
-		// fast references
+	// curve types
+	points: {
+		attack: {
+			linear: "M0,100 L100,0",
+			exponential: "M0,100C0,40.5,35.6,0,100,0",
+			sine: "M0,100C68.2,100,37.6,0,100,0",
+			cosine: "M0,100C0,60.6,55.8,0,100,0",
+			step: "M0,100V80.1l19.9,0l0-20l20.3-0.2L40.4,40L60,40l0.2-19.8l19.6,0L79.6,0H100",
+			bounce: "",
+			ripple: "M0,100c0-9.5,6-19.9,19.9-19.9s20-6.6,20-20s9.6-20,20-20s19.8-6.7,19.8-19.8C79.8,4.9,88.4,0,100,0",
+		},
+		decay: {
+			linear: "M99,0 L202,100",
+			exponential: "M99,0c0,59.9,33.8,100,103,100",
+			sine: "M99,0c56.3,0,33.8,100,103,100",
+			cosine: "M99,0c0,47.5,47.8,100,103,100",
+			step: "M99,0v20.2l20.8,0l0.1,19.8l20.3,0l-0.1,20l20.7,0l0.1,20l20.5,0l0,19.9H202",
+			bounce: "",
+			ripple: "",
+		},
+		release: {
+			linear: "M202,0 L302,100",
+			exponential: "M202,0c0,64.3,37.7,100,100,100",
+			sine: "M202,0c61.2,0,37.7,100,100,100",
+			cosine: "M202,0c0,43.8,59.7,100,100,100",
+			step: "M202,0v20.2l20.2,0l0,19.8l19.9,0l0.1,20l20,0l-0.3,20l20.3,0l-0.2,19.9H302",
+			bounce: "",
+			ripple: "",
+		}
 	},
 	dispatch(event) {
 		let APP = defjam,
@@ -18,20 +45,37 @@
 				// reference track & instrument
 				Self.trackId = event.trackId;
 				Self.instrument = Jam.track._list[Self.trackId].instrument;
-				Self.svgEl = event.el.find("svg");
+				Self.svgEl = event.el.find("svg.envelope-curve");
+				Self.curves = {
+					attack: Self.svgEl.find(`path[data-curve="attack"]`),
+					decay: Self.svgEl.find(`path[data-curve="decay"]`),
+					sustain: Self.svgEl.find(`path[data-curve="sustain"]`),
+					release: Self.svgEl.find(`path[data-curve="release"]`),
+				};
 
 				Self.dispatch({ type: "draw-envelope-curve" });
 
 				// values for UI
 				let values = Self.instrument.get();
-				console.log(values);
+				// console.log(values);
 
 				break;
 			case "draw-envelope-curve":
 				// values
-				[y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
+				// [y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
+				value = Self.points.attack.ripple;
+				Self.curves.attack.attr({ d: value });
 				
+				value = Self.points.decay.step;
+				Self.curves.decay.attr({ d: value });
+				
+				value = `M202,100 L202,0`;
+				Self.curves.sustain.attr({ d: value });
+				
+				value = Self.points.release.step;
+				Self.curves.release.attr({ d: value });
+
 				break;
 			case "show-curves-popup":
 				// remember srcElement

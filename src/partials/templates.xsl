@@ -358,11 +358,10 @@
 				<div class="graph has-values">
 					<svg viewBox="0 0 302 100" class="envelope-curve">
 						<!-- envelope curve -->
-						<!-- <path class="st1" d="M2.5,106L52,5l51.3,40c42.6,0,82.6,0,96.8,0l107,60"/> -->
-						<path class="st1" data-curve="attack" d="M0,100 L52,0"/>
-						<path class="st1" data-curve="decay" d="M52,0 L82,43.5"/>
-						<path class="st1" data-curve="sustain" d="M82,43.5 L206,43.5"/>
-						<path class="st1" data-curve="release" d="M206,43.5 L302,100"/>
+						<path class="st1" data-curve="attack"/>
+						<path class="st1" data-curve="decay"/>
+						<path class="st1" data-curve="sustain"/>
+						<path class="st1" data-curve="release"/>
 					</svg>
 					<svg viewBox="0 0 310 108" data-mousedown="doEnvelope">
 						<polyline class="st0" points=".5,7 .5,.5 7,.5 "/>

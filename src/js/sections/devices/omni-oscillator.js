@@ -2,9 +2,6 @@
 // defjam.devices.omniOscillator
 
 {
-	init() {
-		// fast references
-	},
 	dispatch(event) {
 		let APP = defjam,
 			Self = APP.devices.omniOscillator,

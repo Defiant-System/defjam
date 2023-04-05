@@ -64,16 +64,16 @@
 				// values
 				// [y, x, width, height] = Self.svgEl.attr("viewBox").split(" ");
 
-				value = Self.points.attack.bounce;
+				value = Self.points.attack.exponential;
 				Self.curves.attack.attr({ d: value });
 				
-				value = Self.points.decay.bounce;
+				value = Self.points.decay.sine;
 				Self.curves.decay.attr({ d: value });
 				
 				value = `M202,100 L202,0`;
 				Self.curves.sustain.attr({ d: value });
 				
-				value = Self.points.release.bounce;
+				value = Self.points.release.step;
 				Self.curves.release.attr({ d: value });
 
 				break;

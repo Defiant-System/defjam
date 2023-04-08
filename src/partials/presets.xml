@@ -1,0 +1,163 @@
+
+<Presets>
+	<Group name="Piano">
+		<Preset id="0" name="Acoustic Grand Piano"/>
+		<Preset id="1" name="Bright Acoustic Piano"/>
+		<Preset id="2" name="Electric Grand Piano"/>
+		<Preset id="3" name="Honky-tonk Piano"/>
+		<Preset id="4" name="Electric Piano 1"/>
+		<Preset id="5" name="Electric Piano 2"/>
+		<Preset id="6" name="Harpsichord"/>
+		<Preset id="7" name="Clavinet"/>
+	</Group>
+	<Group name="Chromatic Perc.">
+		<Preset id="8" name="Celesta"/>
+		<Preset id="9" name="Glockenspiel"/>
+		<Preset id="10" name="Music Box"/>
+		<Preset id="11" name="Vibraphone"/>
+		<Preset id="12" name="Marimba"/>
+		<Preset id="13" name="Xylophone"/>
+		<Preset id="14" name="Tubular Bells"/>
+		<Preset id="15" name="Dulcimer"/>
+	</Group>
+	<Group name="Organ">
+		<Preset id="16" name="Drawbar Organ"/>
+		<Preset id="17" name="Percussive Organ"/>
+		<Preset id="18" name="Rock Organ"/>
+		<Preset id="19" name="Church Organ"/>
+		<Preset id="20" name="Reed Organ"/>
+		<Preset id="21" name="Accordion"/>
+		<Preset id="22" name="Harmonica"/>
+		<Preset id="23" name="Tango Accordion"/>
+	</Group>
+	<Group name="Guitar">
+		<Preset id="24" name="Acoustic Guitar (nylon)"/>
+		<Preset id="25" name="Acoustic Guitar (steel)"/>
+		<Preset id="26" name="Electric Guitar (jazz)"/>
+		<Preset id="27" name="Electric Guitar (clean)"/>
+		<Preset id="28" name="Electric Guitar (muted)"/>
+		<Preset id="29" name="Overdriven Guitar"/>
+		<Preset id="30" name="Distortion Guitar"/>
+		<Preset id="31" name="Guitar Harmonics"/>
+	</Group>
+	<Group name="Bass">
+		<Preset id="32" name="Acoustic Bass"/>
+		<Preset id="33" name="Electric Bass (finger)"/>
+		<Preset id="34" name="Electric Bass (pick)"/>
+		<Preset id="35" name="Fretless Bass"/>
+		<Preset id="36" name="Slap Bass 1"/>
+		<Preset id="37" name="Slap Bass 2"/>
+		<Preset id="38" name="Synth Bass 1"/>
+		<Preset id="39" name="Synth Bass 2"/>
+	</Group>
+	<Group name="Strings">
+		<Preset id="40" name="Violin"/>
+		<Preset id="41" name="Viola"/>
+		<Preset id="42" name="Cello"/>
+		<Preset id="43" name="Contrabass"/>
+		<Preset id="44" name="Tremolo Strings"/>
+		<Preset id="45" name="Pizzicato Strings"/>
+		<Preset id="46" name="Orchestral Harp"/>
+		<Preset id="47" name="Timpani"/>
+	</Group>
+	<Group name="Ensemble">
+		<Preset id="48" name="String Ensemble 1"/>
+		<Preset id="49" name="String Ensemble 2"/>
+		<Preset id="50" name="Synth Strings 1"/>
+		<Preset id="51" name="Synth Strings 2"/>
+		<Preset id="52" name="Choir Aahs"/>
+		<Preset id="53" name="Voice Oohs"/>
+		<Preset id="54" name="Synth Choir"/>
+		<Preset id="55" name="Orchestra Hit"/>
+	</Group>
+	<Group name="Brass">
+		<Preset id="56" name="Trumpet"/>
+		<Preset id="57" name="Trombone"/>
+		<Preset id="58" name="Tuba"/>
+		<Preset id="59" name="Muted Trumpet"/>
+		<Preset id="60" name="French Horn"/>
+		<Preset id="61" name="Brass Section"/>
+		<Preset id="62" name="Synth Brass 1"/>
+		<Preset id="63" name="Synth Brass 2"/>
+	</Group>
+	<Group name="Reed">
+		<Preset id="64" name="Soprano Sax"/>
+		<Preset id="65" name="Alto Sax"/>
+		<Preset id="66" name="Tenor Sax"/>
+		<Preset id="67" name="Baritone Sax"/>
+		<Preset id="68" name="Oboe"/>
+		<Preset id="69" name="English Horn"/>
+		<Preset id="70" name="Bassoon"/>
+		<Preset id="71" name="Clarinet"/>
+	</Group>
+	<Group name="Pipe">
+		<Preset id="72" name="Piccolo"/>
+		<Preset id="73" name="Flute"/>
+		<Preset id="74" name="Recorder"/>
+		<Preset id="75" name="Pan Flute"/>
+		<Preset id="76" name="Blown Bottle"/>
+		<Preset id="77" name="Shakuhachi"/>
+		<Preset id="78" name="Whistle"/>
+		<Preset id="79" name="Ocarina"/>
+	</Group>
+	<Group name="Synth Lead">
+		<Preset id="80" name="Square Synth"/>
+		<Preset id="81" name="Sawtooth Synth"/>
+		<Preset id="82" name="Calliope Synth"/>
+		<Preset id="83" name="Chiff Synth"/>
+		<Preset id="84" name="Charang Synth"/>
+		<Preset id="85" name="Voice Synth"/>
+		<Preset id="86" name="Fifths Synth"/>
+		<Preset id="87" name="Bass + Lead Synth"/>
+	</Group>
+	<Group name="Synth Pad">
+		<Preset id="88" name="New Age Pads"/>
+		<Preset id="89" name="Warm Pads"/>
+		<Preset id="90" name="Polysynth Pads"/>
+		<Preset id="91" name="Choir Pads"/>
+		<Preset id="92" name="Bowed Pads"/>
+		<Preset id="93" name="Metallic Pads"/>
+		<Preset id="94" name="Halo Pads"/>
+		<Preset id="95" name="Sweep Pads"/>
+	</Group>
+	<Group name="Synth Effects">
+		<Preset id="96" name="Rain"/>
+		<Preset id="97" name="Soundtrack"/>
+		<Preset id="98" name="Crystal"/>
+		<Preset id="99" name="Atmosphere"/>
+		<Preset id="100" name="Brightness"/>
+		<Preset id="101" name="Goblins"/>
+		<Preset id="102" name="Echoes"/>
+		<Preset id="103" name="Sci-Fi"/>
+	</Group>
+	<Group name="World">
+		<Preset id="104" name="Sitar"/>
+		<Preset id="105" name="Banjo"/>
+		<Preset id="106" name="Shamisen"/>
+		<Preset id="107" name="Koto"/>
+		<Preset id="108" name="Kalimba"/>
+		<Preset id="109" name="Bagpipe"/>
+		<Preset id="110" name="Fiddle"/>
+		<Preset id="111" name="Shanai"/>
+	</Group>
+	<Group name="Percussive">
+		<Preset id="112" name="Tinkle Bell"/>
+		<Preset id="113" name="Agogo"/>
+		<Preset id="114" name="Steel Drum"/>
+		<Preset id="115" name="Woodblock"/>
+		<Preset id="116" name="Taiko Drum"/>
+		<Preset id="117" name="Melodic Tom"/>
+		<Preset id="118" name="Synth Drum"/>
+		<Preset id="119" name="Reverse Cymbal"/>
+	</Group>
+	<Group name="Sound Effects">
+		<Preset id="120" name="Guitar Fret Noise"/>
+		<Preset id="121" name="Breath Noise"/>
+		<Preset id="122" name="Seashore"/>
+		<Preset id="123" name="Bird Tweet"/>
+		<Preset id="124" name="Telephone Ring"/>
+		<Preset id="125" name="Helicopter"/>
+		<Preset id="126" name="Applause"/>
+		<Preset id="127" name="Gunshot"/>
+	</Group>
+</Presets>

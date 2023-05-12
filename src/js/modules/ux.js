@@ -3,7 +3,7 @@ const UX = {
 	init() {
 		// fast references
 		this.doc = $(document);
-		this.content = window.find("content");
+		this.content = window.find(".content");
 
 		// bind event handlers
 		this.content.on("mousedown change", ".knob, .knob2, .pan-knob, .pan2", this.doKnob);

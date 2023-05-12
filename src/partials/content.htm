@@ -1,109 +1,111 @@
 <content>
-	<div class="row-work" data-section="head">
-		<div class="buttons">
-			<div class="ball-button" title="Toggle View" data-click="toggle-work-panel">
-				<i class="icon-arrow_up right"></i>
-			</div>
-			<div class="ball-button active" title="Sounds" data-click="show-sounds">
-				<i class="icon-sounds"></i>
-			</div>
-			<div class="ball-button" title="Drums" data-click="show-drums">
-				<i class="icon-drums"></i>
-			</div>
-			<div class="ball-button" title="Instruments" data-click="show-instruments">
-				<i class="icon-instruments"></i>
-			</div>
-			<div class="ball-button" title="Audio Effects" data-click="show-fx">
-				<i class="icon-audio_fx"></i>
-			</div>
-		</div>
-		<div class="panel-left" data-section="browser">
-			<div class="box panel-content">
-				<!-- custom scrollbar -->
-				<div class="bg-scrollbar">
-					<div class="scroll-track">
-						<div class="scroll-bar"></div>
-					</div>
-					<!-- <div class="togglers">
-						<div class="toggler on"><i class="icon-toggle-headphones"></i></div>
-					</div> -->
+	<div class="content">
+		<div class="row-work" data-section="head">
+			<div class="buttons">
+				<div class="ball-button" title="Toggle View" data-click="toggle-work-panel">
+					<i class="icon-arrow_up right"></i>
 				</div>
-				
-				@import "sections/browser.htm"
-				
-			</div>
-		</div>
-		<div class="resize horisontal"><!-- section resize handle --></div>
-		<div class="panel-right show-session">
-			<div class="box session-wrapper">
-				<!-- custom scrollbar -->
-				<div class="bg-scrollbar">
-					<div class="scroll-track">
-						<div class="scroll-bar"></div>
-					</div>
-					<div class="togglers">
-						<div class="toggler"><i class="icon-toggle-io"></i></div>
-						<div class="toggler top-half on"><i class="icon-toggle-sends"></i></div>
-						<div class="toggler bottom-half on"><i class="icon-toggle-returns"></i></div>
-						<div class="toggler"><i class="icon-toggle-mixers"></i></div>
-					</div>
+				<div class="ball-button active" title="Sounds" data-click="show-sounds">
+					<i class="icon-sounds"></i>
 				</div>
-				<!-- Session content goes here -->
-				@import "sections/session.htm"
-			</div>
-			<div class="box arrangement-wrapper">
-				<!-- custom scrollbar -->
-				<div class="bg-scrollbar">
-					<div class="scroll-track">
-						<div class="scroll-bar"></div>
-					</div>
-					<div class="togglers">
-						<div class="toggler on"><i class="icon-toggle-io"></i></div>
-						<div class="toggler top-half on"><i class="icon-toggle-sends"></i></div>
-						<div class="toggler bottom-half on"><i class="icon-toggle-returns"></i></div>
-						<div class="toggler"><i class="icon-toggle-mixers"></i></div>
-					</div>
+				<div class="ball-button" title="Drums" data-click="show-drums">
+					<i class="icon-drums"></i>
 				</div>
-				<!-- arrangement content goes here -->
-				@import "sections/arrangement.htm"
+				<div class="ball-button" title="Instruments" data-click="show-instruments">
+					<i class="icon-instruments"></i>
+				</div>
+				<div class="ball-button" title="Audio Effects" data-click="show-fx">
+					<i class="icon-audio_fx"></i>
+				</div>
+			</div>
+			<div class="panel-left" data-section="browser">
+				<div class="box panel-content">
+					<!-- custom scrollbar -->
+					<div class="bg-scrollbar">
+						<div class="scroll-track">
+							<div class="scroll-bar"></div>
+						</div>
+						<!-- <div class="togglers">
+							<div class="toggler on"><i class="icon-toggle-headphones"></i></div>
+						</div> -->
+					</div>
+					
+					@import "sections/browser.htm"
+					
+				</div>
+			</div>
+			<div class="resize horisontal"><!-- section resize handle --></div>
+			<div class="panel-right show-session">
+				<div class="box session-wrapper">
+					<!-- custom scrollbar -->
+					<div class="bg-scrollbar">
+						<div class="scroll-track">
+							<div class="scroll-bar"></div>
+						</div>
+						<div class="togglers">
+							<div class="toggler"><i class="icon-toggle-io"></i></div>
+							<div class="toggler top-half on"><i class="icon-toggle-sends"></i></div>
+							<div class="toggler bottom-half on"><i class="icon-toggle-returns"></i></div>
+							<div class="toggler"><i class="icon-toggle-mixers"></i></div>
+						</div>
+					</div>
+					<!-- Session content goes here -->
+					@import "sections/session.htm"
+				</div>
+				<div class="box arrangement-wrapper">
+					<!-- custom scrollbar -->
+					<div class="bg-scrollbar">
+						<div class="scroll-track">
+							<div class="scroll-bar"></div>
+						</div>
+						<div class="togglers">
+							<div class="toggler on"><i class="icon-toggle-io"></i></div>
+							<div class="toggler top-half on"><i class="icon-toggle-sends"></i></div>
+							<div class="toggler bottom-half on"><i class="icon-toggle-returns"></i></div>
+							<div class="toggler"><i class="icon-toggle-mixers"></i></div>
+						</div>
+					</div>
+					<!-- arrangement content goes here -->
+					@import "sections/arrangement.htm"
+				</div>
+			</div>
+			<div class="buttons">
+				<div class="ball-button" title="Arrangement View" data-click="show-arrangement-view">
+					<i class="icon-arrangement"></i>
+				</div>
+				<div class="ball-button" title="Session View" data-click="show-session-view">
+					<i class="icon-session"></i>
+				</div>
 			</div>
 		</div>
-		<div class="buttons">
-			<div class="ball-button" title="Arrangement View" data-click="show-arrangement-view">
-				<i class="icon-arrangement"></i>
-			</div>
-			<div class="ball-button" title="Session View" data-click="show-session-view">
-				<i class="icon-session"></i>
-			</div>
-		</div>
-	</div>
-	<div class="resize vertical"><!-- section resize handle --></div>
-	<div class="panel-bottom">
-		<div class="box rack">
-			<div class="midi-body" data-section="midi">
-				<!-- midi editor content goes here -->
-				@import "sections/midi-note-editor.htm"
-				
-				<div class="box-body"><!-- space --></div>
-			</div>
+		<div class="resize vertical"><!-- section resize handle --></div>
+		<div class="panel-bottom">
+			<div class="box rack">
+				<div class="midi-body" data-section="midi">
+					<!-- midi editor content goes here -->
+					@import "sections/midi-note-editor.htm"
+					
+					<div class="box-body"><!-- space --></div>
+				</div>
 
-			<div class="devices-body" data-section="devices">
-				<!-- device rack goes here -->
-				<div class="box-body"><!-- space --></div>
+				<div class="devices-body" data-section="devices">
+					<!-- device rack goes here -->
+					<div class="box-body"><!-- space --></div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row-foot" data-section="foot">
-		<div class="box status-bar">
-			<div class="box-body">
-				
+		<div class="row-foot" data-section="foot">
+			<div class="box status-bar">
+				<div class="box-body">
+					
+				</div>
 			</div>
-		</div>
-		<div class="box foot-midi" data-click="show-midi-rack"><div class="box-body">Midi</div></div>
-		<div class="box foot-devices" data-click="show-devices-rack"><div class="box-body">Devices</div></div>
-		<div class="buttons">
-			<div class="ball-button" title="Toggle View" data-click="toggle-rack-panel">
-				<i class="icon-arrow_up"></i>
+			<div class="box foot-midi" data-click="show-midi-rack"><div class="box-body">Midi</div></div>
+			<div class="box foot-devices" data-click="show-devices-rack"><div class="box-body">Devices</div></div>
+			<div class="buttons">
+				<div class="ball-button" title="Toggle View" data-click="toggle-rack-panel">
+					<i class="icon-arrow_up"></i>
+				</div>
 			</div>
 		</div>
 	</div>

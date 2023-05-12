@@ -17,7 +17,7 @@ const defjam = {
 	init() {
 		// fast references
 		this.els = {
-			content: window.find("content"),
+			content: window.find(".content"),
 		};
 		// init auxiliary objects
 		UX.init();

@@ -4,12 +4,12 @@
 {
 	init() {
 		// toolbar display
-		this.cvs = window.find(".win-caption-toolbar_ .display canvas");
+		this.cvs = window.find(".toolbar-group_.display canvas");
 		this.ctx = this.cvs[0].getContext("2d");
 		this.width = this.cvs.prop("offsetWidth");
 		this.height = this.cvs.prop("offsetHeight");
 		// show bar/beat or time
-		this.show = window.find(".win-caption-toolbar_ .display").hasClass("show-time") ? "time" : "bar-beat";
+		this.show = window.find(".toolbar-group_.display").hasClass("show-time") ? "time" : "bar-beat";
 		// reset dim
 		this.cvs.attr({
 			width: this.width,

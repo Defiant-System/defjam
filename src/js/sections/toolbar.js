@@ -6,9 +6,9 @@
 		// fast references
 		this.els = {
 			doc: $(document),
-			el: window.find(".win-caption-toolbar_"),
-			display: window.find(".win-caption-toolbar_ .display"),
-			canvas: window.find(".win-caption-toolbar_ .display canvas"),
+			// el: window.find(".toolbar-group_").parent(),
+			display: window.find(".toolbar-group_.display"),
+			canvas: window.find(".toolbar-group_.display canvas"),
 			btnRewind: window.find(`.toolbar-tool_[data-click="rewind"]`),
 			btnForward: window.find(`.toolbar-tool_[data-click="forward"]`),
 			btnStop: window.find(`.toolbar-tool_[data-click="stop"]`),

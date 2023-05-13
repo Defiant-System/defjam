@@ -7,8 +7,13 @@
 		this.els = {
 			content: window.find("content"),
 			el: window.find(".blank-view"),
+			toolbarTools: window.find(`.toolbar-tool_`),
+			toolbarDisplay: window.find(".toolbar-group_.display canvas"),
 		};
-		
+
+		// disable toolbar tools
+		this.dispatch({ type: "toggle-toolbarbar-tools", enabled: false });
+
 		// get settings, if any
 		let xList = $.xmlFromString(`<Recents/>`);
 		let xSamples = window.bluePrint.selectSingleNode(`//Samples`);
@@ -42,6 +47,10 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "toggle-toolbarbar-tools":
+				Self.els.toolbarTools.addClass("tool-disabled_");
+				Self.els.toolbarDisplay.addClass("tool-disabled_");
+				break;
 			case "open-filesystem":
 				APP.dispatch({ ...event, type: "open-file" });
 				break;

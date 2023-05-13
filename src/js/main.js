@@ -68,7 +68,7 @@ const defjam = {
 					if (section) {
 						return Self[section].dispatch(event);
 					}
-					if (el.parents(".win-caption-toolbar_").length) {
+					if (el.parents(".toolbar-group_").length) {
 						return Self.toolbar.dispatch(event);	
 					}
 				}

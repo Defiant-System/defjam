@@ -92,13 +92,13 @@
 						left: rect.left,
 					});
 				// cover app UI
-				APP.els.content.addClass("cover");
+				APP.els.workarea.addClass("cover");
 
 				let func = event => {
 					Self.dispatch({ type: "hide-curves-popup" });
-					APP.els.content.off("mouseup", func);
+					APP.els.workarea.off("mouseup", func);
 				};
-				APP.els.content.on("mouseup", func);
+				APP.els.workarea.on("mouseup", func);
 				break;
 			case "set-envelope-curve":
 				el = $(event.target);
@@ -111,7 +111,7 @@
 					.removeAttr("data-section")
 					.removeClass("show decay-icons");
 				// cover app UI
-				APP.els.content.removeClass("cover");
+				APP.els.workarea.removeClass("cover");
 				break;
 		}
 	},
@@ -152,7 +152,7 @@
 				Drag = Self.drag = { el, id, shape, bbox, points, matrix, fnScale, click, limit, min_, max_ };
 
 				// bind event handlers
-				UX.content.addClass("hide-cursor");
+				UX.workarea.addClass("hide-cursor");
 				UX.doc.on("mousemove mouseup", Self.doEnvelope);
 				break;
 			case "mousemove":
@@ -183,7 +183,7 @@
 				break;
 			case "mouseup":
 				// unbind event handlers
-				UX.content.removeClass("hide-cursor");
+				UX.workarea.removeClass("hide-cursor");
 				UX.doc.off("mousemove mouseup", Self.doEnvelope);
 				break;
 		}

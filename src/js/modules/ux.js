@@ -3,14 +3,14 @@ const UX = {
 	init() {
 		// fast references
 		this.doc = $(document);
-		this.content = window.find(".content");
+		this.workarea = window.find(".workarea");
 
 		// bind event handlers
-		this.content.on("mousedown change", ".knob, .knob2, .pan-knob, .pan2", this.doKnob);
-		this.content.on("mousedown", ".range-input, .pan-input", this.doRange);
-		this.content.on("mousedown", ".toggle-btn", this.doToggleButton);
-		this.content.on("mousedown", ".volume", this.doVolume);
-		this.content.on("mousedown", ".resize", this.doResize);
+		this.workarea.on("mousedown change", ".knob, .knob2, .pan-knob, .pan2", this.doKnob);
+		this.workarea.on("mousedown", ".range-input, .pan-input", this.doRange);
+		this.workarea.on("mousedown", ".toggle-btn", this.doToggleButton);
+		this.workarea.on("mousedown", ".volume", this.doVolume);
+		this.workarea.on("mousedown", ".resize", this.doResize);
 	},
 	doToggleButton(event) {
 		let Self = UX,
@@ -43,7 +43,7 @@ const UX = {
 					clickX = event.clientX - parseInt(el.cssProp("--pW"), 10);
 					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-work-panel"]`);
 				} else {
-					if (defjam.els.content.hasClass("show-devices")) return;
+					if (defjam.els.workarea.hasClass("show-devices")) return;
 					el = el.nextAll(".panel-bottom:first");
 					clickY = event.clientY + parseInt(el.cssProp("--pH"), 10);
 					btnEl = el.parent().find(`.buttons .ball-button[data-click="toggle-rack-panel"]`);
@@ -51,7 +51,7 @@ const UX = {
 				Self.drag = { el, btnEl, type, clickX, clickY };
 
 				// bind event handlers
-				Self.content.addClass("hide-cursor no-anim");
+				Self.workarea.addClass("hide-cursor no-anim");
 				Self.doc.on("mousemove mouseup", Self.doResize);
 				break;
 			case "mousemove":
@@ -79,9 +79,9 @@ const UX = {
 					}
 				}
 				// UI reset on next tick
-				setTimeout(() => Self.content.removeClass("no-anim"), 1);
+				setTimeout(() => Self.workarea.removeClass("no-anim"), 1);
 				// unbind event handlers
-				Self.content.removeClass("hide-cursor");
+				Self.workarea.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doResize);
 				break;
 		}
@@ -110,7 +110,7 @@ const UX = {
 				// snap to
 				setTimeout(() => el.addClass("dnd"), 1);
 				// bind event handlers
-				Self.content.addClass("hide-cursor");
+				Self.workarea.addClass("hide-cursor");
 				Self.doc.on("mousemove mouseup", Self.doVolume);
 				break;
 			case "mousemove":
@@ -125,7 +125,7 @@ const UX = {
 				// reset elemeent
 				Drag.el.removeClass("dnd");
 				// unbind event handlers
-				Self.content.removeClass("hide-cursor");
+				Self.workarea.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doVolume);
 				break;
 		}
@@ -168,7 +168,7 @@ const UX = {
 				};
 
 				// bind event handlers
-				Self.content.addClass("hide-cursor");
+				Self.workarea.addClass("hide-cursor");
 				Self.doc.on("mousemove mouseup", Self.doRange);
 				break;
 			case "mousemove":
@@ -210,7 +210,7 @@ const UX = {
 				break;
 			case "mouseup":
 				// unbind event handlers
-				Self.content.removeClass("hide-cursor");
+				Self.workarea.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doRange);
 				break;
 		}
@@ -269,7 +269,7 @@ const UX = {
 					max: isPan ? 50 : 100,
 				};
 				// bind event handlers
-				Self.content.addClass("hide-cursor");
+				Self.workarea.addClass("hide-cursor");
 				Self.doc.on("mousemove mouseup", Self.doKnob);
 				break;
 			case "mousemove":
@@ -290,7 +290,7 @@ const UX = {
 				break;
 			case "mouseup":
 				// unbind event handlers
-				Self.content.removeClass("hide-cursor");
+				Self.workarea.removeClass("hide-cursor");
 				Self.doc.off("mousemove mouseup", Self.doKnob);
 				break;
 		}

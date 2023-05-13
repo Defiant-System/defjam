@@ -1,4 +1,8 @@
 
+// for dark theme
+@import "theme-dark";
+@import "blank-view";
+
 @margin: 4px;
 @base: #182c40;
 @face: #294a6b;
@@ -36,9 +40,19 @@ content {
 	left: 0;
 	right: 0;
 	bottom: 0;
+
+	&.show-blank-view {
+		.blank-view {
+			display: block;
+		}
+
+		.workarea {
+			display: none;
+		}
+	}
 }
 
-.content {
+.workarea {
 	position: absolute;
 	top: 0;
 	left: 0;

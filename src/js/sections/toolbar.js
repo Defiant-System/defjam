@@ -83,7 +83,7 @@
 				Self.drag = { el, render, clickY, value, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
+				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
 				Self.els.doc.on("mousemove mouseup", Self.doDisplayTempo);
 				break;
@@ -95,7 +95,7 @@
 				break;
 			case "mouseup":
 				// remove class
-				APP.els.content.removeClass("hide-cursor");
+				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doDisplayTempo);
 				break;

@@ -160,13 +160,13 @@
 						left: rect.left,
 					});
 				// cover app UI
-				APP.els.content.addClass("cover");
+				APP.els.workarea.addClass("cover");
 
 				let func = event => {
 					Self.dispatch({ type: "hide-shapes-popup" });
-					APP.els.content.off("mouseup", func);
+					APP.els.workarea.off("mouseup", func);
 				};
-				APP.els.content.on("mouseup", func);
+				APP.els.workarea.on("mouseup", func);
 				break;
 			case "set-oscillator-shape":
 				el = $(event.target);
@@ -190,7 +190,7 @@
 					.removeAttr("data-section")
 					.removeClass("show");
 				// cover app UI
-				APP.els.content.removeClass("cover");
+				APP.els.workarea.removeClass("cover");
 				break;
 		}
 	},
@@ -226,7 +226,7 @@
 				Self.drag = { el, oscillator, partials, index, clickY, offset, limit, max_, min_ };
 
 				// bind event handlers
-				UX.content.addClass("hide-cursor no-anim");
+				UX.workarea.addClass("hide-cursor no-anim");
 				UX.doc.on("mousemove mouseup", Self.doPartialRect);
 				break;
 			case "mousemove":
@@ -242,7 +242,7 @@
 				break;
 			case "mouseup":
 				// unbind event handlers
-				UX.content.removeClass("hide-cursor");
+				UX.workarea.removeClass("hide-cursor");
 				UX.doc.off("mousemove mouseup", Self.doPartialRect);
 				break;
 		}

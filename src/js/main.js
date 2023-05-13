@@ -17,7 +17,7 @@ const defjam = {
 	init() {
 		// fast references
 		this.els = {
-			content: window.find(".content"),
+			workarea: window.find(".workarea"),
 		};
 		// init auxiliary objects
 		UX.init();
@@ -99,6 +99,7 @@ const defjam = {
 				.catch(err => reject(err));
 		});
 	},
+	blankView: @import "./modules/blank-view.js",
 	head: @import "./sections/head.js",
 	toolbar: @import "./sections/toolbar.js",
 	browser: @import "./sections/browser.js",

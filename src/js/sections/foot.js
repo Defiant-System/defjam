@@ -28,7 +28,7 @@
 		switch (event.type) {
 			case "set-height":
 				// prepare for quick UI switch
-				APP.els.content.addClass("no-anim");
+				APP.els.workarea.addClass("no-anim");
 
 				value = +event.node.getAttribute("height");
 				if (value === 0) {
@@ -42,7 +42,7 @@
 					Self.els.panelBottom.css({ "--pH": `${value}px` });
 				}
 				// restore quick UI
-				requestAnimationFrame(() => APP.els.content.removeClass("no-anim"));
+				requestAnimationFrame(() => APP.els.workarea.removeClass("no-anim"));
 				break;
 			case "toggle-rack-panel":
 				el = event.el;
@@ -73,7 +73,7 @@
 				// start view animations, if any
 				Jam.anim.dispatch({ type: `${name}-turn-on` });
 
-				APP.els.content
+				APP.els.workarea
 					.removeClass("show-devices show-drumkit show-midi")
 					.addClass(`show-${name}`);
 				break;

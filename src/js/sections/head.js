@@ -5,7 +5,7 @@
 	init() {
 		// fast references
 		this.els = {
-			content: window.find(".content"),
+			workarea: window.find(".workarea"),
 			panelLeft: window.find(".panel-left"),
 			sidebar: window.find(".sidebar"),
 			btnSess: window.find(`.row-work .buttons .ball-button[data-click="show-session-view"]`),

@@ -247,7 +247,7 @@
 				Self.drag = { el, clickX, clickY, offsetY, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
+				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
 				Self.els.doc.on("mousemove mouseup", Self.doNoteRuler);
 				break;
@@ -257,7 +257,7 @@
 				break;
 			case "mouseup":
 				// remove class
-				APP.els.content.removeClass("hide-cursor");
+				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doNoteRuler);
 				break;
@@ -289,7 +289,7 @@
 				Self.drag = { el, clickX, clickY, offsetX, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
+				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
 				Self.els.doc.on("mousemove mouseup", Self.doNoteBars);
 				break;
@@ -299,7 +299,7 @@
 				break;
 			case "mouseup":
 				// remove class
-				APP.els.content.removeClass("hide-cursor");
+				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doNoteBars);
 				break;
@@ -343,7 +343,7 @@
 				Self.drag = { el, notes, oX, oY, cX, cY, eX, eY, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
+				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
 				Self.els.doc.on("mousemove mouseup", Self.doLasso);
 				break;
@@ -375,7 +375,7 @@
 			case "mouseup":
 				Drag.el.addClass("hidden").css({ width: 0, height: 0 });
 				// remove class
-				APP.els.content.removeClass("hide-cursor");
+				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doLasso);
 				break;
@@ -424,7 +424,7 @@
 				Self.drag = { el, d, l, details, onDone, clickY, clickX, floor_ };
 
 				// prevent mouse from triggering mouseover
-				APP.els.content.addClass("hide-cursor");
+				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
 				Self.els.doc.on("mousemove mouseup", Self.doPencil);
 				break;
@@ -444,7 +444,7 @@
 				// UI to live sequence
 				Drag.onDone();
 				// remove class
-				APP.els.content.removeClass("hide-cursor");
+				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
 				Self.els.doc.off("mousemove mouseup", Self.doPencil);
 				break;

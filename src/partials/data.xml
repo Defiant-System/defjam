@@ -1,23 +1,22 @@
 
 <Data>
 	<Samples>
-		<i name="Abba - Money Money.xml"/>
+		<i name="Abba - Money Money Money.xml"/>
 		<i name="Axel F.xml"/>
 		<i name="Kraftwerk - Radioactivity.xml"/>
-		<i name="Kraftwerk - The Robot.xml"/>
-		<i name="Popcorn.xml"/>
+		<i name="Kraftwerk - The Robots.xml"/>
+		<i name="popcorn.xml"/>
 		<i name="PPK - Resurrection.xml"/>
 		<i name="test.xml"/>
 	</Samples>
 	<Recents>
-		<i name="Popcorn.xml" path="/fs/Desktop/Popcorn.xml"/>
+		<i name="popcorn.xml" path="/fs/Desktop/popcorn.xml"/>
 	</Recents>
 </Data>
 
 <Samples>
 	<Drums>
 		<Set name="_unsorted">
-
 
 		</Set>
 

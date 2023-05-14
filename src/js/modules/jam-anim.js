@@ -50,18 +50,18 @@
 
 			// show play-head
 			case "midi-playing":
-				Self.midi.els.playHead.addClass("on");
+				// Self.midi.els.playHead.addClass("on");
 				break;
 			// hide play-head
 			case "midi-stopped":
-				Self.midi.els.playHead.removeClass("on");
+				// Self.midi.els.playHead.removeClass("on");
 				break;
 			case "midi-turn-on":
 				// auto stop session view animations
 				Self.dispatch({ type: "devices-turn-off" });
 				// defaults
-				Self.midi.isOn = true;
-				Self.midi.width = parseInt(Self.midi.els.lengthSpan.css("width"), 10);
+				// Self.midi.isOn = true;
+				// Self.midi.width = parseInt(Self.midi.els.lengthSpan.css("width"), 10);
 				break;
 			case "midi-turn-off":
 				// turn off flag

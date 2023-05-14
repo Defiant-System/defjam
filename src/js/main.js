@@ -52,13 +52,32 @@ const defjam = {
 			case "window.close":
 				Jam.stop();
 				break;
+			case "open.file":
+				(event.files || [event]).map(async fHandle => {
+					// enable toolbar
+					Self.blankView.dispatch({ type: "hide-blank-view" });
+
+					let file = await fHandle.open({ responseType: "xml" });
+					Self.File = new File(file);
+				});
+				break;
+
 			// custom events
 			case "load-sample":
 				// open application local sample file
 				Self.openLocal(`~/samples/${event.name}`)
 					.then(fsFile => {
+						// enable toolbar
+						Self.blankView.dispatch({ type: "hide-blank-view" });
+
 						Self.File = new File(fsFile);
 					});
+				break;
+			// from menubar
+			case "open-file":
+				window.dialog.open({
+					xml: fsItem => Self.dispatch(fsItem),
+				});
 				break;
 			default:
 				el = event.el || (event.origin ? event.origin.el : null);

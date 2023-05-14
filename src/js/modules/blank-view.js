@@ -12,7 +12,7 @@
 		};
 
 		// disable toolbar tools
-		this.dispatch({ type: "toggle-toolbarbar-tools", enabled: false });
+		this.dispatch({ type: "show-blank-view" });
 
 		// get settings, if any
 		let xList = $.xmlFromString(`<Recents/>`);
@@ -47,9 +47,19 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "toggle-toolbarbar-tools":
+			case "show-blank-view":
+				// disable toolbar
 				Self.els.toolbarTools.addClass("tool-disabled_");
 				Self.els.toolbarDisplay.addClass("tool-disabled_");
+				//  change class name of content element
+				Self.els.content.addClass("show-blank-view");
+				break;
+			case "hide-blank-view":
+				// disable toolbar
+				Self.els.toolbarTools.removeClass("tool-disabled_");
+				Self.els.toolbarDisplay.removeClass("tool-disabled_");
+				//  change class name of content element
+				Self.els.content.removeClass("show-blank-view");
 				break;
 			case "open-filesystem":
 				APP.dispatch({ ...event, type: "open-file" });
@@ -61,11 +71,8 @@
 				el = $(event.target);
 				if (!el.hasClass("sample")) return;
 
-				// close "current tab"
-				APP.dispatch({ type: "close-tab", delayed: true });
-				
 				// send event to APP for proxy down to app
-				APP.dispatch({ ...event, type: "load-samples", samples: [el.find("span").text()] });
+				APP.dispatch({ type: "load-sample", name: el.find("span").text() });
 				break;
 			case "select-recent-file":
 				el = $(event.target);

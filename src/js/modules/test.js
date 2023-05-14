@@ -3,6 +3,8 @@ let Test = {
 	init() {
 		return;
 		
+		setTimeout(() => window.find(`.sample:nth(0)`).trigger("click"), 300);
+		
 		// window.find(`.foot-midi`).trigger("click");
 		// window.find(`.foot-devices`).trigger("click");
 

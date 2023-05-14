@@ -107,9 +107,6 @@
 			border-radius: 5px;
 			cursor: pointer;
 
-			&[data-kind="txt"]:after { background-image: url(/app/icons/file-txt.png); }
-			&[data-kind="md"]:after { background-image: url(/app/icons/file-md.png); }
-
 			&:last-child {
 				margin-right: 0;
 			}
@@ -141,6 +138,8 @@
 			&:after {
 				content: "";
 				background: 50% 50% no-repeat;
+				background-size: 50% auto;
+				background-image: url(/app/icons/file-mp3.png);
 				position: absolute;
 				top: 3px;
 				left: 3px;

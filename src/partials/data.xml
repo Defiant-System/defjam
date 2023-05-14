@@ -10,7 +10,7 @@
 		<i name="test.xml"/>
 	</Samples>
 	<Recents>
-		<i path="/fs/Desktop/Popcorn.xml"/>
+		<i name="Popcorn.xml" path="/fs/Desktop/Popcorn.xml"/>
 	</Recents>
 </Data>
 

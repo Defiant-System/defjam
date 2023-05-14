@@ -8,7 +8,7 @@
 			content: window.find("content"),
 			el: window.find(".blank-view"),
 			toolbarTools: window.find(`.toolbar-tool_`),
-			toolbarDisplay: window.find(".toolbar-group_.display canvas"),
+			toolbarDisplay: window.find(".toolbar-group_.display"),
 		};
 
 		// disable toolbar tools

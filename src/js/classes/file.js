@@ -81,6 +81,10 @@ class File {
 				// load file instruments
 				Jam.loadProject(Self._file);
 				break;
+			case "unload-project":
+				// TODO
+				console.log("TODO: unload project!");
+				break;
 		}
 	}
 

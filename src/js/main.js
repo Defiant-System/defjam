@@ -79,6 +79,12 @@ const defjam = {
 					xml: fsItem => Self.dispatch(fsItem),
 				});
 				break;
+			case "close-file":
+				// unload active file
+				Self.File.dispatch({ type: "unload-project" });
+				// disable toolbar
+				Self.blankView.dispatch({ type: "show-blank-view" });
+				break;
 			default:
 				el = event.el || (event.origin ? event.origin.el : null);
 				if (el) {

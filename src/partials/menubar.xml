@@ -4,6 +4,14 @@
 		<Menu type="divider"/>
 		<Menu name="Quit DefJam" shell="win -c"/>
 	</Menu>
+	<Menu name="File">
+		<Menu name="Open&#8230;" disabled="1"/>
+		<Menu type="divider"/>
+		<Menu name="Save" disabled="1"/>
+		<Menu name="Save As&#8230;" disabled="1"/>
+		<Menu type="divider"/>
+		<Menu name="Close file" click="close-file"/>
+	</Menu>
 	<Menu name="Help">
 		<Menu name="Help" click="open-help"/>
 		<Menu type="divider"/>

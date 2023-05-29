@@ -1,7 +1,9 @@
 
 let Test = {
 	init() {
+
 		return;
+		setTimeout(() => defjam.dispatch({ type: "close-file" }), 300);
 		
 		setTimeout(() => window.find(`.sample:nth(0)`).trigger("click"), 300);
 		

@@ -8,7 +8,7 @@
 			<Tool symbol="icon-record" click="record"/>
 		</Options>
 	</Group>
-	<Group center="1" class="display">
+	<Group class="display">
 		<Field>
 			<span class="hr">Hr</span>
 			<span class="min">Min</span>
@@ -28,7 +28,5 @@
 			<Tool symbol="icon-piano-keys" click="piano-keys"/>
 		</Options>
 	</Group>
-	<Group class="tools-gear">
-		<Tool symbol="icon-gear"/>
-	</Group>
+	<Group class="empty"/>
 </CaptionToolBar>

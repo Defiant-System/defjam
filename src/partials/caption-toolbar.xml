@@ -1,4 +1,4 @@
-<CaptionToolBar>
+<CaptionToolBar has="display">
 	<Group class="tools-left">
 		<Options>
 			<Tool symbol="icon-rewind" click="rewind"/>

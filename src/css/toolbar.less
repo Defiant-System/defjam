@@ -27,9 +27,7 @@
 		z-index: 1;
 		pointer-events: none;
 		background: radial-gradient(ellipse at bottom center, rgba(230,230,255,.25), transparent 80%),
-					linear-gradient(180deg, #5075aa 0%, #1e4d91 50%, #0f3479 50%, #0e357c 100%);
-		// background: radial-gradient(ellipse at bottom center, #5075aa4f, transparent 80%),
-		// 			linear-gradient(180deg, #304977 0%, #5075aa 5%, #1e4d91 50%, #0f3479 50%, #0e357c 100%);
+					linear-gradient(180deg, #5075aa 0%, #1e4d91 43%, #0f3479 43%, #0e357c 100%);
 		border-radius: 3px;
 	}
 
@@ -80,12 +78,37 @@
 		z-index: 3;
 		font-size: 9px;
 		text-transform: uppercase;
-		color: lighten(@bg, 31%);
+		color: lighten(@bg, 37%);
 		height: 13px;
 		line-height: 1;
 		background: transparent;
 		box-shadow: 0 0 0;
 		border: 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: -20px;
+			left: 17px;
+			right: 17px;
+			height: 1px;
+			opacity: .25;
+			background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
+			pointer-events: none;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			pointer-events: none;
+			top: -20px;
+			left: 18px;
+			right: 18px;
+			height: 30px;
+			border-radius: 3px;
+			box-shadow: 0 0 0 1px fadeout(@bg, 21%);
+			pointer-events: none;
+		}
 
 		span {
 			position: absolute;
@@ -187,7 +210,6 @@
 		height: 100%;
 		z-index: 4;
 		border-radius: 4px;
-		// box-shadow: inset 0 2px 5px darken(@bg, 7%);
 	}
 }
 

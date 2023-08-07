@@ -31,7 +31,7 @@
 // @text: lighten(@boxBg, 29%);
 
 
-background: @base;
+background: transparent;
 overflow: visible;
 
 content {
@@ -42,8 +42,11 @@ content {
 	bottom: 0;
 	// border-radius: 0 0 5px 5px;
 	border-radius: inherit;
+	background: @base;
 
 	&.show-blank-view {
+		background: transparent;
+
 		.blank-view {
 			display: block;
 		}

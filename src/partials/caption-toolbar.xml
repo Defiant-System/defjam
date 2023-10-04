@@ -8,7 +8,7 @@
 			<Tool symbol="icon-record" click="record"/>
 		</Options>
 	</Group>
-	<Group class="display">
+	<Group class="display tool-disabled_">
 		<Field class="blank-display">
 			<span class="hr">Hr</span>
 			<span class="min">Min</span>

@@ -9,7 +9,7 @@
 		</Options>
 	</Group>
 	<Group class="display">
-		<Field>
+		<Field class="blank-display">
 			<span class="hr">Hr</span>
 			<span class="min">Min</span>
 			<span class="sec">Sec</span>

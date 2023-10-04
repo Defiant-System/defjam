@@ -17,48 +17,21 @@
 	padding-left: 17px;
 	padding-right: 17px;
 
-	&:after {
-		content: "";
-		position: absolute;
-		top: -3px;
-		bottom: 3px;
-		left: 18px;
-		right: 18px;
-		z-index: 1;
-		pointer-events: none;
-		background: radial-gradient(ellipse at bottom center, rgba(230,230,255,.25), transparent 80%),
-					linear-gradient(180deg, #5075aa 0%, #1e4d91 43%, #0f3479 43%, #0e357c 100%);
-		border-radius: 3px;
+	&.tool-disabled_ {
+		.toolbar-field_ span,
+		.toolbar-canvas_ { display: none; }
 	}
 
-	&.tool-disabled_ {
-		filter: grayscale(100%);
-
+	&:not(.tool-disabled_) {
 		&:after {
-			display: none;
+			background: radial-gradient(ellipse at bottom center, rgba(230,230,255,.25), transparent 80%),
+						linear-gradient(180deg, #5075aa 0%, #1e4d91 43%, #0f3479 43%, #0e357c 100%);
+			box-shadow: 0 0 0 1px #0f006cb5;
 		}
 
 		.toolbar-field_ {
-			text-shadow: 0 1px 0 rgba(0,0,0,.25);
-
-			span {
-				&.bar,
-				&.beat,
-				&.th16,
-				&.tempo {
-					color: #aaa;
-				}
-			}
+			color: #f0f0ff;
 		}
-
-		.toolbar-canvas_ {
-			background: #888;
-			box-shadow: inset 0 1px 2px #555555aa;
-		}
-	}
-
-	&.show-bar-beat {
-
 	}
 
 	&.show-time .toolbar-field_ span {
@@ -73,45 +46,25 @@
 
 	.toolbar-field_ {
 		position: absolute;
-		left: 0;
-		bottom: 1px;
+		top: -3px;
+		left: 17px;
+		right: 17px;
+		bottom: 0;
+		height: auto;
+		width: auto;
 		z-index: 3;
 		font-size: 9px;
 		text-transform: uppercase;
 		color: lighten(@bg, 37%);
-		height: 13px;
 		line-height: 1;
 		background: transparent;
 		box-shadow: 0 0 0;
 		border: 0;
 
-		&:before {
-			content: "";
-			position: absolute;
-			top: -20px;
-			left: 17px;
-			right: 17px;
-			height: 1px;
-			opacity: .25;
-			background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
-			pointer-events: none;
-		}
-
-		&:after {
-			content: "";
-			position: absolute;
-			pointer-events: none;
-			top: -20px;
-			left: 18px;
-			right: 18px;
-			height: 30px;
-			border-radius: 3px;
-			box-shadow: 0 0 0 1px fadeout(@bg, 21%);
-			pointer-events: none;
-		}
-
 		span {
 			position: absolute;
+			top: 20px;
+			color: fadeout(@text, 47%);
 
 			&.bar:before,
 			&.beat:before,
@@ -127,7 +80,7 @@
 			}
 
 			&.bar {
-				left: 31px;
+				left: 15px;
 
 				&:before {
 					content: "0";
@@ -139,17 +92,17 @@
 			}
 
 			&.beat {
-				left: 55px;
+				left: 39px;
 
 				&:before { left: -4px; }
 			}
 
 			&.th16 {
-				left: 80px;
+				left: 64px;
 			}
 
 			&.tempo {
-				left: 146px;
+				left: 130px;
 
 				&:before {
 					content: "";

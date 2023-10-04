@@ -5,7 +5,6 @@
 	init() {
 		// fast references
 		this.els = {
-			doc: $(document),
 			// el: window.find(".toolbar-group_").parent(),
 			display: window.find(".toolbar-group_.display"),
 			canvas: window.find(".toolbar-group_.display canvas"),
@@ -14,6 +13,10 @@
 			btnStop: window.find(`.toolbar-tool_[data-click="stop"]`),
 			btnPlay: window.find(`.toolbar-tool_[data-click="play"]`),
 			btnRecord: window.find(`.toolbar-tool_[data-click="record"]`),
+			btnLoop: window.find(`.toolbar-tool_[data-click="loop"]`),
+			btnMetronome: window.find(`.toolbar-tool_[data-click="metronome"]`),
+			btnPencil: window.find(`.toolbar-tool_[data-click="pencil"]`),
+			btnPianoKeys: window.find(`.toolbar-tool_[data-click="piano-keys"]`),
 		};
 
 		// bind event handler
@@ -58,6 +61,14 @@
 				Jam.display.show = event.arg;
 				Jam.display.render();
 				break;
+			case "enable-toolbar":
+				Self.els.display.find(".toolbar-field_").removeClass("blank-display");
+				Object.keys(Self.els).map(key => Self.els[key].removeClass("tool-disabled_"));
+				break;
+			case "disable-toolbar":
+				Self.els.display.find(".toolbar-field_").addClass("blank-display");
+				Object.keys(Self.els).map(key => Self.els[key].addClass("tool-disabled_"));
+				break;
 		}
 	},
 	doDisplayTempo(event) {
@@ -70,7 +81,8 @@
 				event.preventDefault();
 
 				// prepare drag object
-				let el = Self.els.el,
+				let doc = $(document),
+					el = Self.els.el,
 					value = APP.File._tempo,
 					render = Jam.display.render.bind(Jam.display),
 					clickY = event.clientY,
@@ -80,12 +92,12 @@
 					},
 					min_ = Math.min,
 					max_ = Math.max;
-				Self.drag = { el, render, clickY, value, limit, min_, max_ };
+				Self.drag = { doc, el, render, clickY, value, limit, min_, max_ };
 				
 				// prevent mouse from triggering mouseover
 				APP.els.workarea.addClass("hide-cursor");
 				// bind event handlers
-				Self.els.doc.on("mousemove mouseup", Self.doDisplayTempo);
+				Self.drag.doc.on("mousemove mouseup", Self.doDisplayTempo);
 				break;
 			case "mousemove":
 				// let oY = Drag.max_(Drag.min_(Drag.offsetY - Drag.clickY + event.clientY, Drag.limit.minY), Drag.limit.maxY);
@@ -97,7 +109,7 @@
 				// remove class
 				APP.els.workarea.removeClass("hide-cursor");
 				// unbind event handlers
-				Self.els.doc.off("mousemove mouseup", Self.doDisplayTempo);
+				Self.drag.doc.off("mousemove mouseup", Self.doDisplayTempo);
 				break;
 		}
 	}

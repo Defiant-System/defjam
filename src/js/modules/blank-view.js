@@ -7,8 +7,6 @@
 		this.els = {
 			content: window.find("content"),
 			el: window.find(".blank-view"),
-			toolbarTools: window.find(`.toolbar-tool_`),
-			toolbarDisplay: window.find(".toolbar-group_.display"),
 		};
 
 		// disable toolbar tools
@@ -49,15 +47,13 @@
 		switch (event.type) {
 			case "show-blank-view":
 				// disable toolbar
-				Self.els.toolbarTools.addClass("tool-disabled_");
-				Self.els.toolbarDisplay.addClass("tool-disabled_");
+				requestAnimationFrame(() => APP.toolbar.dispatch({ type: "disable-toolbar" }));
 				//  change class name of content element
 				Self.els.content.addClass("show-blank-view");
 				break;
 			case "hide-blank-view":
-				// disable toolbar
-				Self.els.toolbarTools.removeClass("tool-disabled_");
-				Self.els.toolbarDisplay.removeClass("tool-disabled_");
+				// enable toolbar
+				requestAnimationFrame(() => APP.toolbar.dispatch({ type: "enable-toolbar" }));
 				//  change class name of content element
 				Self.els.content.removeClass("show-blank-view");
 				break;

@@ -22,17 +22,17 @@
 		.toolbar-canvas_ { display: none; }
 	}
 
-	&:not(.tool-disabled_) {
-		&:after {
-			background: radial-gradient(ellipse at bottom center, rgba(230,230,255,.25), transparent 80%),
-						linear-gradient(180deg, #5075aa 0%, #1e4d91 43%, #0f3479 43%, #0e357c 100%);
-			box-shadow: 0 0 0 1px #0f006cb5;
-		}
+	// &:not(.tool-disabled_) {
+	// 	&:after {
+	// 		background: radial-gradient(ellipse at bottom center, rgba(230,230,255,.25), transparent 80%),
+	// 					linear-gradient(180deg, #5075aa 0%, #1e4d91 43%, #0f3479 43%, #0e357c 100%);
+	// 		box-shadow: 0 0 0 1px #0f006cb5;
+	// 	}
 
-		.toolbar-field_ {
-			color: #f0f0ff;
-		}
-	}
+	// 	.toolbar-field_ {
+	// 		color: #f0f0ff;
+	// 	}
+	// }
 
 	&.show-time .toolbar-field_ span {
 		&.hr,
@@ -60,6 +60,10 @@
 		background: transparent;
 		box-shadow: 0 0 0;
 		border: 0;
+
+		&:after {
+			top: 0;
+		}
 
 		span {
 			position: absolute;

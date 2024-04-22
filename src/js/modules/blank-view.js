@@ -57,6 +57,9 @@
 				//  change class name of content element
 				Self.els.content.removeClass("show-blank-view");
 				break;
+			case "new-file":
+				// TODO
+				break;
 			case "open-filesystem":
 				APP.dispatch({ ...event, type: "open-file" });
 				break;
